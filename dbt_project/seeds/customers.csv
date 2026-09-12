@@ -1,0 +1,101 @@
+customer_id,first_name,last_name,email,registration_date,province,status
+1,Santino,Villalba,delfinaponce@example.net,2024-09-05,Buenos Aires,active
+2,Uma,Rodriguez,fgonzalez@example.org,2024-10-14,Mendoza,active
+3,Juan Bautista,Gonzalez,thiago-agustinquiroga@example.com,2024-03-31,Córdoba,active
+4,Tomàs,Garcia,navarromateo@example.com,2024-03-26,Buenos Aires,active
+5,Victoria,Diaz,santino61@example.com,2024-05-12,Santa Fe,active
+6,Alma,Perez,ojedamateo-benjamin@example.com,2024-11-25,Santa Fe,inactive
+7,Nicolas,Rivero,dante10@example.net,2024-01-31,Santa Fe,active
+8,Thiago Nahuel,Velazquez,mateo-ezequielalvarez@example.com,2024-03-29,Mendoza,active
+9,Zoe Jazmin,Lopez,sofia41@example.net,2024-09-03,Córdoba,active
+10,Joaquin,Ojeda,malenaperez@example.net,2024-09-03,Córdoba,active
+11,Lautaro Benjamin,Castillo,martinezmartina@example.com,2024-09-24,Santa Fe,active
+12,Thiago Benjamin,Diaz,delfina76@example.net,2024-06-04,Mendoza,active
+13,Felipe,Fernandez,thiago-valentin69@example.com,2024-06-27,Córdoba,active
+14,Delfina,Franco,dgomez@example.org,2024-05-20,Santa Fe,active
+15,Lucía,Arias,yluna@example.com,2024-02-29,Santa Fe,active
+16,Máximo,Pereyra,peraltajuan-ignacio@example.net,2024-08-19,Santa Fe,active
+17,Thiago Benjamin,Godoy,garciamateo@example.org,2024-10-18,Buenos Aires,active
+18,Thiago Lionel,Perez,biancagomez@example.net,2024-10-07,Buenos Aires,active
+19,Maite,Gimenez,felipecoronel@example.net,2024-04-25,Buenos Aires,active
+20,Thiago Gabriel,Ayala,pilar15@example.com,2024-10-29,Santa Fe,active
+21,Isabella,Lucero,rodriguezpilar@example.org,2024-04-02,Córdoba,active
+22,Julia,Gomez,kleiva@example.com,2024-10-22,Santa Fe,active
+23,Luna,Flores,alexandernavarro@example.net,2024-07-23,Santa Fe,active
+24,Luz Milagros,Ruiz,simon87@example.org,2024-03-19,Buenos Aires,active
+25,Francisco,Romero,salvadorgonzalez@example.net,2024-04-06,Buenos Aires,active
+26,Isabella,Rodriguez,mendezbautista@example.org,2024-09-02,Córdoba,active
+27,Valentina ,Diaz,lisandrocruz@example.net,2024-04-18,Santa Fe,active
+28,Emma,Herrera,glopez@example.net,2024-07-02,Buenos Aires,active
+29,Benicio,Ramirez,peraltadylan-benjamin@example.org,2024-06-16,Buenos Aires,active
+30,Lola,Romero,martinezsantiago@example.com,2024-01-24,Santa Fe,active
+31,Ciro,Garcia,franciscarodriguez@example.net,2025-02-24,Córdoba,active
+32,Isabella,Franco,martingabriel@example.org,2025-02-08,Santa Fe,active
+33,Lola,Suarez,kmendoza@example.com,2025-03-06,Santa Fe,active
+34,Lucas Ezequiel,Perez,sgarcia@example.net,2025-01-01,Mendoza,active
+35,Lautaro Benjamin,Vera,santiagodiaz@example.org,2025-11-01,Mendoza,active
+36,Abril,Rodriguez,isabella97@example.net,2025-08-13,Córdoba,active
+37,Elena,Fernandez,roldanbautista@example.org,2025-12-24,Buenos Aires,active
+38,Morena Jazmin,Ruiz,claragonzalez@example.org,2025-09-20,Santa Fe,active
+39,Milagros,Ortiz,lucas-benjamin35@example.org,2025-06-12,Córdoba,active
+40,Camila,Carrizo,facundo10@example.com,2025-04-14,Buenos Aires,active
+41,Mateo Joaquin,Franco,rojasjuan-bautista@example.org,2025-08-30,Santa Fe,active
+42,Lautaro,Rodriguez,thiagofernandez@example.net,2025-12-29,Buenos Aires,active
+43,Julieta,Velazquez,carrizolautaro-benjamin@example.net,2025-10-01,Santa Fe,inactive
+44,Luisana,Fernandez,paezmaria-emilia@example.org,2025-02-10,Mendoza,active
+45,Emilia,Diaz,sofia48@example.com,2025-04-16,Santa Fe,active
+46,Mia Morena,Farias,godoymilena@example.org,2025-04-08,Córdoba,active
+47,Ignacio,Fernandez,mateo78@example.net,2025-01-02,Buenos Aires,active
+48,Lucas,Gomez,manuelmiranda@example.net,2025-06-16,Buenos Aires,active
+49,Felipe,Fernandez,guadalupe05@example.org,2025-08-03,Buenos Aires,active
+50,Valentina,Gomez,vvaldez@example.org,2025-09-22,Santa Fe,active
+51,Alexander,Guzman,justinagonzalez@example.net,2025-12-26,Mendoza,active
+52,Ignacio,Soria,thiago-benjamincaceres@example.org,2025-12-26,Córdoba,active
+53,Luna,Mendez,sofiaayala@example.com,2025-05-29,Mendoza,active
+54,Tobias,Hernandez,benjaminlopez@example.com,2025-04-29,Mendoza,active
+55,Santino Ezequiel,Martin,lautaro86@example.net,2025-04-19,Buenos Aires,active
+56,Mateo Benjamin,Acuña,lucerothiago-benjamin@example.net,2025-11-24,Mendoza,active
+57,Martina,Luna,sebastian56@example.net,2025-04-14,Santa Fe,active
+58,Juan Ignacio,Mendoza,valentinavega@example.org,2025-07-18,Santa Fe,active
+59,Gabriel,Rojas,guadaluperodriguez@example.net,2025-07-21,Santa Fe,active
+60,Ignacio,Sanchez,munozjulieta@example.com,2025-12-24,Buenos Aires,active
+61,Lola,Ruiz,lautaro-benjamin36@example.net,2025-09-16,Buenos Aires,active
+62,Agostina,Barrios,lola04@example.com,2025-05-28,Santa Fe,active
+63,Pedro,Silva,valentin73@example.net,2025-03-23,Córdoba,inactive
+64,Geronimo,Campos,milagrosgarcia@example.net,2025-07-03,Buenos Aires,active
+65,Ana Paula,Gomez,felicitasmartinez@example.org,2025-09-03,Santa Fe,inactive
+66,Benjamin,Martinez,xcabrera@example.org,2026-02-27,Buenos Aires,active
+67,Renata,Morales,lucioalvarez@example.com,2026-06-26,Santa Fe,active
+68,Felipe,Castillo,vargasdelfina@example.net,2026-04-05,Córdoba,active
+69,Valentin,Castro,medinajuan@example.net,2026-07-21,Santa Fe,active
+70,Constantino,Luna,ucabrera@example.net,2026-07-26,Mendoza,active
+71,Ludmila,Molina,maria-emiliaherrera@example.com,2026-06-15,Córdoba,active
+72,Emma,Godoy,rmorales@example.com,2026-10-19,Santa Fe,active
+73,Luz Milagros,Martinez,juan-cruz81@example.org,2026-01-31,Santa Fe,active
+74,Francisco,Ledesma,bautistaramirez@example.net,2026-02-28,Córdoba,active
+75,Ciro,Diaz,xalvarez@example.net,2026-06-30,Córdoba,active
+76,Benjamin,Lucero,wherrera@example.com,2026-09-28,Córdoba,active
+77,Francesca,Paez,vrojas@example.net,2026-10-20,Córdoba,active
+78,Juan Martin,Diaz,victoriasuarez@example.com,2026-11-07,Santa Fe,active
+79,Valentina ,Figueroa,maiteayala@example.net,2026-05-11,Buenos Aires,active
+80,Martina,Ruiz,rodriguezpedro@example.com,2026-07-27,Santa Fe,active
+81,Isabella,Alvarez,facundoromero@example.com,2026-03-12,Mendoza,active
+82,Gonzalo,Rivero,miguel-angel70@example.net,2026-04-19,Córdoba,active
+83,Isabella,Moyano,laravargas@example.net,2026-07-29,Buenos Aires,active
+84,Zoe,Duarte,giulianarios@example.org,2026-01-16,Santa Fe,active
+85,Agustin,Gomez,valentinperez@example.com,2026-02-19,Buenos Aires,active
+86,Sofía,Soto,ramosmateo@example.com,2026-03-07,Buenos Aires,active
+87,Clara,Soria,truiz@example.org,2026-02-11,Córdoba,active
+88,Mia,Rivero,santinoramos@example.net,2026-01-30,Córdoba,active
+89,Luciana,Arias,sosapedro@example.com,2026-08-22,Mendoza,active
+90,Juan Bautista,Romero,gpaz@example.com,2026-01-27,Buenos Aires,active
+91,Juan Manuel,Rivero,lorenzoponce@example.net,2026-05-21,Santa Fe,active
+92,Mora,Ayala,umedina@example.net,2026-04-15,Córdoba,active
+93,Juan Cruz,Martinez,garciatomas@example.com,2026-04-15,Córdoba,active
+94,Tomas,Alvarez,aguirrejuan-cruz@example.com,2026-08-10,Buenos Aires,active
+95,Benicio,Perez,emiliano48@example.org,2026-03-24,Córdoba,active
+96,Santino Agustin,Rodriguez,wsuarez@example.org,2026-07-20,Buenos Aires,active
+97,Agustin,Vera,farias@example.com,2026-09-26,Buenos Aires,active
+98,Lola,Martinez,agustin85@example.com,2026-03-28,Buenos Aires,active
+99,Nicolas,Sosa,qperez@example.org,2026-10-17,Santa Fe,active
+100,Joaquín,Sanchez,santiagoponce@example.com,2026-02-16,Santa Fe,active

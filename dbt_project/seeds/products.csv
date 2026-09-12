@@ -1,0 +1,51 @@
+product_id,product_name,category,brand,unit_price,unit_cost,status,created_at
+1,Lenovo Mouse 1,Computación,Lenovo,303474.01,230232.02,active,2024-01-18
+2,Acer Memoria RAM 2,Computación,Acer,389998.01,241268.15,active,2024-01-19
+3,Dell Teclado 3,Computación,Dell,122549.58,101582.49,active,2026-08-20
+4,ASUS Mouse 4,Computación,ASUS,148298.2,100094.31,active,2026-04-20
+5,ASUS Notebook 5,Computación,ASUS,193101.56,112581.22,active,2024-02-09
+6,ASUS Webcam 6,Computación,ASUS,437328.76,241442.93,active,2025-11-20
+7,Acer Notebook 7,Computación,Acer,103939.42,67694.14,active,2026-03-17
+8,Lenovo Mouse 8,Computación,Lenovo,213633.32,179779.84,active,2026-04-26
+9,HP Teclado 9,Computación,HP,185395.24,117809.8,active,2024-05-20
+10,HP Mouse 10,Computación,HP,73165.44,46357.18,active,2026-03-11
+11,Motorola Smartphone 11,Telefonía,Motorola,597554.26,505348.73,active,2024-01-01
+12,Apple Cargador 12,Telefonía,Apple,918711.15,570787.21,active,2024-01-13
+13,Apple Smartphone 13,Telefonía,Apple,766120.88,566974.59,active,2025-02-19
+14,Samsung Smartphone 14,Telefonía,Samsung,398520.48,241485.7,active,2024-01-18
+15,Xiaomi Power Bank 15,Telefonía,Xiaomi,39573.64,27845.12,inactive,2024-01-22
+16,Apple Smartphone 16,Telefonía,Apple,835306.53,556331.36,active,2026-08-03
+17,Apple Smartphone 17,Telefonía,Apple,153898.76,127337.08,inactive,2026-09-28
+18,Apple Power Bank 18,Telefonía,Apple,984322.2,705326.16,active,2025-02-19
+19,TCL Monitor TV 19,TV y Video,TCL,1354046.38,1110487.85,active,2024-01-19
+20,Samsung Smart TV 20,TV y Video,Samsung,575877.6,442151.16,active,2024-01-12
+21,TCL Monitor TV 21,TV y Video,TCL,1187423.28,881791.8,active,2024-02-09
+22,LG Chromecast 22,TV y Video,LG,941129.26,520217.78,active,2024-01-05
+23,Samsung Monitor TV 23,TV y Video,Samsung,308347.43,220351.28,active,2025-08-11
+24,Samsung Chromecast 24,TV y Video,Samsung,1091294.49,677884.56,active,2024-04-20
+25,TCL Chromecast 25,TV y Video,TCL,1285897.24,960930.26,active,2025-07-02
+26,Philips Parlante Bluetooth 26,Audio,Philips,128124.88,79847.03,active,2024-01-11
+27,JBL Parlante Bluetooth 27,Audio,JBL,175446.16,143447.23,active,2024-01-09
+28,Philips Barra de Sonido 28,Audio,Philips,324080.18,227112.51,active,2025-03-13
+29,Edifier Auriculares 29,Audio,Edifier,102239.91,78390.98,active,2024-01-20
+30,Philips Equipo de Audio 30,Audio,Philips,268824.75,162137.13,active,2026-04-09
+31,Sony Parlante Bluetooth 31,Audio,Sony,368499.82,243595.93,active,2024-11-30
+32,Edifier Auriculares 32,Audio,Edifier,188428.13,158278.96,active,2026-07-05
+33,Sony Equipo de Audio 33,Audio,Sony,138946.09,92472.7,active,2026-02-14
+34,Anker Mousepad 34,Accesorios,Anker,29576.45,21207.51,active,2024-01-20
+35,TP-Link Memoria USB 35,Accesorios,TP-Link,105924.32,76373.38,active,2024-01-02
+36,Anker Hub USB 36,Accesorios,Anker,94176.05,79768.64,active,2024-06-04
+37,TP-Link Hub USB 37,Accesorios,TP-Link,132219.1,102103.63,active,2025-07-10
+38,TP-Link Memoria USB 38,Accesorios,TP-Link,57126.22,36450.96,active,2026-01-29
+39,TP-Link Hub USB 39,Accesorios,TP-Link,130725.49,107714.17,active,2025-08-13
+40,Logitech Funda 40,Accesorios,Logitech,120752.8,89959.53,active,2025-09-02
+41,Anker Memoria USB 41,Accesorios,Anker,134050.77,87320.48,active,2024-09-23
+42,Kingston Memoria USB 42,Accesorios,Kingston,52582.14,31365.9,active,2026-01-21
+43,Kingston Hub USB 43,Accesorios,Kingston,129758.67,81108.95,active,2024-02-28
+44,Atma Aspiradora 44,Hogar,Atma,80989.05,57232.77,active,2024-01-04
+45,Philips Ventilador 45,Hogar,Philips,123594.09,91072.42,active,2024-01-20
+46,Liliana Cafetera 46,Hogar,Liliana,113302.42,76298.55,active,2025-08-07
+47,Liliana Ventilador 47,Hogar,Liliana,83717.8,70395.04,active,2025-04-28
+48,Atma Microondas 48,Hogar,Atma,211434.03,143787.03,active,2025-02-03
+49,Oster Cafetera 49,Hogar,Oster,108480.16,62296.02,active,2025-04-07
+50,Liliana Cafetera 50,Hogar,Liliana,47932.93,39523.77,active,2025-02-16
