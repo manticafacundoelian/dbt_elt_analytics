@@ -1,0 +1,23 @@
+# --- Base de datos y exports ---
+*.duckdb
+database/*.duckdb
+data_marts_parquet/
+*.parquet
+
+# --- dbt (Archivos compilados y logs) ---
+target/
+dbt_packages/
+logs/
+profiles.yml
+
+# --- Python & Entornos virtuales ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# --- Sistema operativo y VS Code ---
+.DS_Store
+Thumbs.db
+.vscode/
