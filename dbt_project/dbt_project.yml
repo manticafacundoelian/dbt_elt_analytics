@@ -1,0 +1,41 @@
+name: 'dbt_elt_analytics'
+version: '1.0.0'
+config-version: 2
+
+# Debe coincidir exactamente con el nombre del perfil definido en ~/.dbt/profiles.yml
+profile: 'dbt_elt_analytics'
+
+# Rutas estándar del proyecto
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configuración de modelos y materializaciones por capa
+models:
+  dbt_elt_analytics:
+    # 1. Staging: Vistas para no duplicar datos y mantener la capa raw limpia
+    staging:
+      +materialized: view
+      +schema: staging
+
+    # 2. Intermediate: Vistas para transformaciones y joins intermedios
+    intermediate:
+      +materialized: view
+      +schema: intermediate
+
+    # 3. Marts: Tablas físicas para máxima velocidad en DuckDB, DBeaver y Power BI
+    marts:
+      +materialized: table
+      +schema: marts
+
+# Configuración por defecto para la carga de CSVs
+seeds:
+  dbt_elt_analytics:
+    +schema: main
