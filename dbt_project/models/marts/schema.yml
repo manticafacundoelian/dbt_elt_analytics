@@ -1,0 +1,445 @@
+version: 2
+
+models:
+
+  # ============================================================
+  # DIMENSIONS
+  # ============================================================
+
+  - name: dim_customers
+    description: "Dimensión de clientes. Una fila por cliente."
+    columns:
+      - name: customer_id
+        description: "Identificador único del cliente."
+        data_tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: "Nombre del cliente."
+      - name: last_name
+        description: "Apellido del cliente."
+      - name: email
+        description: "Correo electrónico del cliente."
+        data_tests:
+          - not_null
+      - name: registration_date
+        description: "Fecha de alta del cliente."
+        data_tests:
+          - not_null
+      - name: province
+        description: "Provincia del cliente."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['santa fe', 'buenos aires', 'córdoba', 'mendoza']
+      - name: customer_status
+        description: "Estado actual de la cuenta del cliente."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['active', 'inactive']
+
+  - name: dim_products
+    description: "Dimensión de productos. Una fila por producto."
+    columns:
+      - name: product_id
+        description: "Identificador único del producto."
+        data_tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: "Nombre del producto."
+        data_tests:
+          - not_null
+      - name: category
+        description: "Categoría del producto."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Computación', 'Telefonía', 'TV y Video', 'Audio', 'Accesorios', 'Hogar']
+      - name: unit_cost
+        description: "Costo de referencia del producto (de catálogo)."
+      - name: unit_price
+        description: "Precio de venta de referencia del producto (de catálogo)."
+
+  - name: dim_date
+    description: "Dimensión calendario. Una fila por fecha."
+    columns:
+      - name: date
+        description: "Fecha calendario."
+        data_tests:
+          - not_null
+          - unique
+      - name: year
+        description: "Año calendario."
+      - name: month
+        description: "Número de mes."
+      - name: month_name
+        description: "Nombre del mes."
+      - name: quarter
+        description: "Trimestre calendario."
+
+
+  # ============================================================
+  # FACTS
+  # ============================================================
+
+  - name: fact_orders
+    description: >
+      Hechos a nivel pedido. Una fila por pedido. Para pedidos
+      cancelados, gross_amount/discount_amount quedan intactos (para
+      medir demanda perdida por cancelación); net_sales en adelante
+      se fuerza a 0.
+    columns:
+      - name: order_id
+        description: "Identificador único del pedido."
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Cliente que realizó el pedido."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+      - name: order_date
+        description: "Fecha en que se realizó el pedido."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date
+      - name: channel
+        description: "Canal de venta del pedido."
+      - name: order_status
+        description: "Estado del pedido."
+      - name: is_cancelled
+        description: "1 si order_status='cancelled', 0 en caso contrario."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+      - name: is_resolved
+        description: >
+          1 si el pedido llegó a un estado final (delivered/cancelled);
+          0 si sigue en curso (shipped/processing). Usar para excluir
+          pedidos "en vuelo" al medir rentabilidad mes a mes, ya que su
+          costo de envío puede estar subestimado mientras no se resuelven.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+      - name: distinct_products
+        description: "Cantidad de productos distintos en el pedido."
+        data_tests:
+          - not_null
+      - name: total_units
+        description: "Unidades totales del pedido."
+        data_tests:
+          - not_null
+      - name: gross_amount
+        description: "Monto bruto del pedido, sin descuento. No se ajusta por cancelación."
+        data_tests:
+          - not_null
+      - name: discount_amount
+        description: "Descuento total del pedido. No se ajusta por cancelación."
+        data_tests:
+          - not_null
+      - name: net_sales
+        description: "Venta neta de descuento. 0 si se canceló. No descuenta devoluciones."
+        data_tests:
+          - not_null
+      - name: refund_amount
+        description: "Monto reembolsado por devoluciones aprobadas del pedido."
+        data_tests:
+          - not_null
+      - name: returned_units
+        description: "Unidades devueltas y aprobadas del pedido."
+        data_tests:
+          - not_null
+      - name: final_net_sales
+        description: "net_sales menos refund_amount. Venta neta real."
+        data_tests:
+          - not_null
+      - name: final_cogs
+        description: "Costo de mercadería, neto de unidades recuperadas por devolución."
+        data_tests:
+          - not_null
+      - name: shipping_cost
+        description: "Costo de envío del pedido, incurrido al despacho."
+        data_tests:
+          - not_null
+      - name: shipping_method
+        description: "NULL si el pedido no tiene envío todavía o se canceló."
+      - name: net_profit
+        description: "final_net_sales - final_cogs - shipping_cost."
+        data_tests:
+          - not_null
+
+  - name: fact_order_items
+    description: >
+      Hechos a nivel línea de pedido (grano más fino). Reemplaza al
+      antiguo fact_sales.
+    columns:
+      - name: order_item_id
+        description: "Identificador único de la línea de pedido."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "Pedido al que pertenece la línea."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fact_orders')
+                field: order_id
+      - name: customer_id
+        description: "Cliente asociado a la venta."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+      - name: product_id
+        description: "Producto vendido en esta línea."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id
+      - name: order_date
+        description: "Fecha de la venta."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date
+      - name: channel
+        description: "Canal de venta de la transacción."
+      - name: order_status
+        description: "Estado del pedido asociado."
+      - name: is_cancelled
+        description: "1 si order_status='cancelled', 0 en caso contrario."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+      - name: is_resolved
+        description: "1 si el pedido llegó a un estado final."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+      - name: quantity
+        description: "Unidades vendidas en la línea."
+        data_tests:
+          - not_null
+      - name: unit_price
+        description: "Precio unitario al momento de la venta."
+        data_tests:
+          - not_null
+      - name: replacement_cost
+        description: "Costo de reposición unitario al momento de la venta."
+        data_tests:
+          - not_null
+      - name: discount_pct
+        description: "Descuento aplicado, como proporción."
+        data_tests:
+          - not_null
+      - name: gross_amount
+        description: "Monto bruto de la línea, sin descuento."
+        data_tests:
+          - not_null
+      - name: discount_amount
+        description: "Descuento en monto de la línea."
+        data_tests:
+          - not_null
+      - name: net_sales
+        description: "Monto neto de descuento. 0 si el pedido se canceló."
+        data_tests:
+          - not_null
+      - name: refund_amount
+        description: "Monto reembolsado por devolución aprobada de esta línea."
+        data_tests:
+          - not_null
+      - name: returned_units
+        description: "Unidades devueltas y aprobadas de esta línea."
+        data_tests:
+          - not_null
+      - name: final_net_sales
+        description: "net_sales menos refund_amount."
+        data_tests:
+          - not_null
+      - name: final_item_cogs
+        description: "Costo de mercadería de la línea, neto de devoluciones."
+        data_tests:
+          - not_null
+      - name: allocated_shipping_cost
+        description: "Costo de envío del pedido, prorrateado a esta línea."
+        data_tests:
+          - not_null
+      - name: net_profit
+        description: "final_net_sales - final_item_cogs - allocated_shipping_cost."
+        data_tests:
+          - not_null
+
+  - name: fact_payments
+    description: "Hechos de pagos. Una fila por pago. Relación 1:1 con fact_orders."
+    columns:
+      - name: payment_id
+        description: "Identificador único del pago."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "Pedido asociado al pago."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('fact_orders')
+                field: order_id
+      - name: payment_date
+        description: "Fecha del pago."
+        data_tests:
+          - not_null
+      - name: payment_method
+        description: "Medio de pago utilizado."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['credit_card', 'debit_card', 'transfer', 'digital_wallet']
+      - name: amount
+        description: "Importe del pago. 0 si el pedido se canceló."
+        data_tests:
+          - not_null
+      - name: payment_status
+        description: "Estado del pago."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['approved', 'failed', 'cancelled']
+
+  - name: fact_shipments
+    description: >
+      Hechos de envíos. Una fila por envío. No existe fila para
+      pedidos 'processing'.
+    columns:
+      - name: shipment_id
+        description: "Identificador único del envío."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "Pedido asociado al envío."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('fact_orders')
+                field: order_id
+      - name: shipment_date
+        description: "Fecha de despacho del pedido."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date
+      - name: delivery_date
+        description: "Fecha de entrega. NULL si sigue en tránsito."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date
+      - name: shipping_method
+        description: "Método de envío."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['standard', 'express']
+      - name: shipping_cost
+        description: "Costo del envío, incurrido al despacho."
+        data_tests:
+          - not_null
+      - name: shipment_status
+        description: "Estado del envío. Nunca debería ser 'processing'."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['delivered', 'in_transit']
+      - name: delivery_days
+        description: "Días entre despacho y entrega. NULL si sigue en tránsito."
+
+  - name: fact_returns
+    description: >
+      Hechos de devoluciones. Una fila por línea de pedido devuelta.
+    columns:
+      - name: return_id
+        description: "Identificador único de la devolución."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_item_id
+        description: "Línea de pedido devuelta."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('fact_order_items')
+                field: order_item_id
+      - name: order_id
+        description: "Pedido asociado a la línea devuelta."
+        data_tests:
+          - not_null
+      - name: customer_id
+        description: "Cliente asociado a la devolución."
+        data_tests:
+          - not_null
+      - name: product_id
+        description: "Producto asociado a la devolución."
+        data_tests:
+          - not_null
+      - name: return_date
+        description: "Fecha de la devolución. Posterior a la entrega."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date
+      - name: quantity
+        description: "Unidades devueltas."
+        data_tests:
+          - not_null
+      - name: reason
+        description: "Motivo de la devolución."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['defective', 'wrong product', 'damaged', 'changed mind', 'other']
+      - name: refund_amount
+        description: "Monto reembolsado. 0 si la devolución fue rechazada."
+        data_tests:
+          - not_null
+      - name: return_status
+        description: "Estado de la devolución."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['approved', 'rejected']

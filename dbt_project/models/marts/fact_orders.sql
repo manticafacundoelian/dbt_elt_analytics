@@ -1,0 +1,21 @@
+SELECT
+    order_id,
+    customer_id,
+    order_date,
+    channel,
+    order_status,
+    is_cancelled,
+    is_resolved,
+    distinct_products,
+    total_units,
+    gross_amount,
+    discount_amount,
+    net_sales,
+    refund_amount,
+    returned_units,
+    final_net_sales,
+    final_cogs,
+    shipping_cost,
+    shipping_method,
+    net_profit
+FROM {{ ref('int_sales_enriched') }}
