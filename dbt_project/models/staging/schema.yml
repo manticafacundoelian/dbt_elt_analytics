@@ -1,0 +1,294 @@
+version: 2
+
+models:
+
+  - name: stg_customers
+    description: "Staging de clientes. Una fila por cliente."
+    columns:
+      - name: customer_id
+        description: "Identificador único del cliente."
+        data_tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: "Nombre del cliente."
+      - name: last_name
+        description: "Apellido del cliente."
+      - name: email
+        description: "Correo electrónico del cliente."
+        data_tests:
+          - not_null
+          - unique
+      - name: registration_date
+        description: "Fecha de alta del cliente."
+        data_tests:
+          - not_null
+      - name: province
+        description: "Provincia del cliente."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['santa fe', 'buenos aires', 'córdoba', 'mendoza']
+      - name: customer_status
+        description: >
+          'active' si el cliente compró en los últimos ~9 meses respecto
+          al cierre del dataset; 'inactive' en caso contrario.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['active', 'inactive']
+
+  - name: stg_products
+    description: "Staging de productos. Una fila por producto."
+    columns:
+      - name: product_id
+        description: "Identificador único del producto."
+        data_tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: "Nombre comercial del producto."
+        data_tests:
+          - not_null
+      - name: category
+        description: "Categoría del producto."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Computación', 'Telefonía', 'TV y Video', 'Audio', 'Accesorios', 'Hogar']
+      - name: brand
+        description: "Marca del producto."
+        data_tests:
+          - not_null
+      - name: unit_price
+        description: "Precio de referencia (de catálogo)."
+        data_tests:
+          - not_null
+      - name: unit_cost
+        description: "Costo de referencia (de catálogo)."
+        data_tests:
+          - not_null
+      - name: product_status
+        description: >
+          'active' si el producto tuvo ventas recientes; 'inactive' si
+          quedó discontinuado.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['active', 'inactive']
+      - name: created_at
+        description: "Fecha de alta del producto en el catálogo."
+        data_tests:
+          - not_null
+
+  - name: stg_orders
+    description: "Staging de pedidos. Una fila por pedido."
+    columns:
+      - name: order_id
+        description: "Identificador único del pedido."
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Cliente que realizó el pedido."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
+      - name: order_date
+        description: "Fecha en que se realizó el pedido."
+        data_tests:
+          - not_null
+      - name: channel
+        description: "Canal de venta."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['online', 'physical']
+      - name: order_status
+        description: >
+          Estado del pedido. 'processing' implica que todavía no existe
+          fila en stg_shipments para este pedido.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['delivered', 'shipped', 'processing', 'cancelled']
+
+  - name: stg_order_items
+    description: "Staging del detalle de pedidos. Una fila por producto incluido en un pedido."
+    columns:
+      - name: order_item_id
+        description: "Identificador único de la línea de pedido."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "Pedido al que pertenece la línea."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
+      - name: product_id
+        description: "Producto vendido en esta línea."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_products')
+                field: product_id
+      - name: quantity
+        description: "Cantidad de unidades vendidas en la línea."
+        data_tests:
+          - not_null
+      - name: unit_price
+        description: "Precio unitario efectivamente cobrado en esta venta."
+        data_tests:
+          - not_null
+      - name: discount_pct
+        description: "Descuento aplicado a la línea, como proporción (0 a 1)."
+        data_tests:
+          - not_null
+      - name: replacement_cost
+        description: "Costo de reposición unitario vigente al momento de la venta."
+        data_tests:
+          - not_null
+
+  - name: stg_payments
+    description: "Staging de pagos. Relación 1:1 con stg_orders."
+    columns:
+      - name: payment_id
+        description: "Identificador único del pago."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "Pedido asociado al pago."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
+      - name: payment_date
+        description: "Fecha del pago (coincide con order_date)."
+        data_tests:
+          - not_null
+      - name: payment_method
+        description: "Medio de pago utilizado."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['credit_card', 'debit_card', 'transfer', 'digital_wallet']
+      - name: amount
+        description: "Importe del pago. 0 si el pedido se canceló."
+        data_tests:
+          - not_null
+      - name: payment_status
+        description: "Estado del pago."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['approved', 'failed', 'cancelled']
+
+  - name: stg_shipments
+    description: >
+      Staging de envíos. Relación 0 o 1 con stg_orders — no existe fila
+      para pedidos 'processing'.
+    columns:
+      - name: shipment_id
+        description: "Identificador único del envío."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "Pedido asociado al envío."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
+      - name: shipment_date
+        description: "Fecha de despacho del pedido."
+        data_tests:
+          - not_null
+      - name: delivery_date
+        description: "Fecha de entrega. NULL si sigue en tránsito."
+      - name: shipping_method
+        description: "Método de envío."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['standard', 'express']
+      - name: shipping_cost
+        description: "Costo del envío, incurrido al despacho."
+        data_tests:
+          - not_null
+      - name: shipment_status
+        description: "Estado del envío. Nunca debería ser 'processing'."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['delivered', 'in_transit']
+
+  - name: stg_returns
+    description: >
+      Staging de devoluciones. Solo puede existir si la línea pertenece
+      a un pedido 'delivered'.
+    columns:
+      - name: return_id
+        description: "Identificador único de la devolución."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_item_id
+        description: "Línea de pedido devuelta. A lo sumo una devolución por línea."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('stg_order_items')
+                field: order_item_id
+      - name: return_date
+        description: "Fecha de la devolución."
+        data_tests:
+          - not_null
+      - name: quantity
+        description: "Unidades devueltas."
+        data_tests:
+          - not_null
+      - name: reason
+        description: "Motivo de la devolución."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['defective', 'wrong product', 'damaged', 'changed mind', 'other']
+      - name: refund_amount
+        description: "Importe reembolsado. 0 si la devolución fue rechazada."
+        data_tests:
+          - not_null
+      - name: return_status
+        description: "Si es 'rejected', refund_amount es siempre 0."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['approved', 'rejected']
