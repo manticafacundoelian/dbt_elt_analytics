@@ -1,119 +1,126 @@
-# Proyecto dbt: Transformación y Modelado Analytics (e-Commerce)
+# 🛒 E-Commerce ELT Analytics Pipeline (dbt + DuckDB)
 
-Este proyecto dbt transforma los datos crudos del sistema transaccional de e-commerce en un **Modelo Dimensional (Esquema Estrella)** optimizado para análisis de negocio, reportes ejecutivos y consumo en herramientas de BI como Power BI.
-
----
-
-## 🏗️ Arquitectura de Capas (ELT Pipeline)
-
-El modelado sigue la arquitectura de tres capas recomendada por dbt:
-
-1. **Staging:** Limpieza inicial, estandarización de nombres de columnas y casteos de tipos de datos a partir de la fuente cruda.
-2. **Intermediate:** Implementación de reglas de negocio complejas, prorrateo de envíos a nivel ítem, cálculo de costos de reposición y agregación de métricas.
-3. **Marts:** Construcción del Esquema Estrella final (Tablas de Hechos y Dimensiones) listo para consumo analítico.
+Pipeline analítico **ELT End-to-End** diseñado para transformar datos transaccionales crudos en un **Modelo Dimensional en Esquema Estrella**, aplicando pruebas de calidad automatizadas, exportación a formato **Parquet** e integración con herramientas de BI.
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📐 Arquitectura General del Repositorio
 
 ```text
-dbt_project/
-├── dbt_project.yml          # Configuración global del proyecto dbt y materializaciones
-├── README.md                # Documentación principal del proyecto dbt
-├── seeds/                   # Tablas semilla en CSV (lookups, parámetros)
-├── models/
-│   ├── staging/             # Vistas de limpieza y estandarización
-│   │   ├── stg_customers.sql
-│   │   ├── stg_orders.sql
-│   │   ├── stg_order_items.sql
-│   │   ├── stg_products.sql
-│   │   ├── stg_payments.sql
-│   │   ├── stg_shipments.sql
-│   │   ├── stg_returns.sql
-│   │   ├── schema.yml       # Definición de fuentes, modelos y pruebas base
-│   │   └── README.md
-│   │
-│   ├── intermediate/        # Transformaciones intermedias y lógica de negocio
-│   │   ├── int_order_items_enriched.sql
-│   │   ├── int_order_shipping_allocated.sql
-│   │   ├── int_order_metrics.sql
-│   │   ├── schema.yml       # Pruebas de calidad intermedias
-│   │   └── README.md
-│   │
-│   └── marts/               # Modelo Dimensional (Esquema Estrella)
-│       ├── dim_customers.sql
-│       ├── dim_products.sql
-│       ├── dim_date.sql
-│       ├── fact_orders.sql
-│       ├── fact_order_items.sql
-│       ├── fact_payments.sql
-│       ├── fact_shipments.sql
-│       ├── fact_returns.sql
-│       ├── schema.yml       # Pruebas de unicidad, no nulidad y relaciones FK
-│       └── README.md
-└── scripts/                 # Scripts auxiliares y automatizaciones
+  [ CSV Seeds / Raw Data ]
+             │
+             ▼
+   [ DuckDB (Warehouse) ] ◄─── dbt seed (Inicializa la base local)
+             │
+             ▼
+      [ dbt Staging ]    ───► Limpieza, casteos y nombres estándar
+             │
+             ▼
+   [ dbt Intermediate ]  ───► Reglas de negocio, prorrateo y margen
+             │
+             ▼
+       [ dbt Marts ]     ───► Modelo Dimensional (Fact & Dim)
+             │
+             ▼
+  [ Parquet Export Script ] ──► Archivos .parquet para Power BI / BI
 ```
 
 ---
 
-## 📊 Modelo Dimensional (Esquema Estrella - Marts)
+## 📁 Estructura del Repositorio
 
-### Dimensiones (`dim_*`)
-* **`dim_customers`**: Datos demográficos y estado del cliente (`active` / `inactive`).
-* **`dim_products`**: Catálogo de productos con categoría, costo y precio de lista.
-* **`dim_date`**: Calendario continuo generado dinámicamente con funciones nativas de DuckDB (`generate_series`).
-
-### Tablas de Hechos (`fact_*`)
-* **`fact_orders`** *(Grano: Pedido)*: Consolida el ciclo comercial completo por orden. Mide ventas brutas, descuentos, ventas netas finales (`final_net_sales`), COGS real (`final_cogs`), costo de envío total y ganancia neta (`net_profit`). Incluye flags de control (`is_cancelled`, `is_resolved`).
-* **`fact_order_items`** *(Grano: Línea de Pedido)*: Análisis fino por ítem vendido. Incorpora costo de reposición (`replacement_cost`), costo de envío prorrateado por ítem y márgenes por producto.
-* **`fact_payments`** *(Grano: Pago)*: Registro transaccional de medios de pago (`credit_card`, `debit_card`, `transfer`, `digital_wallet`) y estados de pago.
-* **`fact_shipments`** *(Grano: Envío)*: Métricas de eficiencia logística, incluyendo fechas de despacho, entrega y días de tránsito (`delivery_days`).
-* **`fact_returns`** *(Grano: Devolución)*: Registro de productos devueltos, razones de devolución y montos reembolsados integrados con clientes y productos.
-
----
-
-## 💡 Reglas de Negocio Clave
-
-1. **Gestión de Cancelaciones:**
-   - En pedidos cancelados (`is_cancelled = 1`), los montos brutos (`gross_amount`) y descuentos se preservan para medir la demanda perdida, mientras que las ventas netas (`net_sales`) y cobranzas se fuerzan a 0.
-2. **Impacto de Devoluciones:**
-   - `final_net_sales = net_sales - refund_amount`.
-   - `final_cogs`: Ajusta el costo de mercadería descontando las unidades recuperadas en devoluciones aprobadas.
-3. **Prorrateo de Envíos:**
-   - El costo de envío del pedido se asigna a cada línea proporcionalmente a su peso en la venta bruta del pedido (`gross_amount`).
-4. **Flag de Pedidos Resueltos (`is_resolved`):**
-   - Identifica pedidos en estado final (`delivered` o `cancelled`) para aislar transacciones en tránsito al evaluar la rentabilidad mensual.
-
----
-
-## 🛡️ Estrategia de Calidad y Tests
-
-El proyecto implementa pruebas de datos automatizadas mediante dbt:
-* **Integridad Primaria:** Tests `unique` y `not_null` en las claves primarias de todas las tablas.
-* **Integridad Referencial:** Tests `relationships` entre las tablas de hechos (`fact_*`) y las dimensiones (`dim_*`).
-* **Valores Aceptados:** Tests `accepted_values` en estados de pedidos, métodos de pago, canales y flags (`0` o `1`).
+```text
+dbt_elt_analytics/
+├── .gitignore                    # Exclusión de binarios y entornos
+├── README.md                     # Documentación principal
+├── requirements.txt              # Dependencias de Python (dbt-duckdb, pandas, etc.)
+│
+├── dbt_project/                  # Proyecto dbt Core
+│   ├── dbt_project.yml
+│   ├── profiles.yml.example      # Plantilla de conexión local
+│   ├── seeds/                    # Fuentes en CSV
+│   ├── models/                   # Capas Staging, Intermediate y Marts
+│   ├── tests/                    # Tests singulares en SQL
+│   └── README.md                 # Documentación técnica de dbt
+│
+├── scripts/                      # Scripts de automatización
+│   ├── README.md
+│   └── export_marts_to_parquet.py # Exportador de Marts a Parquet
+│
+├── database/                     # Creado localmente (ignorado por Git)
+│   └── warehouse.duckdb          # Base analítica DuckDB
+│
+└── data_marts_parquet/           # Creado por script (ignorado por Git)
+    └── *.parquet                 # Tablas dimensionales listas para BI
+```
 
 ---
 
-## 🚀 Guía de Ejecución
+## 🛠️ Requisitos Previos
 
-1. **Cargar semillas (lookup tables):**
-   ```bash
-   dbt seed
-   ```
+* **Python 3.8+**
+* **Sin base de datos externa:** DuckDB funciona como motor analítico embebido de alto rendimiento desde Python. No requiere instalación de servidores de bases de datos.
 
-2. **Ejecutar modelos (construcción de capas):**
-   ```bash
-   dbt run
-   ```
+---
 
-3. **Ejecutar pruebas de calidad:**
-   ```bash
-   dbt test
-   ```
+## 🚀 Guía de Replicación Local
 
-4. **Generar y visualizar la documentación interactiva (Lineage Graph):**
-   ```bash
-   dbt docs generate
-   dbt docs serve
-   ```
+### 1. Clonar el repositorio y configurar el entorno
+
+```bash
+git clone [https://github.com/tu_usuario/dbt_elt_analytics.git](https://github.com/tu_usuario/dbt_elt_analytics.git)
+cd dbt_elt_analytics
+
+# Crear y activar entorno virtual
+python -m venv venv
+
+# Windows:
+venv\Scripts\activate
+# Linux/macOS:
+source venv/bin/activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+```
+
+### 2. Configurar perfil de conexión (`profiles.yml`)
+
+```bash
+# Linux/macOS:
+cp dbt_project/profiles.yml.example ~/.dbt/profiles.yml
+
+# Windows (PowerShell):
+copy dbt_project/profiles.yml.example $env:USERPROFILE\.dbt\profiles.yml
+```
+
+### 3. Ejecutar el Pipeline (dbt)
+
+```bash
+cd dbt_project
+
+# Cargar CSVs y crear la base DuckDB
+dbt seed
+
+# Construir capas analíticas
+dbt run
+
+# Ejecutar tests de calidad
+dbt test
+```
+
+### 4. Exportar Tablas a Parquet (para BI)
+
+```bash
+cd ..
+python scripts/export_marts_to_parquet.py
+```
+
+Los archivos `.parquet` se guardarán en `data_marts_parquet/` para ser consumidos desde **Power BI**, Excel o Python.
+
+---
+
+## 📊 Consumo en Power BI / BI
+
+Las tablas exportadas corresponden al Esquema Estrella listo para modelado:
+* **Dimensiones:** `dim_customers`, `dim_products`, `dim_date`.
+* **Tablas de Hechos:** `fact_orders`, `fact_order_items`, `fact_payments`, `fact_shipments`, `fact_returns`.
