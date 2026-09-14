@@ -1,0 +1,7 @@
+dbt_project:
+  outputs:
+    dev:
+      type: duckdb
+      path: ../database/warehouse.duckdb 
+      threads: 4
+  target: dev
