@@ -1,8 +1,6 @@
-# Modern Data Stack: Data Warehouse & ELT Pipeline (dbt + DuckDB)
+# ⚙️ Módulo dbt: Transformación y Modelado Dimensional
 
-Capa analítica desarrollada con **dbt Core** sobre **DuckDB**, orientada a transformar datos transaccionales en modelos analíticos reproducibles, testeados y listos para consumo de negocio.
-
-El proyecto implementa una arquitectura ELT por capas que separa la preparación, enriquecimiento, modelado dimensional y exposición final de los datos.
+Capa analítica desarrollada con **dbt Core** sobre **DuckDB**, orientada a transformar datos transaccionales en un **Modelo Dimensional (Esquema Estrella)** reproducible, testeado y listo para consumo de negocio.
 
 ---
 
@@ -15,122 +13,73 @@ El proyecto implementa una arquitectura ELT por capas que separa la preparación
 
 ---
 
-## 📐 Arquitectura del Pipeline (DAG)
+## 📐 Arquitectura de Capas (DAG)
 
 ```text
 CSV (Seeds)
   │
   ▼
-Staging (vistas de limpieza y estandarización)
+Staging (vistas de limpieza, casteos y estandarización)
   │
   ▼
-Intermediate (transformaciones y enriquecimiento)
+Intermediate (transformaciones, prorrateos y enriquecimiento)
   │
   ▼
-Dimensions & Facts (tablas dimensionales y de hechos)
-  │
-  ▼
-Marts (capa final de consumo analítico / BI)
+Marts (Modelo Dimensional: Tablas de Hechos y Dimensiones)
 ```
 
 ---
 
-## 📦 Desglose de Capas y Modelos
+## 📦 Desglose de Modelos
 
 ### 1. Staging (`models/staging/`)
 Limpieza inicial, renombrado de columnas a estándares del proyecto y casteo de tipos de datos sobre la capa raw.
-
-* `stg_customers`
-* `stg_orders`
-* `stg_order_items`
-* `stg_products`
-* `stg_payments`
-* `stg_shipments`
-* `stg_returns`
+* `stg_customers`, `stg_orders`, `stg_order_items`, `stg_products`, `stg_payments`, `stg_shipments`, `stg_returns`.
 
 ### 2. Intermediate (`models/intermediate/`)
-Transformaciones intermedias y uniones complejas antes de estructurar el modelo dimensional final.
+Lógica de negocio compleja, prorrateo de costos de envío a nivel ítem y cálculo de márgenes.
+* `int_order_items_enriched`, `int_order_shipping_allocated`, `int_order_metrics`.
 
-* `int_order_items_enriched`
-* `int_sales_enriched`
+### 3. Marts (`models/marts/`)
+Modelo Dimensional final para consumo analítico:
+* **Dimensiones:** `dim_customers`, `dim_products`, `dim_date`.
+* **Hechos:** `fact_orders`, `fact_order_items`, `fact_payments`, `fact_shipments`, `fact_returns`.
 
-### 3. Dimensions (`models/marts/`)
-Entidades de negocio utilizadas para contextualizar las métricas.
+---
 
-* `dim_customers`
-* `dim_products`
-* `dim_date`
+## 💡 Reglas de Negocio Clave
 
-### 4. Facts (`models/marts/`)
-Tablas de hechos con las métricas y eventos transaccionales del proceso comercial.
-
-* `fact_orders`
-* `fact_order_items`
-* `fact_payments`
-* `fact_shipments`
-* `fact_returns`
+1. **Cancelaciones:** En pedidos cancelados (`is_cancelled = 1`), las ventas netas (`net_sales`) se fuerzan a $0 preservando los montos brutos para análisis de demanda perdida.
+2. **Prorrateo de Envíos:** El costo logístico de la orden se asigna a cada línea de pedido proporcionalmente a su peso sobre el total bruto.
+3. **Devoluciones:** `final_net_sales` ajusta el reembolso (`refund_amount`) y recalcula el COGS real descontando stock devuelto.
 
 ---
 
 ## 🧪 Data Quality & Governance
 
-El proyecto aplica tests automatizados de dbt para garantizar la confiabilidad de la información:
-
-* **Integridad Primaria:** Unicidad (`unique`) y no nulidad (`not_null`) en PKs.
-* **Integridad Referencial:** Claves foráneas validadas entre tablas de hechos y dimensiones (`relationships`).
-* **Reglas de Negocio:** Validación de importes monetarios no negativos, rangos de descuentos válidos y cantidades coherentes.
+* **Tests Genéricos (`schema.yml`):** Unicidad (`unique`), no nulidad (`not_null`), integridad referencial (`relationships`) y valores permitidos (`accepted_values`).
+* **Tests Singulares (`tests/`):** Validaciones SQL customizadas para coherencia temporal de fechas, montos pagados vs. ventas netas y rangos de precios/costos.
 
 ---
 
-## 📁 Estructura del Módulo `dbt_project`
+## 🚀 Comandos de Ejecución (dbt CLI)
 
-```text
-dbt_project/
-├── analyses/       # Consultas SQL exploratorias fuera del DAG
-├── macros/         # Macros Jinja reutilizables
-├── models/         # Transformaciones (staging, intermediate, marts)
-│   ├── staging/
-│   ├── intermediate/
-│   └── marts/
-├── seeds/          # Archivos CSV de datos fuente
-├── snapshots/      # Control de cambios de dimensión (SCD)
-├── tests/          # Tests de datos SQL personalizados
-├── dbt_project.yml # Configuración principal del proyecto dbt
-└── README.md       # Documentación del módulo
-```
-
----
-
-## 🚀 Ejecución y Comandos
-
-Si estás ubicado en la **raíz del repositorio general (`dbt_elt_analytics`)**:
+Ubicado dentro de la carpeta `dbt_project/`:
 
 ```bash
-# Construir todos los modelos y ejecutar los tests indicando el directorio del proyecto
-dbt build --project-dir dbt_project
-
-# Validar la conexión con DuckDB y los perfiles
-dbt debug --project-dir dbt_project
-```
-
-Si estás ubicado **dentro de la carpeta `dbt_project/`**:
-
-```bash
-# Cargar archivos CSV iniciales a DuckDB
+# 1. Cargar semillas CSV a DuckDB
 dbt seed
 
-# Ejecutar las transformaciones SQL
+# 2. Ejecutar transformaciones SQL
 dbt run
 
-# Correr las pruebas de calidad de datos
+# 3. Correr pruebas de calidad
 dbt test
 
-# Construir todo en un solo comando (seed + run + test)
+# 4. Construir todo secuencialmente (seed + run + test)
 dbt build
+
+# 5. Generar documentación interactiva y grafo de linaje
+dbt docs generate
+dbt docs serve
 ```
-
----
-
-## 🎯 Objetivo de la Capa
-
-Transformar registros transaccionales sin procesar en una estructura de **Modelado Dimensional (Star Schema)** confiable, documentada y lista para abastecer consultas analíticas avanzadas o tableros en Power BI.
