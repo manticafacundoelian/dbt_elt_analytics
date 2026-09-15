@@ -41,7 +41,7 @@ dbt_elt_analytics/
 ├── README.md                     # Documentación principal del proyecto
 ├── requirements.txt              # Dependencias de Python (dbt-duckdb, pandas, pyarrow)
 │
-├── dbt_project/                  # Módulo dbt Core (Modelado ELT)
+├── dbt_core_pipeline/            # Módulo dbt Core (Modelado ELT)
 │   ├── dbt_project.yml           # Configuración global de dbt
 │   ├── profiles.yml.example      # Plantilla de conexión local a DuckDB
 │   ├── seeds/                    # Fuentes de datos crudas (CSV)
@@ -49,11 +49,11 @@ dbt_elt_analytics/
 │   ├── tests/                    # Pruebas de calidad y reglas de negocio
 │   └── README.md                 # Documentación técnica del módulo dbt
 │
-├── sql_queries/                  # Investigaciones SQL Ad-Hoc
+├── sql_business_analysis/        # Investigaciones SQL 
 │   ├── README.md                 # Catálogo de consultas y preguntas de negocio
 │   └── *.sql                     # Scripts de análisis (RFM, Cohortes, Envíos)
 │
-├── power_bi_dashboard/           # Capa de BI y Reportes
+├── power_bi_analytics/           # Capa de BI y Reportes
 │   ├── README.md                 # Documentación del modelo de datos y medidas DAX
 │   └── *.pbix                    # Dashboard ejecutable de Power BI
 │
