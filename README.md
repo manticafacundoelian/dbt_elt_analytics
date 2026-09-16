@@ -1,8 +1,76 @@
-# 🛒 E-commerce Analytics End-to-End: De la Ingeniería ELT al Impacto de Negocio
+# 🛒 E-commerce Analytics 
 
-**Pipeline ELT con dbt Core + DuckDB, Consultas SQL Avanzadas sobre Data Warehouse y Dashboard Interactivo con Hallazgos Estratégicos**
+Proyecto end-to-end de un e-commerce que abarca:
+La ingesta y transformación de datos (**dbt Core + DuckDB**)
+Investigaciones SQL de negocio (**Data Warehouse**) 
+Dashboard Interactivo en Power BI**.
 
 ---
+
+## 📐 Flujo de Datos (Arquitectura Pipeline)
+
+```mermaid
+flowchart LR
+    A[📄 CSV Raw Seeds] -->|dbt seed| B[(🦆 DuckDB Warehouse)]
+
+    subgraph DBT ["⚙️ dbt Core (Transformación)"]
+        B --> C[Staging]
+        C --> D[Intermediate]
+        D --> E[Marts - Star Schema]
+    end
+
+    E -->|DBeaver / SQL| F[🔍 Consultas SQL Ad-hoc]
+    E -->|Python Script| G[📦 Archivos Parquet]
+    G --> H[📊 Dashboard Power BI]
+```
+
+---
+
+```mermaid
+flowchart LR
+
+    A[📄 CSV Seeds] -->|dbt seed| B[(🦆 DuckDB)]
+
+    subgraph DBT["⚙️ dbt Core"]
+        B --> C[Staging]
+        C --> D[Intermediate]
+        D --> E[Marts]
+    end
+
+    E --> F[🔍 SQL Business Analysis]
+
+    E --> G[🐍 Python]
+    G --> H[📦 Parquet]
+
+    H --> I[📊 Power BI]
+
+    E --> J[🧪 dbt Tests]
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 🛒 E-commerce Analytics 
+
+## Proyecto End-to-End que incluye: **Pipeline ELT con dbt Core + DuckDB, Investigacion y Consultas SQL sobre Data Warehouse y Dashboard Interactivo en Power BI con Hallazgos y recomendaciones Estratégicas**
+
+---
+
+> ⚠️ *Para priorizar la perspectiva de negocio, este README presentará primero las capturas del dashboard en Power BI, los principales hallazgos y las recomendaciones accionables para luego pasar a los demás directorios, dejando para el final Arquitectura y Estructura del Ecosistema y la Guía de Replicación Local.
+
 
 ## 📐 Arquitectura General del Repositorio
 
