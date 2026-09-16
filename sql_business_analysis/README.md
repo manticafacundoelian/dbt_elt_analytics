@@ -1,3 +1,882 @@
+# 🔎 Investigaciones y Consultas SQL (Data Warehouse)
+
+## Contexto
+
+# 📊 Investigaciones SQL & Deep Dives de Negocio
+
+Este módulo contiene la capa de diagnóstico analítico mediante SQL. Forma parte de un proyecto analítico **End-to-End de E-Commerce** estructurado de la siguiente manera:
+
+*   **[🏗️ dbt_core_pipeline](../dbt_core_pipeline/):** Transformación, modelado físico y testing de datos sobre **DuckDB**.
+*   **[📂 sql_business_analysis](../sql_business_analysis/):** Investigaciones avanzadas (RFM, Cohortes y Análisis PVM) *(Estás aquí)*.
+*   **[🤖 scripts](../scripts/):** Automatización con **Python** para exportar los marts a formato Parquet.
+*   **[📈 power_bi_analytics](../power_bi_analytics/):** Modelado estrella (DAX) y reporte ejecutivo en **Power BI**.
+
+👉 Para comprender la arquitectura completa del ecosistema, los requerimientos de software y cómo replicarlo de forma local, visita el **[README Principal del Proyecto](../README.md)**.
+
+---
+
+
+
+
+---
+
+# 🎯 Objetivo de la investigación
+
+La investigación busca responder progresivamente:
+
+> **¿Cómo evolucionó el negocio entre 2024 y 2026, qué factores explican el deterioro observado en 2026 y dónde se concentra el impacto sobre ventas y rentabilidad?**
+
+Para evitar mezclar universos diferentes, las comparaciones anuales utilizan como universo principal los pedidos con:
+
+```sql
+order_status = 'delivered'
+```
+
+Esto permite comparar períodos cerrados bajo una misma condición operacional.
+
+---
+
+# 🧭 Enfoque analítico
+
+La investigación se divide en dos ramas:
+
+```text
+                         INVESTIGACIÓN DE NEGOCIO
+                                  │
+                 ┌────────────────┴────────────────┐
+                 │                                 │
+          RAMA COMERCIAL                    RAMA RENTABILIDAD
+                 │                                 │
+        ¿Qué pasó con las ventas?          ¿Qué pasó con la ganancia?
+                 │                                 │
+        Pedidos × Ticket                    Ventas finales
+                 │                                 │
+          Ticket = UPT × ASP                - Devoluciones
+                 │                          - COGS
+          Precio + Descuentos               - Logística
+                 │                          = Ganancia
+             Mix / Categorías                    │
+                                                 PVM
+```
+
+La lógica de investigación sigue una progresión:
+
+```text
+Medición
+   ↓
+Comparación
+   ↓
+Descomposición
+   ↓
+Profundización
+   ↓
+Hallazgo
+   ↓
+Nueva pregunta
+```
+
+No se busca explicar causalidad con una sola consulta. Cada etapa reduce el espacio de posibles explicaciones.
+
+---
+
+# 📊 Rama comercial
+
+## Q1 — ¿Cómo evolucionó el negocio?
+
+### Pregunta de negocio
+
+> **¿Cómo evolucionaron el volumen, las ventas, las devoluciones y la rentabilidad entre 2024 y 2026?**
+
+La primera consulta funciona como diagnóstico macro. Su objetivo es identificar **qué cambió**, no explicar todavía por qué cambió.
+
+### Métricas principales
+
+* Pedidos
+* Ventas brutas
+* Descuentos
+* Ventas netas comerciales
+* Devoluciones
+* Tasa de devolución
+* Ventas netas finales
+* Ganancia neta
+* Margen neto
+* Ticket promedio comercial
+
+### Resultado
+
+| Métrica                  |       2024 |       2025 |     YoY 2025 |     2026 |     YoY 2026 |
+| ------------------------ | ---------: | ---------: | -----------: | -------: | -----------: |
+| Pedidos                  |      1.365 |      1.581 |  **+15,82%** |    1.649 |   **+4,30%** |
+| Ventas netas comerciales | $1.290,5 M | $1.633,9 M |  **+26,62%** | $999,1 M |  **-38,85%** |
+| Devoluciones             |    $37,2 M |    $53,7 M |  **+44,45%** |  $70,3 M |  **+30,90%** |
+| Tasa de devolución       |      2,88% |      3,28% | **+0,40 pp** |    7,03% | **+3,75 pp** |
+| Ventas netas finales     | $1.253,3 M | $1.580,3 M |  **+26,09%** | $928,9 M |  **-41,22%** |
+| Ganancia neta            |   $297,6 M |   $292,8 M |   **-1,59%** |  $99,0 M |  **-66,20%** |
+| Margen neto              |     23,74% |     18,53% | **-5,21 pp** |   10,66% | **-7,87 pp** |
+| Ticket comercial         |   $945.397 | $1.033.477 |   **+9,32%** | $605.891 |  **-41,37%** |
+
+### Lectura
+
+**2025**
+
+El negocio presenta crecimiento comercial:
+
+* Los pedidos aumentan **15,82%**.
+* Las ventas netas comerciales aumentan **26,62%**.
+* El ticket comercial aumenta **9,32%**.
+
+Sin embargo, ese crecimiento no se traduce en una mayor ganancia:
+
+* La ganancia neta cae **1,59%**.
+* El margen neto cae **5,21 puntos porcentuales**.
+* Las devoluciones aumentan **44,45%**, por encima del crecimiento de las ventas.
+* La tasa de devolución pasa de **2,88% a 3,28%**.
+
+**2026**
+
+El deterioro es considerablemente mayor:
+
+* Los pedidos todavía crecen **4,30%**.
+* Las ventas netas comerciales caen **38,85%**.
+* El ticket comercial cae **41,37%**.
+* Las devoluciones aumentan otro **30,90%**.
+* La tasa de devolución alcanza **7,03%**.
+* La ganancia neta cae **66,20%**.
+* El margen neto cae hasta **10,66%**.
+
+### Hallazgo
+
+> **El deterioro de 2026 no se explica por una caída del número de pedidos: los pedidos continúan creciendo. La principal caída comercial se encuentra en el valor generado por cada pedido, mientras que el aumento de las devoluciones y la reducción del margen profundizan el impacto sobre la rentabilidad.**
+
+### Siguiente pregunta
+
+> **¿Por qué cayó el valor promedio de cada pedido?**
+
+---
+
+# Q2 — ¿Por qué cayó el ticket comercial?
+
+### Pregunta de negocio
+
+El ticket comercial puede descomponerse como:
+
+```text
+Ticket Comercial = UPT × ASP
+```
+
+donde:
+
+* **UPT (Units Per Transaction)** = unidades por pedido
+* **ASP (Average Selling Price)** = valor comercial promedio por unidad
+
+La pregunta pasa a ser:
+
+> **¿La caída del ticket se debe a que los clientes compran menos unidades, a un menor valor por unidad, o a ambos factores?**
+
+### Resultado
+
+| Métrica          |     2024 |       2025 |   YoY 2025 |     2026 |    YoY 2026 |
+| ---------------- | -------: | ---------: | ---------: | -------: | ----------: |
+| Pedidos          |    1.365 |      1.581 |    +15,82% |    1.649 |      +4,30% |
+| Unidades         |    3.946 |      4.746 |          — |    3.778 |           — |
+| UPT              |     2,89 |       3,00 | **+3,81%** |     2,29 | **-23,67%** |
+| ASP comercial    | $327.032 |   $344.275 | **+5,27%** | $264.456 | **-23,18%** |
+| Ticket comercial | $945.397 | $1.033.477 | **+9,32%** | $605.891 | **-41,37%** |
+
+### Lectura
+
+En 2025 ambos componentes evolucionan positivamente:
+
+* UPT: **+3,81%**
+* ASP: **+5,27%**
+* Ticket: **+9,32%**
+
+En 2026 ambos componentes se deterioran:
+
+* UPT: **-23,67%**
+* ASP: **-23,18%**
+* Ticket: **-41,37%**
+
+Un dato particularmente relevante es la relación entre pedidos y unidades.
+
+En 2025 hubo **1.581 pedidos y 4.746 unidades**.
+
+En 2026 hubo **1.649 pedidos**, pero solamente **3.778 unidades**.
+
+Por lo tanto, el crecimiento del número de pedidos no representa un crecimiento equivalente en unidades vendidas.
+
+### Hallazgo
+
+> **La caída del ticket comercial en 2026 tiene dos componentes: menor profundidad de compra (UPT -23,67%) y menor valor comercial promedio por unidad (ASP -23,18%).**
+
+La investigación comercial se divide entonces en dos caminos:
+
+```text
+Ticket Comercial ↓
+       │
+       ├── UPT ↓ 23,67%
+       │       └── ¿Por qué se compran menos unidades?
+       │
+       └── ASP ↓ 23,18%
+               └── ¿Por qué cayó el valor por unidad?
+```
+
+La siguiente investigación se concentra en el ASP.
+
+---
+
+# Q3 — ¿Por qué cayó el ASP?
+
+El ASP agregado puede modificarse por diferentes mecanismos:
+
+```text
+ASP ↓
+ │
+ ├── Precio bruto ↓
+ │
+ ├── Descuentos ↑
+ │
+ └── Cambio en el mix de productos/categorías
+```
+
+Por eso la investigación se divide en:
+
+* **Q3.1 — Precio bruto vs. descuentos**
+* **Q3.2 — Mix de categorías**
+
+---
+
+# Q3.1 — ¿La caída del ASP viene de precio o de descuentos?
+
+### Pregunta de negocio
+
+> **¿La caída del ASP comercial se explica por una reducción del precio bruto, por una mayor presión de descuentos, o por ambos factores?**
+
+### Resultado
+
+| Métrica            |     2024 |     2025 |     YoY 2025 |     2026 |     YoY 2026 |
+| ------------------ | -------: | -------: | -----------: | -------: | -----------: |
+| ASP bruto          | $333.626 | $354.911 |   **+6,38%** | $281.632 |  **-20,65%** |
+| Tasa de descuento  |    1,98% |    3,00% | **+1,02 pp** |    6,10% | **+3,10 pp** |
+| ASP neto comercial | $327.032 | $344.275 |   **+5,27%** | $264.456 |  **-23,18%** |
+
+### Lectura
+
+En 2026 el **ASP bruto cae 20,65%**.
+
+Esto indica que el menor ASP neto no se debe únicamente a descuentos: también existe una reducción del valor bruto promedio por unidad.
+
+Al mismo tiempo, aumenta considerablemente la tasa de descuento:
+
+```text
+2025 → 3,00%
+2026 → 6,10%
+Cambio → +3,10 pp
+```
+
+Por lo tanto, los descuentos también profundizan la reducción del valor comercial obtenido por unidad.
+
+La evolución queda:
+
+```text
+ASP bruto
+$354.911 → $281.632
+      ↓ -20,65%
+
+Descuentos
+3,00% → 6,10%
+      ↑ +3,10 pp
+
+ASP neto
+$344.275 → $264.456
+      ↓ -23,18%
+```
+
+### Hallazgo
+
+> **La caída del ASP comercial en 2026 combina una reducción del ASP bruto (-20,65%) con un aumento de la tasa de descuento (+3,10 pp), llevando el ASP neto a una caída del 23,18%.**
+
+Sin embargo, el ASP bruto agregado todavía puede estar afectado por la composición de las categorías vendidas.
+
+### Siguiente pregunta
+
+> **¿Cuánto del deterioro del ASP está relacionado con un cambio en el mix de categorías y cuánto con cambios dentro de las propias categorías?**
+
+---
+
+# Q3.2 — ¿El ASP cayó por precio o por mix?
+
+### Pregunta de negocio
+
+> **¿El cambio en la composición de las unidades vendidas contribuyó a reducir el ASP agregado?**
+
+Para responderla se analiza, para cada categoría:
+
+* participación sobre las unidades totales;
+* ASP neto comercial;
+* evolución del ASP;
+* tasa de descuento.
+
+### Resultado 2025 → 2026
+
+| Categoría   | Mix 2025 | Mix 2026 |        Δ Mix |   ASP 2025 |   ASP 2026 |       Δ ASP | Δ Descuento |
+| ----------- | -------: | -------: | -----------: | ---------: | ---------: | ----------: | ----------: |
+| Hogar       |   21,07% |   24,88% | **+3,81 pp** |   $109.885 |   $112.885 |  **+2,73%** |    +4,00 pp |
+| Audio       |   14,90% |   22,82% | **+7,92 pp** |   $221.366 |   $223.283 |  **+0,87%** |    +4,05 pp |
+| Accesorios  |   25,75% |   20,70% | **-5,05 pp** |    $79.856 |    $83.864 |  **+5,02%** |    +3,73 pp |
+| Computación |   16,16% |   18,26% | **+2,10 pp** |   $316.965 |   $213.195 | **-32,74%** |    +2,82 pp |
+| TV y Video  |   16,67% |   10,64% | **-6,03 pp** | $1.071.105 | $1.027.052 |  **-4,11%** |    +2,73 pp |
+| Telefonía   |    5,46% |    2,70% | **-2,76 pp** |   $693.426 |   $735.022 |  **+6,00%** |    +1,45 pp |
+
+### Lectura
+
+Se observa un cambio importante en la composición de las unidades vendidas.
+
+**Audio** aumenta su participación en **7,92 pp**, mientras que **TV y Video**, una categoría de ASP superior al millón de pesos, reduce su participación en **6,03 pp**.
+
+También aumenta la participación de:
+
+* Hogar: **+3,81 pp**
+* Computación: **+2,10 pp**
+
+Mientras disminuyen:
+
+* Accesorios: **-5,05 pp**
+* Telefonía: **-2,76 pp**
+
+Esto es compatible con la existencia de un **efecto mix** sobre el ASP agregado.
+
+Sin embargo, los datos muestran que el cambio de mix no es la única explicación.
+
+El caso más evidente es **Computación**:
+
+```text
+Participación:
+16,16% → 18,26%
+         +2,10 pp
+
+ASP:
+$316.965 → $213.195
+           -32,74%
+```
+
+Es decir, la categoría aumenta su peso dentro de las unidades vendidas, pero al mismo tiempo reduce fuertemente su ASP.
+
+Además, la tasa de descuento aumenta en **todas las categorías analizadas**.
+
+### Hallazgo
+
+> **La caída del ASP comercial en 2026 responde a una combinación de factores. Se observa un cambio de mix hacia categorías de menor ASP relativo, junto con reducciones del ASP dentro de algunas categorías importantes y un aumento generalizado de la presión de descuentos.**
+
+El caso de Computación muestra especialmente que **no sería suficiente atribuir el deterioro únicamente al mix**.
+
+### Cierre de la rama comercial
+
+Hasta este punto, la investigación permite reconstruir el deterioro comercial:
+
+```text
+Ventas netas comerciales ↓ 38,85%
+              │
+              ↓
+      Ticket comercial ↓ 41,37%
+              │
+       ┌──────┴──────┐
+       ↓             ↓
+     UPT ↓          ASP ↓
+   -23,67%        -23,18%
+                     │
+             ┌───────┼────────┐
+             ↓       ↓        ↓
+        ASP bruto  Descuentos  Mix
+          ↓20,65%    +3,10 pp   cambio
+```
+
+La rama comercial muestra que la caída de ventas de 2026 no proviene principalmente de una reducción del número de pedidos, sino de una **menor cantidad de unidades por pedido y un menor valor comercial por unidad**.
+
+---
+
+# 💰 Rama de rentabilidad
+
+La rama comercial responde:
+
+> **¿Por qué cayó el nivel de ventas?**
+
+Pero Q1 muestra un fenómeno adicional:
+
+> **La ganancia neta cae 66,20%, mientras las ventas netas comerciales caen 38,85%.**
+
+Por lo tanto, la siguiente pregunta es diferente.
+
+## Q4 — ¿Por qué la rentabilidad se deterioró más que las ventas?
+
+La investigación de rentabilidad parte de:
+
+```text
+Ventas netas comerciales
+          │
+          ├── Devoluciones
+          ↓
+Ventas netas finales
+          │
+          ├── COGS
+          ├── Logística
+          ↓
+Ganancia neta
+```
+
+Esta rama utilizará las métricas finales del modelo, incorporando devoluciones, costo de mercadería y logística.
+
+---
+
+## Q4.1 — Evolución de la rentabilidad
+
+### Pregunta de negocio
+
+> **¿Qué componentes explican la caída del margen y de la ganancia neta entre 2025 y 2026?**
+
+Se analizarán:
+
+* Ventas netas comerciales
+* Devoluciones
+* Tasa de devolución
+* Ventas netas finales
+* COGS
+* Margen bruto
+* Costos logísticos
+* Ganancia neta
+* Margen neto
+
+### Siguiente etapa
+
+La respuesta permitirá determinar si la erosión de rentabilidad está asociada principalmente a:
+
+```text
+Ventas finales ↓
+       │
+       ├── Devoluciones ↑
+       │
+       ├── COGS / ventas ↑
+       │
+       └── Logística / ventas ↑
+```
+
+---
+
+# Q4.2 — PVM: Precio, Volumen, Mix y Costos
+
+Una vez identificados los principales movimientos de rentabilidad, se profundizará en la variación del margen mediante una descomposición **PVM**.
+
+El objetivo será separar el cambio de resultado en componentes asociados a:
+
+* **Precio**
+* **Volumen**
+* **Mix**
+* **Costo**
+
+La descomposición permitirá pasar de:
+
+> "La ganancia cayó"
+
+a una explicación más precisa sobre **qué movimientos comerciales y de costos explican esa variación**.
+
+---
+
+# 🧠 Resumen de la investigación
+
+| Etapa    | Pregunta                                 | Resultado principal                                                                        |
+| -------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Q1**   | ¿Cómo evolucionó el negocio?             | Pedidos +4,30%, ventas -38,85%, ganancia -66,20%, margen -7,87 pp en 2026                  |
+| **Q2**   | ¿Por qué cayó el ticket?                 | UPT -23,67% y ASP -23,18%                                                                  |
+| **Q3.1** | ¿Por qué cayó el ASP?                    | ASP bruto -20,65% y descuentos +3,10 pp                                                    |
+| **Q3.2** | ¿Hay efecto mix?                         | Sí se observa un cambio relevante de mix, pero también cambios de ASP dentro de categorías |
+| **Q4.1** | ¿Por qué cayó la rentabilidad?           | Pendiente: devoluciones, COGS y logística                                                  |
+| **Q4.2** | ¿Qué explica la variación del resultado? | Pendiente: descomposición PVM                                                              |
+
+---
+
+# 📌 Principios de medición
+
+La investigación mantiene distintas definiciones de ventas según la pregunta de negocio.
+
+### Ventas netas comerciales
+
+```text
+net_sales
+```
+
+Representan las ventas después de descuentos pero **antes de devoluciones**.
+
+Se utilizan principalmente para analizar:
+
+* ventas comerciales;
+* ticket;
+* UPT;
+* ASP;
+* precio;
+* descuentos;
+* mix.
+
+### Ventas netas finales
+
+```text
+final_net_sales
+```
+
+Representan las ventas después de considerar las devoluciones aprobadas.
+
+Se utilizan en el análisis de:
+
+* resultado final;
+* rentabilidad;
+* margen;
+* impacto de devoluciones.
+
+### Ganancia neta
+
+```text
+net_profit
+```
+
+Representa el resultado después de considerar las ventas finales, COGS y costos logísticos definidos en el modelo.
+
+### Universo analítico
+
+Las comparaciones anuales principales utilizan:
+
+```sql
+WHERE order_status = 'delivered'
+```
+
+Esto permite trabajar con un universo comparable entre años y evitar mezclar pedidos que todavía se encuentran en estados operativos diferentes.
+
+---
+
+# 🔬 Metodología
+
+La investigación sigue un enfoque de **Business Analytics** basado en descomposición progresiva.
+
+### 1. Medir
+
+Primero se establece qué ocurrió mediante KPIs agregados.
+
+### 2. Comparar
+
+Se calculan variaciones interanuales para identificar cambios relevantes.
+
+### 3. Descomponer
+
+Los KPIs se separan en sus componentes:
+
+```text
+Ventas = Pedidos × Ticket
+
+Ticket = UPT × ASP
+```
+
+### 4. Profundizar
+
+Los componentes se investigan mediante:
+
+```text
+ASP
+ ├── Precio bruto
+ ├── Descuentos
+ └── Mix
+
+Rentabilidad
+ ├── Devoluciones
+ ├── COGS
+ ├── Logística
+ └── PVM
+```
+
+### 5. Encontrar
+
+Cada consulta debe terminar en un hallazgo respaldado por los datos y generar la siguiente pregunta de investigación.
+
+---
+
+# 🎯 Objetivo final
+
+La investigación busca transformar una observación general como:
+
+> **"El negocio empeoró en 2026."**
+
+en una explicación progresivamente más precisa:
+
+> **"Las ventas disminuyeron a pesar de que los pedidos continuaron creciendo porque cayó fuertemente el valor generado por pedido. Esta caída se explica por una menor cantidad de unidades por pedido y un menor ASP, asociado a una combinación de menor ASP bruto, mayor presión de descuentos y cambios en el mix de categorías. La siguiente etapa busca determinar por qué la rentabilidad se deterioró todavía más que las ventas."**
+
+El objetivo final es construir un análisis que no se limite a describir indicadores, sino que permita **explicar los movimientos relevantes del negocio utilizando evidencia cuantitativa y una cadena de investigación reproducible en SQL**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Investigación SQL de Negocio
+
+## Contexto
+
+Este análisis forma parte de un proyecto de **ELT Analytics para un ecommerce**, construido sobre una arquitectura moderna con **DuckDB + dbt**, donde los datos operacionales son transformados y modelados para su posterior análisis en SQL y Power BI.
+
+El objetivo de esta etapa no es simplemente obtener métricas, sino **investigar la evolución del negocio y explicar, a partir de los datos, qué factores están detrás de los principales cambios observados**.
+
+La investigación toma como período de análisis **2024–2026** y utiliza como universo principal los pedidos con estado `delivered`, permitiendo comparar períodos bajo una misma condición de negocio: operaciones efectivamente completadas.
+
+---
+
+## Objetivo de la investigación
+
+La investigación parte de una pregunta general:
+
+> **¿Cómo evolucionó el desempeño del ecommerce y qué factores explican los cambios en ventas y rentabilidad?**
+
+Para responderla, el análisis se divide en dos ramas:
+
+* **Rama Comercial:** investiga la evolución de las ventas generadas por el negocio y busca explicar los cambios en el volumen monetario.
+* **Rama de Rentabilidad:** analiza qué ocurrió entre las ventas generadas y el beneficio finalmente obtenido.
+
+Esta separación permite evitar mezclar fenómenos comerciales con fenómenos posteriores a la venta, como devoluciones, costos de mercadería o logística.
+
+---
+
+## Enfoque analítico
+
+La investigación sigue una lógica **de lo general a lo particular**.
+
+Primero se construye una visión macro de la evolución del negocio. A partir de los cambios observados, se abren distintas líneas de investigación para identificar sus posibles causas.
+
+```text
+                    EVOLUCIÓN DEL NEGOCIO
+                            │
+                            ▼
+                    Q1 · VISIÓN MACRO
+                            │
+             ¿Qué está cambiando y dónde?
+                            │
+             ┌──────────────┴──────────────┐
+             │                             │
+             ▼                             ▼
+      RAMA COMERCIAL                RAMA RENTABILIDAD
+             │                             │
+             ▼                             ▼
+      Ventas comerciales             Ventas finales
+             │                             │
+       Pedidos × Ticket              Devoluciones
+             │                             │
+          ┌──┴──┐                    COGS / Logística
+          │     │                         │
+         UPT   ASP                       PVM
+          │     │                         │
+          │  Precio + Mix                 ▼
+          │     │                     Margen / Profit
+          ▼     ▼
+      Comportamiento
+       comercial
+```
+
+---
+
+## Rama Comercial
+
+La primera rama busca explicar la evolución de las **ventas netas comerciales**, entendidas como las ventas posteriores a descuentos pero anteriores a devoluciones.
+
+La investigación parte de la identidad:
+
+```text
+Ventas Netas Comerciales
+        =
+Pedidos × Ticket Comercial
+```
+
+Por lo tanto, una variación en las ventas puede explicarse inicialmente mediante:
+
+* evolución de la cantidad de pedidos;
+* evolución del ticket promedio.
+
+A su vez, el ticket se descompone en:
+
+```text
+Ticket Comercial
+        =
+Unidades por Pedido (UPT)
+        ×
+Precio Promedio por Unidad (ASP)
+```
+
+Esto permite profundizar progresivamente:
+
+1. **¿Cambió la cantidad de pedidos?**
+2. **¿Cambió el ticket promedio?**
+3. **¿Los clientes están comprando más o menos unidades por pedido?**
+4. **¿Cambió el valor promedio de cada unidad vendida?**
+5. **¿La caída del ASP está relacionada con precios, descuentos o cambios en el mix de productos?**
+
+### Investigaciones
+
+* **Q2 — Descomposición del Ticket:** Pedidos, UPT, ASP y Ticket Comercial.
+* **Q3.1 — Evolución del ASP:** precio bruto, descuentos y ASP neto comercial.
+* **Q3.2 — Precio vs. Mix:** evolución del ASP y participación de las categorías para identificar cambios en la composición de las ventas.
+
+---
+
+## Rama de Rentabilidad
+
+La segunda rama cambia la perspectiva y analiza la transformación de las ventas comerciales en resultado económico.
+
+En esta etapa sí se incorporan las **devoluciones**, ya que representan una pérdida posterior a la generación de la venta.
+
+La lógica es:
+
+```text
+Ventas Netas Comerciales
+          │
+          ├── Devoluciones
+          │
+          ▼
+Ventas Netas Finales
+          │
+          ├── Costo de Mercadería
+          ├── Logística
+          │
+          ▼
+Ganancia Neta
+```
+
+Las preguntas principales son:
+
+* ¿Qué proporción de las ventas comerciales se pierde por devoluciones?
+* ¿Cómo evolucionó el costo de mercadería respecto de las ventas?
+* ¿Cómo evolucionaron los costos logísticos?
+* ¿Por qué se deterioró el margen?
+* ¿La erosión del margen está relacionada con precio, costo, volumen o mix?
+
+Esta última pregunta conduce al análisis **PVM (Price–Volume–Mix)**, utilizado para descomponer el cambio en el margen bruto entre distintos efectos económicos.
+
+### Investigaciones
+
+* **Q4.1 — Evolución de la Rentabilidad:** devoluciones, ventas finales, COGS, logística, ganancia y márgenes.
+* **Q4.2 — Análisis PVM:** descomposición del cambio en el margen bruto entre efectos de precio, costo, volumen y mix.
+
+---
+
+## Principios de medición
+
+Para mantener consistencia analítica, cada métrica se calcula según la pregunta que intenta responder.
+
+### Ventas comerciales
+
+`net_sales`
+
+Representan las ventas después de descuentos y antes de devoluciones.
+
+Se utilizan principalmente en la **rama comercial**.
+
+### Ventas finales
+
+`final_net_sales`
+
+Representan las ventas comerciales después de descontar las devoluciones aprobadas.
+
+Se utilizan principalmente en la **rama de rentabilidad**.
+
+### Ganancia neta
+
+`net_profit`
+
+Representa el resultado después de ventas finales, costo de mercadería y costos logísticos según las reglas definidas en el modelo analítico.
+
+### Universo de análisis
+
+Las investigaciones comparativas utilizan:
+
+```sql
+WHERE order_status = 'delivered'
+```
+
+Esto permite trabajar con pedidos efectivamente completados y evitar mezclar en la misma evolución anual operaciones todavía en proceso.
+
+---
+
+## Metodología
+
+Cada consulta sigue una estructura de investigación progresiva:
+
+**1. Medición → 2. Comparación → 3. Descomposición → 4. Profundización → 5. Hallazgo**
+
+No se parte de una conclusión predeterminada. Las consultas se utilizan para identificar dónde se producen los cambios y luego profundizar en aquellos indicadores que muestran variaciones relevantes.
+
+Las comparaciones interanuales utilizan principalmente variaciones **YoY (%)** y, cuando se trata de tasas o márgenes, **puntos porcentuales (pp)**.
+
+---
+
+## Estructura de la investigación
+
+| Consulta | Pregunta                             | Nivel de análisis  |
+| -------- | ------------------------------------ | ------------------ |
+| **Q1**   | ¿Cómo evolucionó el negocio?         | Macro              |
+| **Q2**   | ¿Por qué cambió el ticket comercial? | Comercial          |
+| **Q3.1** | ¿Por qué cambió el ASP?              | Precio / Descuento |
+| **Q3.2** | ¿Precio o cambio de mix?             | Categoría          |
+| **Q4.1** | ¿Dónde se deterioró la rentabilidad? | Rentabilidad       |
+| **Q4.2** | ¿Qué explica el cambio del margen?   | PVM                |
+
+---
+
+## De las métricas a los hallazgos
+
+Cada consulta será acompañada por:
+
+* **Pregunta de negocio**
+* **Consulta SQL**
+* **Resultado**
+* **Interpretación**
+* **Hallazgo**
+* **Implicancia para la siguiente investigación**
+
+De esta manera, el SQL no se presenta como un conjunto aislado de queries, sino como una **investigación analítica encadenada**, donde cada resultado determina qué pregunta se aborda a continuación.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 📊 TechnoShop: Diagnóstico Comercial y Análisis PVM de Rentabilidad
 
 ## 🎯 Introducción y Metodología
