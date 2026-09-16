@@ -1,6 +1,6 @@
-# 🛒 TechnoShop Analytics End-to-End: De la Ingeniería ELT al Impacto de Negocio
+# 🛒 E-commerce Analytics End-to-End: De la Ingeniería ELT al Impacto de Negocio
 
-> **Pipeline ELT con dbt Core + DuckDB, Consultas SQL Avanzadas sobre Data Warehouse y Dashboard Interactivo con Hallazgos Estratégicos**
+**Pipeline ELT con dbt Core + DuckDB, Consultas SQL Avanzadas sobre Data Warehouse y Dashboard Interactivo con Hallazgos Estratégicos**
 
 ---
 
@@ -33,7 +33,7 @@ flowchart LR
 
 ---
 
-## 📁 Estructura del Repositorio
+## 📁 Estructura del Repositorio y Guía de Replicación Local
 
 ```text
 dbt_elt_analytics/
