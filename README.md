@@ -13,43 +13,22 @@ Identificar las causas raíz de la caída de facturación y, sobre todo, de la r
 ---
 
 ### 🗺️ Índice
-- [Flujo de Datos (Arquitectura Pipeline)](#-flujo-de-datos-arquitectura-pipeline)
-- [Problema de Negocio](#-problema-de-negocio)
-- [Hallazgos del Análisis en Power BI](#-hallazgos-del-análisis-en-power-bi)
-- [Recomendaciones Estratégicas](#-recomendaciones-estratégicas-basadas-en-evidencia)
-- [Módulos del Proyecto](#-módulos-del-proyecto--detalles-técnicos)
-- [Estructura y Replicación Local](#-4-estructura-del-repositorio--guía-de-replicación-local)
-- [Autor](#-autor)
+- [📉 Problema de Negocio](#-problema-de-negocio)
+- [📊 Hallazgos del Análisis en Power BI](#-hallazgos-del-análisis-en-power-bi)
+- [🎯 Recomendaciones Estratégicas](#-recomendaciones-estratégicas-basadas-en-evidencia)
+- [🔄 Flujo de Datos (Arquitectura Pipeline)](#-flujo-de-datos-arquitectura-pipeline)
+- [🛠️ Desarrollo Técnico & Módulos](#%EF%B8%8F-desarrollo-técnico--módulos)
+  - [🧪 Generación del Dataset Sintético](#-1-generación-del-dataset-sintético)
+  - [⚙️ Pipeline ELT con dbt Core + DuckDB](#%EF%B8%8F-2-pipeline-elt-con-dbt-core--duckDB)
+  - [🔍 Investigación Analítica SQL](#-3-investigación-analítica-sql)
+  - [🐍 Script de Exportación en Python](#-4-script-de-exportación-en-python)
+  - [📊 Modelo de Datos & BI (Power BI)](#-5-modelo-de-datos--reporte-en-power-bi)
+- [📂 Estructura del Repositorio y Guía de Replicación](#-estructura-del-repositorio--guía-de-replicación-local)
+- [👤 Autor](#-autor)
 
 ---
 
-> ⚠️ Para priorizar la perspectiva de negocio, este README presenta primero los hallazgos respaldados con el Reporte en Power BI junto con las recomendaciones estratégicas, y posteriormente la arquitectura técnica que permitió obtenerlos (generación del dataset, Pipeline ELT con dbt Core + DuckDB e Investigación Analítica SQL). Al final se detalla la Estructura del Repositorio y la Guía de Replicación Local.
-
----
-
-## 🔄 Flujo de Datos (Arquitectura Pipeline)
-
-```mermaid
-flowchart LR
-
-    Z[🐍 Generador Sintético] -->|genera| A[📄 CSV Seeds]
-    A -->|dbt seed| B[(🦆 DuckDB Warehouse)]
-
-    subgraph DBT["⚙️ dbt Core (Transformación)"]
-        B --> C[Staging]
-        C --> D[Intermediate]
-        D --> E[Marts]
-    end
-
-    E --> F[🔍 SQL Investigación Analítica]
-
-    E --> G[🐍 Python]
-    G --> H[📦 Parquet]
-
-    H --> I[📊 Power BI Reporte]
-
-    E --> J[🧪 dbt Tests]
-```
+> ⚠️ Para priorizar la perspectiva de negocio, este README presenta primero los hallazgos respaldados con el Reporte en Power BI junto con las recomendaciones estratégicas, y posteriormente la arquitectura técnica que permitió obtenerlos.
 
 ---
 
@@ -83,46 +62,75 @@ El objetivo de este proyecto es identificar las causas raíz detrás de la caíd
 
 ---
 
-## 📂 Módulos del Proyecto & Detalles Técnicos
+## 🔄 Flujo de Datos (Arquitectura Pipeline)
 
-A continuación se detalla la arquitectura técnica que da soporte al análisis de negocio. Cada módulo contiene su propia documentación específica.
+```mermaid
+flowchart LR
 
-<details>
-<summary><b>🧪 1. Generación del Dataset Sintético</b></summary><br>
+    Z[🐍 Generador Sintético] -->|genera| A[📄 CSV Seeds]
+    A -->|dbt seed| B[(🦆 DuckDB Warehouse)]
 
-El dataset no proviene de una fuente externa: fue diseñado desde cero con una narrativa económica deliberada (inflación diferenciada por categoría según exposición a importación, deterioro logístico progresivo, backlog de pedidos sin resolver al cierre del período, comportamiento de cliente heterogéneo). Esta capa documenta las reglas y supuestos de negocio detrás de cada tabla generada.
+    subgraph DBT["⚙️ dbt Core (Transformación)"]
+        B --> C[Staging]
+        C --> D[Intermediate]
+        D --> E[Marts]
+    end
+
+    E --> F[🔍 SQL Investigación Analítica]
+
+    E --> G[🐍 Python]
+    G --> H[📦 Parquet]
+
+    H --> I[📊 Power BI Reporte]
+
+    E --> J[🧪 dbt Tests]
+```
+
+---
+
+## 🛠️ Desarrollo Técnico & Módulos
+
+A continuación se detalla la arquitectura técnica que da soporte al análisis de negocio. Cada módulo cuenta con su propio directorio y documentación dedicada.
+
+### 🧪 1. Generación del Dataset Sintético
+El dataset no proviene de una fuente externa: fue diseñado desde cero con una narrativa económica deliberada (inflación diferenciada por categoría según exposición a importación, deterioro logístico progresivo, backlog de pedidos sin resolver al cierre del período y comportamiento de cliente heterogéneo). 
 * 📁 **Directorio:** [`/data_generation`](./data_generation)
 * 📄 **Documentación:** [Ver README del generador](./data_generation/README.md)
-</details>
 
-<details>
-<summary><b>⚙️ 2. Pipeline ELT con dbt Core + DuckDB</b></summary><br>
+---
 
-Aquí se encuentra toda la lógica de transformación de datos. Pasamos de archivos CSV crudos a un modelo dimensional (Star Schema) listo para el consumo analítico, aplicando tests de calidad y buenas prácticas de modelado.
+### ⚙️ 2. Pipeline ELT con dbt Core + DuckDB
+Construcción del Data Warehouse analítico. Se transforma la información desde fuentes CSV crudas hacia un modelo dimensional (**Star Schema**) optimizado para BI, aplicando pruebas de calidad de datos y buenas prácticas de ingeniería.
 * 📁 **Directorio:** [`/dbt_core_pipeline`](./dbt_core_pipeline)
 * 📄 **Documentación:** [Ver README técnico de dbt](./dbt_core_pipeline/README.md)
-</details>
 
-<details>
-<summary><b>🔍 3. Investigación Analítica SQL</b></summary><br>
+---
 
-En este módulo se documentan las consultas de investigación realizadas sobre el Data Warehouse (DuckDB) utilizando DBeaver: evolución interanual del negocio y desglose de la estructura de costos y rentabilidad, entre otras, que sirvieron como base exploratoria antes de la visualización.
+### 🔍 3. Investigación Analítica SQL
+Catálogo de consultas exploratorias y complejas ejecutadas con DBeaver sobre DuckDB. Permitió auditar la evolución interanual, desglosar la estructura de P&L, analizar el comportamiento por cohortes y validar la causa raíz de la caída de margen antes del diseño de dashboards.
 * 📁 **Directorio:** [`/sql_business_analysis`](./sql_business_analysis)
 * 📄 **Documentación:** [Ver Catálogo de Consultas SQL](./sql_business_analysis/README.md)
-</details>
 
-<details>
-<summary><b>🐍 4. Script de Automatización y Exportación en Python</b></summary><br>
+---
 
-Aquí se encuentran todos los scripts.
+### 🐍 4. Script de Exportación en Python
+Script automatizado que extrae los datos modelados en los Marts de DuckDB y los convierte a archivos optimizados en formato Parquet para una ingesta eficiente desde Power BI.
 * 📁 **Directorio:** [`/scripts`](./scripts)
 * 📄 **Documentación:** [Ver README de scripts](./scripts/README.md)
-</details>
+
+---
+
+### 📊 5. Modelo de Datos & Reporte en Power BI
+Diseño de la capa de visualización analítica sobre los archivos Parquet. Incluye la arquitectura del modelo de datos en estrella (Star Schema), implementación de medidas DAX avanzadas (Time Intelligence, KPIs dinámicos, análisis YoY), optimización del rendimiento y diseño de UX/UI enfocado en decisiones ejecutivas.
+* 📁 **Directorio:** [`/power_bi_analytics`](./power_bi_analytics)
+* 📄 **Documentación:** [Ver README técnico de Power BI](./power_bi_analytics/README.md)
+
+---
+
+## 📂 Estructura del Repositorio & Guía de Replicación Local
 
 <details>
-<summary><b>🛠️ 5. Estructura del Repositorio & Guía de Replicación Local</b></summary><br>
-
-Instrucciones paso a paso para clonar este repositorio, instalar las dependencias (Python, dbt, DuckDB) y ejecutar el pipeline completo en tu propia máquina.
+<summary><b>🛠️ Ver Árbol de Carpetas y Pasos de Instalación (Clic para expandir)</b></summary><br>
 
 ### Estructura del Repositorio
 
@@ -132,7 +140,7 @@ dbt_elt_analytics/
 ├── README.md                     # Documentación principal del proyecto
 ├── requirements.txt              # Dependencias de Python (dbt-duckdb, pandas, pyarrow)
 │
-├── data_generation/               # Generador del dataset sintético
+├── data_generation/              # Generador del dataset sintético
 │   ├── generate_dataset.py       # Script generador (reglas de negocio, crisis 2026)
 │   └── README.md                 # Documentación de los supuestos de diseño
 │
@@ -144,7 +152,7 @@ dbt_elt_analytics/
 │   ├── tests/                    # Pruebas de calidad y reglas de negocio
 │   └── README.md                 # Documentación técnica del módulo dbt
 │
-├── sql_business_analysis/         # Investigaciones SQL
+├── sql_business_analysis/        # Investigaciones SQL
 │   ├── README.md                 # Catálogo de consultas y preguntas de negocio
 │   └── *.sql                     # Scripts de análisis (evolución, rentabilidad, envíos)
 │
@@ -156,10 +164,10 @@ dbt_elt_analytics/
 │   ├── README.md                 # Documentación de utilidad
 │   └── export_marts_to_parquet.py # Exportador de DuckDB a formato Parquet
 │
-├── database/                      # Generado localmente (ignorado por Git)
+├── database/                     # Generado localmente (ignorado por Git)
 │   └── warehouse.duckdb          # Base de datos analítica DuckDB
 │
-└── data_marts_parquet/            # Generado por script (ignorado por Git)
+└── data_marts_parquet/           # Generado por script (ignorado por Git)
     └── *.parquet                 # Tablas dimensionales optimizadas para BI
 ```
 
