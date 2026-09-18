@@ -13,7 +13,7 @@ Identificar las causas raíz de la caída de facturación y, sobre todo, de la r
 ---
 
 ### 🗺️ Índice
-- [Flujo de Datos](#flujo-de-datos-arquitectura-pipeline)
+- [Flujo de Datos (Arquitectura Pipeline)](#-flujo-de-datos-arquitectura-pipeline)
 - [Problema de Negocio](#-problema-de-negocio)
 - [Hallazgos del Análisis en Power BI](#-hallazgos-del-análisis-en-power-bi)
 - [Recomendaciones Estratégicas](#-recomendaciones-estratégicas-basadas-en-evidencia)
@@ -27,7 +27,7 @@ Identificar las causas raíz de la caída de facturación y, sobre todo, de la r
 
 ---
 
-## 🔄 Flujo de Datos (Arquitectura Pipeline):
+## 🔄 Flujo de Datos (Arquitectura Pipeline)
 
 ```mermaid
 flowchart LR
