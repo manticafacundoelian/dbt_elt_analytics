@@ -18,7 +18,6 @@ Identificar las causas raíz de la caída de facturación y, sobre todo, de la r
 - [🎯 Recomendaciones Estratégicas](#-recomendaciones-estratégicas-basadas-en-evidencia)
 - [🔄 Flujo de Datos (Arquitectura Pipeline)](#-flujo-de-datos-arquitectura-pipeline)
 - [🛠️ Desarrollo Técnico & Módulos](#%EF%B8%8F-desarrollo-técnico--módulos)
-  - [🧪 Generación del Dataset Sintético](#-1-generación-del-dataset-sintético)
   - [⚙️ Pipeline ELT con dbt Core + DuckDB](#%EF%B8%8F-2-pipeline-elt-con-dbt-core--duckDB)
   - [🔍 Investigación Analítica SQL](#-3-investigación-analítica-sql)
   - [🐍 Script de Exportación en Python](#-4-script-de-exportación-en-python)
@@ -41,6 +40,7 @@ Las **Ventas Netas cayeron un -38.85%** como consecuencia de un desplome directo
 El objetivo de este proyecto es identificar las causas raíz detrás de la caída de ingresos y la compresión de márgenes, evaluando el impacto del mix de productos, los descuentos y la estructura de costos para proponer recomendaciones estratégicas basadas en evidencia.
 
 ---
+---
 
 ## 📊 Hallazgos del Análisis en Power BI 
 
@@ -55,11 +55,13 @@ El objetivo de este proyecto es identificar las causas raíz detrás de la caíd
 <!-- Y asi repito con las otras hojas de BI -->
 
 ---
+---
 
 ## 🎯 Recomendaciones Estratégicas Basadas en Evidencia
 
 <!-- Aqui van las recomendaciones estrategicas -->
 
+---
 ---
 
 ## 🔄 Flujo de Datos (Arquitectura Pipeline)
@@ -87,16 +89,13 @@ flowchart LR
 ```
 
 ---
+---
 
 ## 🛠️ Desarrollo Técnico & Módulos
 
 A continuación se detalla la arquitectura técnica que da soporte al análisis de negocio. Cada módulo cuenta con su propio directorio y documentación dedicada.
 
-### 🧪 1. Generación del Dataset Sintético
-El dataset no proviene de una fuente externa: fue diseñado desde cero con una narrativa económica deliberada (inflación diferenciada por categoría según exposición a importación, deterioro logístico progresivo, backlog de pedidos sin resolver al cierre del período y comportamiento de cliente heterogéneo). 
-* 📁 **Directorio:** [`/data_generation`](./data_generation)
-* 📄 **Documentación:** [Ver README del generador](./data_generation/README.md)
-
+---
 ---
 
 ### ⚙️ 2. Pipeline ELT con dbt Core + DuckDB
@@ -105,12 +104,14 @@ Construcción del Data Warehouse analítico. Se transforma la información desde
 * 📄 **Documentación:** [Ver README técnico de dbt](./dbt_core_pipeline/README.md)
 
 ---
+---
 
 ### 🔍 3. Investigación Analítica SQL
 Catálogo de consultas exploratorias y complejas ejecutadas con DBeaver sobre DuckDB. Permitió auditar la evolución interanual, desglosar la estructura de P&L, analizar el comportamiento por cohortes y validar la causa raíz de la caída de margen antes del diseño de dashboards.
 * 📁 **Directorio:** [`/sql_business_analysis`](./sql_business_analysis)
 * 📄 **Documentación:** [Ver Catálogo de Consultas SQL](./sql_business_analysis/README.md)
 
+---
 ---
 
 ### 🐍 4. Script de Exportación en Python
@@ -119,12 +120,14 @@ Script automatizado que extrae los datos modelados en los Marts de DuckDB y los 
 * 📄 **Documentación:** [Ver README de scripts](./scripts/README.md)
 
 ---
+---
 
 ### 📊 5. Modelo de Datos & Reporte en Power BI
 Diseño de la capa de visualización analítica sobre los archivos Parquet. Incluye la arquitectura del modelo de datos en estrella (Star Schema), implementación de medidas DAX avanzadas (Time Intelligence, KPIs dinámicos, análisis YoY), optimización del rendimiento y diseño de UX/UI enfocado en decisiones ejecutivas.
 * 📁 **Directorio:** [`/power_bi_analytics`](./power_bi_analytics)
 * 📄 **Documentación:** [Ver README técnico de Power BI](./power_bi_analytics/README.md)
 
+---
 ---
 
 ## 📂 Estructura del Repositorio & Guía de Replicación Local
@@ -223,6 +226,7 @@ Los archivos `.parquet` se guardarán en `data_marts_parquet/` para ser consumid
 
 </details>
 
+---
 ---
 
 ## 👤 Autor
