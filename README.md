@@ -107,7 +107,31 @@ Construcción del Data Warehouse analítico. Se transforma la información desde
 ---
 
 ### 🔍 3. Investigación Analítica SQL
-Catálogo de consultas exploratorias y complejas ejecutadas con DBeaver sobre DuckDB. Permitió auditar la evolución interanual, desglosar la estructura de P&L, analizar el comportamiento por cohortes y validar la causa raíz de la caída de margen antes del diseño de dashboards.
+
+Catálogo de consultas progresivas ejecutadas con DBeaver sobre el Data Warehouse en DuckDB, que avanza desde un diagnóstico macro hacia explicaciones cada vez más específicas.
+
+La investigación se estructura en un diagnóstico común (**Q1**) y dos ramas especializadas: una **comercial**, que descompone el Ticket Promedio en sus componentes de volumen (UPT) y precio (ASP), y profundiza en los drivers del ASP mediante el análisis de descuentos y composición por categoría (**Q2–Q3**); y otra de **rentabilidad**, que descompone la variación del Gross Profit mediante un análisis **PVM (Price–Volume–Mix)** a nivel agregado y de producto (**Q4**).
+
+**Metodología destacada:**
+
+* Todas las consultas se ejecutan sobre pedidos `delivered`, asegurando un universo de datos consistente entre la rama comercial y la de rentabilidad.
+* El PVM reconcilia matemáticamente la totalidad de la variación del Gross Profit entre 2025 y 2026 (**−$185,4 M**) en cuatro componentes: volumen, mix, precio realizado y costo unitario, con un detalle adicional a nivel de producto.
+
+**Principales hallazgos:**
+
+* La caída del Ticket Promedio (**−41,37%**) tiene dos componentes de magnitud similar: menos unidades por pedido (**UPT −23,67%**) y menor precio promedio por unidad (**ASP −23,18%**), por lo que el deterioro no responde a un único factor.
+
+* El deterioro de rentabilidad **no comienza en 2026**: ya en 2025, con las ventas netas finales creciendo 26,09%, la ganancia bruta prácticamente no varió y el margen bruto cayó **5,12 pp**. En 2026, el deterioro se profundiza.
+
+* El PVM identifica al **volumen (−$71,1 M)** como el principal componente negativo de la variación del Gross Profit, seguido por el **costo unitario (−$64,6 M)** y el **mix (−$59,6 M)**. El **precio realizado aporta +$9,9 M**, compensando parcialmente los componentes negativos.
+
+* El detalle a nivel producto permite localizar dónde se concentran los principales componentes negativos. Entre las referencias con mayor contribución negativa aparecen **TCL Monitor TV 21, TCL Chromecast 25 y Acer Memoria RAM 2**, donde se combinan reducciones de unidades y deterioros del margen unitario. A su vez, algunos productos nuevos incorporados en 2026 presentan contribuciones positivas y compensan parcialmente el deterioro.
+
+* 📁 **Directorio:** [`/sql_business_analysis`](./sql_business_analysis)
+
+* 📄 **Documentación:** [Ver Catálogo de Consultas SQL](./sql_business_analysis/README.md)
+
+
 * 📁 **Directorio:** [`/sql_business_analysis`](./sql_business_analysis)
 * 📄 **Documentación:** [Ver Catálogo de Consultas SQL](./sql_business_analysis/README.md)
 
