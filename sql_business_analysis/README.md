@@ -37,23 +37,23 @@ Para mantener consistencia entre las distintas etapas se establecen los siguient
 
 ### Ventas y devoluciones
 
-* **Ventas brutas:** valor de los productos antes de descuentos.
-* **Ventas netas:** ventas después de descuentos y antes de devoluciones.
-* **Ventas netas finales:** ventas netas después de devoluciones aprobadas.
+* **Ventas Brutas:** valor de los productos antes de descuentos.
+* **Ventas Netas:** ventas después de descuentos y antes de devoluciones.
+* **Ventas Netas Finales:** ventas netas después de devoluciones aprobadas.
 * En los análisis de rentabilidad, las unidades, ingresos y costos asociados a devoluciones se ajustan para reflejar el resultado final de la operación.
 
 ### Rentabilidad
 
-* **Ganancia bruta** = Ventas netas finales − Costo de mercadería vendida (COGS).
-* **Ganancia neta** = Ganancia bruta − Costo logístico asignado.
+* **Ganancia Bruta** = Ventas netas finales − Costo de mercadería vendida (COGS).
+* **Ganancia Neta** = Ganancia bruta − Costo logístico asignado.
 * Los márgenes se calculan sobre las ventas netas finales.
 
 ### Métricas comerciales (Q2 y Q3)
 
 Para analizar el comportamiento del ticket se utilizan:
-* **Ticket comercial** = Ventas netas / Pedidos.
+* **Ticket Comercial** = Ventas Netas / Pedidos.
 * **UPT (Units Per Transaction)** = Unidades / Pedidos.
-* **ASP comercial** = Ventas netas / Unidades.
+* **ASP Comercial** = Ventas Netas / Unidades.
 
 Estas métricas se calculan antes de devoluciones para aislar el comportamiento puramente comercial de la intención de compra.
 
