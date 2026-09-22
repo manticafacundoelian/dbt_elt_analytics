@@ -24,9 +24,9 @@ Para mantener consistencia entre las distintas etapas se establecen los siguient
 
 ### Universo de análisis
 
-* Los análisis que requieren excluir operaciones canceladas utilizan `is_cancelled = 0`.
-* Para el análisis de **rentabilidad ejecutada**, se utiliza específicamente `order_status = 'delivered'`.
-* Esta distinción permite separar el análisis comercial del resultado económico asociado a operaciones efectivamente entregadas.
+* Toda la investigación —tanto el diagnóstico comercial (Q1–Q3) como el de rentabilidad (Q4)— utiliza `order_status = 'delivered'` como filtro único y consistente en todas las consultas.
+* Se eligió este criterio para garantizar comparabilidad entre etapas: todos los indicadores se calculan sobre el mismo universo de pedidos efectivamente entregados, aunque cada rama aplica métricas y tratamientos económicos diferentes según su objetivo.
+* ⚠️ **Nota sobre 2026:** a diferencia de 2024 y 2025 (años cerrados, donde prácticamente la totalidad de los pedidos no cancelados ya alcanzó el estado `delivered`), 2026 es un año en curso y aún tiene pedidos en estados `processing` y `shipped` al momento del corte de datos. Estos pedidos no están incluidos en ninguna métrica de este informe. Por lo tanto, las variaciones interanuales reportadas para 2026 reflejan únicamente la porción de la actividad que ya completó su ciclo, y podrían ajustarse a medida que esos pedidos pendientes se entreguen.
 
 ### Ventas y devoluciones
 
