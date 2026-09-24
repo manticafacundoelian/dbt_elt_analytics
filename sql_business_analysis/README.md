@@ -1,3 +1,340 @@
+# 🔎 Investigación de Negocio SQL
+
+Esta investigación forma parte de un proyecto analítico End-to-End de retail de tecnología y aborda el **diagnóstico del desempeño comercial y la rentabilidad entre 2024 y 2026**, utilizando SQL como herramienta principal de investigación.
+
+🔗 **Proyecto completo:** https://github.com/manticafacundoelian/dbt_elt_analytics
+
+---
+
+## 📌 Introducción
+
+Esta investigación analiza la evolución comercial y económica de un retail de tecnología entre **2024 y 2026**, con el objetivo de identificar los principales factores asociados al deterioro observado en ventas, ticket y rentabilidad.
+
+El análisis parte de un diagnóstico macro y se divide posteriormente en dos ramas:
+
+* **Rama comercial:** descompone la caída del ticket en sus dos variables fundamentales (**UPT** y **ASP**) y profundiza en los factores que explican el comportamiento del valor unitario (**precio bruto, promociones y cambios de mix por categoría**).
+* **Rama de rentabilidad:** analiza cómo estos cambios impactan en la masa de margen, desglosando la estructura de costos P&L y reconciliando la variación de la ganancia bruta mediante un modelo PVM (Price–Volume–Mix), con apertura del componente Mix a nivel de producto.
+
+---
+
+## 🗺️ Hoja de Ruta Ejecutiva & Resumen de Diagnóstico
+
+```mermaid
+flowchart TD
+    A["🔎 INVESTIGACIÓN DE DESEMPEÑO<br/>COMERCIAL Y RENTABILIDAD"]
+
+    A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 66,20%"]
+
+    B --> C["📈 RAMA COMERCIAL"]
+    B --> D["💰 RAMA DE RENTABILIDAD"]
+
+    C --> C1["Q2 — DESCOMPOSICIÓN DEL TICKET<br/><br/>¿Por qué cae?<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP:</b> ↓ 23,18%<br/><b>Ticket:</b> ↓ 41,37%"]
+
+    C1 --> C2["<b>Q3 — DRIVERS DEL ASP</b><br/><br/><b>Precio bruto:</b> ↓ 20,65%<br/><b>Promociones:</b> +3,10 pp<br/><b>Mix de categoría:</b> Audio +7,92 pp<br/><b>Mix de producto:</b> Computación ↓ 32,7%"]
+
+    D --> D1["Q4 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Por qué la Ganancia cae más que las Ventas?<br/><b>COGS / Ventas Finales:</b> +6,19 pp<br/><b>Logística / Ventas Finales:</b> +1,69 pp<br/><b>Margen Neto:</b> 18,53% → 10,66%"]
+
+    D1 --> D2["<b>Q5 — PVM</b><br/><br/><b>Δ Ganancia Bruta:</b> -$185,4 M<br/><b>Volumen:</b> -$71,1 M<br/><b>Costo:</b> -$64,6 M<br/><b>Mix:</b> -$59,6 M<br/><b>Precio:</b> +$9,9 M"]
+
+    C2 --> E["🎯 CONCLUSIONES GENERALES & CASCADA P&L"]
+    D2 --> E
+
+    subgraph DEEP_DIVES ["🔍 PROFUNDIZACIÓN OPERATIVA (DEEP DIVES)"]
+        DDA["<b>Deep Dive A — Comportamiento Omnicanal</b><br/>Online +18,1% vs. Físico -28,8%"]
+
+        DDB["<b>Deep Dive B — Devoluciones por Categoría</b><br/>Audio: 8,24% en 2026 (+4,70 pp)"]
+
+        DDC["<b>Deep Dive C — Ineficiencia Logística por Canal</b><br/>Online: 1,27% → 3,14% sobre Ventas Netas Finales"]
+    end
+
+    C2 -.-> DDA
+    B -.-> DDB
+    D1 -.-> DDC
+```
+
+---
+
+## 🔎 Investigación y Desarrollo 
+
+La investigación busca responder **cinco preguntas principales de diagnóstico**, complementadas por **tres análisis operativos de profundización (*Deep Dives*)**:
+
+### Preguntas Core del Diagnóstico 
+
+### ┌─ Q1 — Diagnóstico Macro: ¿Qué cambió en el desempeño general del negocio?
+
+<details>
+<summary><strong>Ver desarrollo de Q1</strong></summary>  
+<br>    
+
+[Ver Consulta SQL →](./sql_business_analysis/q1_diagnostico_macro_yoy.sql)
+<br> 
+
+#### 🔹 Resultados
+
+| Métrica                    |       2024 |       2025 |     YoY 2025 |       2026 |     YoY 2026 |
+| :------------------------- | ---------: | ---------: | -----------: | ---------: | -----------: |
+| **Pedidos**                |      1.365 |      1.581 |  **+15,82%** |      1.649 |   **+4,30%** |
+| **Ventas Brutas**          | $1.316,5 M | $1.684,4 M |  **+27,95%** | $1.064,0 M |  **−36,83%** |
+| **Ventas Netas**           | $1.290,5 M | $1.633,9 M |  **+26,62%** |   $999,1 M |  **−38,85%** |
+| Devoluciones ($)           |    $37,2 M |    $53,7 M |  **+44,45%** |    $70,3 M |  **+30,90%** |
+| **Tasa de Devolución (%)** |      2,88% |      3,28% | **+0,40 pp** |      7,03% | **+3,75 pp** |
+| **Ventas Netas Finales**   | $1.253,3 M | $1.580,3 M |  **+26,09%** |   $928,9 M |  **−41,22%** |
+| **Ganancia Neta**          |   $297,6 M |   $292,8 M |   **−1,59%** |    $99,0 M |  **−66,20%** |
+| **Margen Neto (%)**        |     23,74% |     18,53% | **−5,21 pp** |     10,66% | **−7,87 pp** |
+| **Ticket Comercial**       |   $945.397 | $1.033.477 |   **+9,32%** |   $605.891 |  **−41,37%** |
+
+> *Nota: El Ticket Comercial se calcula sobre Ventas Netas, antes de devoluciones, para analizar el comportamiento comercial de las órdenes independientemente de las devoluciones posteriores.*
+
+#### 🔹 Hallazgos
+
+**1. La caída de ventas se explica por una fuerte reducción del ticket**
+
+En 2026 se registraron **1.649 pedidos, un 4,30% más que en 2025**, mientras que las Ventas Netas disminuyeron **38,85%**.
+
+Dado que las ventas resultan de la cantidad de pedidos y el valor promedio de cada pedido, la diferencia se explica por la fuerte caída del **Ticket Comercial, que disminuyó 41,37%**, pasando de $1.033.477 a $605.891.
+
+**2. El deterioro de la rentabilidad ya estaba presente en 2025**
+
+En 2025, las Ventas Netas crecieron **26,62%**, mientras que la Ganancia Neta disminuyó **1,59%**.
+
+Durante el mismo período, el Margen Neto pasó de **23,74% a 18,53%**, una reducción de **5,21 pp**.
+
+**3. Las devoluciones tienen una mayor incidencia en 2026**
+
+La Tasa de Devolución pasó de **3,28% en 2025 a 7,03% en 2026**, un aumento de **3,75 pp**.
+
+Como resultado, las Ventas Netas Finales disminuyeron **41,22%**, frente a una caída de **38,85%** en las Ventas Netas antes de devoluciones.
+
+**4. La ganancia cae más que las ventas**
+
+En 2026, las Ventas Netas disminuyeron **38,85%**, mientras que la Ganancia Neta cayó **66,20%**.
+
+El Margen Neto pasó de **18,53% a 10,66%**, una reducción adicional de **7,87 pp**.
+
+La diferencia entre la evolución de ventas y rentabilidad requiere analizar la estructura de costos y márgenes, que será abordada en la **Rama de Rentabilidad**.
+
+#### 🔹 Puente analítico → Q2
+
+El diagnóstico muestra que en 2026 la cantidad de pedidos se mantiene relativamente estable, mientras que el valor promedio de cada pedido disminuye significativamente.
+
+**Q2 descompone el Ticket Comercial en sus dos componentes: UPT y ASP**, para determinar cuánto de esta caída se relaciona con una menor cantidad de unidades por pedido y cuánto con el valor promedio de cada unidad.
+
+</details>
+
+### ├─ Q2 — Descomposición del Ticket: ¿Por qué cayó el ticket comercial? (UPT vs. ASP)
+
+<details>
+<summary><strong>Ver desarrollo de Q2</strong></summary>  
+<br>    
+
+[Ver Consulta SQL →](./sql_business_analysis/q2_descomposicion_ticket.sql) <br>
+
+#### 🔹 Resultados
+
+| Métrica                       |       2024 |       2025 |    YoY 2025 |     2026 |    YoY 2026 |
+| :---------------------------- | ---------: | ---------: | ----------: | -------: | ----------: |
+| **Pedidos**                   |      1.365 |      1.581 | **+15,82%** |    1.649 |  **+4,30%** |
+| **Unidades Totales**          |      3.946 |      4.746 | **+20,27%** |    3.778 | **−20,41%** |
+| **Ventas Netas Comerciales**  | $1.290,5 M | $1.633,9 M | **+26,62%** | $999,1 M | **−38,85%** |
+| **Unidades por Pedido (UPT)** |       2,89 |       3,00 |  **+3,81%** |     2,29 | **−23,67%** |
+| **ASP Comercial**             |   $327.032 |   $344.275 |  **+5,27%** | $264.456 | **−23,18%** |
+| **Ticket Comercial**          |   $945.397 | $1.033.477 |  **+9,32%** | $605.891 | **−41,37%** |
+
+> *Nota: **Ticket Comercial = UPT × ASP**, donde UPT representa las unidades promedio por pedido y ASP el valor promedio por unidad.*
+
+#### 🔹 Hallazgos
+
+**1. El ticket cae por dos vías simultáneas**
+
+Entre 2025 y 2026, el Ticket Comercial disminuyó **41,37%**. La descomposición muestra una caída prácticamente equivalente en sus dos componentes: **UPT −23,67%** y **ASP −23,18%**.
+
+Esto indica que en 2026 los clientes compraron **menos unidades por pedido y, además, a un menor valor promedio por unidad**.
+
+**2. El ASP requiere una investigación específica**
+
+La caída del ASP abre una nueva pregunta: **¿qué cambió en el valor de las unidades vendidas?**
+
+Q3 profundiza en **precio bruto, descuentos/promociones y mix de categorías y productos** para explicar este deterioro.
+
+#### 🔹 Puente analítico → Q3
+
+**Q2 identifica los dos componentes del deterioro del ticket; Q3 profundiza en los drivers del ASP.**
+
+</details>
+
+
+
+#### ├─ Q3 — Drivers del ASP y Categorías: ¿Qué explica la caída del ASP? (Precio bruto, Descuentos y Mix)
+
+#### ├─ Q4 — Estructura de Rentabilidad y Ratios P&L: ¿Por qué la rentabilidad se deterioró mucho más que las ventas?
+
+#### └─ Q5 — PVM: ¿Qué componentes explican la caída de la Ganancia Bruta a nivel consolidado, categoría y SKU?
+
+### Profundización Operativa (Deep Dives)
+
+#### ├─ Deep Dive A — Comportamiento Omnicanal: Online vs. Físico.
+#### ├─ Deep Dive B — Devoluciones por Categoría.
+#### ├─ Deep Dive C — Ineficiencia Logística por Canal.
+
+---
+
+## 🧭 Metodología y criterios de análisis
+
+Para mantener consistencia entre las distintas etapas se establecen los siguientes criterios:
+
+### Universo de análisis
+
+* Toda la investigación utiliza `order_status = 'delivered'` como filtro único y consistente en todas las consultas.
+* Se eligió este criterio para garantizar comparabilidad entre etapas: todos los indicadores se calculan sobre el mismo universo de pedidos efectivamente entregados.
+* ⚠️ **Nota sobre 2026:** a diferencia de 2024 y 2025 (años cerrados), 2026 es un año en curso y aún tiene pedidos en estados `processing` y `shipped` al momento del corte de datos. Estos pedidos no están incluidos en ninguna métrica. Por lo tanto, las variaciones interanuales reportadas para 2026 reflejan únicamente la porción de la actividad completada.
+
+### Ventas y devoluciones
+
+* **Ventas Brutas:** valor de los productos antes de descuentos.
+* **Ventas Netas:** ventas después de descuentos y antes de devoluciones.
+* **Ventas Netas Finales:** ventas netas después de devoluciones aprobadas.
+* En los análisis de rentabilidad, las unidades, ingresos y costos asociados a devoluciones se ajustan para reflejar el resultado final de la operación.
+
+### Rentabilidad
+
+* **Ganancia Bruta** = Ventas netas finales − Costo de mercadería vendida (COGS).
+* **Ganancia Neta** = Ganancia bruta − Costo logístico asignado.
+* Los márgenes se calculan sobre las ventas netas finales.
+
+### Métricas comerciales (Q2 y Q3)
+
+Para analizar el comportamiento del ticket se utilizan:
+
+* **Ticket Comercial** = Ventas Netas / Pedidos.
+* **UPT (Units Per Transaction)** = Unidades / Pedidos.
+* **ASP Comercial** = Ventas Netas / Unidades.
+
+Estas métricas se calculan antes de devoluciones para aislar el comportamiento puramente comercial de la intención de compra.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Desarrollo SQL
+
+### Q1 — Diagnóstico Macro YoY
+
+<details>
+<summary><strong>Ver desarrollo de Q1</strong></summary>
+
+### 🎯 Objetivo
+
+Establecer una línea base del desempeño comercial y financiero entre 2024 y 2026, observando la evolución interanual de los pedidos, las ventas, las devoluciones y la rentabilidad.
+
+### 🔎 Consulta SQL
+
+[Ver consulta →](./sql/q1_diagnostico_macro_yoy.sql)
+
+### 📊 Resultados observados
+
+| Métrica                    |       2024 |       2025 |     YoY 2025 |       2026 |     YoY 2026 |
+| :------------------------- | ---------: | ---------: | -----------: | ---------: | -----------: |
+| **Pedidos**                |      1.365 |      1.581 |  **+15,82%** |      1.649 |   **+4,30%** |
+| **Ventas Brutas**          | $1.316,5 M | $1.684,4 M |  **+27,95%** | $1.064,0 M |  **−36,83%** |
+| **Ventas Netas**           | $1.290,5 M | $1.633,9 M |  **+26,62%** |   $999,1 M |  **−38,85%** |
+| Devoluciones ($)           |    $37,2 M |    $53,7 M |  **+44,45%** |    $70,3 M |  **+30,90%** |
+| **Tasa de Devolución (%)** |      2,88% |      3,28% | **+0,40 pp** |      7,03% | **+3,75 pp** |
+| **Ventas Netas Finales**   | $1.253,3 M | $1.580,3 M |  **+26,09%** |   $928,9 M |  **−41,22%** |
+| **Ganancia Neta**          |   $297,6 M |   $292,8 M |   **−1,59%** |    $99,0 M |  **−66,20%** |
+| **Margen Neto (%)**        |     23,74% |     18,53% | **−5,21 pp** |     10,66% | **−7,87 pp** |
+| **Ticket Comercial**       |   $945.397 | $1.033.477 |   **+9,32%** |   $605.891 |  **−41,37%** |
+
+> *Nota: El Ticket Comercial se calcula sobre Ventas Netas, antes de devoluciones, para analizar el comportamiento comercial de las órdenes independientemente de las devoluciones posteriores.*
+
+### 💡 Hallazgos clave
+
+#### 1. La caída de ventas se explica por una fuerte reducción del ticket
+
+En 2026 se registraron **1.649 pedidos, un 4,30% más que en 2025**, mientras que las Ventas Netas disminuyeron **38,85%**.
+
+Dado que las ventas resultan de la cantidad de pedidos y el valor promedio de cada pedido, la diferencia se explica por la fuerte caída del **Ticket Comercial, que disminuyó 41,37%**, pasando de $1.033.477 a $605.891.
+
+#### 2. El deterioro de la rentabilidad ya estaba presente en 2025
+
+En 2025, las Ventas Netas crecieron **26,62%**, mientras que la Ganancia Neta disminuyó **1,59%**.
+
+Durante el mismo período, el Margen Neto pasó de **23,74% a 18,53%**, una reducción de **5,21 pp**.
+
+#### 3. Las devoluciones tienen una mayor incidencia en 2026
+
+La Tasa de Devolución pasó de **3,28% en 2025 a 7,03% en 2026**, un aumento de **3,75 pp**.
+
+Como resultado, las Ventas Netas Finales disminuyeron **41,22%**, frente a una caída de **38,85%** en las Ventas Netas antes de devoluciones.
+
+#### 4. La ganancia cae más que las ventas
+
+En 2026, las Ventas Netas disminuyeron **38,85%**, mientras que la Ganancia Neta cayó **66,20%**.
+
+El Margen Neto pasó de **18,53% a 10,66%**, una reducción adicional de **7,87 pp**.
+
+La diferencia entre la evolución de ventas y rentabilidad requiere analizar la estructura de costos y márgenes, que será abordada en la **Rama de Rentabilidad**.
+
+#### 🧭 Puente analítico → Q2
+
+El diagnóstico muestra que en 2026 la cantidad de pedidos se mantiene relativamente estable, mientras que el valor promedio de cada pedido disminuye significativamente.
+
+**Q2 descompone el Ticket Comercial en sus dos componentes: UPT y ASP**, para determinar cuánto de esta caída se relaciona con una menor cantidad de unidades por pedido y cuánto con el valor promedio de cada unidad.
+
+</details>
+
+
+
+## 🗺️ Executive Roadmap & Resumen de Diagnóstico
+
+```mermaid
+flowchart TD
+    A["🔎 INVESTIGACIÓN DE DESEMPEÑO<br/>COMERCIAL Y RENTABILIDAD"]
+
+    A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 66,20%"]
+
+    B --> C["📈 RAMA COMERCIAL"]
+    B --> D["💰 RAMA DE RENTABILIDAD"]
+
+    C --> C1["Q2 — DESCOMPOSICIÓN TICKET<br/><br/>¿Por qué cae?<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP:</b> ↓ 23,18%<br/><b>Ticket:</b> ↓ 41,37%"]
+
+    C1 --> C2["<b>Q3 — DRIVERS DE ASP Y CATEGORÍAS</b><br/><br/>¿Qué lo explica?<br/>• <b>Precio Bruto:</b> ASP Bruto cae -20,65%<br/>• <b>Efecto Promocional:</b> Descuentos se duplican (+3,10 pp)<br/>• <b>Mix Inter-Categoría:</b> Participación de Audio aumenta +7,92 pp<br/>• <b>Mix Intra-Categoría:</b> ASP de Computación cae -32,7%"]
+
+    D --> D1["Q4 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Por qué la Ganancia cae más que las Ventas?<br/><b>COGS / Ventas Finales:</b> +6,19 pp<br/><b>Logística / Ventas Finales:</b> +1,69 pp<br/><b>Margen Neto:</b> Cae de 18,53% a 10,66%"]
+
+    D1 --> D2["<b>Q5 — PVM</b><br/>(Reconciliación de -$185,4 M en Gross Profit)<br/><br/>• <b>Efecto Volumen Total:</b> -$71,1 M<br/>• <b>Efecto Costo / COGS:</b> -$64,6 M<br/>• <b>Efecto Mix Neto:</b> -$59,6 M<br/>  <i>(Portafolio Base: -$74,8 M | Nuevos productos: +$15,2 M)</i><br/>• <b>Efecto Precio:</b> +$9,9 M"]
+
+    C2 --> E["🎯 CONCLUSIONES GENERALES & CASCADA P&L"]
+    D2 --> E
+
+    %% DEEP DIVES DE SOPORTE %%
+    subgraph DEEP_DIVES ["🔍 PROFUNDIZACIÓN OPERATIVA (DEEP DIVES)"]
+        DDA["<b>Deep Dive A — Comportamiento Omnicanal</b><br/>Pedidos Online suben +18,1% mientras Físico cae -28,8%<br/><i>(Descuentos simétricos en ambos canales ~6%)</i>"]
+        DDB["<b>Deep Dive B — Devoluciones por Categoría</b><br/>Audio lidera la Tasa de Devolución 2026 con 8,24% (+4,70 pp)<br/><i>(Seguido por Telefonía 7,84% y TV y Video 6,72%)</i>"]
+        DDC["<b>Deep Dive C — Ineficiencia Logística por Canal</b><br/>Logística Online sube de 1,27% a 3,14% sobre Ventas Netas Finales<br/><i>(Sobrecosto nominal de +$8,57 M por fletes)</i>"]
+    end
+
+    C2 -.-> DDA
+    B -.-> DDB
+    D1 -.-> DDC
+```
+
+
+
+
+
 # 🔎 Investigación de desempeño comercial y rentabilidad
 
 ## 📌 Introducción
@@ -7,7 +344,7 @@ Esta investigación analiza la evolución comercial y económica de un ecommerce
 El análisis parte de un diagnóstico macro y se divide posteriormente en dos ramas:
 
 * **Rama comercial:** descompone la caída del ticket en sus dos variables fundamentales (**UPT** y **ASP**) y profundiza en los factores que erosionan el valor unitario (**precios de lista, promociones y cambios de mix por categoría**).
-* **Rama de rentabilidad:** analiza cómo estos cambios impactan en la masa de margen, desglosando la estructura de costos P&L y la descomposición exacta de la ganancia bruta mediante un modelo PVM de 6 factores.
+* **Rama de rentabilidad:** analiza cómo estos cambios impactan en la masa de margen, desglosando la estructura de costos P&L y reconciliando la variación de la ganancia bruta mediante un modelo PVM (Price–Volume–Mix), con apertura del componente Mix a nivel de producto.
 
 La investigación busca responder **cinco preguntas principales de diagnóstico**, complementadas por **tres análisis operativos de profundización (*Deep Dives*)**:
 
@@ -806,7 +1143,98 @@ El detalle por producto permite identificar qué referencias concentran estos im
 A partir de estos resultados se consolidan las conclusiones generales de la investigación.
 
 
+---
 
+## 🔎 Investigación y Desarrollo
+
+La investigación busca responder **cinco preguntas principales de diagnóstico**, complementadas por **tres análisis operativos de profundización (*Deep Dives*)**.
+
+### Preguntas Core del Diagnóstico
+
+#### Q1 — Diagnóstico Macro: ¿Qué cambió en el desempeño general del negocio?
+
+<details>
+<summary><strong>Ver desarrollo de Q1</strong></summary>
+
+##### 🎯 Objetivo
+
+Establecer una línea base del desempeño comercial y financiero entre 2024 y 2026, observando la evolución interanual de los pedidos, las ventas, las devoluciones y la rentabilidad.
+
+##### 🔎 Consulta SQL
+
+[Ver consulta →](./sql/q1_diagnostico_macro_yoy.sql)
+
+##### 📊 Resultados observados
+
+[tabla]
+
+##### 💡 Hallazgos clave
+
+###### 1. La caída de ventas se explica por una fuerte reducción del ticket
+
+...
+
+###### 2. El deterioro de la rentabilidad ya estaba presente en 2025
+
+...
+
+###### 3. Las devoluciones tienen una mayor incidencia en 2026
+
+...
+
+###### 4. La ganancia cae más que las ventas
+
+...
+
+##### 🧭 Puente analítico → Q2
+
+...
+
+</details>
+
+#### Q2 — Descomposición del Ticket: ¿Por qué cayó el ticket comercial? (UPT vs. ASP?)
+
+<details>
+...
+</details>
+
+#### Q3 — Drivers del ASP y Categorías: ¿Qué explica la caída del ASP? (Precio bruto, Descuentos y Mix)
+
+<details>
+...
+</details>
+
+#### Q4 — Estructura de Rentabilidad y Ratios P&L: ¿Por qué la rentabilidad se deterioró mucho más que las ventas entre 2025 y 2026?
+
+<details>
+...
+</details>
+
+#### Q5 — PVM: ¿Qué componentes explican matemáticamente la caída de la Ganancia Bruta a nivel consolidado, categoría y SKU?
+
+<details>
+...
+</details>
+
+### Profundización Operativa (Deep Dives)
+
+#### Deep Dive A — Comportamiento Omnicanal
+
+<details>
+...
+</details>
+
+#### Deep Dive B — Devoluciones por Categoría
+
+<details>
+...
+</details>
+
+#### Deep Dive C — Ineficiencia Logística por Canal
+
+<details>
+...
+</details>
 
 
 
