@@ -34,7 +34,7 @@ flowchart TD
 
     D --> D1["Q4 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Por qué la Ganancia cae más que las Ventas?<br/><b>COGS / Ventas Finales:</b> +6,19 pp<br/><b>Logística / Ventas Finales:</b> +1,69 pp<br/><b>Margen Neto:</b> 18,53% → 10,66%"]
 
-    D1 --> D2["<b>Q5 — PVM</b><br/><br/><b>Δ Ganancia Bruta:</b> -$185,4 M<br/><b>Volumen:</b> -$71,1 M<br/><b>Costo:</b> -$64,6 M<br/><b>Mix:</b> -$59,6 M<br/><b>Precio:</b> +$9,9 M"]
+    D1 --> D2["<b>Q5 — PVM</b><br/><br/><b>Δ Ganancia Bruta:</b> -$185,4 M<br/><b>Volumen:</b> -$71,1 M<br/><b>Mix:</b> -$74,8 M<br/><b>Precio:</b> +$9,9 M<br/><b>Costo:</b> -$64,6 M<br/><b>Lanzamientos:</b> +$15,2 M"]
 
     C2 --> E["🎯 CONCLUSIONES GENERALES & CASCADA P&L"]
     D2 --> E
@@ -43,7 +43,7 @@ flowchart TD
         DDA["<b>Deep Dive A — Comportamiento Omnicanal</b><br/>Online +18,1% vs. Físico -28,8%"]
 
         DDB["<b>Deep Dive B — Devoluciones por Categoría</b><br/>Audio: 8,24% en 2026 (+4,70 pp)"]
-
+ 
         DDC["<b>Deep Dive C — Ineficiencia Logística por Canal</b><br/>Online: 1,27% → 3,14% sobre Ventas Netas Finales"]
     end
 
@@ -162,13 +162,290 @@ Q3 profundiza en **precio bruto, descuentos/promociones y mix de categorías y p
 
 </details>
 
+### ├─ Q3 — Drivers del ASP y Categorías: ¿Qué explica la caída del ASP? (Precio bruto, Descuentos y Mix)
+
+<details>
+<summary><strong>Ver desarrollo de Q3</strong></summary>  
+<br>    
+
+**Q3.1 — ASP bruto y descuentos**
+
+[Ver Consulta SQL →](./sql_business_analysis/q3_1_asp_bruto_descuentos.sql) <br>
+
+#### 🔹 Resultados
+
+| Métrica                |     2025 |     2026 |    Variación |
+| :--------------------- | -------: | -------: | -----------: |
+| **ASP Bruto**          | $354.911 | $281.632 |  **−20,65%** |
+| **Tasa de Descuento**  |    3,00% |    6,10% | **+3,10 pp** |
+| **ASP Neto Comercial** | $344.275 | $264.456 |  **−23,18%** |
+
+#### 🔹 Hallazgos — Q3.1
+
+El deterioro del ASP no se explica únicamente por una mayor presión de descuentos. Entre 2025 y 2026, el **ASP Bruto cayó 20,65%**, mientras que la **Tasa de Descuento aumentó 3,10 pp**, llevando el ASP Neto Comercial a una caída del **23,18%**.
+
+La caída del **ASP Bruto** constituye, por lo tanto, un **driver central a investigar**, ya que el deterioro del valor unitario se produce antes de considerar el efecto adicional de los descuentos.
+<br>
+
+**Q3.2 — Mix y comportamiento por categoría**
+
+[Ver Consulta SQL →](./sql_business_analysis/q3_2_mix_categorias.sql) <br>
+
+#### 🔹 Resultados
+
+| Categoría       | Share U. 2025 | Share U. 2026 |   Cambio Mix |   ASP 2025 |   ASP 2026 |     ASP YoY | Δ Descuento |
+| :-------------- | ------------: | ------------: | -----------: | ---------: | ---------: | ----------: | ----------: |
+| **Hogar**       |        21,07% |        24,88% | **+3,81 pp** |   $109.885 |   $112.885 |  **+2,73%** |    +4,00 pp |
+| **Audio**       |        14,90% |        22,82% | **+7,92 pp** |   $221.366 |   $223.283 |  **+0,87%** |    +4,05 pp |
+| **Accesorios**  |        25,75% |        20,70% | **−5,05 pp** |    $79.856 |    $83.864 |  **+5,02%** |    +3,73 pp |
+| **Computación** |        16,16% |        18,26% | **+2,10 pp** |   $316.965 |   $213.195 | **−32,74%** |    +2,82 pp |
+| **TV y Video**  |        16,67% |        10,64% | **−6,03 pp** | $1.071.105 | $1.027.052 |  **−4,11%** |    +2,73 pp |
+| **Telefonía**   |         5,46% |         2,70% | **−2,76 pp** |   $693.426 |   $735.022 |  **+6,00%** |    +1,45 pp |
+
+#### 🔹 Hallazgos — Q3.2
+
+El deterioro del ASP combina dos fenómenos: **cambios en el mix entre categorías** y **cambios en el ASP dentro de cada categoría**.
+
+Entre 2025 y 2026, **Audio gana 7,92 pp de participación** y **TV y Video pierde 6,03 pp**, modificando la composición de las unidades vendidas. Al mismo tiempo, algunas categorías presentan un deterioro significativo de su propio valor unitario: **Computación reduce su ASP 32,74%**, mientras que TV y Video lo hace un 4,11%.
+
+Esto muestra que la caída del ASP consolidado no responde únicamente a *qué categorías se venden más*, sino también a **cómo evoluciona el valor unitario dentro de cada categoría**.
+
+#### 🔹 Síntesis de Q3
+
+La caída del ASP Comercial en 2026 surge de **tres dimensiones que deben analizarse conjuntamente**: el deterioro del **ASP Bruto**, el aumento de los **descuentos** y los cambios de **mix entre categorías**, junto con la evolución del ASP **dentro de cada categoría**.
+
+El principal punto de profundización queda planteado en el **deterioro del ASP Bruto**, mientras que el análisis de mix permite identificar dónde se concentra el cambio y qué categorías presentan además un deterioro propio de su valor unitario.
+
+#### 🔹 Puente analítico → Q4
+
+Q3 explica el deterioro del valor comercial por unidad. El siguiente paso es analizar **cómo este deterioro, junto con la evolución de los costos, termina impactando la rentabilidad del negocio**.
+
+**Q4 aborda la estructura de P&L, COGS, logística y márgenes para explicar por qué la ganancia cae más que las ventas.**
+
+</details>
+
+### ├─ Q4 — Estructura de Rentabilidad y Ratios P&L: ¿Por qué la rentabilidad se deterioró mucho más que las ventas?
+
+<details>
+<summary><strong>Ver desarrollo de Q4</strong></summary>  
+<br>
+
+[Ver Consulta SQL →](./sql_business_analysis/q4_rentabilidad_ratios_pnl.sql) <br>
+
+#### 🔹 Resultados
+
+| Métrica                      |       2024 |       2025 |     YoY 2025 |     2026 |     YoY 2026 |
+| :--------------------------- | ---------: | ---------: | -----------: | -------: | -----------: |
+| **Ventas Netas Finales**     | $1.253,3 M | $1.580,3 M |  **+26,09%** | $928,9 M |  **−41,22%** |
+| **Costo de Ventas**          |   $943,1 M | $1.270,0 M |  **+34,60%** | $804,0 M |  **−36,69%** |
+| **Costo de Ventas / Ventas** |     75,25% |     80,37% | **+5,12 pp** |   86,56% | **+6,19 pp** |
+| **Margen Bruto**             |     24,75% |     19,63% | **−5,12 pp** |   13,44% | **−6,19 pp** |
+| **Costo Logístico / Ventas** |      1,01% |      1,10% | **+0,09 pp** |    2,79% | **+1,69 pp** |
+| **Ganancia Neta**            |   $297,6 M |   $292,8 M |   **−1,59%** |  $99,0 M |  **−66,20%** |
+| **Margen Neto**              |     23,74% |     18,53% | **−5,21 pp** |   10,66% | **−7,87 pp** |
+
+#### 🔹 Hallazgos
+
+**1. El costo de ventas absorbe una proporción cada vez mayor de los ingresos**
+
+Entre 2025 y 2026, el **Costo de Ventas / Ventas** aumentó **6,19 pp**, pasando de 80,37% a 86,56%.
+
+Como consecuencia, el **Margen Bruto** se redujo en la misma magnitud, de 19,63% a 13,44%.
+
+**2. La presión logística también se intensifica**
+
+El **Costo Logístico / Ventas** pasó de 1,10% a 2,79%, un aumento de **1,69 pp**.
+
+Este incremento agrega presión adicional sobre la rentabilidad después del deterioro del margen bruto.
+
+**3. La rentabilidad cae más que las ventas**
+
+Mientras las **Ventas Netas Finales disminuyeron 41,22%**, la **Ganancia Neta cayó 66,20%**.
+
+El **Margen Neto** pasó de 18,53% a 10,66%, una reducción de **7,87 pp**.
+
+El deterioro observado requiere profundizar en los componentes que explican la evolución de la **Ganancia Bruta**, particularmente el efecto del volumen, mix, precio y costo.
+
+#### 🔹 Puente analítico → Q5
+
+Q4 identifica un deterioro significativo de la estructura de rentabilidad, principalmente por el aumento del peso del **Costo de Ventas** y, adicionalmente, por una mayor presión del **Costo Logístico**.
+
+**Q5 descompone la variación de la Ganancia Bruta mediante un PVM formal —Volumen → Mix → Precio → Costo—**, para determinar qué componentes explican cuantitativamente el deterioro entre 2025 y 2026.
+
+</details>
+
+### └─ Q5 — PVM: ¿Qué componentes explican la caída de la Ganancia Bruta?
+
+<details>
+<summary><strong>Ver desarrollo de Q5</strong></summary>  
+<br>
+
+#### Q5.1 — PVM Consolidado: ¿Qué explica la variación total?
+
+[Ver Consulta SQL →](./sql_business_analysis/q5_pvm_consolidado.sql) <br>
+
+#### 🔹 Resultados
+
+| Factor              | Efecto sobre la Ganancia Bruta | Participación |
+| :------------------ | -----------------------------: | ------------: |
+| **Volumen**         |                       −$71,1 M |        38,36% |
+| **Mix**             |                       −$74,8 M |        40,33% |
+| **Precio**          |                        +$9,9 M |        −5,33% |
+| **Costo**           |                       −$64,6 M |        34,83% |
+| **Lanzamientos**    |                       +$15,2 M |        −8,19% |
+| **Discontinuados**  |                         $0,0 M |         0,00% |
+| **Variación total** |                  **−$185,4 M** |   **100,00%** |
+
+**Ganancia Bruta 2025:** $310,2 M
+**Ganancia Bruta 2026:** $124,9 M
+**Variación:** **−$185,4 M**
+
+> *Nota: Los porcentajes representan la contribución de cada efecto a la variación total de la Ganancia Bruta. Los efectos positivos aparecen con participación porcentual negativa porque compensan parcialmente una variación total negativa.*
+
+> *En productos continuos, la variación se descompone en Volumen, Mix, Precio y Costo. Los productos nuevos y discontinuados se aíslan mediante los efectos específicos de Lanzamientos y Discontinuados. Esta estructura se mantiene en los niveles de categoría y SKU.*
+
+#### 🔹 Hallazgos
+
+**1. Los mayores efectos negativos corresponden a Mix, Volumen y Costo**
+
+El **Mix (−$74,8 M)**, el **Volumen (−$71,1 M)** y el **Costo (−$64,6 M)** presentan los mayores efectos negativos sobre la variación de la Ganancia Bruta.
+
+**2. El Mix presenta el mayor efecto negativo individual**
+
+El Mix genera un efecto de **−$74,8 M**, ligeramente superior al impacto del Volumen (**−$71,1 M**).
+
+Esto refleja que el cambio en la composición de los productos vendidos tuvo un efecto negativo significativo sobre la evolución de la Ganancia Bruta.
+
+**3. Precio y lanzamientos compensan parcialmente la caída**
+
+El efecto Precio aporta **+$9,9 M**, mientras que los nuevos productos aportan **+$15,2 M**.
+
+Ambos efectos compensan parcialmente los efectos negativos, aunque no alcanzan para revertir la caída consolidada.
+
+#### 🔹 Reconciliación
+
+El PVM explica exactamente la variación observada en la Ganancia Bruta:
+
+**−$71,1 M − $74,8 M + $9,9 M − $64,6 M + $15,2 M = −$185,4 M**
+
+La diferencia de reconciliación es **$0,00**.
+
+#### Q5.2 — PVM por Categoría: ¿Dónde se concentra el deterioro?
+
+[Ver Consulta SQL →](./sql_business_analysis/q5_pvm_por_categoria.sql) <br>
+
+#### 🔹 Resultados
+
+| Categoría       | Unidades 2025 | Unidades 2026 |      Volumen |          Mix |      Precio |        Costo | Lanzamientos | Discontinuados |    Efecto PVM |
+| :-------------- | ------------: | ------------: | -----------: | -----------: | ----------: | -----------: | -----------: | -------------: | ------------: |
+| **TV y Video**  |           764 |           375 |     −$32,6 M |     −$42,9 M |     +$4,4 M |     −$29,7 M |       $0,0 M |         $0,0 M | **−$100,9 M** |
+| **Computación** |           741 |           647 |     −$14,1 M |     −$18,5 M |     +$0,9 M |      −$6,0 M |      +$5,3 M |         $0,0 M |  **−$32,3 M** |
+| **Telefonía**   |           248 |            94 |      −$7,3 M |     −$12,4 M |     +$1,5 M |      −$4,0 M |      +$0,2 M |         $0,0 M |  **−$22,1 M** |
+| **Accesorios**  |         1.183 |           734 |      −$4,1 M |      −$2,8 M |     +$0,7 M |      −$5,8 M |      +$0,7 M |         $0,0 M |  **−$11,3 M** |
+| **Audio**       |           682 |           791 |      −$7,4 M |      −$2,7 M |     +$1,6 M |     −$10,4 M |      +$9,1 M |         $0,0 M |   **−$9,8 M** |
+| **Hogar**       |           968 |           894 |      −$5,6 M |      +$4,5 M |     +$0,8 M |      −$8,6 M |       $0,0 M |         $0,0 M |   **−$8,9 M** |
+| **Total**       |     **4.586** |     **3.535** | **−$71,1 M** | **−$74,8 M** | **+$9,9 M** | **−$64,6 M** | **+$15,2 M** |     **$0,0 M** | **−$185,4 M** |
+
+#### 🔹 Hallazgos
+
+**1. TV y Video concentra el mayor efecto PVM negativo**
+
+TV y Video registra un efecto PVM de **−$100,9 M**, con efectos negativos especialmente relevantes de **Mix (−$42,9 M)**, **Volumen (−$32,6 M)** y **Costo (−$29,7 M)**. El efecto Precio aporta **+$4,4 M**.
+
+**2. Computación y Telefonía presentan los siguientes mayores efectos negativos**
+
+Computación registra **−$32,3 M** y Telefonía **−$22,1 M**.
+
+En ambas categorías, los efectos negativos de **Mix y Volumen** se combinan con un efecto negativo de Costo. Los **Lanzamientos** generan compensaciones positivas parciales, especialmente en Computación.
+
+**3. Audio incrementa sus unidades, pero presenta un efecto PVM negativo**
+
+Audio aumenta sus unidades de **682 a 791**, pero registra un efecto PVM de **−$9,8 M**.
+
+El efecto positivo de **Lanzamientos (+$9,1 M)** y el efecto Precio (**+$1,6 M**) compensan parcialmente los efectos negativos de **Costo (−$10,4 M)**, Volumen y Mix.
+
+**4. Hogar presenta un efecto Mix favorable**
+
+Hogar es la única categoría con un **efecto Mix positivo (+$4,5 M)**.
+
+Sin embargo, los efectos negativos de **Costo (−$8,6 M)** y Volumen (**−$5,6 M**) llevan el efecto PVM total a **−$8,9 M**.
+
+#### 🔹 Reconciliación por categoría
+
+La suma de los efectos PVM de todas las categorías reproduce exactamente la variación consolidada de Ganancia Bruta:
+
+**−$185,4 M**
+
+La descomposición por categoría mantiene la reconciliación del PVM a nivel empresa.
+
+#### Q5.3 — PVM por SKU: ¿Qué productos explican el deterioro?
+
+[Ver Consulta SQL →](./sql_business_analysis/q5_pvm_por_sku.sql) <br>
+
+#### 🔹 Resultados
+
+Los principales efectos negativos se concentran en un grupo reducido de SKUs:
+
+| Producto              | Categoría   |   Efecto PVM |
+| :-------------------- | :---------- | -----------: |
+| TCL Monitor TV 21     | TV y Video  | **−$44,8 M** |
+| TCL Chromecast 25     | TV y Video  | **−$26,9 M** |
+| Acer Memoria RAM 2    | Computación | **−$21,2 M** |
+| TCL Monitor TV 19     | TV y Video  | **−$14,2 M** |
+| Lenovo Mouse 1        | Computación | **−$12,7 M** |
+| Samsung Smart TV 20   | TV y Video  |  **−$9,9 M** |
+| ASUS Notebook 5       | Computación |  **−$7,2 M** |
+| Samsung Smartphone 14 | Telefonía   |  **−$6,7 M** |
+
+Los principales efectos positivos incluyen nuevos productos y algunos SKUs continuos con crecimiento de volumen:
+
+| Producto                   | Categoría   | Estado   |  Efecto PVM |
+| :------------------------- | :---------- | :------- | ----------: |
+| Philips Equipo de Audio 30 | Audio       | Nuevo    | **+$7,6 M** |
+| ASUS Webcam 6              | Computación | Continuo | **+$5,2 M** |
+| Sony Equipo de Audio 33    | Audio       | Nuevo    | **+$3,5 M** |
+| Acer Notebook 7            | Computación | Nuevo    | **+$2,8 M** |
+| HP Mouse 10                | Computación | Nuevo    | **+$2,4 M** |
+
+#### 🔹 Hallazgos
+
+**1. El deterioro está fuertemente concentrado en determinados SKUs**
+
+Los mayores impactos negativos corresponden principalmente a productos de **TV y Video** y **Computación**, en línea con el análisis realizado a nivel categoría.
+
+Los dos principales SKUs —**TCL Monitor TV 21** y **TCL Chromecast 25**— generan conjuntamente un efecto PVM de aproximadamente **−$71,7 M**.
+
+**2. La caída de unidades es recurrente entre los principales SKUs negativos**
+
+Los productos con mayor impacto negativo presentan fuertes reducciones de unidades vendidas, aunque el PVM permite separar ese efecto de los impactos adicionales de **Mix, Precio y Costo**.
+
+**3. Los lanzamientos compensan parcialmente el deterioro**
+
+Entre los principales efectos positivos aparece **Philips Equipo de Audio 30**, cuyo lanzamiento aporta aproximadamente **+$7,6 M** de Ganancia Bruta.
+
+También se observan contribuciones positivas relevantes de nuevos productos de Audio y Computación.
+
+**4. El crecimiento de volumen puede compensar otros efectos negativos**
+
+**ASUS Webcam 6** presenta un efecto Volumen de aproximadamente **+$7,7 M**, que compensa sus efectos negativos de Mix, Precio y Costo y lleva su efecto PVM total a **+$5,2 M**.
+
+Esto muestra la utilidad del PVM para distinguir entre los distintos mecanismos que explican la evolución de la Ganancia Bruta a nivel producto.
+
+#### 🔹 Cierre del análisis PVM
+
+El análisis permite descomponer la caída de la Ganancia Bruta entre 2025 y 2026 en tres niveles de profundidad:
+
+**Empresa → Categoría → SKU**
+
+A nivel consolidado, los mayores efectos negativos corresponden a **Mix, Volumen y Costo**.
+A nivel categoría, el deterioro se concentra especialmente en **TV y Video, Computación y Telefonía**.
+A nivel SKU, un grupo reducido de productos explica una parte significativa de esos efectos, mientras que **nuevos lanzamientos y algunos productos con crecimiento de volumen compensan parcialmente la caída**.
+
+</details>
 
 
-#### ├─ Q3 — Drivers del ASP y Categorías: ¿Qué explica la caída del ASP? (Precio bruto, Descuentos y Mix)
 
-#### ├─ Q4 — Estructura de Rentabilidad y Ratios P&L: ¿Por qué la rentabilidad se deterioró mucho más que las ventas?
 
-#### └─ Q5 — PVM: ¿Qué componentes explican la caída de la Ganancia Bruta a nivel consolidado, categoría y SKU?
 
 ### Profundización Operativa (Deep Dives)
 
