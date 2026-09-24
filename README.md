@@ -12,7 +12,7 @@ Identificar las causas raíz de la caída de facturación y, sobre todo, de la r
 
 ---
 
-## 🔄 Flujo de los Datos (Arquitectura Pipeline)
+## 🔄 Flujo de los Datos Completo (Arquitectura Pipeline)
 
 ```mermaid
 flowchart LR
@@ -35,6 +35,8 @@ flowchart LR
 
     E --> J[🧪 dbt Tests]
 ```
+
+---
 
 > ⚠️ Para priorizar la perspectiva de negocio, este README presenta primero los hallazgos respaldados con el Reporte en Power BI junto con las recomendaciones estratégicas, y posteriormente lo módulos completos del proyectolo que hacen a la arquitectura técnica, dejando para el final la guía de replicación.
 
