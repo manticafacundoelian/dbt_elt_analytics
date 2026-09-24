@@ -1,7 +1,6 @@
 # 🔎 Investigación Analítica SQL
 
-Esta investigación forma parte de un proyecto analítico End-to-End de retail de tecnología y aborda el **diagnóstico del desempeño comercial y la rentabilidad entre 2024 y 2026**, utilizando SQL como herramienta principal de investigación.
-
+Esta investigación forma parte de un proyecto analítico End-to-End.  
 🔗 **Proyecto completo:** https://github.com/manticafacundoelian/dbt_elt_analytics
 
 ---
