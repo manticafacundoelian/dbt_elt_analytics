@@ -82,7 +82,7 @@ El objetivo de este proyecto es identificar las causas raíz detrás de la caíd
 ---
 ---
 
-## 🎯 Recomendaciones Estratégicas Basadas en Evidencia
+## 🎯 Recomendaciones Estratégicas
 
 <!-- Aqui van las recomendaciones estrategicas -->
 
@@ -96,7 +96,7 @@ A continuación se detallan los módulos técnicos que dan soporte al análisis 
 ---
 ---
 
-### ⚙️ 1. Pipeline ELT con dbt Core + DuckDB
+## ⚙️ 1. Pipeline ELT con dbt Core + DuckDB
 
 Construcción de una capa analítica reproducible sobre **DuckDB**, utilizando **dbt Core** para transformar datos transaccionales en un **Modelo Dimensional (Star Schema)** preparado para el análisis de negocio y el consumo en Power BI.
 
@@ -128,7 +128,7 @@ El pipeline organiza las transformaciones en tres capas, separando progresivamen
 ---
 ---
 
-### 🔍 2. Investigación Analítica SQL
+## 🔍 2. Investigación Analítica SQL
 
 Investigación progresiva realizada con SQL y DBeaver sobre el Data Warehouse en DuckDB, orientada a explicar el deterioro comercial y financiero observado entre 2025 y 2026.
 
@@ -170,7 +170,7 @@ La investigación parte de un **diagnóstico macro (Q1)** y profundiza progresiv
 ---
 ---
 
-### 🐍 3. Script de Exportación en Python
+## 🐍 3. Script de Exportación en Python
 Script automatizado que extrae los datos modelados en los Marts de DuckDB y los convierte a archivos optimizados en formato Parquet para una ingesta eficiente desde Power BI.
 * 📁 **Directorio:** [`/scripts`](./scripts)
 * 📄 **Documentación:** [Ver README de scripts](./scripts/README.md)
@@ -178,7 +178,7 @@ Script automatizado que extrae los datos modelados en los Marts de DuckDB y los 
 ---
 ---
 
-### 📊 4. Modelo de Datos & Reporte en Power BI
+## 📊 4. Modelo de Datos & Reporte en Power BI
 Diseño de la capa de visualización analítica sobre los archivos Parquet. Incluye la arquitectura del modelo de datos en estrella (Star Schema), implementación de medidas DAX avanzadas (Time Intelligence, KPIs dinámicos, análisis YoY), optimización del rendimiento y diseño de UX/UI enfocado en decisiones ejecutivas.
 * 📁 **Directorio:** [`/power_bi_analytics`](./power_bi_analytics)
 * 📄 **Documentación:** [Ver README técnico de Power BI](./power_bi_analytics/README.md)
