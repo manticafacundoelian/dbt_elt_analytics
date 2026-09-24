@@ -1,4 +1,4 @@
-# 🛒 E-commerce Analytics
+# 🛒 Proyecto de Analítica End-to-End sobre Retail de Tecnología
 
 ### Introducción:
 Este proyecto abarca el ciclo completo de un proceso de analítica de datos moderno: desde la **generación de un dataset sintético con una narrativa de negocio deliberada**, la construcción de un **Pipeline ELT con dbt Core + DuckDB**, una **Investigación Analítica SQL** sobre el datawarehouse con DBeaver, hasta la elaboración de un **Reporte Interactivo en Power BI**.
@@ -12,22 +12,45 @@ Identificar las causas raíz de la caída de facturación y, sobre todo, de la r
 
 ---
 
-### 🗺️ Índice
-- [📉 Problema de Negocio](#-problema-de-negocio)
-- [📊 Hallazgos del Análisis en Power BI](#-hallazgos-del-análisis-en-power-bi)
-- [🎯 Recomendaciones Estratégicas](#-recomendaciones-estratégicas-basadas-en-evidencia)
-- [🔄 Flujo de Datos (Arquitectura Pipeline)](#-flujo-de-datos-arquitectura-pipeline)
-- [🛠️ Desarrollo Técnico & Módulos](#%EF%B8%8F-desarrollo-técnico--módulos)
-  - [⚙️ Pipeline ELT con dbt Core + DuckDB](#%EF%B8%8F-2-pipeline-elt-con-dbt-core--duckDB)
-  - [🔍 Investigación Analítica SQL](#-3-investigación-analítica-sql)
-  - [🐍 Script de Exportación en Python](#-4-script-de-exportación-en-python)
-  - [📊 Modelo de Datos & BI (Power BI)](#-5-modelo-de-datos--reporte-en-power-bi)
-- [📂 Estructura del Repositorio y Guía de Replicación](#-estructura-del-repositorio--guía-de-replicación-local)
-- [👤 Autor](#-autor)
+## 🔄 Flujo de los Datos (Arquitectura Pipeline)
+
+```mermaid
+flowchart LR
+
+    Z[🐍 Generador Sintético] -->|genera| A[📄 CSV Seeds]
+    A -->|dbt seed| B[(🦆 DuckDB Warehouse)]
+
+    subgraph DBT["⚙️ dbt Core (Transformación)"]
+        B --> C[Staging]
+        C --> D[Intermediate]
+        D --> E[Marts]
+    end
+
+    E --> F[🔍 SQL Investigación Analítica]
+
+    E --> G[🐍 Python]
+    G --> H[📦 Parquet]
+
+    H --> I[📊 Power BI Reporte]
+
+    E --> J[🧪 dbt Tests]
+```
+
+> ⚠️ Para priorizar la perspectiva de negocio, este README presenta primero los hallazgos respaldados con el Reporte en Power BI junto con las recomendaciones estratégicas, y posteriormente lo módulos completos del proyectolo que hacen a la arquitectura técnica, dejando para el final la guía de replicación.
 
 ---
 
-> ⚠️ Para priorizar la perspectiva de negocio, este README presenta primero los hallazgos respaldados con el Reporte en Power BI junto con las recomendaciones estratégicas, y posteriormente la arquitectura técnica que permitió obtenerlos.
+### 🗺️ Índice
+- [Problema de Negocio](#-problema-de-negocio)
+- [Hallazgos del Análisis en Power BI](#-hallazgos-del-análisis-en-power-bi)
+- [Recomendaciones Estratégicas](#-recomendaciones-estratégicas-basadas-en-evidencia)
+- [Desarrollo Técnico & Módulos](#%EF%B8%8F-desarrollo-técnico--módulos)
+  - [Pipeline ELT con dbt Core + DuckDB](#%EF%B8%8F-2-pipeline-elt-con-dbt-core--duckDB)
+  - [Investigación Analítica SQL](#-3-investigación-analítica-sql)
+  - [Script de Exportación en Python](#-4-script-de-exportación-en-python)
+  - [Modelo de Datos & BI (Power BI)](#-5-modelo-de-datos--reporte-en-power-bi)
+- [Estructura del Repositorio y Guía de Replicación](#-estructura-del-repositorio--guía-de-replicación-local)
+- [Autor](#-autor)
 
 ---
 
@@ -60,33 +83,6 @@ El objetivo de este proyecto es identificar las causas raíz detrás de la caíd
 ## 🎯 Recomendaciones Estratégicas Basadas en Evidencia
 
 <!-- Aqui van las recomendaciones estrategicas -->
-
----
----
-
-## 🔄 Flujo de Datos (Arquitectura Pipeline)
-
-```mermaid
-flowchart LR
-
-    Z[🐍 Generador Sintético] -->|genera| A[📄 CSV Seeds]
-    A -->|dbt seed| B[(🦆 DuckDB Warehouse)]
-
-    subgraph DBT["⚙️ dbt Core (Transformación)"]
-        B --> C[Staging]
-        C --> D[Intermediate]
-        D --> E[Marts]
-    end
-
-    E --> F[🔍 SQL Investigación Analítica]
-
-    E --> G[🐍 Python]
-    G --> H[📦 Parquet]
-
-    H --> I[📊 Power BI Reporte]
-
-    E --> J[🧪 dbt Tests]
-```
 
 ---
 ---
