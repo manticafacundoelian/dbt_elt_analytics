@@ -163,6 +163,8 @@ La investigación parte de un **diagnóstico macro (Q1)** y profundiza progresiv
 
 * A nivel SKU, los efectos negativos se concentran especialmente en productos como **TCL Monitor TV 21, TCL Chromecast 25 y Acer Memoria RAM 2**. A su vez, algunos lanzamientos y productos con efectos positivos de volumen generan compensaciones parciales frente a los componentes negativos.
 
+**Conclusión del diagnóstico:** El análisis evidencia que el deterioro de 2026 no responde a un único factor. La caída del valor por operación combina una reducción de **UPT y ASP**, mientras que la rentabilidad se ve presionada por efectos negativos de **Mix, Volumen y Costo**, con una concentración significativa en **TV y Video, Computación y Telefonía**. A esto se suman el aumento de las **devoluciones** y del **costo logístico relativo**, que profundizan el impacto sobre el resultado final. En conjunto, la investigación permite pasar de la detección de una caída de desempeño a la identificación de los principales factores y segmentos que explican el deterioro.
+
 * 📁 **Directorio:** [`/sql_business_analysis`](./sql_business_analysis)
 
 * 📄 **Documentación:** [Ver Catálogo de Consultas SQL](./sql_business_analysis/README.md)
