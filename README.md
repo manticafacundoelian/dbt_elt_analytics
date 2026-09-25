@@ -82,7 +82,7 @@ El objetivo de este proyecto es identificar las causas raíz detrás de la caíd
 ---
 ---
 
-## 🎯 Recomendaciones Estratégicas
+## 🎯 Recomendaciones Estratégicas Basadas en Evidencia
 
 **1. Recuperar el valor por pedido antes que perseguir únicamente crecimiento en volumen**
 
