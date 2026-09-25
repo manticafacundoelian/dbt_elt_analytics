@@ -608,6 +608,48 @@ El análisis evidencia que el canal **Online** absorbió incrementos tarifarios 
 
 ---
 
+## 🧩 Conclusión Unificadora del Diagnóstico
+
+El análisis muestra que el deterioro de 2026 no responde a un único factor, sino a la **combinación de un deterioro comercial y una compresión progresiva de la rentabilidad**.
+
+Por un lado, el negocio mantiene un volumen de pedidos relativamente estable (**+4,30%**), pero registra una fuerte caída en las unidades comercializadas (**−20,41%**). Esto se traduce en una reducción de las **Unidades por Pedido (UPT) de 23,67%** y del **ASP Comercial de 23,18%**, provocando una caída del **41,37% en el Ticket Comercial**. La contracción del ASP, además, combina una reducción del **ASP Bruto de 20,65%**, un aumento de la tasa de descuento de **3,10 pp** y cambios tanto en el mix de categorías como en el valor unitario dentro de determinadas categorías.
+El análisis por canal muestra que la transformación del negocio hacia Online no resolvió este deterioro. El canal Online concentra el crecimiento de pedidos y pasa de representar **70,59% a 79,93%** de las órdenes, pero simultáneamente su Ticket Comercial cae **42,95%** y su ASP Neto **24,58%**. El canal Físico también presenta una caída significativa de Ticket y ASP. Por lo tanto, el problema no puede atribuirse únicamente a una cuestión de canal: **la pérdida de valor por operación es transversal al negocio**.
+
+Por otro lado, la presión sobre la rentabilidad ya era visible en 2025. Mientras las Ventas Netas crecieron **26,62%**, la Ganancia Neta prácticamente no avanzó (**−1,59%**) y el Margen Neto cayó **5,21 pp**. En 2026, el deterioro se profundiza: el **Costo de Ventas sobre Ventas aumenta 6,19 pp**, el **Margen Bruto cae hasta 13,44%** y el **Costo Logístico sobre Ventas aumenta 1,69 pp**, llevando la caída de la Ganancia Neta hasta **66,20%**.
+
+El **PVM de Ganancia Bruta** permite cuantificar esta pérdida de rentabilidad y muestra que la caída de **$185,4 M** entre 2025 y 2026 se explica principalmente por efectos negativos de **Mix (−$74,8 M), Volumen (−$71,1 M) y Costo (−$64,6 M)**. Los efectos positivos de **Precio (+$9,9 M)** y **Lanzamientos (+$15,2 M)** compensan parcialmente la caída, pero no logran revertirla. El deterioro se concentra especialmente en **TV y Video, Computación y Telefonía**, y a nivel SKU en un grupo reducido de productos.
+Finalmente, las **devoluciones y la logística amplifican la presión sobre el resultado final**. La tasa de devolución aumenta de **3,28% a 7,03%** y el deterioro se observa en todas las categorías, con especial incremento en Audio. En paralelo, el canal Online lleva el costo logístico desde **1,27% hasta 3,14% de sus Ventas Netas**, mientras su facturación cae. Estos factores no explican por sí solos la caída del Ticket Comercial, pero sí agravan el impacto económico sobre la rentabilidad final.
+
+---
+
+## 🎯 Recomendaciones Estratégicas Basadas en Evidencia
+
+**1. Recuperar el valor por pedido antes que perseguir únicamente crecimiento en volumen**
+
+El principal deterioro comercial está en la pérdida simultánea de **UPT y ASP**. La estrategia comercial debería orientarse a recuperar unidades por pedido y valor por operación mediante estrategias de *cross-selling*, bundles, venta complementaria y una arquitectura de promociones que incentive la ampliación de la cesta sin depender exclusivamente de descuentos generalizados.
+
+**2. Revisar el mix y el desempeño del portafolio por categoría y SKU**
+
+El PVM muestra que **Mix, Volumen y Costo** concentran los mayores efectos negativos, con una fuerte incidencia de **TV y Video, Computación y Telefonía**. Se recomienda revisar la composición del portafolio, el posicionamiento de precios, la rotación y la rentabilidad por SKU, utilizando el nivel de producto para identificar aquellos casos donde la reducción de volumen, el cambio de mix o la estructura de costos están erosionando la Ganancia Bruta.
+
+**3. Revisar la política de descuentos y protección de margen**
+
+La tasa de descuento prácticamente se duplica entre 2025 y 2026, mientras el ASP Bruto también cae. Se recomienda evaluar promociones por categoría, producto y canal, diferenciando descuentos que generan volumen incremental de aquellos que simplemente reducen el valor de las operaciones existentes.
+
+**4. Atacar la ineficiencia logística del canal Online**
+
+El canal Online concentra el crecimiento de pedidos, pero al mismo tiempo presenta un fuerte incremento del costo logístico relativo y absoluto. Se recomienda revisar tarifas y condiciones con operadores logísticos, costos por pedido, políticas de envío y posibilidades de consolidación de órdenes, buscando desacoplar el crecimiento del costo logístico de la caída de la facturación.
+
+**5. Reducir devoluciones mediante análisis por categoría y SKU**
+
+El aumento de la tasa de devolución es transversal al portafolio y alcanza niveles especialmente elevados en determinadas categorías. Se recomienda profundizar en las causas de devolución por **SKU, categoría y canal**, identificando patrones asociados a calidad, expectativa del producto, información comercial, embalaje o experiencia de entrega, para intervenir sobre los productos y procesos que concentran mayores tasas y volúmenes.
+
+**6. Incorporar un seguimiento ejecutivo integrado**
+
+Para monitorear la recuperación, el negocio debería seguir de manera conjunta indicadores de **Pedidos, UPT, ASP, Ticket, Mix, Tasa de Descuento, Margen Bruto, Costo Logístico y Tasa de Devolución**. El seguimiento integrado permite evitar que una mejora en una métrica —por ejemplo, volumen de pedidos— oculte un deterioro simultáneo en valor por operación o rentabilidad.
+
+---
+
 ## 🧭 Metodología y criterios de análisis
 
 Para mantener consistencia entre las distintas etapas se establecen los siguientes criterios:
