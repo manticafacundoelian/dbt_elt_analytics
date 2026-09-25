@@ -84,7 +84,29 @@ El objetivo de este proyecto es identificar las causas raíz detrás de la caíd
 
 ## 🎯 Recomendaciones Estratégicas
 
-<!-- Aqui van las recomendaciones estrategicas -->
+**1. Recuperar el valor por pedido antes que perseguir únicamente crecimiento en volumen**
+
+El principal deterioro comercial está en la pérdida simultánea de **UPT y ASP**. La estrategia comercial debería orientarse a recuperar unidades por pedido y valor por operación mediante estrategias de *cross-selling*, bundles, venta complementaria y una arquitectura de promociones que incentive la ampliación de la cesta sin depender exclusivamente de descuentos generalizados.
+
+**2. Revisar el mix y el desempeño del portafolio por categoría y SKU**
+
+El PVM muestra que **Mix, Volumen y Costo** concentran los mayores efectos negativos, con una fuerte incidencia de **TV y Video, Computación y Telefonía**. Se recomienda revisar la composición del portafolio, el posicionamiento de precios, la rotación y la rentabilidad por SKU, utilizando el nivel de producto para identificar aquellos casos donde la reducción de volumen, el cambio de mix o la estructura de costos están erosionando la Ganancia Bruta.
+
+**3. Revisar la política de descuentos y protección de margen**
+
+La tasa de descuento prácticamente se duplica entre 2025 y 2026, mientras el ASP Bruto también cae. Se recomienda evaluar promociones por categoría, producto y canal, diferenciando descuentos que generan volumen incremental de aquellos que simplemente reducen el valor de las operaciones existentes.
+
+**4. Atacar la ineficiencia logística del canal Online**
+
+El canal Online concentra el crecimiento de pedidos, pero al mismo tiempo presenta un fuerte incremento del costo logístico relativo y absoluto. Se recomienda revisar tarifas y condiciones con operadores logísticos, costos por pedido, políticas de envío y posibilidades de consolidación de órdenes, buscando desacoplar el crecimiento del costo logístico de la caída de la facturación.
+
+**5. Reducir devoluciones mediante análisis por categoría y SKU**
+
+El aumento de la tasa de devolución es transversal al portafolio y alcanza niveles especialmente elevados en determinadas categorías. Se recomienda profundizar en las causas de devolución por **SKU, categoría y canal**, identificando patrones asociados a calidad, expectativa del producto, información comercial, embalaje o experiencia de entrega, para intervenir sobre los productos y procesos que concentran mayores tasas y volúmenes.
+
+**6. Incorporar un seguimiento ejecutivo integrado**
+
+Para monitorear la recuperación, el negocio debería seguir de manera conjunta indicadores de **Pedidos, UPT, ASP, Ticket, Mix, Tasa de Descuento, Margen Bruto, Costo Logístico y Tasa de Devolución**. El seguimiento integrado permite evitar que una mejora en una métrica —por ejemplo, volumen de pedidos— oculte un deterioro simultáneo en valor por operación o rentabilidad.
 
 ---
 ---
