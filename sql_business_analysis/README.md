@@ -610,15 +610,84 @@ El análisis evidencia que el canal **Online** absorbió incrementos tarifarios 
 
 ## 🧩 Conclusión Unificadora del Diagnóstico
 
-El análisis muestra que el deterioro de 2026 no responde a un único factor, sino a la **combinación de un deterioro comercial y una compresión progresiva de la rentabilidad**.
+El deterioro observado en 2026 no responde a un único factor, sino a la combinación de un **deterioro comercial**, una **compresión sostenida de la rentabilidad** y mayores **presiones operativas**.
 
-Por un lado, el negocio mantiene un volumen de pedidos relativamente estable (**+4,30%**), pero registra una fuerte caída en las unidades comercializadas (**−20,41%**). Esto se traduce en una reducción de las **Unidades por Pedido (UPT) de 23,67%** y del **ASP Comercial de 23,18%**, provocando una caída del **41,37% en el Ticket Comercial**. La contracción del ASP, además, combina una reducción del **ASP Bruto de 20,65%**, un aumento de la tasa de descuento de **3,10 pp** y cambios tanto en el mix de categorías como en el valor unitario dentro de determinadas categorías.
-El análisis por canal muestra que la transformación del negocio hacia Online no resolvió este deterioro. El canal Online concentra el crecimiento de pedidos y pasa de representar **70,59% a 79,93%** de las órdenes, pero simultáneamente su Ticket Comercial cae **42,95%** y su ASP Neto **24,58%**. El canal Físico también presenta una caída significativa de Ticket y ASP. Por lo tanto, el problema no puede atribuirse únicamente a una cuestión de canal: **la pérdida de valor por operación es transversal al negocio**.
+#### 1. Lado Comercial: Caída del Ticket y Deterioro Transversal
 
-Por otro lado, la presión sobre la rentabilidad ya era visible en 2025. Mientras las Ventas Netas crecieron **26,62%**, la Ganancia Neta prácticamente no avanzó (**−1,59%**) y el Margen Neto cayó **5,21 pp**. En 2026, el deterioro se profundiza: el **Costo de Ventas sobre Ventas aumenta 6,19 pp**, el **Margen Bruto cae hasta 13,44%** y el **Costo Logístico sobre Ventas aumenta 1,69 pp**, llevando la caída de la Ganancia Neta hasta **66,20%**.
+* **Pérdida de valor por pedido:** Aunque la cantidad de pedidos se mantuvo relativamente estable (**+4,30%**), las unidades vendidas cayeron un **−20,41%**, reduciendo las **unidades por pedido (UPT −23,67%)**. En paralelo, el **ASP Comercial cayó un −23,18%**. La combinación de menor cantidad de unidades por pedido y menor valor promedio por unidad llevó a una caída del **Ticket Comercial del −41,37%**.
 
-El **PVM de Ganancia Bruta** permite cuantificar esta pérdida de rentabilidad y muestra que la caída de **$185,4 M** entre 2025 y 2026 se explica principalmente por efectos negativos de **Mix (−$74,8 M), Volumen (−$71,1 M) y Costo (−$64,6 M)**. Los efectos positivos de **Precio (+$9,9 M)** y **Lanzamientos (+$15,2 M)** compensan parcialmente la caída, pero no logran revertirla. El deterioro se concentra especialmente en **TV y Video, Computación y Telefonía**, y a nivel SKU en un grupo reducido de productos.
-Finalmente, las **devoluciones y la logística amplifican la presión sobre el resultado final**. La tasa de devolución aumenta de **3,28% a 7,03%** y el deterioro se observa en todas las categorías, con especial incremento en Audio. En paralelo, el canal Online lleva el costo logístico desde **1,27% hasta 3,14% de sus Ventas Netas**, mientras su facturación cae. Estos factores no explican por sí solos la caída del Ticket Comercial, pero sí agravan el impacto económico sobre la rentabilidad final.
+* **Drivers del ASP:** La caída del ASP no deriva directamente de la menor cantidad de unidades vendidas, sino de una combinación de factores que afectan el valor promedio de esas unidades. El **ASP Bruto cayó un −20,65%**, mientras que la **Tasa de Descuento aumentó +3,10 pp** *(el ASP Neto de esta descomposición equivale al ASP Comercial usado en el resto del diagnóstico; se lo nombra "Neto" aquí para aislar el efecto de los descuentos y mostrar que el deterioro ya estaba presente antes de aplicarlos)*. A esto se sumaron **cambios en el mix de productos**, que modificaron la composición y, por lo tanto, el valor promedio consolidado de las unidades vendidas.
+
+* **Comportamiento Omnicanal:** La participación de **Online** sobre las órdenes aumentó del **70,59% al 79,93%**, pero este cambio en la composición de canales no evitó el deterioro comercial. En Online, el **Ticket cayó un −42,95%** y el **ASP Comercial un −24,58%**; en el canal Físico también se observaron caídas relevantes. Esto indica que la pérdida de valor por operación fue **transversal a ambos canales**, aunque con distinta magnitud.
+
+#### 2. Lado Financiero: Compresión de Márgenes y Descomposición del PVM
+
+* **Deterioro previo a 2026:** La presión sobre la rentabilidad ya estaba presente en 2025. Mientras las **Ventas Netas crecieron un +26,62%**, la **Ganancia Neta cayó un −1,59%** y el **Margen Neto retrocedió 5,21 pp**, mostrando que el crecimiento comercial no se tradujo proporcionalmente en rentabilidad.
+
+* **Profundización en 2026:** El deterioro se intensificó. El **Costo de Ventas sobre Ventas aumentó +6,19 pp**, llevando el **Margen Bruto al 13,44%**. En paralelo, la **Ganancia Neta se contrajo un −66,20%**, una caída considerablemente superior a la reducción de las ventas.
+
+* **Drivers de la Ganancia Bruta:** El PVM permite **cuantificar y reconciliar exactamente la caída de la Ganancia Bruta de −$185,4 M**. Los principales efectos negativos fueron **Mix (−$74,8 M)**, **Volumen (−$71,1 M)** y **Costo (−$64,6 M)**. Los efectos positivos de **Precio (+$9,9 M)** y **Lanzamientos (+$15,2 M)** compensaron parcialmente la pérdida, pero no fueron suficientes para revertirla. El deterioro se concentró especialmente en **TV y Video, Computación y Telefonía**, junto con un conjunto reducido de productos que explican una parte importante del impacto.
+
+#### 3. Presiones Operativas: Devoluciones y Logística
+
+* **Aumento de las devoluciones:** La **Tasa de Devolución general aumentó del 3,28% al 7,03%**, y todas las categorías registraron incrementos. **Audio** presentó el mayor deterioro en términos relativos (**+4,70 pp**), mientras que otras categorías también aportaron un volumen relevante de unidades devueltas.
+
+* **Mayor incidencia logística:** En el canal Online, el **Costo Logístico sobre Ventas Netas aumentó del 1,27% al 3,14%**, en un contexto en el que las ventas del canal se contrajeron. El fenómeno también se observó en el canal Físico, aunque con una variación menor. Esto señala un **aumento del peso relativo de la logística sobre la facturación**, especialmente marcado en Online.
+
+> **Síntesis:** Las devoluciones y el aumento del peso relativo de la logística no explican por sí solas la caída del Ticket Comercial, pero **amplifican el deterioro de la rentabilidad final**. En conjunto, los hallazgos muestran que el problema no se limita a una caída de ventas, sino que involucra simultáneamente el **valor generado por pedido, la composición de las ventas y la estructura de costos**.
+
+## 🧩 Conclusión Unificadora del Diagnóstico
+
+El deterioro observado en 2026 no responde a un único factor, sino a la combinación de un **deterioro comercial**, una **compresión sostenida de la rentabilidad** y mayores **presiones operativas**.
+
+#### 1. Lado Comercial: Caída del Ticket y Deterioro Transversal
+
+* **Pérdida de valor por pedido:** Aunque la cantidad de pedidos se mantuvo relativamente estable (**+4,30%**), las unidades vendidas cayeron un **−20,41%**, reduciendo las **unidades por pedido (UPT −23,67%)**. En paralelo, el **ASP Comercial cayó un −23,18%**. La combinación de menor cantidad de unidades por pedido y menor valor promedio por unidad llevó a una caída del **Ticket Comercial del −41,37%**.
+
+* **Drivers del ASP:** La caída del ASP no deriva directamente de la menor cantidad de unidades vendidas, sino de una combinación de factores que afectan el valor promedio de esas unidades. El **ASP Bruto cayó un −20,65%**, mientras que la **Tasa de Descuento aumentó +3,10 pp**. A esto se sumaron **cambios en el mix de productos**, que modificaron la composición y, por lo tanto, el valor promedio consolidado de las unidades vendidas.
+
+* **Comportamiento Omnicanal:** La participación de **Online** sobre las órdenes aumentó del **70,59% al 79,93%**, pero este cambio en la composición de canales no evitó el deterioro comercial. En Online, el **Ticket cayó un −42,95%** y el **ASP Comercial un −24,58%**; en el canal Físico también se observaron caídas relevantes. Esto indica que la pérdida de valor por operación fue **transversal a ambos canales**, aunque con distinta magnitud.
+
+#### 2. Lado Financiero: Compresión de Márgenes y Descomposición del PVM
+
+* **Deterioro previo a 2026:** La presión sobre la rentabilidad ya estaba presente en 2025. Mientras las **Ventas Netas crecieron un +26,62%**, la **Ganancia Neta cayó un −1,59%** y el **Margen Neto retrocedió 5,21 pp**, mostrando que el crecimiento comercial no se tradujo proporcionalmente en rentabilidad.
+
+* **Profundización en 2026:** El deterioro se intensificó. El **Costo de Ventas sobre Ventas aumentó +6,19 pp**, llevando el **Margen Bruto al 13,44%**. En paralelo, la **Ganancia Neta se contrajo un −66,20%**, una caída considerablemente superior a la reducción de las ventas.
+
+* **Drivers de la Ganancia Bruta:** El PVM permite **cuantificar y reconciliar exactamente la caída de la Ganancia Bruta de −$185,4 M**. Los principales efectos negativos fueron **Mix (−$74,8 M)**, **Volumen (−$71,1 M)** y **Costo (−$64,6 M)**. Los efectos positivos de **Precio (+$9,9 M)** y **Lanzamientos (+$15,2 M)** compensaron parcialmente la pérdida, pero no fueron suficientes para revertirla. El deterioro se concentró especialmente en **TV y Video, Computación y Telefonía**, junto con un conjunto reducido de productos que explican una parte importante del impacto.
+
+#### 3. Presiones Operativas: Devoluciones y Logística
+
+* **Aumento de las devoluciones:** La **Tasa de Devolución general aumentó del 3,28% al 7,03%**, y todas las categorías registraron incrementos. **Audio** presentó el mayor deterioro en términos relativos (**+4,70 pp**), mientras que otras categorías también aportaron un volumen relevante de unidades devueltas.
+
+* **Mayor incidencia logística:** En el canal Online, el **Costo Logístico sobre Ventas Netas aumentó del 1,27% al 3,14%**, en un contexto en el que las ventas del canal se contrajeron. El fenómeno también se observó en el canal Físico, aunque con una variación menor. Esto señala un **aumento del peso relativo de la logística sobre la facturación**, especialmente marcado en Online.
+
+> **Síntesis:** El diagnóstico muestra un deterioro comercial originado por la combinación de **menor UPT y menor ASP**, acompañado por una creciente presión sobre la rentabilidad. En 2026, la contracción de la Ganancia Bruta estuvo explicada principalmente por **volumen, mix y costo**, mientras que los mayores niveles de **devoluciones y de incidencia logística** agregaron presión sobre el resultado final. En conjunto, los hallazgos muestran que el problema no se limita a una caída de ventas, sino que involucra simultáneamente el **valor generado por pedido, la composición de las ventas y la estructura de costos**.
+
+
+
+## 🧩 Conclusión Unificadora del Diagnóstico
+
+El deterioro observado en 2026 no responde a un único factor, sino a la combinación de un **deterioro comercial** y una **compresión estructural de la rentabilidad**.
+
+#### 1. Lado Comercial: Caída del Ticket y Transversalidad de Canales
+
+* **Pérdida de valor por pedido:** Aunque la cantidad de pedidos se mantuvo estable (**+4,30%**), las unidades vendidas cayeron un **−20,41%**. Esto redujo las unidades por pedido (**UPT −23,67%**) y el valor promedio por unidad (**ASP Comercial −23,18%**), derivando en una caída del **Ticket Comercial (−41,37%)**.
+* **Efectos en precios y descuentos:** La caída del ASP combina una reducción del precio bruto (**−20,65%**), un aumento de la **Tasa de Descuento (+3,10 pp)** y variaciones en la composición del mix de productos.
+* **Comportamiento Omnicanal:** La migración hacia **Online** (que pasó del 70,59% al 79,93% de las órdenes) no frenó la caída. En Online, el Ticket cayó un **42,95%** y el ASP Neto un **24,58%**. Dado que el canal Físico también presentó caídas significativas, la pérdida de valor por operación es **transversal a toda la compañía**.
+
+#### 2. Lado Financiero: Compresión de Márgenes y Explicación del PVM
+
+* **Deterioro previo:** La presión sobre la rentabilidad ya era visible en 2025: con Ventas Netas creciendo **+26,62%**, la Ganancia Neta cayó **−1,59%** y el Margen Neto retrocedió **5,21 pp**.
+* **Profundización en 2026:** El Costo de Ventas sobre Ventas subió **+6,19 pp**, el Margen Bruto cayó al **13,44%** y la Ganancia Neta se contrajo un **−66,20%**.
+* **Drivers del PVM (Ganancia Bruta −$185,4 M):** La pérdida se explica principalmente por impactos negativos en **Mix (−$74,8 M)**, **Volumen (−$71,1 M)** y **Costo (−$64,6 M)**. Los aportes positivos de **Precio (+$9,9 M)** y **Lanzamientos (+$15,2 M)** resultaron insuficientes. La contracción se concentró especialmente en **TV y Video, Computación y Telefonía**.
+
+#### 3. Presiones Operativas: Devoluciones y Logística
+
+* **Aumento de Devoluciones:** La tasa general subió del **3,28% al 7,03%**, con incrementos en todas las categorías y el mayor deterioro relativo en **Audio**.
+* **Presión Logística:** En el canal Online, el costo logístico sobre Ventas Netas aumentó del **1,27% al 3,14%** en un contexto de menor facturación.
+
+> **Síntesis:** Las devoluciones y el aumento del peso relativo de la logística no explican por sí solos la caída del Ticket Comercial, pero **amplifican el deterioro de la rentabilidad final**.
 
 ---
 
@@ -689,7 +758,17 @@ Estas métricas se calculan antes de devoluciones para aislar el comportamiento 
 
 
 
+## 🧩 Conclusión Unificadora del Diagnóstico (prueba)
 
+El análisis muestra que el deterioro de 2026 no responde a un único factor, sino a la **combinación de un deterioro comercial y una compresión progresiva de la rentabilidad**.
+
+Por un lado, el negocio mantiene un volumen de pedidos relativamente estable (**+4,30%**), pero registra una fuerte caída en las unidades comercializadas (**−20,41%**). Esto se traduce en una reducción de las **Unidades por Pedido (UPT) de 23,67%** y del **ASP Comercial de 23,18%**, provocando una caída del **41,37% en el Ticket Comercial**. La contracción del ASP, además, combina una reducción del **ASP Bruto de 20,65%**, un aumento de la tasa de descuento de **3,10 pp** y cambios tanto en el mix de categorías como en el valor unitario dentro de determinadas categorías.
+El análisis por canal muestra que la transformación del negocio hacia Online no resolvió este deterioro. El canal Online concentra el crecimiento de pedidos y pasa de representar **70,59% a 79,93%** de las órdenes, pero simultáneamente su Ticket Comercial cae **42,95%** y su ASP Neto **24,58%**. El canal Físico también presenta una caída significativa de Ticket y ASP. Por lo tanto, el problema no puede atribuirse únicamente a una cuestión de canal: **la pérdida de valor por operación es transversal al negocio**.
+
+Por otro lado, la presión sobre la rentabilidad ya era visible en 2025. Mientras las Ventas Netas crecieron **26,62%**, la Ganancia Neta prácticamente no avanzó (**−1,59%**) y el Margen Neto cayó **5,21 pp**. En 2026, el deterioro se profundiza: el **Costo de Ventas sobre Ventas aumenta 6,19 pp**, el **Margen Bruto cae hasta 13,44%** y el **Costo Logístico sobre Ventas aumenta 1,69 pp**, llevando la caída de la Ganancia Neta hasta **66,20%**.
+
+El **PVM de Ganancia Bruta** permite cuantificar esta pérdida de rentabilidad y muestra que la caída de **$185,4 M** entre 2025 y 2026 se explica principalmente por efectos negativos de **Mix (−$74,8 M), Volumen (−$71,1 M) y Costo (−$64,6 M)**. Los efectos positivos de **Precio (+$9,9 M)** y **Lanzamientos (+$15,2 M)** compensan parcialmente la caída, pero no logran revertirla. El deterioro se concentra especialmente en **TV y Video, Computación y Telefonía**, y a nivel SKU en un grupo reducido de productos.
+Finalmente, las **devoluciones y la logística amplifican la presión sobre el resultado final**. La tasa de devolución aumenta de **3,28% a 7,03%** y el deterioro se observa en todas las categorías, con especial incremento en Audio. En paralelo, el canal Online lleva el costo logístico desde **1,27% hasta 3,14% de sus Ventas Netas**, mientras su facturación cae. Estos factores no explican por sí solos la caída del Ticket Comercial, pero sí agravan el impacto económico sobre la rentabilidad final.
 
 
 
