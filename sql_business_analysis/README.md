@@ -29,7 +29,7 @@ flowchart TD
 
     C --> C1["Q2 — DESCOMPOSICIÓN DEL TICKET<br/><br/>¿Por qué cae?<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP:</b> ↓ 23,18%<br/><b>Ticket:</b> ↓ 41,37%"]
 
-    C1 --> C2["<b>Q3 — DRIVERS DEL ASP</b><br/><br/><b>Precio bruto:</b> ↓ 20,65%<br/><b>Promociones:</b> +3,10 pp<br/><b>Mix de categoría:</b> Audio +7,92 pp<br/><b>Mix de producto:</b> Computación ↓ 32,7%"]
+    C1 --> C2["<b>Q3 — DRIVERS DEL ASP</b><br/><br/>¿Por qué cae?<br/><b>Mix (SKUs continuos):</b> -$54,2K (67,9%)<br/><b>SKUs Nuevos:</b> -$29,3K (36,7%)<br/><b>Precio de Lista:</b> +$12,8K<br/><b>Descuentos:</b> -$9,1K<br/><b>Categoría clave:</b> TV y Video (mix puro) / Computación-Audio (lanzamientos baratos)"]
 
     D --> D1["Q4 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Por qué la Ganancia cae más que las Ventas?<br/><b>COGS / Ventas Finales:</b> +6,19 pp<br/><b>Logística / Ventas Finales:</b> +1,69 pp<br/><b>Margen Neto:</b> 18,53% → 10,66%"]
 
@@ -197,19 +197,11 @@ Q3 profundiza en **precio bruto, descuentos/promociones y mix de categorías y p
 
 **1. La caída del ASP es principalmente un problema de mix, no de precios**
 
-El efecto **Mix explica el 67,9%** de la caída del ASP: dentro de los productos que se vendieron en ambos años, se corrió la venta hacia los de menor precio relativo. Este es, por lejos, el factor dominante.
+El efecto **Mix explica el 67,9%** de la caída, y los **SKUs Nuevos otro 36,7%**. Juntos superan el 100% del Δ, porque **Precio de Lista (+$12.778,52) y Descuento (−$9.088,17) casi se cancelan entre sí** (saldo neto: +$3.690,35). En otras palabras: la política de precios y descuentos, en neto, no explica la caída; el problema está en qué se vendió, no en cuánto se cobró por lo mismo.
 
-**2. Los SKUs nuevos entraron a un precio por debajo del promedio**
+**2. No hubo bajas de catálogo**
 
-Los 11 productos lanzados en 2026 aportan un **−36,7%** adicional a la caída del ASP, lo que indica que su precio neto está por debajo del ASP de los productos continuos en 2026.
-
-**3. La política comercial de precios, en neto, no explica la caída**
-
-El efecto **Precio de Lista (+$12.778,52)** y el efecto **Descuento (−$9.088,17)** casi se cancelan entre sí, dejando un saldo neto de apenas **+$3.690,35**. Esto significa que subieron las listas, pero se compensó con más descuento, y ese combo casi no movió el ASP.
-
-**4. No hubo bajas de catálogo**
-
-Los **0 SKUs descontinuados** confirman que toda la caída se explica por comportamiento de mix y por la entrada de nuevos productos, no por pérdida de líneas existentes.
+Los **0 SKUs descontinuados** confirman que toda la caída se explica por mix y por lanzamientos, no por pérdida de líneas existentes.
 
 <br>
 
@@ -231,25 +223,13 @@ Los **0 SKUs descontinuados** confirman que toda la caída se explica por compor
 
 #### 🔹 Hallazgos
 
-**1. Dos categorías explican el 90,6% de la caída, pero por razones distintas**
+**1. Dos categorías explican el 90,6% de la caída, por mecanismos opuestos**
 
-**TV y Video** (−49,0%) y **Computación** (−41,6%) concentran casi toda la caída del ASP, pero el mecanismo detrás de cada una es opuesto.
+**TV y Video** (−49,0%) cae por **pérdida pura de mix**: perdió 6 puntos de share, sin ningún SKU nuevo, y ni precio ni descuento lo compensan. **Computación** (−41,6%), en cambio, **ganó participación** (+2,10 pp) pero fue hundida por sus propios **lanzamientos 2026**, que entraron por debajo del promedio (−$17.671,74). El mismo patrón se repite en **Audio**, que ganó +7,92 pp de share (la mayor suba de todas) y aun así cae, arrastrada por sus lanzamientos.
 
-**2. TV y Video: caída pura de mix, sin lanzamientos**
+**2. Hogar es la única categoría que empuja el ASP hacia arriba**
 
-Es la única gran categoría **sin ningún SKU nuevo**. Su caída de **6,03 puntos de share** (la mayor de todas las categorías) se traduce directamente en un efecto Mix de **−$40.717,38**, apenas compensado por precio y descuento (+$1.637,53 neto). El problema acá es 100% que los clientes dejaron de comprar los productos de la categoría, no que hayan cambiado de precio.
-
-**3. Computación y Audio: ganaron share, pero los lanzamientos las hundieron**
-
-Estas dos categorías muestran un patrón contraintuitivo: **ambas aumentaron su participación** (Computación +2,10 pp, Audio +7,92 pp, la mayor suba de todas), y en Audio el mix interno incluso ayuda (+$3.587,54). Pero el **efecto Nuevos es fuertemente negativo** en las dos (Computación: −$17.671,74; Audio: −$9.056,35), los dos valores más negativos de toda la tabla. Esto indica que la estrategia de lanzamientos en ambas categorías fue de entrada a precios bajos, y ese fue el verdadero driver de la caída, no la pérdida de clientes.
-
-**4. Hogar es la única categoría que empuja el ASP hacia arriba**
-
-Ganó share (+3,81 pp) y tuvo mix positivo (+$12.404,76), sin ningún lanzamiento nuevo. Es el espejo de TV y Video: mismo mecanismo (mix), pero en sentido contrario.
-
-**5. Accesorios: la categoría más golpeada en volumen, pero no en ASP**
-
-Perdió **5,05 puntos de share**, la segunda mayor caída después de TV y Video, pero su mix interno es casi neutro (+$338,66). Su impacto negativo total (−$2.435,99) viene sobre todo de sus 2 SKUs nuevos, que entraron por debajo del promedio.
+Ganó share (+3,81 pp) con mix positivo (+$12.404,76) y sin lanzamientos, el espejo exacto de TV y Video.
 
 <br>
 
@@ -281,17 +261,9 @@ Perdió **5,05 puntos de share**, la segunda mayor caída después de TV y Video
 
 #### 🔹 Hallazgos
 
-**1. El impacto negativo está altamente concentrado en pocos productos**
+**1. El impacto está muy concentrado, y el caso extremo confirma Q3.2**
 
-Los 5 productos de mayor impacto negativo explican por sí solos **$57.929,63**, es decir el **72,6% de la caída total del ASP**. De los 48 SKUs analizados, **30 tuvieron impacto negativo y 18 positivo**.
-
-**2. TCL Monitor TV 21 es el caso más extremo del dataset**
-
-Perdió más de la mitad de sus unidades (295 → 136) y **2,6 puntos de share**, explicando por sí solo el **24,4% de la caída total del ASP**. Es la manifestación a nivel SKU de lo que vimos en Q3.2: la caída de TV y Video es pura pérdida de mix.
-
-**3. Casi todos los SKUs nuevos entraron por debajo del promedio**
-
-De los 11 productos lanzados en 2026, **10 tuvieron impacto negativo** y solo **1 (Apple Smartphone 16, +$438,49)** sumó al ASP. Los más golpeados fueron los lanzamientos de Computación y Audio, consistente con lo visto a nivel categoría.
+Los 5 productos de mayor impacto negativo explican el **72,6%** de la caída total. El más extremo, **TCL Monitor TV 21**, perdió más de la mitad de sus unidades (295 → 136) y explica por sí solo el **24,4%** de la caída del ASP — la manifestación a nivel producto de la pérdida de mix que ya vimos en TV y Video.
 
 #### 🔹 Cierre Q3 — Síntesis de la Descomposición del ASP
 
