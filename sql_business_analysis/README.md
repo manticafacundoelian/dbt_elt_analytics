@@ -161,59 +161,151 @@ Q3 profundiza en **precio bruto, descuentos/promociones y mix de categorías y p
 
 </details>
 
-#### ├─ 🔹 Q3 — Drivers del ASP y Categorías: ¿Qué explica la caída del ASP? (Precio bruto, Descuentos y Mix)
+#### ├─ 🔹 Q3 — Descomposición del ASP: ¿Por qué cayó el precio promedio?
 
 <details>
 <summary><strong>Ver desarrollo de Q3</strong></summary>  
-<br>    
-
-**Q3.1 — ASP bruto y descuentos**
-
-[Ver Consulta SQL →](./sql_business_analysis/q3_1_asp_bruto_descuentos.sql) <br>
-
-#### 🔹 Resultados
-
-| Métrica                |     2025 |     2026 |    Variación |
-| :--------------------- | -------: | -------: | -----------: |
-| **ASP Bruto**          | $354.911 | $281.632 |  **−20,65%** |
-| **Tasa de Descuento**  |    3,00% |    6,10% | **+3,10 pp** |
-| **ASP Neto Comercial** | $344.275 | $264.456 |  **−23,18%** |
-
-#### 🔹 Hallazgos — Q3.1
-
-El deterioro del ASP no se explica únicamente por una mayor presión de descuentos. Entre 2025 y 2026, el **ASP Bruto cayó 20,65%**, mientras que la **Tasa de Descuento aumentó 3,10 pp**, llevando el ASP Neto Comercial a una caída del **23,18%**.
-
-La caída del **ASP Bruto** constituye, por lo tanto, un **driver central a investigar**, ya que el deterioro del valor unitario se produce antes de considerar el efecto adicional de los descuentos.
 <br>
 
-**Q3.2 — Mix y comportamiento por categoría**
+#### 🔸 Q3.1 — Bridge Agregado (Precio - Volumen - Mix)
 
-[Ver Consulta SQL →](./sql_business_analysis/q3_2_mix_categorias.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q3_1_descomposicion_asp_agregada.sql) <br>
 
 #### 🔹 Resultados
 
-| Categoría       | Share U. 2025 | Share U. 2026 |   Cambio Mix |   ASP 2025 |   ASP 2026 |     ASP YoY | Δ Descuento |
-| :-------------- | ------------: | ------------: | -----------: | ---------: | ---------: | ----------: | ----------: |
-| **Hogar**       |        21,07% |        24,88% | **+3,81 pp** |   $109.885 |   $112.885 |  **+2,73%** |    +4,00 pp |
-| **Audio**       |        14,90% |        22,82% | **+7,92 pp** |   $221.366 |   $223.283 |  **+0,87%** |    +4,05 pp |
-| **Accesorios**  |        25,75% |        20,70% | **−5,05 pp** |    $79.856 |    $83.864 |  **+5,02%** |    +3,73 pp |
-| **Computación** |        16,16% |        18,26% | **+2,10 pp** |   $316.965 |   $213.195 | **−32,74%** |    +2,82 pp |
-| **TV y Video**  |        16,67% |        10,64% | **−6,03 pp** | $1.071.105 | $1.027.052 |  **−4,11%** |    +2,73 pp |
-| **Telefonía**   |         5,46% |         2,70% | **−2,76 pp** |   $693.426 |   $735.022 |  **+6,00%** |    +1,45 pp |
+| Métrica                    |       2025 |       2026 |            Δ |
+| :-------------------------- | ---------: | ---------: | -----------: |
+| **ASP Comercial**           |   $344.275 |   $264.456 | **−$79.819** |
+| **SKUs Continuos**          |         37 |         37 |             — |
+| **SKUs Nuevos**             |          — |         11 |             — |
+| **SKUs Descontinuados**     |          0 |          — |             — |
 
-#### 🔹 Hallazgos — Q3.2
+**Descomposición del Δ ASP ($79.819 de caída):**
 
-El deterioro del ASP combina dos fenómenos: **cambios en el mix entre categorías** y **cambios en el ASP dentro de cada categoría**.
+| Efecto                          |    Impacto ($) | % del Δ Total |
+| :------------------------------- | --------------: | -------------: |
+| **Mix (SKUs continuos)**         |     −$54.180,70 |    **67,9%** |
+| **SKUs Nuevos**                  |     −$29.328,29 |    **36,7%** |
+| **Precio de Lista**              |      $12.778,52 |   **−16,0%** |
+| **Descuentos**                   |      −$9.088,17 |    **11,4%** |
+| **SKUs Descontinuados**          |           $0,00 |        0,0% |
+| **Total (chequeo de residuo)**   |     **$0,00** ✅ |      100,0% |
 
-Entre 2025 y 2026, **Audio gana 7,92 pp de participación** y **TV y Video pierde 6,03 pp**, modificando la composición de las unidades vendidas. Al mismo tiempo, algunas categorías presentan un deterioro significativo de su propio valor unitario: **Computación reduce su ASP 32,74%**, mientras que TV y Video lo hace un 4,11%.
+> *Nota metodológica: el efecto Mix se valúa a precio del año base (2025) y los efectos Precio y Descuento se ponderan con el volumen del año actual (2026). Esta convención asegura que el puente cierre exacto (residuo $0), a costa de que la interacción entre cambio de mix y cambio de precio quede incluida dentro del efecto Precio.*
 
-Esto muestra que la caída del ASP consolidado no responde únicamente a *qué categorías se venden más*, sino también a **cómo evoluciona el valor unitario dentro de cada categoría**.
+#### 🔹 Hallazgos
 
-#### 🔹 Síntesis de Q3
+**1. La caída del ASP es principalmente un problema de mix, no de precios**
 
-La caída del ASP Comercial en 2026 surge de **tres dimensiones que deben analizarse conjuntamente**: el deterioro del **ASP Bruto**, el aumento de los **descuentos** y los cambios de **mix entre categorías**, junto con la evolución del ASP **dentro de cada categoría**.
+El efecto **Mix explica el 67,9%** de la caída del ASP: dentro de los productos que se vendieron en ambos años, se corrió la venta hacia los de menor precio relativo. Este es, por lejos, el factor dominante.
 
-El principal punto de profundización queda planteado en el **deterioro del ASP Bruto**, mientras que el análisis de mix permite identificar dónde se concentra el cambio y qué categorías presentan además un deterioro propio de su valor unitario.
+**2. Los SKUs nuevos entraron a un precio por debajo del promedio**
+
+Los 11 productos lanzados en 2026 aportan un **−36,7%** adicional a la caída del ASP, lo que indica que su precio neto está por debajo del ASP de los productos continuos en 2026.
+
+**3. La política comercial de precios, en neto, no explica la caída**
+
+El efecto **Precio de Lista (+$12.778,52)** y el efecto **Descuento (−$9.088,17)** casi se cancelan entre sí, dejando un saldo neto de apenas **+$3.690,35**. Esto significa que subieron las listas, pero se compensó con más descuento, y ese combo casi no movió el ASP.
+
+**4. No hubo bajas de catálogo**
+
+Los **0 SKUs descontinuados** confirman que toda la caída se explica por comportamiento de mix y por la entrada de nuevos productos, no por pérdida de líneas existentes.
+
+<br>
+
+#### 🔸 Q3.2 — Bridge por Categoría
+
+[Ver Consulta SQL →](./sql_business_analysis/q3_2_descomposicion_asp_categoria.sql) <br>
+
+#### 🔹 Resultados
+
+| Categoría | Unid. 2025 | Unid. 2026 | Share 2025 | Share 2026 | Δ Share (pp) | Mix | Precio | Descuento | Nuevos | Total | % del Δ ASP |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **TV y Video** | 791 | 402 | 16,67% | 10,64% | **−6,03** | −40.717,38 | 5.642,40 | −4.004,87 | 0,00 | **−39.079,85** | **49,0%** |
+| **Computación** | 767 | 690 | 16,16% | 18,26% | +2,10 | −15.885,31 | 1.348,05 | −971,26 | −17.671,74 | **−33.180,25** | **41,6%** |
+| **Telefonía** | 259 | 102 | 5,46% | 2,70% | −2,76 | −13.908,97 | 830,43 | −300,51 | 438,49 | **−12.940,57** | **16,2%** |
+| **Audio** | 707 | 862 | 14,90% | 22,82% | +7,92 | 3.587,54 | 2.000,85 | −1.397,46 | −9.056,35 | **−4.865,42** | **6,1%** |
+| **Accesorios** | 1.222 | 782 | 25,75% | 20,70% | −5,05 | 338,66 | 1.115,33 | −851,29 | −3.038,69 | **−2.435,99** | **3,1%** |
+| **Hogar** | 1.000 | 940 | 21,07% | 24,88% | +3,81 | 12.404,76 | 1.841,45 | −1.562,78 | 0,00 | **+12.683,43** | **−15,9%** |
+| **Total (chequeo)** | — | — | — | — | — | — | — | — | — | **−79.818,65** ✅ | 100,0% |
+
+#### 🔹 Hallazgos
+
+**1. Dos categorías explican el 90,6% de la caída, pero por razones distintas**
+
+**TV y Video** (−49,0%) y **Computación** (−41,6%) concentran casi toda la caída del ASP, pero el mecanismo detrás de cada una es opuesto.
+
+**2. TV y Video: caída pura de mix, sin lanzamientos**
+
+Es la única gran categoría **sin ningún SKU nuevo**. Su caída de **6,03 puntos de share** (la mayor de todas las categorías) se traduce directamente en un efecto Mix de **−$40.717,38**, apenas compensado por precio y descuento (+$1.637,53 neto). El problema acá es 100% que los clientes dejaron de comprar los productos de la categoría, no que hayan cambiado de precio.
+
+**3. Computación y Audio: ganaron share, pero los lanzamientos las hundieron**
+
+Estas dos categorías muestran un patrón contraintuitivo: **ambas aumentaron su participación** (Computación +2,10 pp, Audio +7,92 pp, la mayor suba de todas), y en Audio el mix interno incluso ayuda (+$3.587,54). Pero el **efecto Nuevos es fuertemente negativo** en las dos (Computación: −$17.671,74; Audio: −$9.056,35), los dos valores más negativos de toda la tabla. Esto indica que la estrategia de lanzamientos en ambas categorías fue de entrada a precios bajos, y ese fue el verdadero driver de la caída, no la pérdida de clientes.
+
+**4. Hogar es la única categoría que empuja el ASP hacia arriba**
+
+Ganó share (+3,81 pp) y tuvo mix positivo (+$12.404,76), sin ningún lanzamiento nuevo. Es el espejo de TV y Video: mismo mecanismo (mix), pero en sentido contrario.
+
+**5. Accesorios: la categoría más golpeada en volumen, pero no en ASP**
+
+Perdió **5,05 puntos de share**, la segunda mayor caída después de TV y Video, pero su mix interno es casi neutro (+$338,66). Su impacto negativo total (−$2.435,99) viene sobre todo de sus 2 SKUs nuevos, que entraron por debajo del promedio.
+
+<br>
+
+#### 🔸 Q3.3 — Bridge por SKU (Detalle y Ranking de Impacto)
+
+[Ver Consulta SQL →](./sql_business_analysis/q3_3_descomposicion_asp_sku.sql) <br>
+
+#### 🔹 Resultados — Top 5 Mayor Impacto Negativo
+
+| Producto | Categoría | Estado | Δ Share (pp) | Mix | Precio | Descuento | Nuevos | Total |
+| :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| TCL Monitor TV 21 | TV y Video | Continuo | −2,616 | −20.173,53 | 2.265,13 | −1.530,49 | 0,00 | **−19.438,89** |
+| Acer Memoria RAM 2 | Computación | Continuo | −3,132 | −11.108,52 | 197,11 | −95,52 | 0,00 | **−11.006,93** |
+| Lenovo Mouse 1 | Computación | Continuo | −4,073 | −10.436,40 | 332,19 | −189,48 | 0,00 | **−10.293,69** |
+| TCL Chromecast 25 | TV y Video | Continuo | −1,342 | −9.111,00 | 1.173,26 | −905,27 | 0,00 | **−8.843,01** |
+| Acer Notebook 7 | Computación | Nuevo 2026 | +4,579 | 0,00 | 0,00 | 0,00 | −8.347,11 | **−8.347,11** |
+
+#### 🔹 Resultados — Top 5 Mayor Impacto Positivo
+
+| Producto | Categoría | Estado | Δ Share (pp) | Mix | Precio | Descuento | Nuevos | Total |
+| :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Liliana Cafetera 46 | Hogar | Continuo | +6,315 | 12.338,22 | 1.171,32 | −1.043,51 | 0,00 | **12.466,03** |
+| ASUS Webcam 6 | Computación | Continuo | +1,167 | 7.423,10 | 406,13 | −391,52 | 0,00 | **7.437,70** |
+| Philips Barra de Sonido 28 | Audio | Continuo | +0,013 | 3.595,60 | 793,89 | −469,45 | 0,00 | **3.920,04** |
+| Samsung Monitor TV 23 | TV y Video | Continuo | +0,365 | 3.313,49 | 487,24 | −353,18 | 0,00 | **3.447,55** |
+| Logitech Funda 40 | Accesorios | Continuo | +0,561 | 1.273,05 | 121,81 | −90,70 | 0,00 | **1.304,16** |
+
+> *Detalle completo de los 48 SKUs disponible en la salida de la consulta SQL vinculada arriba.*
+
+#### 🔹 Hallazgos
+
+**1. El impacto negativo está altamente concentrado en pocos productos**
+
+Los 5 productos de mayor impacto negativo explican por sí solos **$57.929,63**, es decir el **72,6% de la caída total del ASP**. De los 48 SKUs analizados, **30 tuvieron impacto negativo y 18 positivo**.
+
+**2. TCL Monitor TV 21 es el caso más extremo del dataset**
+
+Perdió más de la mitad de sus unidades (295 → 136) y **2,6 puntos de share**, explicando por sí solo el **24,4% de la caída total del ASP**. Es la manifestación a nivel SKU de lo que vimos en Q3.2: la caída de TV y Video es pura pérdida de mix.
+
+**3. Casi todos los SKUs nuevos entraron por debajo del promedio**
+
+De los 11 productos lanzados en 2026, **10 tuvieron impacto negativo** y solo **1 (Apple Smartphone 16, +$438,49)** sumó al ASP. Los más golpeados fueron los lanzamientos de Computación y Audio, consistente con lo visto a nivel categoría.
+
+#### 🔹 Cierre Q3 — Síntesis de la Descomposición del ASP
+
+El ASP cayó **−$79.819 (−23,2%)** entre 2025 y 2026, explicado principalmente por dos efectos: el **Mix de productos continuos (−67,9%)** y la **entrada de SKUs nuevos a precios bajos (−36,7%)**. Los efectos de **Precio de Lista y Descuento casi se cancelan entre sí** (+$3.690 neto), por lo que la política comercial de precios no explica la caída.
+
+Al bajar a categoría, aparecen **dos historias distintas detrás del mismo número**:
+
+- **TV y Video** (−49,0% del Δ ASP) cae por **pérdida pura de mix**: perdió 6 puntos de share sin ningún lanzamiento nuevo. Los clientes simplemente compraron menos de esta categoría.
+- **Computación y Audio**, en cambio, **ganaron participación** pero fueron hundidas por sus propios **lanzamientos 2026**, que entraron a precios por debajo del promedio. El mix, en estas categorías, no es el problema — incluso ayuda en Audio.
+- **Hogar** es la única categoría que empuja el ASP hacia arriba, con el mecanismo inverso al de TV y Video: ganó mix sin lanzar productos nuevos.
+
+A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% del total, con **TCL Monitor TV 21** como el caso más extremo (−$19.439, el 24,4% de toda la caída), producto de una pérdida de más de la mitad de sus unidades vendidas.
+
+**Conclusión:** el ASP no bajó por una causa única. Es la superposición de un problema de demanda en categorías tradicionales (TV y Video) y una estrategia de precios de entrada agresiva en las categorías de lanzamiento (Computación, Audio). Cualquier acción correctiva debería tratarlas por separado, porque responden a palancas de negocio distintas.
 
 #### 🔹 Puente analítico → Q4
 
@@ -279,7 +371,7 @@ Q4 identifica un deterioro significativo de la estructura de rentabilidad, princ
 <summary><strong>Ver desarrollo de Q5</strong></summary>  
 <br>
 
-#### Q5.1 — PVM Consolidado: ¿Qué explica la variación total?
+#### 🔸 Q5.1 — PVM Consolidado: ¿Qué explica la variación total?
 
 [Ver Consulta SQL →](./sql_business_analysis/q5_pvm_consolidado.sql) <br>
 
@@ -329,7 +421,7 @@ El PVM explica exactamente la variación observada en la Ganancia Bruta:
 
 La diferencia de reconciliación es **$0,00**.
 
-#### Q5.2 — PVM por Categoría: ¿Dónde se concentra el deterioro?
+#### 🔸 Q5.2 — PVM por Categoría: ¿Dónde se concentra el deterioro?
 
 [Ver Consulta SQL →](./sql_business_analysis/q5_pvm_por_categoria.sql) <br>
 
@@ -377,7 +469,7 @@ La suma de los efectos PVM de todas las categorías reproduce exactamente la var
 
 La descomposición por categoría mantiene la reconciliación del PVM a nivel empresa.
 
-#### Q5.3 — PVM por SKU: ¿Qué productos explican el deterioro?
+#### 🔸 Q5.3 — PVM por SKU: ¿Qué productos explican el deterioro?
 
 [Ver Consulta SQL →](./sql_business_analysis/q5_pvm_por_sku.sql) <br>
 
