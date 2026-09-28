@@ -149,15 +149,10 @@ Entre 2025 y 2026, el Ticket Comercial disminuyó **41,37%**. La descomposición
 
 Esto indica que en 2026 los clientes compraron **menos unidades por pedido y, además, a un menor valor promedio por unidad**.
 
-**2. El ASP requiere una investigación específica**
-
-La caída del ASP abre una nueva pregunta: **¿qué cambió en el valor de las unidades vendidas?**
-
-Q3 profundiza en **precio bruto, descuentos/promociones y mix de categorías y productos** para explicar este deterioro.
-
 #### 🔹 Puente analítico → Q3
 
-**Q2 identifica los dos componentes del deterioro del ticket; Q3 profundiza en los drivers del ASP.**
+La caída del ASP puede deberse a distintas causas: cambios en el precio de lista, en los descuentos otorgados, o en qué productos efectivamente se vendieron.
+**Q3 descompondrá el ASP en sus componentes (Mix, Precio, Descuento y Lanzamientos)** para identificar cuál de esas causas explica el deterioro.
 
 </details>
 
@@ -165,6 +160,21 @@ Q3 profundiza en **precio bruto, descuentos/promociones y mix de categorías y p
 
 <details>
 <summary><strong>Ver desarrollo de Q3</strong></summary>  
+<br>
+
+#### 🔸 Síntesis
+
+El ASP cayó **−$79.819 (−23,2%)** entre 2025 y 2026, explicado principalmente por dos efectos: el **Mix de productos continuos (−67,9%)** y la **entrada de SKUs nuevos a precios bajos (−36,7%)**. Los efectos de **Precio de Lista y Descuento casi se cancelan entre sí** (+$3.690 neto), por lo que la política comercial de precios no explica la caída.
+
+Al bajar a categoría, aparecen **dos historias distintas detrás del mismo número**:
+
+- **TV y Video** (−49,0% del Δ ASP) cae por **pérdida pura de mix**: perdió 6 puntos de share sin ningún lanzamiento nuevo. Los clientes simplemente compraron menos de esta categoría.
+- **Computación y Audio**, en cambio, **ganaron participación** pero fueron hundidas por sus propios **lanzamientos 2026**, que entraron a precios por debajo del promedio. El mix, en estas categorías, no es el problema — incluso ayuda en Audio.
+- **Hogar** es la única categoría que empuja el ASP hacia arriba, con el mecanismo inverso al de TV y Video: ganó mix sin lanzar productos nuevos.
+
+A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% del total, con **TCL Monitor TV 21** como el caso más extremo (−$19.439, el 24,4% de toda la caída), producto de una pérdida de más de la mitad de sus unidades vendidas.
+
+**Conclusión:** el ASP no bajó por una causa única. Es la superposición de un problema de demanda en categorías tradicionales (TV y Video) y una estrategia de precios de entrada agresiva en las categorías de lanzamiento (Computación, Audio). Cualquier acción correctiva debería tratarlas por separado, porque responden a palancas de negocio distintas.
 <br>
 
 #### 🔸 Q3.1 — Bridge Agregado (Precio - Volumen - Mix)
@@ -265,25 +275,11 @@ Ganó share (+3,81 pp) con mix positivo (+$12.404,76) y sin lanzamientos, el esp
 
 Los 5 productos de mayor impacto negativo explican el **72,6%** de la caída total. El más extremo, **TCL Monitor TV 21**, perdió más de la mitad de sus unidades (295 → 136) y explica por sí solo el **24,4%** de la caída del ASP — la manifestación a nivel producto de la pérdida de mix que ya vimos en TV y Video.
 
-#### 🔹 Cierre Q3 — Síntesis de la Descomposición del ASP
+#### 🔸 Puente analítico → Rama de Rentabilidad
 
-El ASP cayó **−$79.819 (−23,2%)** entre 2025 y 2026, explicado principalmente por dos efectos: el **Mix de productos continuos (−67,9%)** y la **entrada de SKUs nuevos a precios bajos (−36,7%)**. Los efectos de **Precio de Lista y Descuento casi se cancelan entre sí** (+$3.690 neto), por lo que la política comercial de precios no explica la caída.
+El diagnóstico comercial explica la caída de las Ventas Netas, pero no todavía por qué la Ganancia Neta cayó más que proporcionalmente (−66,20% vs. −38,85%).
 
-Al bajar a categoría, aparecen **dos historias distintas detrás del mismo número**:
-
-- **TV y Video** (−49,0% del Δ ASP) cae por **pérdida pura de mix**: perdió 6 puntos de share sin ningún lanzamiento nuevo. Los clientes simplemente compraron menos de esta categoría.
-- **Computación y Audio**, en cambio, **ganaron participación** pero fueron hundidas por sus propios **lanzamientos 2026**, que entraron a precios por debajo del promedio. El mix, en estas categorías, no es el problema — incluso ayuda en Audio.
-- **Hogar** es la única categoría que empuja el ASP hacia arriba, con el mecanismo inverso al de TV y Video: ganó mix sin lanzar productos nuevos.
-
-A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% del total, con **TCL Monitor TV 21** como el caso más extremo (−$19.439, el 24,4% de toda la caída), producto de una pérdida de más de la mitad de sus unidades vendidas.
-
-**Conclusión:** el ASP no bajó por una causa única. Es la superposición de un problema de demanda en categorías tradicionales (TV y Video) y una estrategia de precios de entrada agresiva en las categorías de lanzamiento (Computación, Audio). Cualquier acción correctiva debería tratarlas por separado, porque responden a palancas de negocio distintas.
-
-#### 🔹 Puente analítico → Q4
-
-Q3 explica el deterioro del valor comercial por unidad. El siguiente paso es analizar **cómo este deterioro, junto con la evolución de los costos, termina impactando la rentabilidad del negocio**.
-
-**Q4 aborda la estructura de P&L, COGS, logística y márgenes para explicar por qué la ganancia cae más que las ventas.**
+**Q4 y Q5 abordan la Rama de Rentabilidad**, analizando la estructura de costos y márgenes para entender esa brecha.
 
 </details>
 
@@ -329,7 +325,7 @@ El **Margen Neto** pasó de 18,53% a 10,66%, una reducción de **7,87 pp**.
 
 El deterioro observado requiere profundizar en los componentes que explican la evolución de la **Ganancia Bruta**, particularmente el efecto del volumen, mix, precio y costo.
 
-#### 🔹 Puente analítico → Q5
+#### 🔸 Puente analítico → Q5
 
 Q4 identifica un deterioro significativo de la estructura de rentabilidad, principalmente por el aumento del peso del **Costo de Ventas** y, adicionalmente, por una mayor presión del **Costo Logístico**.
 
@@ -494,7 +490,7 @@ También se observan contribuciones positivas relevantes de nuevos productos de 
 
 Esto muestra la utilidad del PVM para distinguir entre los distintos mecanismos que explican la evolución de la Ganancia Bruta a nivel producto.
 
-#### 🔹 Cierre del análisis PVM
+#### 🔸 Síntesis
 
 El análisis permite descomponer la caída de la Ganancia Bruta entre 2025 y 2026 en tres niveles de profundidad:
 
