@@ -110,13 +110,17 @@ En 2026, las Ventas Netas disminuyeron **38,85%**, mientras que la Ganancia Neta
 
 El Margen Neto pasó de **18,53% a 10,66%**, una reducción adicional de **7,87 pp**.
 
-La diferencia entre la evolución de ventas y rentabilidad requiere analizar la estructura de costos y márgenes, que será abordada en la **Rama de Rentabilidad**.
+La diferencia entre la evolución de ventas y rentabilidad requiere analizar la estructura de costos y márgenes, que será abordada en la **Rama de Rentabilidad**.  
+
+<br>
 
 #### 🔹 Puente analítico → Q2
 
 El diagnóstico muestra que en 2026 la cantidad de pedidos se mantiene relativamente estable, mientras que el valor promedio de cada pedido disminuye significativamente.
 
-**Q2 descompone el Ticket Comercial en sus dos componentes: UPT y ASP**, para determinar cuánto de esta caída se relaciona con una menor cantidad de unidades por pedido y cuánto con el valor promedio de cada unidad.
+**Q2 descompone el Ticket Comercial en sus dos componentes: UPT y ASP**, para determinar cuánto de esta caída se relaciona con una menor cantidad de unidades por pedido y cuánto con el valor promedio de cada unidad.  
+
+<br>
 
 </details>
 
@@ -147,12 +151,16 @@ El diagnóstico muestra que en 2026 la cantidad de pedidos se mantiene relativam
 
 Entre 2025 y 2026, el Ticket Comercial disminuyó **41,37%**. La descomposición muestra una caída prácticamente equivalente en sus dos componentes: **UPT −23,67%** y **ASP −23,18%**.
 
-Esto indica que en 2026 los clientes compraron **menos unidades por pedido y, además, a un menor valor promedio por unidad**.
+Esto indica que en 2026 los clientes compraron **menos unidades por pedido y, además, a un menor valor promedio por unidad**.  
+
+<br>
 
 #### 🔹 Puente analítico → Q3
 
 La caída del ASP puede deberse a distintas causas: cambios en el precio de lista, en los descuentos otorgados, o en qué productos efectivamente se vendieron.
-**Q3 descompondrá el ASP en sus componentes (Mix, Precio, Descuento y Lanzamientos)** para identificar cuál de esas causas explica el deterioro.
+**Q3 descompondrá el ASP en sus componentes (Mix, Precio, Descuento y Lanzamientos)** para identificar cuál de esas causas explica el deterioro.  
+
+<br>
 
 </details>
 
@@ -160,6 +168,7 @@ La caída del ASP puede deberse a distintas causas: cambios en el precio de list
 
 <details>
 <summary><strong>Ver desarrollo de Q3</strong></summary>  
+
 <br>
 
 #### 🔸 Síntesis
@@ -175,6 +184,7 @@ Al bajar a categoría, aparecen **dos historias distintas detrás del mismo núm
 A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% del total, con **TCL Monitor TV 21** como el caso más extremo (−$19.439, el 24,4% de toda la caída), producto de una pérdida de más de la mitad de sus unidades vendidas.
 
 **Conclusión:** el ASP no bajó por una causa única. Es la superposición de un problema de demanda en categorías tradicionales (TV y Video) y una estrategia de precios de entrada agresiva en las categorías de lanzamiento (Computación, Audio). Cualquier acción correctiva debería tratarlas por separado, porque responden a palancas de negocio distintas.
+
 <br>
 
 #### 🔸 Q3.1 — Bridge Agregado (Precio - Volumen - Mix)
@@ -273,13 +283,17 @@ Ganó share (+3,81 pp) con mix positivo (+$12.404,76) y sin lanzamientos, el esp
 
 **1. El impacto está muy concentrado, y el caso extremo confirma Q3.2**
 
-Los 5 productos de mayor impacto negativo explican el **72,6%** de la caída total. El más extremo, **TCL Monitor TV 21**, perdió más de la mitad de sus unidades (295 → 136) y explica por sí solo el **24,4%** de la caída del ASP — la manifestación a nivel producto de la pérdida de mix que ya vimos en TV y Video.
+Los 5 productos de mayor impacto negativo explican el **72,6%** de la caída total. El más extremo, **TCL Monitor TV 21**, perdió más de la mitad de sus unidades (295 → 136) y explica por sí solo el **24,4%** de la caída del ASP — la manifestación a nivel producto de la pérdida de mix que ya vimos en TV y Video.  
 
-#### 🔸 Puente analítico → Rama de Rentabilidad
+<br>
+
+#### 🔹 Puente analítico → Rama de Rentabilidad
 
 El diagnóstico comercial explica la caída de las Ventas Netas, pero no todavía por qué la Ganancia Neta cayó más que proporcionalmente (−66,20% vs. −38,85%).
 
-**Q4 y Q5 abordan la Rama de Rentabilidad**, analizando la estructura de costos y márgenes para entender esa brecha.
+**Q4 y Q5 abordan la Rama de Rentabilidad**, analizando la estructura de costos y márgenes para entender esa brecha.  
+
+<br>
 
 </details>
 
@@ -323,13 +337,17 @@ Mientras las **Ventas Netas Finales disminuyeron 41,22%**, la **Ganancia Neta ca
 
 El **Margen Neto** pasó de 18,53% a 10,66%, una reducción de **7,87 pp**.
 
-El deterioro observado requiere profundizar en los componentes que explican la evolución de la **Ganancia Bruta**, particularmente el efecto del volumen, mix, precio y costo.
+El deterioro observado requiere profundizar en los componentes que explican la evolución de la **Ganancia Bruta**, particularmente el efecto del volumen, mix, precio y costo.  
 
-#### 🔸 Puente analítico → Q5
+<br>
+
+#### 🔹 Puente analítico → Q5
 
 Q4 identifica un deterioro significativo de la estructura de rentabilidad, principalmente por el aumento del peso del **Costo de Ventas** y, adicionalmente, por una mayor presión del **Costo Logístico**.
 
-**Q5 descompone la variación de la Ganancia Bruta mediante un PVM formal —Volumen → Mix → Precio → Costo—**, para determinar qué componentes explican cuantitativamente el deterioro entre 2025 y 2026.
+**Q5 descompone la variación de la Ganancia Bruta mediante un PVM formal —Volumen → Mix → Precio → Costo—**, para determinar qué componentes explican cuantitativamente el deterioro entre 2025 y 2026.  
+
+<br>
 
 </details>
 
@@ -387,7 +405,9 @@ El PVM explica exactamente la variación observada en la Ganancia Bruta:
 
 **−$71,1 M − $74,8 M + $9,9 M − $64,6 M + $15,2 M = −$185,4 M**
 
-La diferencia de reconciliación es **$0,00**.
+La diferencia de reconciliación es **$0,00**.  
+
+<br>
 
 #### 🔸 Q5.2 — PVM por Categoría: ¿Dónde se concentra el deterioro?
 
@@ -435,7 +455,9 @@ La suma de los efectos PVM de todas las categorías reproduce exactamente la var
 
 **−$185,4 M**
 
-La descomposición por categoría mantiene la reconciliación del PVM a nivel empresa.
+La descomposición por categoría mantiene la reconciliación del PVM a nivel empresa.  
+
+<br>
 
 #### 🔸 Q5.3 — PVM por SKU: ¿Qué productos explican el deterioro?
 
@@ -488,7 +510,9 @@ También se observan contribuciones positivas relevantes de nuevos productos de 
 
 **ASUS Webcam 6** presenta un efecto Volumen de aproximadamente **+$7,7 M**, que compensa sus efectos negativos de Mix, Precio y Costo y lleva su efecto PVM total a **+$5,2 M**.
 
-Esto muestra la utilidad del PVM para distinguir entre los distintos mecanismos que explican la evolución de la Ganancia Bruta a nivel producto.
+Esto muestra la utilidad del PVM para distinguir entre los distintos mecanismos que explican la evolución de la Ganancia Bruta a nivel producto.  
+
+<br>
 
 #### 🔸 Síntesis
 
