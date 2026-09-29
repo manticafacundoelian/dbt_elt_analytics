@@ -29,7 +29,7 @@ flowchart TD
 
     C --> C1["Q2 — DESCOMPOSICIÓN DEL TICKET<br/><br/>¿Por qué cae?<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP:</b> ↓ 23,18%<br/><b>Ticket:</b> ↓ 41,37%"]
 
-    C1 --> C2["<b>Q3 — DRIVERS DEL ASP</b><br/><br/>¿Por qué cae?<br/><b>Mix (SKUs continuos):</b> -$54,2K (67,9%)<br/><b>SKUs Nuevos:</b> -$29,3K (36,7%)<br/><b>Precio de Lista:</b> +$12,8K<br/><b>Descuentos:</b> -$9,1K<br/><b>Categoría clave:</b> TV y Video (mix puro) / Computación-Audio (lanzamientos baratos)"]
+    C1 --> C2["<b>Q3 — DESCOMPOSICIÓN DEL ASP</b><br/><br/>¿Por qué cae?<br/><b>Mix (SKUs continuos):</b> -$54,2K (67,9%)<br/><b>SKUs Nuevos:</b> -$29,3K (36,7%)<br/><b>Precio de Lista:</b> +$12,8K<br/><b>Descuentos:</b> -$9,1K<br/><b>Categoría clave:</b> TV y Video (mix puro) / Computación-Audio (lanzamientos baratos)"]
 
     D --> D1["Q4 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Por qué la Ganancia cae más que las Ventas?<br/><b>COGS / Ventas Finales:</b> +6,19 pp<br/><b>Logística / Ventas Finales:</b> +1,69 pp<br/><b>Margen Neto:</b> 18,53% → 10,66%"]
 
@@ -171,7 +171,7 @@ La caída del ASP puede deberse a distintas causas: cambios en el precio de list
 
 <br>
 
-#### 🔸 Síntesis
+#### 🔹 Síntesis
 
 El ASP cayó **−$79.819 (−23,2%)** entre 2025 y 2026, explicado principalmente por dos efectos: el **Mix de productos continuos (−67,9%)** y la **entrada de SKUs nuevos a precios bajos (−36,7%)**. Los efectos de **Precio de Lista y Descuento casi se cancelan entre sí** (+$3.690 neto), por lo que la política comercial de precios no explica la caída.
 
@@ -357,6 +357,18 @@ Q4 identifica un deterioro significativo de la estructura de rentabilidad, princ
 <summary><strong>Ver desarrollo de Q5</strong></summary>  
 <br>
 
+#### 🔹 Síntesis
+
+La Ganancia Bruta cayó **−$185,36 M (−59,7%)** entre 2025 y 2026, de $310,22 M a $124,86 M. El PVM muestra que el deterioro es, ante todo, un problema de **volumen del negocio existente**: el efecto Volumen (**−$122,44 M, 66,1%**) más que duplica al efecto Mix (**−$23,41 M, 12,6%**), y el Costo suma otro **−$64,56 M (34,8%)**. Precio (+$9,88 M) y Lanzamientos (+$15,17 M) compensan apenas el 13,5% de la caída.
+
+Al bajar a categoría, **TV y Video concentra más de la mitad del deterioro** (−$100,88 M, 54,4%), enteramente por volumen y costo, sin ningún lanzamiento que lo amortigüe. **Audio** repite el patrón ya visto en Q3: crece en unidades totales (+16%) pero su negocio continuo se derrumba (−$12,76 M de Volumen), oculto detrás del mayor efecto de Lanzamientos de todas las categorías (+$9,10 M).
+
+A nivel SKU, el deterioro está **muy concentrado**: los mismos dos productos que lideraban la caída del ASP en Q3 —**TCL Monitor TV 21** y **TCL Chromecast 25**— son también los dos mayores destructores de Ganancia Bruta, con **−$71,66 M combinados (38,7% del total)**. Ningún lanzamiento aparece entre los 8 peores SKUs; todos son productos continuos.
+
+**Conclusión:** la caída de rentabilidad no es un problema de precios ni de mala estrategia de lanzamientos — es, centralmente, la pérdida de volumen de un grupo reducido de productos ya establecidos (liderados por TV y Video), agravada por un deterioro simultáneo del costo unitario. Los lanzamientos, lejos de ser el problema, son uno de los pocos frenos parciales a la caída.
+
+<br>
+
 #### 🔸 Q5.1 — PVM Consolidado: ¿Qué explica la variación total?
 
 [Ver Consulta SQL →](./sql_business_analysis/q5_pvm_consolidado.sql) <br>
@@ -364,48 +376,36 @@ Q4 identifica un deterioro significativo de la estructura de rentabilidad, princ
 #### 🔹 Resultados
 
 | Factor              | Efecto sobre la Ganancia Bruta | Participación |
-| :------------------ | -----------------------------: | ------------: |
-| **Volumen**         |                       −$71,1 M |        38,36% |
-| **Mix**             |                       −$74,8 M |        40,33% |
-| **Precio**          |                        +$9,9 M |        −5,33% |
-| **Costo**           |                       −$64,6 M |        34,83% |
-| **Lanzamientos**    |                       +$15,2 M |        −8,19% |
-| **Discontinuados**  |                         $0,0 M |         0,00% |
-| **Variación total** |                  **−$185,4 M** |   **100,00%** |
+| :------------------ | ------------------------------: | -------------: |
+| **Volumen**         |                       −$122,44 M |     **66,05%** |
+| **Mix**             |                        −$23,41 M |     **12,63%** |
+| **Precio**          |                         +$9,88 M |     **−5,33%** |
+| **Costo**           |                        −$64,56 M |     **34,83%** |
+| **Lanzamientos**    |                        +$15,17 M |     **−8,19%** |
+| **Discontinuados**  |                           $0,0 M |         0,00% |
+| **Variación total** |                     **−$185,36 M** |   **100,00%** |
 
-**Ganancia Bruta 2025:** $310,2 M
-**Ganancia Bruta 2026:** $124,9 M
-**Variación:** **−$185,4 M**
+**Ganancia Bruta 2025:** $310,22 M
+**Ganancia Bruta 2026:** $124,86 M
+**Variación:** **−$185,36 M**
 
-> *Nota: Los porcentajes representan la contribución de cada efecto a la variación total de la Ganancia Bruta. Los efectos positivos aparecen con participación porcentual negativa porque compensan parcialmente una variación total negativa.*
-
-> *En productos continuos, la variación se descompone en Volumen, Mix, Precio y Costo. Los productos nuevos y discontinuados se aíslan mediante los efectos específicos de Lanzamientos y Discontinuados. Esta estructura se mantiene en los niveles de categoría y SKU.*
+> *Nota metodológica: el efecto "Precio" es Precio Realizado (ventas netas de descuento y de devoluciones, dividido por unidades efectivas), por lo que incorpora tanto la política de descuentos como el impacto de reembolsos. La apertura granular entre Precio de Lista y Descuento se realiza en Q3, sobre ventas comerciales antes de devolución. Los efectos Volumen y Mix se calculan sobre el universo de SKUs continuos exclusivamente, para aislar el comportamiento del negocio existente de la entrada de nuevos lanzamientos.*
 
 #### 🔹 Hallazgos
 
-**1. Los mayores efectos negativos corresponden a Mix, Volumen y Costo**
+**1. La caída es, ante todo, un problema de volumen del negocio existente**
 
-El **Mix (−$74,8 M)**, el **Volumen (−$71,1 M)** y el **Costo (−$64,6 M)** presentan los mayores efectos negativos sobre la variación de la Ganancia Bruta.
+El efecto **Volumen explica el 66,05%** de la caída — más del doble que Mix (12,63%). La reducción de Ganancia Bruta no es principalmente un cambio en qué se vende, sino una **caída real en la cantidad vendida** de los productos que la empresa ya tenía en catálogo.
 
-**2. El Mix presenta el mayor efecto negativo individual**
+**2. El Costo es el segundo factor más relevante; Precio y Lanzamientos compensan solo parcialmente**
 
-El Mix genera un efecto de **−$74,8 M**, ligeramente superior al impacto del Volumen (**−$71,1 M**).
-
-Esto refleja que el cambio en la composición de los productos vendidos tuvo un efecto negativo significativo sobre la evolución de la Ganancia Bruta.
-
-**3. Precio y lanzamientos compensan parcialmente la caída**
-
-El efecto Precio aporta **+$9,9 M**, mientras que los nuevos productos aportan **+$15,2 M**.
-
-Ambos efectos compensan parcialmente los efectos negativos, aunque no alcanzan para revertir la caída consolidada.
+El efecto **Costo (−$64,56 M, 34,83%)** confirma que, además de vender menos, el margen unitario de los productos continuos se deterioró por el lado del costo de reposición. Precio (+$9,88 M) y Lanzamientos (+$15,17 M) compensan en conjunto apenas el 13,5% de la caída.
 
 #### 🔹 Reconciliación
 
-El PVM explica exactamente la variación observada en la Ganancia Bruta:
+**−$122,44 M − $23,41 M + $9,88 M − $64,56 M + $15,17 M = −$185,36 M**
 
-**−$71,1 M − $74,8 M + $9,9 M − $64,6 M + $15,2 M = −$185,4 M**
-
-La diferencia de reconciliación es **$0,00**.  
+Diferencia de reconciliación: **$0,00** ✅
 
 <br>
 
@@ -415,47 +415,33 @@ La diferencia de reconciliación es **$0,00**.
 
 #### 🔹 Resultados
 
-| Categoría       | Unidades 2025 | Unidades 2026 |      Volumen |          Mix |      Precio |        Costo | Lanzamientos | Discontinuados |    Efecto PVM |
-| :-------------- | ------------: | ------------: | -----------: | -----------: | ----------: | -----------: | -----------: | -------------: | ------------: |
-| **TV y Video**  |           764 |           375 |     −$32,6 M |     −$42,9 M |     +$4,4 M |     −$29,7 M |       $0,0 M |         $0,0 M | **−$100,9 M** |
-| **Computación** |           741 |           647 |     −$14,1 M |     −$18,5 M |     +$0,9 M |      −$6,0 M |      +$5,3 M |         $0,0 M |  **−$32,3 M** |
-| **Telefonía**   |           248 |            94 |      −$7,3 M |     −$12,4 M |     +$1,5 M |      −$4,0 M |      +$0,2 M |         $0,0 M |  **−$22,1 M** |
-| **Accesorios**  |         1.183 |           734 |      −$4,1 M |      −$2,8 M |     +$0,7 M |      −$5,8 M |      +$0,7 M |         $0,0 M |  **−$11,3 M** |
-| **Audio**       |           682 |           791 |      −$7,4 M |      −$2,7 M |     +$1,6 M |     −$10,4 M |      +$9,1 M |         $0,0 M |   **−$9,8 M** |
-| **Hogar**       |           968 |           894 |      −$5,6 M |      +$4,5 M |     +$0,8 M |      −$8,6 M |       $0,0 M |         $0,0 M |   **−$8,9 M** |
-| **Total**       |     **4.586** |     **3.535** | **−$71,1 M** | **−$74,8 M** | **+$9,9 M** | **−$64,6 M** | **+$15,2 M** |     **$0,0 M** | **−$185,4 M** |
+| Categoría       | SKUs | Unid. 2025 | Unid. 2026 |      Volumen |          Mix |     Precio |        Costo | Lanzamientos | Discontinuados |     Efecto PVM | % del Δ Total |
+| :-------------- | ---: | ---------: | ---------: | -----------: | -----------: | ---------: | -----------: | -----------: | -------------: | -------------: | ------------: |
+| **TV y Video**  |    7 |        764 |        375 |    −$56,15 M |    −$19,37 M |   +$4,38 M |    −$29,74 M |       $0,0 M |         $0,0 M | **−$100,88 M** |    **54,42%** |
+| **Computación** |   10 |        741 |        647 |    −$24,27 M |     −$8,28 M |   +$0,90 M |     −$5,96 M |     +$5,26 M |         $0,0 M |  **−$32,34 M** |    **17,44%** |
+| **Telefonía**   |    6 |        248 |         94 |    −$12,54 M |     −$7,15 M |   +$1,50 M |     −$4,03 M |     +$0,15 M |         $0,0 M |  **−$22,07 M** |    **11,90%** |
+| **Accesorios**  |   10 |      1.183 |        734 |     −$7,10 M |     +$0,22 M |   +$0,72 M |     −$5,82 M |     +$0,66 M |         $0,0 M |  **−$11,32 M** |     **6,10%** |
+| **Audio**       |    8 |        682 |        791 |    −$12,76 M |     +$2,61 M |   +$1,58 M |    −$10,37 M |     +$9,10 M |         $0,0 M |   **−$9,84 M** |     **5,31%** |
+| **Hogar**       |    7 |        968 |        894 |     −$9,62 M |     +$8,55 M |   +$0,81 M |     −$8,65 M |       $0,0 M |         $0,0 M |   **−$8,92 M** |     **4,81%** |
+| **Total**       |   48 |      4.586 |      3.535 |   −$122,44 M |    −$23,41 M |   +$9,88 M |    −$64,56 M |    +$15,17 M |         $0,0 M | **−$185,36 M** |     **100%** |
 
 #### 🔹 Hallazgos
 
-**1. TV y Video concentra el mayor efecto PVM negativo**
+**1. TV y Video concentra más de la mitad de la caída, y es puramente un problema de volumen**
 
-TV y Video registra un efecto PVM de **−$100,9 M**, con efectos negativos especialmente relevantes de **Mix (−$42,9 M)**, **Volumen (−$32,6 M)** y **Costo (−$29,7 M)**. El efecto Precio aporta **+$4,4 M**.
+Con **−$100,88 M (54,4%)**, TV y Video es la categoría más golpeada por lejos. Su efecto Volumen (**−$56,15 M**) representa el **45,9% de todo el efecto Volumen de la empresa**, sin ningún lanzamiento que lo compense.
 
-**2. Computación y Telefonía presentan los siguientes mayores efectos negativos**
+**2. Audio crece en unidades totales, pero su negocio base se derrumba**
 
-Computación registra **−$32,3 M** y Telefonía **−$22,1 M**.
+Audio pasa de 682 a 791 unidades (+16%), pero registra un efecto Volumen de **−$12,76 M**, el segundo más negativo. Esto solo se explica porque sus **Lanzamientos (+$9,10 M, el mayor de todas las categorías)** ocultan una caída fuerte en sus productos continuos — el mismo patrón identificado en Q3.
 
-En ambas categorías, los efectos negativos de **Mix y Volumen** se combinan con un efecto negativo de Costo. Los **Lanzamientos** generan compensaciones positivas parciales, especialmente en Computación.
+**3. Hogar es la única categoría con Mix positivo**
 
-**3. Audio incrementa sus unidades, pero presenta un efecto PVM negativo**
-
-Audio aumenta sus unidades de **682 a 791**, pero registra un efecto PVM de **−$9,8 M**.
-
-El efecto positivo de **Lanzamientos (+$9,1 M)** y el efecto Precio (**+$1,6 M**) compensan parcialmente los efectos negativos de **Costo (−$10,4 M)**, Volumen y Mix.
-
-**4. Hogar presenta un efecto Mix favorable**
-
-Hogar es la única categoría con un **efecto Mix positivo (+$4,5 M)**.
-
-Sin embargo, los efectos negativos de **Costo (−$8,6 M)** y Volumen (**−$5,6 M**) llevan el efecto PVM total a **−$8,9 M**.
+Con **+$8,55 M**, sin lanzamientos que lo expliquen — es enteramente producto de una mejor composición entre sus SKUs continuos, el espejo de TV y Video.
 
 #### 🔹 Reconciliación por categoría
 
-La suma de los efectos PVM de todas las categorías reproduce exactamente la variación consolidada de Ganancia Bruta:
-
-**−$185,4 M**
-
-La descomposición por categoría mantiene la reconciliación del PVM a nivel empresa.  
+La suma de los efectos PVM de todas las categorías reproduce, al centavo, la variación consolidada: **−$185,36 M** ✅
 
 <br>
 
@@ -463,66 +449,54 @@ La descomposición por categoría mantiene la reconciliación del PVM a nivel em
 
 [Ver Consulta SQL →](./sql_business_analysis/q5_pvm_por_sku.sql) <br>
 
-#### 🔹 Resultados
+#### 🔹 Resultados — Top 8 Mayor Impacto Negativo
 
-Los principales efectos negativos se concentran en un grupo reducido de SKUs:
+| Producto              | Categoría   | Estado   | Unid. 2025→2026 |   Efecto PVM |
+| :--------------------- | :---------- | :------- | :--------------- | -----------: |
+| TCL Monitor TV 21      | TV y Video  | Continuo | 283 → 126        | **−$44,79 M** |
+| TCL Chromecast 25      | TV y Video  | Continuo | 176 → 83         | **−$26,87 M** |
+| Acer Memoria RAM 2     | Computación | Continuo | 212 → 53         | **−$21,19 M** |
+| TCL Monitor TV 19      | TV y Video  | Continuo | 83 → 35          | **−$14,23 M** |
+| Lenovo Mouse 1         | Computación | Continuo | 318 → 102        | **−$12,70 M** |
+| Samsung Smart TV 20    | TV y Video  | Continuo | 114 → 35         |  **−$9,93 M** |
+| ASUS Notebook 5        | Computación | Continuo | 150 → 73         |  **−$7,16 M** |
+| Samsung Smartphone 14  | Telefonía   | Continuo | 56 → 13          |  **−$6,71 M** |
 
-| Producto              | Categoría   |   Efecto PVM |
-| :-------------------- | :---------- | -----------: |
-| TCL Monitor TV 21     | TV y Video  | **−$44,8 M** |
-| TCL Chromecast 25     | TV y Video  | **−$26,9 M** |
-| Acer Memoria RAM 2    | Computación | **−$21,2 M** |
-| TCL Monitor TV 19     | TV y Video  | **−$14,2 M** |
-| Lenovo Mouse 1        | Computación | **−$12,7 M** |
-| Samsung Smart TV 20   | TV y Video  |  **−$9,9 M** |
-| ASUS Notebook 5       | Computación |  **−$7,2 M** |
-| Samsung Smartphone 14 | Telefonía   |  **−$6,7 M** |
+#### 🔹 Resultados — Top 5 Mayor Impacto Positivo
 
-Los principales efectos positivos incluyen nuevos productos y algunos SKUs continuos con crecimiento de volumen:
+| Producto                    | Categoría   | Estado   | Unidades 2026 |  Efecto PVM |
+| :--------------------------- | :---------- | :------- | -------------: | ----------: |
+| Philips Equipo de Audio 30   | Audio       | Nuevo    |            112 | **+$7,63 M** |
+| ASUS Webcam 6                | Computación | Continuo |             56 | **+$5,22 M** |
+| Sony Equipo de Audio 33      | Audio       | Nuevo    |            142 | **+$3,51 M** |
+| Acer Notebook 7              | Computación | Nuevo    |            166 | **+$2,83 M** |
+| HP Mouse 10                  | Computación | Nuevo    |            118 | **+$2,37 M** |
 
-| Producto                   | Categoría   | Estado   |  Efecto PVM |
-| :------------------------- | :---------- | :------- | ----------: |
-| Philips Equipo de Audio 30 | Audio       | Nuevo    | **+$7,6 M** |
-| ASUS Webcam 6              | Computación | Continuo | **+$5,2 M** |
-| Sony Equipo de Audio 33    | Audio       | Nuevo    | **+$3,5 M** |
-| Acer Notebook 7            | Computación | Nuevo    | **+$2,8 M** |
-| HP Mouse 10                | Computación | Nuevo    | **+$2,4 M** |
+> *Detalle completo de los 48 SKUs disponible en la salida de la consulta SQL vinculada arriba.*
 
 #### 🔹 Hallazgos
 
-**1. El deterioro está fuertemente concentrado en determinados SKUs**
+**1. El deterioro proviene enteramente de productos ya existentes**
 
-Los mayores impactos negativos corresponden principalmente a productos de **TV y Video** y **Computación**, en línea con el análisis realizado a nivel categoría.
+Los 8 SKUs con mayor impacto negativo son **todos "Continuo"** — ningún lanzamiento aparece entre ellos. Los dos principales, **TCL Monitor TV 21** y **TCL Chromecast 25**, generan conjuntamente **−$71,66 M (38,7% de toda la caída)**, y son los mismos dos productos identificados como el mayor problema del ASP en Q3 — la pérdida de volumen no solo bajó el precio promedio, fue también el principal destructor de Ganancia Bruta.
 
-Los dos principales SKUs —**TCL Monitor TV 21** y **TCL Chromecast 25**— generan conjuntamente un efecto PVM de aproximadamente **−$71,7 M**.
+**2. Los lanzamientos son el principal contrapeso, no el problema**
 
-**2. La caída de unidades es recurrente entre los principales SKUs negativos**
+Los 5 mayores efectos positivos incluyen **3 lanzamientos de 2026** (Philips Equipo de Audio 30, Sony Equipo de Audio 33, Acer Notebook 7), que en conjunto aportan +$13,97 M. Ningún lanzamiento aparece entre los peores SKUs.
 
-Los productos con mayor impacto negativo presentan fuertes reducciones de unidades vendidas, aunque el PVM permite separar ese efecto de los impactos adicionales de **Mix, Precio y Costo**.
+**3. El PVM separa volumen de otros efectos: el caso de ASUS Webcam 6**
 
-**3. Los lanzamientos compensan parcialmente el deterioro**
-
-Entre los principales efectos positivos aparece **Philips Equipo de Audio 30**, cuyo lanzamiento aporta aproximadamente **+$7,6 M** de Ganancia Bruta.
-
-También se observan contribuciones positivas relevantes de nuevos productos de Audio y Computación.
-
-**4. El crecimiento de volumen puede compensar otros efectos negativos**
-
-**ASUS Webcam 6** presenta un efecto Volumen de aproximadamente **+$7,7 M**, que compensa sus efectos negativos de Mix, Precio y Costo y lleva su efecto PVM total a **+$5,2 M**.
-
-Esto muestra la utilidad del PVM para distinguir entre los distintos mecanismos que explican la evolución de la Ganancia Bruta a nivel producto.  
+**ASUS Webcam 6**, un producto continuo, triplicó sus unidades (19→56) y eso le permitió compensar sus propios efectos negativos de Mix, Precio y Costo, cerrando con un PVM total de **+$5,22 M** — el único SKU continuo entre los 5 mejores.  
 
 <br>
 
-#### 🔸 Síntesis
+#### 🔹 Puente analítico → Conclusiones Generales
 
-El análisis permite descomponer la caída de la Ganancia Bruta entre 2025 y 2026 en tres niveles de profundidad:
+El PVM identifica los mecanismos detrás de la caída de la Ganancia Bruta (Volumen y Costo como principales drivers negativos, agravados por Mix, y parcialmente compensados por Precio y Lanzamientos), completando el diagnóstico de las dos ramas de la investigación: Comercial (Q1-Q3) y Rentabilidad (Q4-Q5).
 
-**Empresa → Categoría → SKU**
+**Las Conclusiones Generales integran ambos diagnósticos en una cascada P&L única**, conectando la caída de Ventas Netas con el deterioro adicional de márgenes.  
 
-A nivel consolidado, los mayores efectos negativos corresponden a **Mix, Volumen y Costo**.
-A nivel categoría, el deterioro se concentra especialmente en **TV y Video, Computación y Telefonía**.
-A nivel SKU, un grupo reducido de productos explica una parte significativa de esos efectos, mientras que **nuevos lanzamientos y algunos productos con crecimiento de volumen compensan parcialmente la caída**.
+<br>
 
 </details>
 
@@ -839,7 +813,180 @@ Estas métricas se calculan antes de devoluciones para aislar el comportamiento 
 ---
 
 
+#### └─ 🔹 Q5 — PVM: ¿Qué componentes explican la caída de la Ganancia Bruta?
 
+<details>
+<summary><strong>Ver desarrollo de Q5</strong></summary>  
+<br>
+
+#### 🔸 Q5.1 — PVM Consolidado: ¿Qué explica la variación total?
+
+[Ver Consulta SQL →](./sql_business_analysis/q5_pvm_consolidado.sql) <br>
+
+#### 🔹 Resultados
+
+| Factor              | Efecto sobre la Ganancia Bruta | Participación |
+| :------------------ | -----------------------------: | ------------: |
+| **Volumen**         |                       −$71,1 M |        38,36% |
+| **Mix**             |                       −$74,8 M |        40,33% |
+| **Precio**          |                        +$9,9 M |        −5,33% |
+| **Costo**           |                       −$64,6 M |        34,83% |
+| **Lanzamientos**    |                       +$15,2 M |        −8,19% |
+| **Discontinuados**  |                         $0,0 M |         0,00% |
+| **Variación total** |                  **−$185,4 M** |   **100,00%** |
+
+**Ganancia Bruta 2025:** $310,2 M
+**Ganancia Bruta 2026:** $124,9 M
+**Variación:** **−$185,4 M**
+
+> *Nota: Los porcentajes representan la contribución de cada efecto a la variación total de la Ganancia Bruta. Los efectos positivos aparecen con participación porcentual negativa porque compensan parcialmente una variación total negativa.*
+
+> *En productos continuos, la variación se descompone en Volumen, Mix, Precio y Costo. Los productos nuevos y discontinuados se aíslan mediante los efectos específicos de Lanzamientos y Discontinuados. Esta estructura se mantiene en los niveles de categoría y SKU.*
+
+#### 🔹 Hallazgos
+
+**1. Los mayores efectos negativos corresponden a Mix, Volumen y Costo**
+
+El **Mix (−$74,8 M)**, el **Volumen (−$71,1 M)** y el **Costo (−$64,6 M)** presentan los mayores efectos negativos sobre la variación de la Ganancia Bruta.
+
+**2. El Mix presenta el mayor efecto negativo individual**
+
+El Mix genera un efecto de **−$74,8 M**, ligeramente superior al impacto del Volumen (**−$71,1 M**).
+
+Esto refleja que el cambio en la composición de los productos vendidos tuvo un efecto negativo significativo sobre la evolución de la Ganancia Bruta.
+
+**3. Precio y lanzamientos compensan parcialmente la caída**
+
+El efecto Precio aporta **+$9,9 M**, mientras que los nuevos productos aportan **+$15,2 M**.
+
+Ambos efectos compensan parcialmente los efectos negativos, aunque no alcanzan para revertir la caída consolidada.
+
+#### 🔹 Reconciliación
+
+El PVM explica exactamente la variación observada en la Ganancia Bruta:
+
+**−$71,1 M − $74,8 M + $9,9 M − $64,6 M + $15,2 M = −$185,4 M**
+
+La diferencia de reconciliación es **$0,00**.  
+
+<br>
+
+#### 🔸 Q5.2 — PVM por Categoría: ¿Dónde se concentra el deterioro?
+
+[Ver Consulta SQL →](./sql_business_analysis/q5_pvm_por_categoria.sql) <br>
+
+#### 🔹 Resultados
+
+| Categoría       | Unidades 2025 | Unidades 2026 |      Volumen |          Mix |      Precio |        Costo | Lanzamientos | Discontinuados |    Efecto PVM |
+| :-------------- | ------------: | ------------: | -----------: | -----------: | ----------: | -----------: | -----------: | -------------: | ------------: |
+| **TV y Video**  |           764 |           375 |     −$32,6 M |     −$42,9 M |     +$4,4 M |     −$29,7 M |       $0,0 M |         $0,0 M | **−$100,9 M** |
+| **Computación** |           741 |           647 |     −$14,1 M |     −$18,5 M |     +$0,9 M |      −$6,0 M |      +$5,3 M |         $0,0 M |  **−$32,3 M** |
+| **Telefonía**   |           248 |            94 |      −$7,3 M |     −$12,4 M |     +$1,5 M |      −$4,0 M |      +$0,2 M |         $0,0 M |  **−$22,1 M** |
+| **Accesorios**  |         1.183 |           734 |      −$4,1 M |      −$2,8 M |     +$0,7 M |      −$5,8 M |      +$0,7 M |         $0,0 M |  **−$11,3 M** |
+| **Audio**       |           682 |           791 |      −$7,4 M |      −$2,7 M |     +$1,6 M |     −$10,4 M |      +$9,1 M |         $0,0 M |   **−$9,8 M** |
+| **Hogar**       |           968 |           894 |      −$5,6 M |      +$4,5 M |     +$0,8 M |      −$8,6 M |       $0,0 M |         $0,0 M |   **−$8,9 M** |
+| **Total**       |     **4.586** |     **3.535** | **−$71,1 M** | **−$74,8 M** | **+$9,9 M** | **−$64,6 M** | **+$15,2 M** |     **$0,0 M** | **−$185,4 M** |
+
+#### 🔹 Hallazgos
+
+**1. TV y Video concentra el mayor efecto PVM negativo**
+
+TV y Video registra un efecto PVM de **−$100,9 M**, con efectos negativos especialmente relevantes de **Mix (−$42,9 M)**, **Volumen (−$32,6 M)** y **Costo (−$29,7 M)**. El efecto Precio aporta **+$4,4 M**.
+
+**2. Computación y Telefonía presentan los siguientes mayores efectos negativos**
+
+Computación registra **−$32,3 M** y Telefonía **−$22,1 M**.
+
+En ambas categorías, los efectos negativos de **Mix y Volumen** se combinan con un efecto negativo de Costo. Los **Lanzamientos** generan compensaciones positivas parciales, especialmente en Computación.
+
+**3. Audio incrementa sus unidades, pero presenta un efecto PVM negativo**
+
+Audio aumenta sus unidades de **682 a 791**, pero registra un efecto PVM de **−$9,8 M**.
+
+El efecto positivo de **Lanzamientos (+$9,1 M)** y el efecto Precio (**+$1,6 M**) compensan parcialmente los efectos negativos de **Costo (−$10,4 M)**, Volumen y Mix.
+
+**4. Hogar presenta un efecto Mix favorable**
+
+Hogar es la única categoría con un **efecto Mix positivo (+$4,5 M)**.
+
+Sin embargo, los efectos negativos de **Costo (−$8,6 M)** y Volumen (**−$5,6 M**) llevan el efecto PVM total a **−$8,9 M**.
+
+#### 🔹 Reconciliación por categoría
+
+La suma de los efectos PVM de todas las categorías reproduce exactamente la variación consolidada de Ganancia Bruta:
+
+**−$185,4 M**
+
+La descomposición por categoría mantiene la reconciliación del PVM a nivel empresa.  
+
+<br>
+
+#### 🔸 Q5.3 — PVM por SKU: ¿Qué productos explican el deterioro?
+
+[Ver Consulta SQL →](./sql_business_analysis/q5_pvm_por_sku.sql) <br>
+
+#### 🔹 Resultados
+
+Los principales efectos negativos se concentran en un grupo reducido de SKUs:
+
+| Producto              | Categoría   |   Efecto PVM |
+| :-------------------- | :---------- | -----------: |
+| TCL Monitor TV 21     | TV y Video  | **−$44,8 M** |
+| TCL Chromecast 25     | TV y Video  | **−$26,9 M** |
+| Acer Memoria RAM 2    | Computación | **−$21,2 M** |
+| TCL Monitor TV 19     | TV y Video  | **−$14,2 M** |
+| Lenovo Mouse 1        | Computación | **−$12,7 M** |
+| Samsung Smart TV 20   | TV y Video  |  **−$9,9 M** |
+| ASUS Notebook 5       | Computación |  **−$7,2 M** |
+| Samsung Smartphone 14 | Telefonía   |  **−$6,7 M** |
+
+Los principales efectos positivos incluyen nuevos productos y algunos SKUs continuos con crecimiento de volumen:
+
+| Producto                   | Categoría   | Estado   |  Efecto PVM |
+| :------------------------- | :---------- | :------- | ----------: |
+| Philips Equipo de Audio 30 | Audio       | Nuevo    | **+$7,6 M** |
+| ASUS Webcam 6              | Computación | Continuo | **+$5,2 M** |
+| Sony Equipo de Audio 33    | Audio       | Nuevo    | **+$3,5 M** |
+| Acer Notebook 7            | Computación | Nuevo    | **+$2,8 M** |
+| HP Mouse 10                | Computación | Nuevo    | **+$2,4 M** |
+
+#### 🔹 Hallazgos
+
+**1. El deterioro está fuertemente concentrado en determinados SKUs**
+
+Los mayores impactos negativos corresponden principalmente a productos de **TV y Video** y **Computación**, en línea con el análisis realizado a nivel categoría.
+
+Los dos principales SKUs —**TCL Monitor TV 21** y **TCL Chromecast 25**— generan conjuntamente un efecto PVM de aproximadamente **−$71,7 M**.
+
+**2. La caída de unidades es recurrente entre los principales SKUs negativos**
+
+Los productos con mayor impacto negativo presentan fuertes reducciones de unidades vendidas, aunque el PVM permite separar ese efecto de los impactos adicionales de **Mix, Precio y Costo**.
+
+**3. Los lanzamientos compensan parcialmente el deterioro**
+
+Entre los principales efectos positivos aparece **Philips Equipo de Audio 30**, cuyo lanzamiento aporta aproximadamente **+$7,6 M** de Ganancia Bruta.
+
+También se observan contribuciones positivas relevantes de nuevos productos de Audio y Computación.
+
+**4. El crecimiento de volumen puede compensar otros efectos negativos**
+
+**ASUS Webcam 6** presenta un efecto Volumen de aproximadamente **+$7,7 M**, que compensa sus efectos negativos de Mix, Precio y Costo y lleva su efecto PVM total a **+$5,2 M**.
+
+Esto muestra la utilidad del PVM para distinguir entre los distintos mecanismos que explican la evolución de la Ganancia Bruta a nivel producto.  
+
+<br>
+
+#### 🔸 Síntesis
+
+El análisis permite descomponer la caída de la Ganancia Bruta entre 2025 y 2026 en tres niveles de profundidad:
+
+**Empresa → Categoría → SKU**
+
+A nivel consolidado, los mayores efectos negativos corresponden a **Mix, Volumen y Costo**.
+A nivel categoría, el deterioro se concentra especialmente en **TV y Video, Computación y Telefonía**.
+A nivel SKU, un grupo reducido de productos explica una parte significativa de esos efectos, mientras que **nuevos lanzamientos y algunos productos con crecimiento de volumen compensan parcialmente la caída**.
+
+</details>
 
 
 ## 🧩 Conclusión Unificadora del Diagnóstico (prueba)
