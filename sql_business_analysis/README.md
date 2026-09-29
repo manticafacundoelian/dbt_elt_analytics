@@ -173,7 +173,7 @@ La caída del ASP puede deberse a distintas causas: cambios en el precio de list
 
 #### 🔹 Síntesis
 
-El ASP cayó **−$79.819 (−23,2%)** entre 2025 y 2026, explicado principalmente por dos efectos: el **Mix de productos continuos (−67,9%)** y la **entrada de SKUs nuevos a precios bajos (−36,7%)**. Los efectos de **Precio de Lista y Descuento casi se cancelan entre sí** (+$3.690 neto), por lo que la política comercial de precios no explica la caída.
+El ASP cayó **−$79.819 (−23,2%)** entre 2025 y 2026, explicado principalmente por dos efectos: el **Mix de productos continuos (−67,9%)** y la **entrada de SKUs nuevos a precios bajos (−36,7%)**. Los efectos de **Precio de Lista y Descuento casi se cancelan entre sí** (+$3.690 neto), por lo que no explican en términos netos la caída del ASP.
 
 Al bajar a categoría, aparecen **dos historias distintas detrás del mismo número**:
 
@@ -183,11 +183,11 @@ Al bajar a categoría, aparecen **dos historias distintas detrás del mismo núm
 
 A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% del total, con **TCL Monitor TV 21** como el caso más extremo (−$19.439, el 24,4% de toda la caída), producto de una pérdida de más de la mitad de sus unidades vendidas.
 
-**Conclusión:** el ASP no bajó por una causa única. Es la superposición de un problema de demanda en categorías tradicionales (TV y Video) y una estrategia de precios de entrada agresiva en las categorías de lanzamiento (Computación, Audio). Cualquier acción correctiva debería tratarlas por separado, porque responden a palancas de negocio distintas.
+**Conclusión:** el ASP no bajó por una causa única. Es la superposición de un problema de demanda en categorías tradicionales (TV y Video) y precios de entrada bajos en las categorías con lanzamientos nuevos (Computación, Audio). Cualquier acción correctiva debería tratarlas por separado, porque responden a problemas de negocio distintos.
 
 <br>
 
-#### 🔸 Q3.1 — Bridge Agregado (Precio - Volumen - Mix)
+#### 🔸 Q3.1 — Bridge Agregado (Mix + Precio + Descuento + Nuevos + Descontinuados)
 
 [Ver Consulta SQL →](./sql_business_analysis/q3_1_descomposicion_asp_agregada.sql) <br>
 
@@ -365,8 +365,7 @@ Al bajar a categoría, **TV y Video concentra más de la mitad del deterioro** (
 
 A nivel SKU, el deterioro está **muy concentrado**: los mismos dos productos que lideraban la caída del ASP en Q3 —**TCL Monitor TV 21** y **TCL Chromecast 25**— son también los dos mayores destructores de Ganancia Bruta, con **−$71,66 M combinados (38,7% del total)**. Ningún lanzamiento aparece entre los 8 peores SKUs; todos son productos continuos.
 
-**Conclusión:** la caída de rentabilidad no es un problema de precios ni de mala estrategia de lanzamientos — es, centralmente, la pérdida de volumen de un grupo reducido de productos ya establecidos (liderados por TV y Video), agravada por un deterioro simultáneo del costo unitario. Los lanzamientos, lejos de ser el problema, son uno de los pocos frenos parciales a la caída.
-
+**Conclusión:** la caída de rentabilidad se debe, centralmente, a la pérdida de volumen de un grupo reducido de productos ya establecidos (liderados por TV y Video), agravada por un deterioro simultáneo del costo unitario. Los lanzamientos no fueron un driver negativo de la Ganancia Bruta: por el contrario, aportaron un efecto positivo que compensó parcialmente la caída.
 <br>
 
 #### 🔸 Q5.1 — PVM Consolidado: ¿Qué explica la variación total?
@@ -472,7 +471,7 @@ La suma de los efectos PVM de todas las categorías reproduce, al centavo, la va
 | Acer Notebook 7              | Computación | Nuevo    |            166 | **+$2,83 M** |
 | HP Mouse 10                  | Computación | Nuevo    |            118 | **+$2,37 M** |
 
-> *Detalle completo de los 48 SKUs disponible en la salida de la consulta SQL vinculada arriba.*
+> *Detalle completo de los 48 SKUs disponible en la salida de la consulta SQL vinculada arriba. Las unidades en Q5 son efectivas, después de devoluciones, por lo que pueden diferir de Q3.*
 
 #### 🔹 Hallazgos
 
@@ -665,6 +664,140 @@ El análisis evidencia que el canal **Online** absorbió incrementos tarifarios 
 </details>
 
 ---
+
+## 🧭 Conclusiones Generales
+
+### 1. El deterioro de 2026 es principalmente una pérdida de valor por operación
+
+La cantidad de pedidos continúa creciendo (+4,30%), pero el Ticket Comercial cae 41,37%. Esta caída no proviene de una sola variable: se combina una reducción de las unidades por pedido (UPT −23,67%) con una reducción del ASP Comercial (−23,18%).
+
+El problema comercial de 2026, por lo tanto, no es principalmente una pérdida de operaciones, sino una **menor cantidad y menor valor de los productos vendidos dentro de cada operación**.
+
+### 2. La caída del ASP está explicada principalmente por cambios en la composición de las ventas
+
+El análisis de Q3 muestra que el principal deterioro del ASP proviene del **Mix de los productos continuos** y de la entrada de **nuevos SKUs con menor valor unitario**.
+
+En cambio, Precio de Lista y Descuento presentan efectos de signo contrario que se compensan ampliamente entre sí. Esto permite distinguir entre una caída del ASP provocada por cambios en **qué productos se venden** y una caída provocada por una reducción generalizada del precio de los productos existentes.
+
+### 3. La pérdida está concentrada en determinados productos existentes
+
+El problema no se distribuye uniformemente por todo el catálogo. TV y Video concentra más de la mitad del deterioro de Ganancia Bruta y los productos TCL Monitor TV 21 y TCL Chromecast 25 aparecen como principales destructores tanto en el análisis de ASP como en el PVM.
+
+Esto muestra que el deterioro agregado está fuertemente condicionado por el comportamiento de un grupo reducido de productos continuos.
+
+### 4. Los lanzamientos tienen un comportamiento diferente según el indicador observado
+
+Los nuevos productos de 2026 reducen el ASP agregado porque ingresan con un valor unitario menor al promedio de referencia. Sin embargo, generan un efecto positivo sobre la Ganancia Bruta.
+
+Por lo tanto, los lanzamientos **no deben interpretarse como un problema de rentabilidad**. Su efecto es comercialmente dilutivo sobre el ASP, pero económicamente positivo sobre la Ganancia Bruta.
+
+### 5. La caída comercial se transforma en una pérdida de rentabilidad mayor por presión sobre los costos
+
+La caída de ventas se acompaña de un deterioro de la estructura de rentabilidad: aumenta el peso del Costo de Ventas y también la incidencia del costo logístico.
+
+El PVM confirma que, además del menor volumen, existe un deterioro significativo por el lado del costo de los productos continuos. Las devoluciones crecientes y la mayor incidencia logística agregan presión sobre la rentabilidad final.
+
+En conjunto, el análisis muestra que **la contracción comercial y la erosión del margen se refuerzan entre sí**, en lugar de ser fenómenos independientes.
+
+---
+
+## 🧩 Conclusión Unificadora del Diagnóstico
+
+El deterioro de 2026 puede interpretarse como una **pérdida progresiva de valor a lo largo de la cadena comercial y económica del negocio**.
+
+El primer problema aparece en la operación comercial: los pedidos no desaparecen, pero cada pedido contiene menos unidades y esas unidades tienen un menor valor promedio. La caída del ASP no se explica principalmente por una reducción generalizada de precios, sino por un cambio en la composición de las ventas: algunos productos tradicionales pierden participación y volumen, mientras nuevos productos de menor valor unitario ganan presencia.
+
+Sin embargo, ese cambio de composición no explica por sí solo la magnitud de la pérdida de rentabilidad. El PVM muestra que el mayor daño económico proviene de la **caída de volumen de los productos continuos**, acompañada por un aumento de su costo unitario. Es decir, el negocio no solo vende menos valor por operación: también pierde volumen justamente en productos que ya contribuían a generar Ganancia Bruta.
+
+Los lanzamientos muestran una dinámica diferente. Aunque reducen el ASP promedio al incorporar productos de menor valor unitario, generan Ganancia Bruta positiva y funcionan como un **contrapeso parcial** frente a la pérdida del portfolio existente. El problema central, por lo tanto, no parece estar en la incorporación de nuevos productos, sino en que **su aporte no alcanza para compensar la pérdida del negocio establecido**.
+
+Sobre esa base, el aumento de las devoluciones y de la incidencia logística profundiza el deterioro económico, especialmente en un contexto donde la facturación ya se encuentra contraída.
+
+La secuencia que emerge del diagnóstico es, entonces:
+
+**menor valor por pedido → menor volumen económico del portfolio existente → deterioro de la Ganancia Bruta → presión adicional de costos y operación → caída desproporcionada de la Ganancia Neta.**
+
+En este sentido, 2026 no representa simplemente una caída de ventas. Representa un **cambio desfavorable en la composición y escala del negocio**, en el que el crecimiento de pedidos deja de traducirse en valor económico suficiente para sostener el nivel de rentabilidad alcanzado previamente.
+
+---
+
+## 🎯 Recomendaciones Estratégicas
+
+El diagnóstico muestra que la recuperación del negocio no debería centrarse únicamente en aumentar la cantidad de pedidos, sino en **recuperar valor y rentabilidad dentro del negocio existente**, al mismo tiempo que se controlan los costos y las pérdidas operativas.
+
+### 1. Recuperar el volumen de los productos existentes de mayor impacto
+
+La principal prioridad comercial debería ser recuperar el volumen perdido en los **SKUs continuos**, especialmente dentro de **TV y Video y Computación**.
+
+El efecto Volumen explica **−$122,44 M**, equivalente al **66,05%** de la caída de Ganancia Bruta. Además, los ocho SKUs con mayor impacto negativo son productos ya existentes, y los dos principales —**TCL Monitor TV 21** y **TCL Chromecast 25**— concentran conjuntamente **−$71,66 M**, el 38,7% de toda la caída.
+Por lo tanto, convendría revisar para estos productos variables como **disponibilidad, visibilidad comercial, competitividad de precios, posicionamiento dentro del catálogo y evolución de la demanda**, antes de asumir que el problema puede resolverse únicamente mediante descuentos.
+
+**KPIs sugeridos:** unidades vendidas, Ganancia Bruta por SKU, participación de unidades y variación de volumen YoY.
+
+### 2. Atacar el deterioro del costo unitario
+
+El segundo gran foco debería estar en la estructura de costos del portfolio existente.
+
+El efecto **Costo representa −$64,56 M (34,83%)** de la caída de Ganancia Bruta. Esto indica que recuperar volumen por sí solo no sería suficiente si cada unidad vendida deja actualmente menos margen.
+
+La empresa debería revisar especialmente los productos continuos con mayor efecto negativo de costo, evaluando alternativas de **negociación con proveedores, condiciones de compra, sourcing y composición del portfolio**.
+
+Este análisis debería profundizarse con información adicional de costos históricos para determinar qué parte del deterioro responde a aumentos de reposición y qué parte a decisiones comerciales o de producto.
+
+**KPIs sugeridos:** costo unitario, margen bruto unitario, margen bruto %, variación de costo YoY.
+
+### 3. Recuperar el valor por pedido sin depender de descuentos generalizados
+
+La caída del ticket responde simultáneamente a una menor cantidad de unidades por pedido y a un menor valor promedio por unidad. Al mismo tiempo, la tasa de descuento aumentó aproximadamente **3 puntos porcentuales en ambos canales** durante 2026.
+
+Por eso, una estrategia basada exclusivamente en aumentar promociones podría profundizar la presión comercial sin resolver el problema estructural.
+
+Una alternativa sería trabajar sobre **UPT y composición del carrito**, mediante bundles, venta cruzada y complementos entre productos, buscando recuperar unidades por pedido mientras se protege el valor unitario.
+
+El objetivo no sería simplemente vender más unidades, sino **elevar nuevamente el valor generado por cada operación**.
+
+**KPIs sugeridos:** Ticket Comercial, UPT, ASP, tasa de descuento y Ventas Netas por pedido.
+
+### 4. Escalar los lanzamientos rentables, pero sin utilizarlos como sustituto del negocio existente
+
+Los nuevos productos muestran un comportamiento dual: **diluyen el ASP promedio**, pero generan un efecto positivo sobre la Ganancia Bruta de **+$15,17 M**. Además, tres de los cinco principales efectos positivos por SKU corresponden a lanzamientos de 2026.
+Por lo tanto, los nuevos lanzamientos deberían evaluarse no solo por su precio promedio, sino por su **contribución económica real**.
+
+La estrategia debería buscar identificar qué lanzamientos consiguen generar volumen y margen de forma sostenible y utilizar esos productos para ampliar el negocio, sin perder de vista que actualmente el mayor deterioro proviene del portfolio existente.
+
+**KPIs sugeridos:** unidades de nuevos productos, Ganancia Bruta por lanzamiento, margen unitario y contribución incremental a ventas.
+
+### 5. Reducir las pérdidas operativas asociadas a devoluciones y logística
+
+Las devoluciones aumentaron en **todas las categorías** durante 2026. Audio registra el mayor incremento de tasa, mientras que Accesorios concentra el mayor número absoluto de unidades devueltas.
+
+Al mismo tiempo, la incidencia del costo logístico sobre las ventas aumentó en ambos canales. En Online pasó de **1,27% a 3,14%**, mientras que en Físico pasó de **0,65% a 1,44%**.
+
+Esto sugiere la necesidad de investigar las causas operativas detrás de ambos fenómenos: **motivos de devolución, productos afectados, costo por envío, estructura de despacho y relación entre costo logístico y valor de cada pedido**.
+
+Estas medidas no explican por sí mismas la caída principal, pero permitirían evitar que una recuperación comercial futura vuelva a filtrarse por pérdidas operativas.
+
+**KPIs sugeridos:** tasa de devolución, unidades devueltas, refund rate, costo logístico / ventas y costo logístico por pedido.
+
+### 🎯 Síntesis de la recomendación
+
+La recuperación debería seguir una lógica secuencial:
+
+**recuperar volumen del portfolio existente → recomponer margen unitario → aumentar el valor por pedido → escalar lanzamientos rentables → reducir devoluciones y presión logística.**
+
+El objetivo no es simplemente volver a vender más, sino **reconstruir el valor económico de cada operación y recuperar rentabilidad de manera sostenible**.
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 🧩 Conclusión Unificadora del Diagnóstico
 
