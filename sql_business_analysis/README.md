@@ -31,7 +31,7 @@ flowchart TD
 
     C1 --> C2["<b>Q3 — DESCOMPOSICIÓN DEL ASP</b><br/><br/>¿Por qué cae?<br/><b>Mix (SKUs continuos):</b> -$54,2K (67,9%)<br/><b>SKUs Nuevos:</b> -$29,3K (36,7%)<br/><b>Precio de Lista:</b> +$12,8K<br/><b>Descuentos:</b> -$9,1K<br/><b>Categoría clave:</b> TV y Video (mix puro) / Computación-Audio (lanzamientos baratos)"]
 
-    D --> D1["Q4 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Por qué la Ganancia cae más que las Ventas?<br/><b>COGS / Ventas Finales:</b> +6,19 pp<br/><b>Logística / Ventas Finales:</b> +1,69 pp<br/><b>Margen Neto:</b> 18,53% → 10,66%"]
+    D --> D1["Q4 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿¿Cómo se deterioró la rentabilidad??<br/><b>COGS / Ventas Netas Finales:</b> +6,19 pp<br/><b>Logística / Ventas Netas Finales:</b> +1,69 pp<br/><b>Margen Neto:</b> 18,53% → 10,66%"]
 
     D1 --> D2["<b>Q5 — PVM</b><br/><br/><b>Δ Ganancia Bruta:</b> -$185,4 M<br/><b>Volumen:</b> -$71,1 M<br/><b>Mix:</b> -$74,8 M<br/><b>Precio:</b> +$9,9 M<br/><b>Costo:</b> -$64,6 M<br/><b>Lanzamientos:</b> +$15,2 M"]
 
@@ -74,43 +74,32 @@ La investigación busca responder **cinco preguntas principales de diagnóstico*
 | :------------------------- | ---------: | ---------: | -----------: | ---------: | -----------: |
 | **Pedidos**                |      1.365 |      1.581 |  **+15,82%** |      1.649 |   **+4,30%** |
 | **Ventas Brutas**          | $1.316,5 M | $1.684,4 M |  **+27,95%** | $1.064,0 M |  **−36,83%** |
-| **Ventas Netas**           | $1.290,5 M | $1.633,9 M |  **+26,62%** |   $999,1 M |  **−38,85%** |
+| **Ventas Netas Comerciales**           | $1.290,5 M | $1.633,9 M |  **+26,62%** |   $999,1 M |  **−38,85%** |
 | Devoluciones ($)           |    $37,2 M |    $53,7 M |  **+44,45%** |    $70,3 M |  **+30,90%** |
 | **Tasa de Devolución (%)** |      2,88% |      3,28% | **+0,40 pp** |      7,03% | **+3,75 pp** |
 | **Ventas Netas Finales**   | $1.253,3 M | $1.580,3 M |  **+26,09%** |   $928,9 M |  **−41,22%** |
-| **Ganancia Neta**          |   $297,6 M |   $292,8 M |   **−1,59%** |    $99,0 M |  **−66,20%** |
-| **Margen Neto (%)**        |     23,74% |     18,53% | **−5,21 pp** |     10,66% | **−7,87 pp** |
+| **Ganancia Neta**          |   $300,1 M |   $295,7 M |   **−1,47%** |    $101,8 M |  **−65,58%** |
+| **Margen Neto (%)**        |     23,95% |     18,71% | **−5,24 pp** |     10,96% | **−7,75 pp** |
 | **Ticket Comercial**       |   $945.397 | $1.033.477 |   **+9,32%** |   $605.891 |  **−41,37%** |
 
 > *Nota: El Ticket Comercial se calcula sobre Ventas Netas, antes de devoluciones, para analizar el comportamiento comercial de las órdenes independientemente de las devoluciones posteriores.*
 
 #### 🔹 Hallazgos
 
-**1. La caída de ventas se explica por una fuerte reducción del ticket**
+**1. Diagnóstico Comercial: Desplome del ticket promedio y mayor impacto de devoluciones**
 
-En 2026 se registraron **1.649 pedidos, un 4,30% más que en 2025**, mientras que las Ventas Netas disminuyeron **38,85%**.
+* **Crecimiento en pedidos con caída de facturación:** En 2026 se registraron **1.649 pedidos (+4,30% YoY)**, mientras que las Ventas Netas Comerciales cayeron un **−38,85%**.
+* **Contracción del Ticket Comercial:** La caída de ingresos se explica por la reducción del ticket promedio, que disminuyó un **−41,37%**, pasando de **$1.033.477 a $605.891**.
+* **Mayor incidencia de devoluciones:** La Tasa de Devolución aumentó de **3,28% a 7,03% (+3,75 pp)**, profundizando la caída de las Ventas Netas Finales hasta un **−41,22%**.
 
-Dado que las ventas resultan de la cantidad de pedidos y el valor promedio de cada pedido, la diferencia se explica por la fuerte caída del **Ticket Comercial, que disminuyó 41,37%**, pasando de $1.033.477 a $605.891.
+> *Este comportamiento justifica la apertura de la **Rama Comercial**, donde Q2 descompone la evolución del ticket promedio y Q3 profundiza en sus principales componentes.*
 
-**2. El deterioro de la rentabilidad ya estaba presente en 2025**
+**2. Diagnóstico de Rentabilidad: Caída acelerada de la ganancia y deterioro previo**
 
-En 2025, las Ventas Netas crecieron **26,62%**, mientras que la Ganancia Neta disminuyó **1,59%**.
+* **La ganancia cae más que las ventas:** En 2026, la Ganancia Neta cayó un **−65,58%**, frente a una caída del **−38,85%** en Ventas Netas. Como consecuencia, el Margen Neto se redujo del **18,71% al 10,96% (−7,75 pp)**.
+* **Deterioro de rentabilidad previo:** El problema de rentabilidad antecede a la caída de facturación de 2026. En 2025, a pesar de un crecimiento del **+26,62%** en Ventas Netas, la Ganancia Neta cayó un **−1,47%** y el Margen Neto perdió **−5,24 pp**.
 
-Durante el mismo período, el Margen Neto pasó de **23,74% a 18,53%**, una reducción de **5,21 pp**.
-
-**3. Las devoluciones tienen una mayor incidencia en 2026**
-
-La Tasa de Devolución pasó de **3,28% en 2025 a 7,03% en 2026**, un aumento de **3,75 pp**.
-
-Como resultado, las Ventas Netas Finales disminuyeron **41,22%**, frente a una caída de **38,85%** en las Ventas Netas antes de devoluciones.
-
-**4. La ganancia cae más que las ventas**
-
-En 2026, las Ventas Netas disminuyeron **38,85%**, mientras que la Ganancia Neta cayó **66,20%**.
-
-El Margen Neto pasó de **18,53% a 10,66%**, una reducción adicional de **7,87 pp**.
-
-La diferencia entre la evolución de ventas y rentabilidad requiere analizar la estructura de costos y márgenes, que será abordada en la **Rama de Rentabilidad**.  
+> *La desconexión entre la evolución de los ingresos y la ganancia fundamenta la apertura de la **Rama de Rentabilidad**, donde Q4 analiza la estructura del P&L y Q5 descompone la variación de la Ganancia Bruta mediante un PVM formal.*
 
 <br>
 
@@ -297,13 +286,19 @@ El diagnóstico comercial explica la caída de las Ventas Netas, pero no todaví
 
 </details>
 
-#### ├─ 🔹 Q4 — Estructura de Rentabilidad y Ratios P&L: ¿Por qué la rentabilidad se deterioró mucho más que las ventas?
+#### ├─ 🔹 Q4 — Estructura de Rentabilidad y Ratios P&L: ¿Cómo se deterioró la rentabilidad?
 
 <details>
 <summary><strong>Ver desarrollo de Q4</strong></summary>  
 <br>
 
 [Ver Consulta SQL →](./sql_business_analysis/q4_rentabilidad_ratios_pnl.sql) <br>
+
+#### 🔹 Criterio metodológico
+
+Para el análisis de rentabilidad se toma como base la **Venta Neta Final**, es decir, la venta después de devoluciones aprobadas.
+
+Esta decisión busca medir la rentabilidad sobre el **ingreso económico efectivamente retenido por la empresa**. En consecuencia, los ratios de costos y márgenes de Q4 se calculan sobre esta base.
 
 #### 🔹 Resultados
 
@@ -312,44 +307,50 @@ El diagnóstico comercial explica la caída de las Ventas Netas, pero no todaví
 | **Ventas Netas Finales**     | $1.253,3 M | $1.580,3 M |  **+26,09%** | $928,9 M |  **−41,22%** |
 | **Costo de Ventas**          |   $943,1 M | $1.270,0 M |  **+34,60%** | $804,0 M |  **−36,69%** |
 | **Costo de Ventas / Ventas** |     75,25% |     80,37% | **+5,12 pp** |   86,56% | **+6,19 pp** |
+| **Ganancia Bruta**           |   $310,2 M |   $310,2 M |   **−0,01%** | $124,9 M |  **−59,75%** |
 | **Margen Bruto**             |     24,75% |     19,63% | **−5,12 pp** |   13,44% | **−6,19 pp** |
-| **Costo Logístico / Ventas** |      1,01% |      1,10% | **+0,09 pp** |    2,79% | **+1,69 pp** |
-| **Ganancia Neta**            |   $297,6 M |   $292,8 M |   **−1,59%** |  $99,0 M |  **−66,20%** |
-| **Margen Neto**              |     23,74% |     18,53% | **−5,21 pp** |   10,66% | **−7,87 pp** |
+| **Costo Logístico / Ventas** |      0,81% |      0,92% | **+0,11 pp** |    2,49% | **+1,57 pp** |
+| **Ganancia Neta**            |   $300,1 M |   $295,7 M |   **−1,47%** | $101,8 M |  **−65,58%** |
+| **Margen Neto**              |     23,95% |     18,71% | **−5,24 pp** |   10,96% | **−7,75 pp** |
 
 #### 🔹 Hallazgos
 
-**1. El costo de ventas absorbe una proporción cada vez mayor de los ingresos**
+**1. El costo de ventas absorbe una proporción cada vez mayor de las Ventas Netas Finales**
 
 Entre 2025 y 2026, el **Costo de Ventas / Ventas** aumentó **6,19 pp**, pasando de 80,37% a 86,56%.
 
 Como consecuencia, el **Margen Bruto** se redujo en la misma magnitud, de 19,63% a 13,44%.
 
-**2. La presión logística también se intensifica**
+El deterioro resulta especialmente relevante porque entre 2024 y 2025 las ventas habían crecido **26,09%**, pero la **Ganancia Bruta permaneció prácticamente sin cambios**, pasando de $310,2 M a $310,2 M.
 
-El **Costo Logístico / Ventas** pasó de 1,10% a 2,79%, un aumento de **1,69 pp**.
+**2. La presión logística se intensifica en 2026**
 
-Este incremento agrega presión adicional sobre la rentabilidad después del deterioro del margen bruto.
+El **Costo Logístico / Ventas** pasó de 0,92% en 2025 a 2,49% en 2026, un aumento de **1,57 pp**.
 
-**3. La rentabilidad cae más que las ventas**
+Aunque su peso es significativamente menor que el del Costo de Ventas, la mayor carga logística reduce todavía más la rentabilidad una vez deteriorado el margen bruto.
 
-Mientras las **Ventas Netas Finales disminuyeron 41,22%**, la **Ganancia Neta cayó 66,20%**.
+**3. La rentabilidad cae mucho más que las ventas**
 
-El **Margen Neto** pasó de 18,53% a 10,66%, una reducción de **7,87 pp**.
+Entre 2025 y 2026, las **Ventas Netas Finales disminuyeron 41,22%**, mientras que la **Ganancia Neta cayó 65,58%**.
 
-El deterioro observado requiere profundizar en los componentes que explican la evolución de la **Ganancia Bruta**, particularmente el efecto del volumen, mix, precio y costo.  
+En consecuencia, el **Margen Neto** pasó de 18,71% a 10,96%, una reducción de **7,75 pp**.
+
+El deterioro no responde únicamente a una menor escala de ventas: una proporción creciente de las **Ventas Netas Finales** es absorbida por el **Costo de Ventas**, mientras que el **Costo Logístico** agrega una presión adicional sobre el resultado final.
+
+El siguiente paso es determinar cuánto del deterioro de la **Ganancia Bruta** corresponde a cada componente económico.
 
 <br>
 
 #### 🔹 Puente analítico → Q5
 
-Q4 identifica un deterioro significativo de la estructura de rentabilidad, principalmente por el aumento del peso del **Costo de Ventas** y, adicionalmente, por una mayor presión del **Costo Logístico**.
+Q4 muestra que el deterioro de 2026 combina una fuerte contracción de las ventas, **como demostró la Rama Comercial**, con un aumento del peso del **Costo de Ventas**, que comprimió el **Margen Bruto hasta 13,44%** y redujo la **Ganancia Bruta un 59,75%**.
 
-**Q5 descompone la variación de la Ganancia Bruta mediante un PVM formal —Volumen → Mix → Precio → Costo—**, para determinar qué componentes explican cuantitativamente el deterioro entre 2025 y 2026.  
+**Q5 descompone esta caída de la Ganancia Bruta mediante un PVM formal —Volumen → Mix → Precio → Costo—**, para cuantificar qué componentes explican el deterioro entre 2025 y 2026.
 
 <br>
 
 </details>
+
 
 #### └─ 🔹 Q5 — PVM: ¿Qué componentes explican la caída de la Ganancia Bruta?
 
@@ -802,7 +803,7 @@ Para mantener consistencia entre las distintas etapas se establecen los siguient
 ### Ventas y devoluciones
 
 * **Ventas Brutas:** valor de los productos antes de descuentos.
-* **Ventas Netas:** ventas después de descuentos y antes de devoluciones.
+* **Ventas Netas Comerciales:** ventas después de descuentos y antes de devoluciones.
 * **Ventas Netas Finales:** ventas netas después de devoluciones aprobadas.
 * En los análisis de rentabilidad, las unidades, ingresos y costos asociados a devoluciones se ajustan para reflejar el resultado final de la operación.
 
