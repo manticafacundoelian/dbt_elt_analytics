@@ -1,18 +1,22 @@
 # 🔎 Investigación Analítica SQL
 
-Esta investigación forma parte de un proyecto analítico End-to-End.  
-🔗 **Proyecto completo:** https://github.com/manticafacundoelian/dbt_elt_analytics
+Esta investigación forma parte de un proyecto analítico End-to-End que se puede ver completo en: https://github.com/manticafacundoelian/dbt_elt_analytics
 
 ---
 
 ## 📌 Introducción
 
-Esta investigación analiza la evolución comercial y económica de un retail de tecnología entre **2024 y 2026**, con el objetivo de identificar los principales factores asociados al deterioro observado en ventas, ticket y rentabilidad.
+Esta investigación analiza la evolución comercial y económica de un retail de tecnología entre **2024 y 2026**, con el objetivo de identificar los principales factores asociados al deterioro observado en **ventas, comportamiento comercial y rentabilidad**.
 
-El análisis parte de un diagnóstico macro y se divide posteriormente en dos ramas:
+El análisis parte de un **diagnóstico macro** y avanza progresivamente desde la variación agregada de las ventas hacia sus principales determinantes comerciales y económicos.
 
-* **Rama comercial:** descompone la caída del ticket en sus dos variables fundamentales (**UPT** y **ASP**) y profundiza en los factores que explican el comportamiento del valor unitario (**precio bruto, promociones y cambios de mix por categoría**).
-* **Rama de rentabilidad:** analiza cómo estos cambios impactan en la masa de margen, desglosando la estructura de costos P&L y reconciliando la variación de la ganancia bruta mediante un modelo PVM (Price–Volume–Mix), con apertura del componente Mix a nivel de producto.
+A partir de este diagnóstico, la investigación se estructura en dos grandes ramas:
+
+* **Rama comercial:** analiza la evolución de las Ventas Netas desde una perspectiva financiera y comercial, identificando los principales efectos que explican su variación y profundizando posteriormente en el comportamiento del **Ticket Comercial, el UPT y el ASP**.
+
+* **Rama de rentabilidad:** analiza el deterioro económico del negocio a través de la **estructura del P&L**, la evolución de los costos y la descomposición de la variación de la **Ganancia Bruta mediante un modelo PVM (Price–Volume–Mix)**, complementando el análisis con la rentabilidad por categoría y SKU.
+
+El objetivo no es únicamente cuantificar la caída observada, sino **reconstruir sus principales mecanismos**, desde la evolución de las ventas y el comportamiento de los clientes hasta su impacto final sobre la rentabilidad.
 
 ---
 
@@ -20,44 +24,56 @@ El análisis parte de un diagnóstico macro y se divide posteriormente en dos ra
 
 ```mermaid
 flowchart TD
+
     A["🔎 INVESTIGACIÓN DE DESEMPEÑO<br/>COMERCIAL Y RENTABILIDAD"]
 
-    A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 66,20%"]
+    A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 65,58%"]
 
-    B --> C["📈 RAMA COMERCIAL"]
-    B --> D["💰 RAMA DE RENTABILIDAD"]
+    B --> C["Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Cómo se explica la caída?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><br/><b>Drivers principales:</b><br/>Volumen + Mix + SKUs nuevos"]
 
-    C --> C1["Q2 — DESCOMPOSICIÓN DEL TICKET<br/><br/>¿Por qué cae?<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP:</b> ↓ 23,18%<br/><b>Ticket:</b> ↓ 41,37%"]
+    %% Apertura con cuadritos conectores
+    C --> D["📈 RAMA COMERCIAL"]
+    C --> E["💰 RAMA DE RENTABILIDAD"]
 
-    C1 --> C2["<b>Q3 — DESCOMPOSICIÓN DEL ASP</b><br/><br/>¿Por qué cae?<br/><b>Mix (SKUs continuos):</b> -$54,2K (67,9%)<br/><b>SKUs Nuevos:</b> -$29,3K (36,7%)<br/><b>Precio de Lista:</b> +$12,8K<br/><b>Descuentos:</b> -$9,1K<br/><b>Categoría clave:</b> TV y Video (mix puro) / Computación-Audio (lanzamientos baratos)"]
+    %% Desarrollo de la Rama Comercial Unificada
+    D --> D1["Q3 — DESCOMPOSICIÓN DEL TICKET Y ENFOQUE OMNICANAL<br/><br/>¿Por qué cae la facturación por pedido?<br/><b>Ticket Comercial:</b> ↓ 41,37%<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP Neto:</b> ↓ 23,18%<br/><br/><b>Hallazgo clave:</b> Patrón idéntico cross-canal. El desplome de UPT (~23%) y ASP (~22%) destruyó el ticket tanto en Online (-43%) como en Físico (-37%)."]
 
-    D --> D1["Q4 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿¿Cómo se deterioró la rentabilidad??<br/><b>COGS / Ventas Netas Finales:</b> +6,19 pp<br/><b>Logística / Ventas Netas Finales:</b> +1,69 pp<br/><b>Margen Neto:</b> 18,53% → 10,66%"]
+    D1 --> D2["Q4 — DESCOMPOSICIÓN DEL ASP NETO<br/><br/>¿Por qué cae el precio unitario neto?<br/><b>Δ ASP:</b> −$79.818,6<br/><br/><b>Drivers principales:</b><br/>Mix Continuos + SKUs Nuevos"]
 
-    D1 --> D2["<b>Q5 — PVM</b><br/><br/><b>Δ Ganancia Bruta:</b> -$185,4 M<br/><b>Volumen:</b> -$71,1 M<br/><b>Mix:</b> -$74,8 M<br/><b>Precio:</b> +$9,9 M<br/><b>Costo:</b> -$64,6 M<br/><b>Lanzamientos:</b> +$15,2 M"]
+    %% Desarrollo de la Rama de Rentabilidad
+    E --> E1["Q5 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Cómo se deteriora la rentabilidad?<br/><b>Margen Neto:</b> 18,53% → 10,66%<br/><br/><b>Causas:</b> Presión en COGS y Logística"]
+    
+    E1 --> E2["Q6 — PVM DE GANANCIA BRUTA<br/><br/>¿Por qué cambia la Ganancia Bruta?<br/><b>Δ Ganancia Bruta:</b> −$185,4 M<br/><br/><b>Drivers principales:</b><br/>Mix + Volumen + Costo"]
+    
+    E1 --> E3["Q7 — RENTABILIDAD POR CATEGORÍA Y SKU<br/><br/>¿Dónde se concentra la pérdida?<br/><br/><b>Foco crítico:</b> Categoría TV/Video y 10 SKUs con margen destructivo"]
 
-    C2 --> E["🎯 CONCLUSIONES GENERALES & CASCADA P&L"]
-    D2 --> E
+    %% El puente analítico de Devoluciones hacia Q5 (Único Deep Dive flotante)
+    E1 -.->|Ajuste de Ventas Netas a VNF| H
 
-    subgraph DEEP_DIVES ["🔍 PROFUNDIZACIÓN OPERATIVA (DEEP DIVES)"]
-        DDA["<b>Deep Dive A — Comportamiento Omnicanal</b><br/>Online +18,1% vs. Físico -28,8%"]
-
-        DDB["<b>Deep Dive B — Devoluciones por Categoría</b><br/>Audio: 8,24% en 2026 (+4,70 pp)"]
- 
-        DDC["<b>Deep Dive C — Ineficiencia Logística por Canal</b><br/>Online: 1,27% → 3,14% sobre Ventas Netas Finales"]
+    subgraph DEEP_DIVES ["🔍 DEEP DIVES OPERATIVOS"]
+        H["<b>Deep Dive B</b><br/>Devoluciones por Categoría<br/><br/><b>Foco:</b> Alerta en Audio (+4,7 pp)"]
     end
 
-    C2 -.-> DDA
-    B -.-> DDB
-    D1 -.-> DDC
+    %% ==========================================
+    %% EFECTO LLAVE ACOSTADA UNIFICADORA
+    %% ==========================================
+    D2 ---> LLAVE{" 🤝 CONSOLIDACIÓN DE HALLAZGOS<br/><i>(Comercial + Rentabilidad + Devoluciones)</i> "}
+    E2 ---> LLAVE
+    E3 ---> LLAVE
+    H  ---> LLAVE
+
+    %% Destino final
+    LLAVE ==> F["🎯 CONCLUSIONES GENERALES<br/>& CASCADA P&L"]
+
+    style LLAVE fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#fff
+    style DEEP_DIVES stroke-dasharray: 5 5
 ```
 
----
+## 🔎 Investigación y Desarrollo
 
-## 🔎 Investigación y Desarrollo 
+La investigación busca responder **siete preguntas principales de diagnóstico**, complementadas por **un análisis operativo de profundización (*Deep Dives*)**:
 
-La investigación busca responder **cinco preguntas principales de diagnóstico**, complementadas por **tres análisis operativos de profundización (*Deep Dives*)**:
-
-### Preguntas Core del Diagnóstico 
+### Preguntas Core del Diagnóstico
 
 #### ┌─ 🔹 Q1 — Diagnóstico Macro: ¿Qué cambió en el desempeño general del negocio?
 
@@ -65,8 +81,7 @@ La investigación busca responder **cinco preguntas principales de diagnóstico*
 <summary><strong>Ver desarrollo de Q1</strong></summary>  
 <br>    
 
-[Ver Consulta SQL →](./sql_business_analysis/q1_diagnostico_macro_yoy.sql)
-<br> 
+[Ver Consulta SQL →](./sql_business_analysis/q1_diagnostico_macro_yoy.sql) <br>
 
 #### 🔹 Resultados
 
@@ -74,11 +89,11 @@ La investigación busca responder **cinco preguntas principales de diagnóstico*
 | :------------------------- | ---------: | ---------: | -----------: | ---------: | -----------: |
 | **Pedidos**                |      1.365 |      1.581 |  **+15,82%** |      1.649 |   **+4,30%** |
 | **Ventas Brutas**          | $1.316,5 M | $1.684,4 M |  **+27,95%** | $1.064,0 M |  **−36,83%** |
-| **Ventas Netas Comerciales**           | $1.290,5 M | $1.633,9 M |  **+26,62%** |   $999,1 M |  **−38,85%** |
+| **Ventas Netas**           | $1.290,5 M | $1.633,9 M |  **+26,62%** |   $999,1 M |  **−38,85%** |
 | Devoluciones ($)           |    $37,2 M |    $53,7 M |  **+44,45%** |    $70,3 M |  **+30,90%** |
 | **Tasa de Devolución (%)** |      2,88% |      3,28% | **+0,40 pp** |      7,03% | **+3,75 pp** |
 | **Ventas Netas Finales**   | $1.253,3 M | $1.580,3 M |  **+26,09%** |   $928,9 M |  **−41,22%** |
-| **Ganancia Neta**          |   $300,1 M |   $295,7 M |   **−1,47%** |    $101,8 M |  **−65,58%** |
+| **Ganancia Neta**          |   $300,1 M |   $295,7 M |   **−1,47%** |   $101,8 M |  **−65,58%** |
 | **Margen Neto (%)**        |     23,95% |     18,71% | **−5,24 pp** |     10,96% | **−7,75 pp** |
 | **Ticket Comercial**       |   $945.397 | $1.033.477 |   **+9,32%** |   $605.891 |  **−41,37%** |
 
@@ -86,32 +101,124 @@ La investigación busca responder **cinco preguntas principales de diagnóstico*
 
 #### 🔹 Hallazgos
 
-**1. Diagnóstico Comercial: Desplome del ticket promedio y mayor impacto de devoluciones**
+#### 🔸 Diagnóstico Comercial
 
-* **Crecimiento en pedidos con caída de facturación:** En 2026 se registraron **1.649 pedidos (+4,30% YoY)**, mientras que las Ventas Netas Comerciales cayeron un **−38,85%**.
-* **Contracción del Ticket Comercial:** La caída de ingresos se explica por la reducción del ticket promedio, que disminuyó un **−41,37%**, pasando de **$1.033.477 a $605.891**.
-* **Mayor incidencia de devoluciones:** La Tasa de Devolución aumentó de **3,28% a 7,03% (+3,75 pp)**, profundizando la caída de las Ventas Netas Finales hasta un **−41,22%**.
+**1. Crecimiento en pedidos con caída de facturación**
 
-> *Este comportamiento justifica la apertura de la **Rama Comercial**, donde Q2 descompone la evolución del ticket promedio y Q3 profundiza en sus principales componentes.*
+En 2026 se registraron **1.649 pedidos (+4,30% YoY)**, mientras que las Ventas Netas cayeron un **−38,85%**.
 
-**2. Diagnóstico de Rentabilidad: Caída acelerada de la ganancia y deterioro previo**
+**2. Contracción del Ticket Comercial**
 
-* **La ganancia cae más que las ventas:** En 2026, la Ganancia Neta cayó un **−65,58%**, frente a una caída del **−38,85%** en Ventas Netas. Como consecuencia, el Margen Neto se redujo del **18,71% al 10,96% (−7,75 pp)**.
-* **Deterioro de rentabilidad previo:** El problema de rentabilidad antecede a la caída de facturación de 2026. En 2025, a pesar de un crecimiento del **+26,62%** en Ventas Netas, la Ganancia Neta cayó un **−1,47%** y el Margen Neto perdió **−5,24 pp**.
+La caída de ingresos se acompaña de una reducción significativa del ticket promedio, que disminuyó un **−41,37%**, pasando de **$1.033.477 a $605.891**.
 
-> *La desconexión entre la evolución de los ingresos y la ganancia fundamenta la apertura de la **Rama de Rentabilidad**, donde Q4 analiza la estructura del P&L y Q5 descompone la variación de la Ganancia Bruta mediante un PVM formal.*
+**3. Mayor incidencia de devoluciones**
+
+La Tasa de Devolución aumentó de **3,28% a 7,03% (+3,75 pp)**, profundizando la caída de las Ventas Netas Finales hasta un **−41,22%**.
+
+> *Estos resultados abren dos líneas de análisis: una **Rama Comercial**, orientada a explicar la contracción de las Ventas Netas, y una **Rama de Rentabilidad**, orientada a explicar el deterioro de la ganancia.*
+
+#### 🔸 Diagnóstico de Rentabilidad
+
+**4. La ganancia cae más que las ventas**
+
+En 2026, la Ganancia Neta cayó un **−65,58%**, frente a una caída del **−38,85%** en Ventas Netas. Como consecuencia, el Margen Neto se redujo del **18,71% al 10,96% (−7,75 pp)**.
+
+**5. Deterioro de rentabilidad previo**
+
+El problema de rentabilidad antecede a la caída de facturación de 2026. En 2025, a pesar de un crecimiento del **+26,62%** en Ventas Netas, la Ganancia Neta cayó un **−1,47%** y el Margen Neto perdió **−5,24 pp**.
+
+> *La desconexión entre la evolución de los ingresos y la ganancia fundamenta la apertura de la **Rama de Rentabilidad**, que analizará primero la estructura del P&L y luego descompondrá la variación de la Ganancia Bruta mediante un PVM formal.*
 
 <br>
 
 #### 🔹 Puente analítico → Q2
 
-El diagnóstico muestra que en 2026 la cantidad de pedidos se mantiene relativamente estable, mientras que el valor promedio de cada pedido disminuye significativamente.
+El diagnóstico muestra que en 2026 la cantidad de pedidos se mantiene relativamente estable, mientras que las **Ventas Netas disminuyen $634,8 M (−38,85%)**.
 
-**Q2 descompone el Ticket Comercial en sus dos componentes: UPT y ASP**, para determinar cuánto de esta caída se relaciona con una menor cantidad de unidades por pedido y cuánto con el valor promedio de cada unidad.  
+**Q2 construye un puente financiero de Ventas Netas para cuantificar cuánto de esta variación se explica por Volumen, Mix, Precio, Descuentos y cambios en los SKUs comercializados.**
+
+Este puente establece la explicación monetaria de la caída antes de profundizar, en la **Rama Comercial**, en el comportamiento del Ticket, el UPT y el ASP.
 
 <br>
 
 </details>
+
+#### ├─ 🔹 Q2 — Puente Financiero de Ventas Netas: ¿Cómo se explica la caída de las Ventas Netas?
+
+<details>
+<summary><strong>Ver desarrollo de Q2</strong></summary>  
+<br>    
+
+[Ver Consulta SQL →](./sql_business_analysis/q2_puente_ventas_netas.sql) <br>
+
+#### 🔹 Resultados
+
+| Efecto                        |   2025 → 2026 |
+| :---------------------------- | ------------: |
+| **Variación de Ventas Netas** | **−$634,8 M** |
+| **Volumen**                   |     −$333,3 M |
+| **Mix — SKUs continuos**      |     −$204,7 M |
+| **Precio**                    |      +$48,3 M |
+| **Descuentos**                |      −$34,3 M |
+| **SKUs nuevos**               |     −$110,8 M |
+| **SKUs descontinuados**       |        $0,0 M |
+| **Residuo**                   |    **$0,0 M** |
+
+> *Nota: El puente descompone la variación de Ventas Netas entre 2025 y 2026 en efectos de **Volumen, Mix de SKUs continuos, Precio, Descuentos y altas/bajas de productos**. El residuo de $0 confirma la conciliación exacta del puente.*
+
+#### 🔹 Hallazgos
+
+**1. La caída de Ventas Netas está explicada principalmente por el efecto volumen**
+
+Entre 2025 y 2026, las Ventas Netas disminuyeron **$634,8 M (−38,85%)**. El principal efecto negativo corresponde al **Volumen, con −$333,3 M**, seguido por el **Mix de SKUs continuos, con −$204,7 M**.
+
+En conjunto, ambos efectos explican la mayor parte de la contracción observada.
+
+<br>
+
+**2. El Mix y los nuevos SKUs profundizan la caída**
+
+El **Mix de los SKUs continuos** aportó un impacto negativo de **$204,7 M**, mientras que los **SKUs nuevos** generaron un efecto de **−$110,8 M**.
+
+Esto indica que la caída de las Ventas Netas no responde únicamente a una reducción del volumen vendido, sino también a **un cambio en la composición de los productos comercializados**.
+
+<br>
+
+**3. El precio compensó parcialmente la contracción**
+
+El efecto **Precio** fue positivo, con un aporte de **+$48,3 M**, pero no alcanzó para compensar los efectos negativos de Volumen, Mix, Descuentos y SKUs nuevos.
+
+Los **Descuentos**, por su parte, tuvieron un impacto adicional de **−$34,3 M**.
+
+<br>
+
+**4. El puente reconcilia exactamente la variación observada**
+
+La suma de todos los efectos explica exactamente la variación de **−$634,8 M**, sin residuo:
+
+**Volumen + Mix + Precio + Descuentos + SKUs nuevos + SKUs descontinuados = Δ Ventas Netas**
+
+Esto permite pasar de la observación de la caída de ventas a una **explicación monetaria de sus principales componentes**.
+
+<br>
+
+#### 🔹 Puente analítico → Q3
+
+El puente muestra **cómo se explica monetariamente la caída de las Ventas Netas**, pero no profundiza en el comportamiento comercial que llevó a esa contracción.
+
+**Q3 descompondrá el Ticket Comercial en sus componentes —UPT y ASP— para identificar cómo cambió la cantidad de unidades por pedido y el valor promedio de las unidades vendidas.**
+
+<br>
+
+</details>
+
+#### ├─ 🔹 Q3 — Descomposición del Ticket: ¿Por qué cayó el Ticket Comercial? (UPT vs. ASP)
+
+<details>
+<summary><strong>Ver desarrollo de Q3</strong></summary>  
+
+<br>
+
 
 #### ├─ 🔹 Q2 — Descomposición del Ticket: ¿Por qué cayó el ticket comercial? (UPT vs. ASP)
 
@@ -127,7 +234,7 @@ El diagnóstico muestra que en 2026 la cantidad de pedidos se mantiene relativam
 | :---------------------------- | ---------: | ---------: | ----------: | -------: | ----------: |
 | **Pedidos**                   |      1.365 |      1.581 | **+15,82%** |    1.649 |  **+4,30%** |
 | **Unidades Totales**          |      3.946 |      4.746 | **+20,27%** |    3.778 | **−20,41%** |
-| **Ventas Netas Comerciales**  | $1.290,5 M | $1.633,9 M | **+26,62%** | $999,1 M | **−38,85%** |
+| **Ventas Netas**              | $1.290,5 M | $1.633,9 M | **+26,62%** | $999,1 M | **−38,85%** |
 | **Unidades por Pedido (UPT)** |       2,89 |       3,00 |  **+3,81%** |     2,29 | **−23,67%** |
 | **ASP Comercial**             |   $327.032 |   $344.275 |  **+5,27%** | $264.456 | **−23,18%** |
 | **Ticket Comercial**          |   $945.397 | $1.033.477 |  **+9,32%** | $605.891 | **−41,37%** |
@@ -153,7 +260,7 @@ La caída del ASP puede deberse a distintas causas: cambios en el precio de list
 
 </details>
 
-#### ├─ 🔹 Q3 — Descomposición del ASP: ¿Por qué cayó el precio promedio?
+#### ├─ 🔹 Q3 — Descomposición del ASP: ¿Por qué cayó el ASP Comercial?
 
 <details>
 <summary><strong>Ver desarrollo de Q3</strong></summary>  
@@ -176,7 +283,7 @@ A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% 
 
 <br>
 
-#### 🔸 Q3.1 — Bridge Agregado (Mix + Precio + Descuento + Nuevos + Descontinuados)
+#### 🔸 Q3.1 — Puente Agregado (Mix + Precio + Descuento + Nuevos + Descontinuados)
 
 [Ver Consulta SQL →](./sql_business_analysis/q3_1_descomposicion_asp_agregada.sql) <br>
 
@@ -195,7 +302,7 @@ A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% 
 | :------------------------------- | --------------: | -------------: |
 | **Mix (SKUs continuos)**         |     −$54.180,70 |    **67,9%** |
 | **SKUs Nuevos**                  |     −$29.328,29 |    **36,7%** |
-| **Precio de Lista**              |      $12.778,52 |   **−16,0%** |
+| **Precio**                       |      $12.778,52 |   **−16,0%** |
 | **Descuentos**                   |      −$9.088,17 |    **11,4%** |
 | **SKUs Descontinuados**          |           $0,00 |        0,0% |
 | **Total (chequeo de residuo)**   |     **$0,00** ✅ |      100,0% |
@@ -206,7 +313,7 @@ A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% 
 
 **1. La caída del ASP es principalmente un problema de mix, no de precios**
 
-El efecto **Mix explica el 67,9%** de la caída, y los **SKUs Nuevos otro 36,7%**. Juntos superan el 100% del Δ, porque **Precio de Lista (+$12.778,52) y Descuento (−$9.088,17) casi se cancelan entre sí** (saldo neto: +$3.690,35). En otras palabras: la política de precios y descuentos, en neto, no explica la caída; el problema está en qué se vendió, no en cuánto se cobró por lo mismo.
+El efecto **Mix explica el 67,9%** de la caída, y los **SKUs Nuevos otro 36,7%**. Juntos superan el 100% del Δ, porque **Precio (+$12.778,52) y Descuento (−$9.088,17) casi se cancelan entre sí** (saldo neto: +$3.690,35). En otras palabras: la política de precios y descuentos, en neto, no explica la caída; el problema está en qué se vendió, no en cuánto se cobró por lo mismo.
 
 **2. No hubo bajas de catálogo**
 
@@ -214,13 +321,13 @@ Los **0 SKUs descontinuados** confirman que toda la caída se explica por mix y 
 
 <br>
 
-#### 🔸 Q3.2 — Bridge por Categoría
+#### 🔸 Q3.2 — Puente por Categoría
 
 [Ver Consulta SQL →](./sql_business_analysis/q3_2_descomposicion_asp_categoria.sql) <br>
 
 #### 🔹 Resultados
 
-| Categoría | Unid. 2025 | Unid. 2026 | Share 2025 | Share 2026 | Δ Share (pp) | Mix | Precio | Descuento | Nuevos | Total | % del Δ ASP |
+| Categoría | Unid. 2025 | Unid. 2026 | Part. 2025 | Part. 2026 | Δ Part. (pp) | Mix | Precio | Descuento | Nuevos | Total | % del Δ ASP |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | **TV y Video** | 791 | 402 | 16,67% | 10,64% | **−6,03** | −40.717,38 | 5.642,40 | −4.004,87 | 0,00 | **−39.079,85** | **49,0%** |
 | **Computación** | 767 | 690 | 16,16% | 18,26% | +2,10 | −15.885,31 | 1.348,05 | −971,26 | −17.671,74 | **−33.180,25** | **41,6%** |
@@ -248,7 +355,7 @@ Ganó share (+3,81 pp) con mix positivo (+$12.404,76) y sin lanzamientos, el esp
 
 #### 🔹 Resultados — Top 5 Mayor Impacto Negativo
 
-| Producto | Categoría | Estado | Δ Share (pp) | Mix | Precio | Descuento | Nuevos | Total |
+| Producto | Categoría | Estado | Δ Part. (pp) | Mix | Precio | Descuento | Nuevos | Total |
 | :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
 | TCL Monitor TV 21 | TV y Video | Continuo | −2,616 | −20.173,53 | 2.265,13 | −1.530,49 | 0,00 | **−19.438,89** |
 | Acer Memoria RAM 2 | Computación | Continuo | −3,132 | −11.108,52 | 197,11 | −95,52 | 0,00 | **−11.006,93** |
@@ -258,7 +365,7 @@ Ganó share (+3,81 pp) con mix positivo (+$12.404,76) y sin lanzamientos, el esp
 
 #### 🔹 Resultados — Top 5 Mayor Impacto Positivo
 
-| Producto | Categoría | Estado | Δ Share (pp) | Mix | Precio | Descuento | Nuevos | Total |
+| Producto | Categoría | Estado | Δ Part. (pp) | Mix | Precio | Descuento | Nuevos | Total |
 | :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Liliana Cafetera 46 | Hogar | Continuo | +6,315 | 12.338,22 | 1.171,32 | −1.043,51 | 0,00 | **12.466,03** |
 | ASUS Webcam 6 | Computación | Continuo | +1,167 | 7.423,10 | 406,13 | −391,52 | 0,00 | **7.437,70** |
@@ -362,7 +469,7 @@ Q4 muestra que el deterioro de 2026 combina una fuerte contracción de las venta
 
 La Ganancia Bruta cayó **−$185,36 M (−59,7%)** entre 2025 y 2026, de $310,22 M a $124,86 M. El PVM muestra que el deterioro es, ante todo, un problema de **volumen del negocio existente**: el efecto Volumen (**−$122,44 M, 66,1%**) más que duplica al efecto Mix (**−$23,41 M, 12,6%**), y el Costo suma otro **−$64,56 M (34,8%)**. Precio (+$9,88 M) y Lanzamientos (+$15,17 M) compensan apenas el 13,5% de la caída.
 
-Al bajar a categoría, **TV y Video concentra más de la mitad del deterioro** (−$100,88 M, 54,4%), enteramente por volumen y costo, sin ningún lanzamiento que lo amortigüe. **Audio** repite el patrón ya visto en Q3: crece en unidades totales (+16%) pero su negocio continuo se derrumba (−$12,76 M de Volumen), oculto detrás del mayor efecto de Lanzamientos de todas las categorías (+$9,10 M).
+Al bajar a categoría, **TV y Video concentra más de la mitad del deterioro** (−$100,88 M, 54,4%), principalmente por Volumen y Costo, sin ningún lanzamiento que lo amortigüe. **Audio** repite el patrón ya visto en Q3: crece en unidades totales (+16%) pero su negocio continuo se derrumba (−$12,76 M de Volumen), oculto detrás del mayor efecto de Lanzamientos de todas las categorías (+$9,10 M).
 
 A nivel SKU, el deterioro está **muy concentrado**: los mismos dos productos que lideraban la caída del ASP en Q3 —**TCL Monitor TV 21** y **TCL Chromecast 25**— son también los dos mayores destructores de Ganancia Bruta, con **−$71,66 M combinados (38,7% del total)**. Ningún lanzamiento aparece entre los 8 peores SKUs; todos son productos continuos.
 
@@ -478,7 +585,7 @@ La suma de los efectos PVM de todas las categorías reproduce, al centavo, la va
 
 #### 🔹 Hallazgos
 
-**1. El deterioro proviene enteramente de productos ya existentes**
+**1. Los principales impactos negativos están concentrados en productos ya existentes**
 
 Los 8 SKUs con mayor impacto negativo son **todos "Continuo"** — ningún lanzamiento aparece entre ellos. Los dos principales, **TCL Monitor TV 21** y **TCL Chromecast 25**, generan conjuntamente **−$71,66 M (38,7% de toda la caída)**, y son los mismos dos productos identificados como el mayor problema del ASP en Q3 — la pérdida de volumen no solo bajó el precio promedio, fue también el principal destructor de Ganancia Bruta.
 
@@ -510,128 +617,125 @@ El PVM identifica los mecanismos detrás de la caída de la Ganancia Bruta (Volu
 
 #### 🔹 Síntesis
 
-Mientras Q3 y Q5 explican **por qué cambió** el resultado de la empresa, Q6 responde una pregunta distinta: **¿qué tan sana está cada categoría hoy?** Son preguntas complementarias, no la misma pregunta con otro nombre — una categoría puede haber arrastrado fuerte a la empresa hacia abajo (Q3/Q5) y, al mismo tiempo, seguir siendo saludable en sus propios términos, o viceversa.
+Mientras Q3 y Q5 explican **por qué cambió** el resultado de la empresa, Q6 responde una pregunta complementaria: **¿cómo quedó distribuida la rentabilidad de la empresa entre sus categorías y productos?**
 
-**TV y Video** es el caso más claro de esta distinción: pese a ser la categoría con mayor contribución a la Ganancia Neta 2026 (**37,7%**), su margen ya cruzó a terreno negativo en el segundo semestre (**−1,04%**), mientras que el promedio anual (10,05%) todavía lo disimula. Bajando un nivel más, esa pérdida está concentrada en un solo producto (**TCL Monitor TV 19**) — el resto de la categoría sigue sano.
+El análisis incorpora el **Costo Logístico asignado a nivel de línea** para pasar de Ganancia Bruta a Ganancia Neta:
 
-**Accesorios**, en cambio, muestra un problema estructural, no puntual: es la única otra categoría con margen negativo en el 2° semestre (**−3,72%**), y la cascada de costos revela que combina el peor deterioro de COGS **y** el peor deterioro logístico de toda la empresa — probablemente porque, al ser productos de menor ticket promedio, el costo de envío pesa proporcionalmente más sobre cada venta.
+> **Ganancia Neta = Ventas Netas Finales − Costo de Ventas − Costo Logístico**
 
-**Conclusión:** el deterioro de rentabilidad diagnosticado en Q4/Q5 ya se tradujo en pérdida real, pero de forma muy distinta según la categoría — aislada en TV y Video, estructural en Accesorios. Esa distinción es la que define qué tipo de acción correctiva corresponde a cada una.
+La asignación logística permite analizar la rentabilidad a nivel de categoría y SKU, manteniendo la correspondencia con el costo logístico total del pedido.
+
+**TV y Video** es el caso más relevante por escala: concentra el **37,70% de la Ganancia Neta 2026**, pero su margen anual de **10,05%** oculta un deterioro reciente más severo: durante el segundo semestre de 2026 el margen pasa a **−1,04%**. A nivel de producto, esta pérdida se encuentra concentrada en un único SKU: **TCL Monitor TV 19**, mientras que los restantes productos de la categoría mantienen margen positivo.
+
+**Accesorios**, en cambio, presenta un deterioro más extendido: registra el menor Margen Neto anual de las seis categorías (**4,42%**), el margen más negativo durante el segundo semestre (**−3,72%**) y los mayores incrementos tanto de COGS como de costo logístico en puntos porcentuales. El comportamiento sugiere una presión simultánea de ambos componentes de costo, aunque la relación entre ticket y costo logístico no se contrasta directamente en este análisis.
+
+**Conclusión:** el deterioro de rentabilidad diagnosticado en Q4/Q5 no afecta de la misma manera a todas las categorías. En **TV y Video**, el problema reciente se concentra especialmente en un producto; en **Accesorios**, la presión aparece más distribuida y combina deterioro de COGS y logística. Q6 permite así pasar del diagnóstico consolidado a identificar **dónde se materializa actualmente la pérdida de rentabilidad**.
 
 <br>
 
-#### 🔸 Q6.1 — Margen por Categoría: ¿Cómo está la salud hoy?
+#### 🔸 Q6.1 — Rentabilidad por Categoría: Margen, Resultado y Tendencia
 
 [Ver Consulta SQL →](./sql_business_analysis/q6_1_rentabilidad_categoria.sql) <br>
 
 #### 🔹 Resultados
 
-| Categoría | Margen Neto 2025 | Margen Neto 2026 | Δ Margen (pp) | Margen Neto 2° Sem. 2026 | Contribución Gan. Neta 2026 |
-| :--- | ---: | ---: | ---: | ---: | ---: |
-| **TV y Video** | 16,86% | 10,05% | −6,81 | **−1,04%** | **37,70%** |
-| **Computación** | 25,17% | 18,45% | −6,72 | 8,99% | 24,94% |
-| **Audio** | 20,11% | 9,39% | −10,71 | 2,79% | 16,35% |
-| **Hogar** | 20,44% | 9,52% | −10,92 | 4,12% | 9,44% |
-| **Telefonía** | 17,81% | 12,93% | −4,88 | 8,71% | 8,90% |
-| **Accesorios** | 16,23% | 4,42% | −11,81 | **−3,72%** | 2,67% |
+| Categoría       | Ganancia Neta 2026 | Var. Ganancia Neta | COGS/VNF 2026 | Δ COGS (pp) | Logística/VNF 2026 | Δ Logística (pp) | Margen Neto 2026 | Δ Margen (pp) | Margen 2° Sem. 2026 | Participación Gan. Neta 2026 |
+| :-------------- | -----------------: | -----------------: | ------------: | ----------: | -----------------: | ---------------: | ---------------: | ------------: | ------------------: | ---------------------------: |
+| **TV y Video**  |           $38,36 M |            −72,32% |        89,16% |       +6,47 |              0,79% |            +0,34 |           10,05% |         −6,81 |          **−1,04%** |                   **37,70%** |
+| **Computación** |           $25,38 M |            −57,08% |        78,81% |       +4,99 |              2,75% |            +1,74 |           18,45% |         −6,72 |               8,99% |                       24,94% |
+| **Audio**       |           $16,64 M |            −44,95% |        87,31% |       +8,81 |              3,30% |            +1,91 |            9,39% |        −10,71 |               2,79% |                       16,35% |
+| **Hogar**       |            $9,60 M |            −55,83% |        84,66% |       +7,59 |              5,81% |            +3,33 |            9,52% |        −10,92 |               4,12% |                        9,44% |
+| **Telefonía**   |            $9,06 M |            −70,51% |        86,15% |       +4,56 |              0,92% |            +0,31 |           12,93% |         −4,88 |               8,71% |                        8,90% |
+| **Accesorios**  |            $2,72 M |            −82,22% |        89,18% |       +8,26 |              6,40% |            +3,55 |            4,42% |        −11,81 |          **−3,72%** |                        2,67% |
 
-> *Nota: Margen Neto = Ganancia Neta / Ventas Netas Finales, medido contra la propia facturación de la categoría — a diferencia de los efectos Volumen y Mix de Q3/Q5, que miden cuánto explica cada categoría del resultado consolidado de la empresa. Ambas lecturas son complementarias: Q3/Q5 explican la caída de la empresa; Q6 mide la salud interna de cada categoría.*
-
-#### 🔹 Hallazgos
-
-**1. La categoría que más aporta ya opera a pérdida en su tramo más reciente**
-
-**TV y Video**, con el **37,70% de la Ganancia Neta 2026** (la mayor contribución de todas), muestra un margen del **2° semestre de −1,04%** — ya cruzó a terreno negativo. El promedio anual (10,05%) todavía no lo refleja, porque el primer semestre compensó.
-
-**2. Accesorios es la única otra categoría con margen negativo en el 2° semestre**
-
-Con **−3,72%** en el 2° semestre (vs. +4,42% anual), Accesorios muestra el mismo patrón que TV y Video, aunque con mucho menor peso en el resultado total (2,67% de contribución).
-
-**3. Todas las categorías empeoraron su margen, sin excepción**
-
-El Δ Margen es negativo en las 6 categorías (entre −4,88 pp y −11,81 pp), lo que indica que el deterioro de rentabilidad es generalizado, aunque de intensidad muy distinta.
-
-<br>
-
-#### 🔸 Q6.2 — Cascada de Costos por Categoría: ¿COGS o Logística?
-
-[Ver Consulta SQL →](./sql_business_analysis/q6_2_cascada_costos_categoria.sql) <br>
-
-#### 🔹 Resultados
-
-| Categoría       | COGS/VNF 2025 | COGS/VNF 2026 | Δ COGS (pp) | Logística/VNF 2025 | Logística/VNF 2026 | Δ Logística (pp) | Δ Margen (pp) |
-| :-------------- | ------------: | ------------: | ----------: | ------------------: | ------------------: | ----------------: | -------------: |
-| **Accesorios**  |        80,92% |        89,18% |   **+8,26** |               2,85% |               6,40% |         **+3,55** |     **−11,81** |
-| **Hogar**       |        77,07% |        84,66% |   **+7,59** |               2,48% |               5,81% |         **+3,33** |     **−10,92** |
-| **Audio**       |        78,50% |        87,31% |   **+8,81** |               1,39% |               3,30% |         **+1,91** |     **−10,71** |
-| **TV y Video**  |        82,69% |        89,16% |   **+6,47** |               0,45% |               0,79% |         **+0,34** |      **−6,81** |
-| **Computación** |        73,82% |        78,81% |   **+4,99** |               1,01% |               2,75% |         **+1,74** |      **−6,72** |
-| **Telefonía**   |        81,59% |        86,15% |   **+4,56** |               0,61% |               0,92% |         **+0,31** |      **−4,88** |
-
-> *Nota de reconciliación: COGS/VNF + Logística/VNF + Margen Neto = 100% en cada categoría y año (verificado al redondeo), confirmando que la cascada P&L no tiene componentes de costo ocultos: Ganancia Neta = Ventas Netas Finales − COGS − Logística.*
+> *Nota: COGS/VNF + Logística/VNF + Margen Neto = 100% en cada categoría (verificado al redondeo), confirmando la conciliación de la cascada P&L. El Margen Neto se mide sobre la facturación propia de cada categoría. La Participación en Ganancia Neta 2026 indica qué proporción de la Ganancia Neta total de la empresa corresponde a cada categoría.*
 
 #### 🔹 Hallazgos
 
-**1. El deterioro es, en todas las categorías, mayoritariamente un problema de COGS — pero la Logística pesa muy distinto según la categoría**
+**1. TV y Video concentra la mayor Ganancia Neta, pero su deterioro reciente es significativo**
 
-El costo de mercadería explica entre el 60% y el 94% del deterioro de margen en cada categoría. En **TV y Video** y **Telefonía**, la logística es casi irrelevante (+0,34 pp y +0,31 pp). En **Accesorios**, **Hogar** y **Audio**, en cambio, explica entre el 18% y el 30% del deterioro — consistente con que, al tratarse de productos de menor ticket promedio, el costo de envío pesa proporcionalmente más sobre cada venta.
+**TV y Video** concentra el **37,70% de la Ganancia Neta 2026** y genera $38,36 M. Sin embargo, su Margen Neto anual cayó **6,81 pp**, hasta 10,05%, y durante el segundo semestre alcanzó **−1,04%**.
 
-**2. Accesorios combina el peor COGS y la peor Logística de todas las categorías**
+Su deterioro logístico es el menor entre las categorías (+0,34 pp), mientras que el incremento del peso del COGS alcanza **+6,47 pp**. Esto indica que el deterioro reciente de la categoría está explicado principalmente por el costo de ventas, más que por la logística.
 
-Con **+8,26 pp de COGS** y **+3,55 pp de Logística**, Accesorios acumula el mayor deterioro relativo (−11,81 pp) — es la única categoría donde ambos factores empujan con fuerza a la vez.
+Por su escala, este deterioro tiene además un impacto económico considerable: TV y Video ya había sido la principal fuente del efecto negativo de Costo identificado en Q5.
 
-**3. TV y Video: el menor deterioro relativo, pero el mayor impacto absoluto**
+**2. Accesorios presenta el deterioro relativo más pronunciado**
 
-Con solo **−6,81 pp** de caída de margen, TV y Video tiene uno de los deterioros más leves en términos porcentuales. Sin embargo, por ser la categoría de mayor facturación, ese mismo porcentaje se traduce en el mayor efecto Costo en pesos de Q5 (−$29,74 M) — el mismo patrón de escala vs. eficiencia visto a lo largo de toda la investigación: un cambio porcentual chico, sobre una base grande, pesa más en dólares que un cambio grande sobre una base chica.
+**Accesorios** genera $2,72 M de Ganancia Neta en 2026, un **82,22% menos que en 2025**, y registra el menor Margen Neto anual (**4,42%**).
+
+Durante el segundo semestre, el margen pasa a **−3,72%**. La categoría combina el mayor incremento de COGS (**+8,26 pp**) con el mayor incremento del peso logístico (**+3,55 pp**), resultando en la mayor caída de Margen Neto entre las categorías (**−11,81 pp**).
+
+**3. La presión logística es heterogénea entre categorías**
+
+El incremento del peso logístico es reducido en **TV y Video (+0,34 pp)** y **Telefonía (+0,31 pp)**, mientras que alcanza **+3,55 pp en Accesorios**, **+3,33 pp en Hogar** y **+1,91 pp en Audio**.
+
+Este patrón es consistente con la hipótesis de que el costo logístico puede tener un peso proporcionalmente mayor en categorías de menor ticket, aunque esta relación no se contrasta directamente en Q6.
+
+**4. Todas las categorías deterioraron su Margen Neto**
+
+Las seis categorías presentan una variación negativa del Margen Neto, desde **−4,88 pp en Telefonía** hasta **−11,81 pp en Accesorios**.
+
+Por lo tanto, el deterioro de rentabilidad no se limita a una única categoría, aunque **su intensidad y mecanismo son diferentes**.
 
 <br>
 
-#### 🔸 Q6.3 — Rentabilidad por Producto: ¿Quién es responsable dentro de cada categoría?
+#### 🔸 Q6.2 — Rentabilidad por Producto: ¿Quién concentra la pérdida dentro de cada categoría?
 
 [Ver Consulta SQL →](./sql_business_analysis/q6_3_rentabilidad_producto.sql) <br>
 
 #### 🔹 Resultados — Productos con Margen Neto 2026 Negativo
 
-| Producto | Categoría | Margen 2025 | Margen 2026 | Δ (pp) |
-| :--- | :--- | ---: | ---: | ---: |
-| Dell Teclado 3 | Computación | — (Nuevo) | **−24,61%** | — |
-| Liliana Cafetera 50 | Hogar | 5,78% | **−13,62%** | −19,40 |
-| Edifier Auriculares 32 | Audio | — (Nuevo) | **−13,48%** | — |
-| Anker Hub USB 36 | Accesorios | 4,57% | **−10,06%** | −14,63 |
-| Liliana Ventilador 47 | Hogar | 4,94% | **−8,69%** | −13,63 |
-| JBL Parlante Bluetooth 27 | Audio | 8,17% | **−4,12%** | −12,29 |
-| Anker Mousepad 34 | Accesorios | 15,32% | **−3,80%** | −19,12 |
-| TCL Monitor TV 19 | TV y Video | 10,32% | **−3,66%** | −13,98 |
-| Lenovo Mouse 8 | Computación | — (Nuevo) | **−3,52%** | — |
-| Edifier Auriculares 29 | Audio | 13,49% | **−1,72%** | −15,21 |
+| Producto                  | Categoría   | Margen 2025 | Margen 2026 | Δ (pp) |
+| :------------------------ | :---------- | ----------: | ----------: | -----: |
+| Dell Teclado 3            | Computación |   — (Nuevo) | **−24,61%** |      — |
+| Liliana Cafetera 50       | Hogar       |       5,78% | **−13,62%** | −19,40 |
+| Edifier Auriculares 32    | Audio       |   — (Nuevo) | **−13,48%** |      — |
+| Anker Hub USB 36          | Accesorios  |       4,57% | **−10,06%** | −14,63 |
+| Liliana Ventilador 47     | Hogar       |       4,94% |  **−8,69%** | −13,63 |
+| JBL Parlante Bluetooth 27 | Audio       |       8,17% |  **−4,12%** | −12,29 |
+| Anker Mousepad 34         | Accesorios  |      15,32% |  **−3,80%** | −19,12 |
+| TCL Monitor TV 19         | TV y Video  |      10,32% |  **−3,66%** | −13,98 |
+| Lenovo Mouse 8            | Computación |   — (Nuevo) |  **−3,52%** |      — |
+| Edifier Auriculares 29    | Audio       |      13,49% |  **−1,72%** | −15,21 |
 
 > *Detalle completo de los 48 SKUs disponible en la salida de la consulta SQL vinculada arriba.*
 
 #### 🔹 Hallazgos
 
-**1. En TV y Video, la pérdida está concentrada en un solo producto, no en la categoría**
+**1. En TV y Video, la pérdida está concentrada en un solo producto**
 
-De los 7 SKUs de TV y Video, **6 tienen margen positivo y saludable** (entre 3,35% y 34,29%). El único con margen negativo es **TCL Monitor TV 19 (−3,66%)** — el mismo producto que en Q3 y Q5 ya mostraba la mayor caída de unidades de la categoría.
+De los 7 SKUs de TV y Video, **6 tienen margen positivo**, mientras que **TCL Monitor TV 19** registra un Margen Neto de **−3,66%**.
 
-**2. En Accesorios, el problema es más generalizado**
+Este mismo producto ya había aparecido en Q3 y Q5 como uno de los principales focos de deterioro, por lo que Q6 conecta el problema comercial y de Ganancia Bruta con su resultado final después de logística.
 
-Además de sus 2 productos con margen negativo (Anker Hub USB 36 y Anker Mousepad 34), el resto de la categoría opera con márgenes notablemente más bajos que el resto de la empresa — consistente con lo visto en Q6.2: acá el deterioro es estructural, no puntual.
+**2. En Accesorios, la pérdida alcanza a más de un producto**
+
+La categoría presenta **2 productos con Margen Neto negativo**: Anker Hub USB 36 y Anker Mousepad 34.
+
+Esto coincide con el deterioro observado a nivel categoría, donde COGS y logística aumentan simultáneamente su peso sobre las ventas. El problema, por lo tanto, no queda concentrado en un único SKU.
 
 **3. No todos los lanzamientos 2026 son rentables**
 
-3 de los 10 productos con margen negativo son lanzamientos de 2026 (Dell Teclado 3, Edifier Auriculares 32, Lenovo Mouse 8). Esto matiza el hallazgo de Q3/Q5 de que "los lanzamientos ayudan en conjunto": ayudan al agregado, pero no todos individualmente son rentables.
+3 de los 10 productos con Margen Neto negativo son lanzamientos de 2026 (**Dell Teclado 3, Edifier Auriculares 32 y Lenovo Mouse 8**).
+
+Esto matiza el hallazgo de Q3/Q5 de que los lanzamientos contribuyen positivamente al resultado agregado: **el efecto agregado de los nuevos productos puede ser positivo aunque algunos lanzamientos individuales presenten márgenes negativos**.
 
 #### 🔹 Puente analítico → Conclusiones Generales
 
-Q6 confirma, con una foto directa de rentabilidad, lo que Q3, Q4 y Q5 habían diagnosticado como causas: el deterioro ya se tradujo en pérdida real, y de forma muy distinta según la categoría — aislada en un solo producto en **TV y Video**, estructural (COGS y Logística) en **Accesorios**. Con este diagnóstico, la investigación cuenta con las piezas necesarias para explicar la rentabilidad de la empresa en sus tres niveles: qué le costó a la empresa (Q3/Q5), en qué escalón específico se pierde margen (Q6.2), y cómo se traduce hoy en la salud de cada categoría y producto (Q6.1, Q6.3).
+Q6 completa el diagnóstico llevando la rentabilidad desde el nivel consolidado hasta categorías y productos. Q3 y Q5 identificaron los principales mecanismos que deterioraron el resultado; Q6 muestra **dónde se materializa actualmente esa pérdida de rentabilidad y con qué intensidad**.
 
-**Las Conclusiones Generales integran ambos diagnósticos (Comercial y Rentabilidad) en una cascada P&L única.**
+El análisis revela dos situaciones diferentes: en **TV y Video**, el deterioro reciente de la categoría se concentra especialmente en **TCL Monitor TV 19**; en **Accesorios**, la presión es más distribuida y combina un fuerte deterioro del COGS con un aumento significativo del peso logístico.
+
+Con este análisis, la investigación cuenta con las piezas necesarias para explicar la evolución del negocio desde tres niveles: **qué cambió comercialmente (Q1-Q3), qué mecanismos deterioraron la rentabilidad (Q4-Q5) y dónde se concentra actualmente la pérdida de rentabilidad (Q6).**
+
+**Las Conclusiones Generales integran ambos diagnósticos —Comercial y Rentabilidad— en una única lectura del desempeño del negocio.**
 
 </details>
 
 ### Profundización Operativa (Deep Dives)
 
-#### ├─ 🔹 Deep Dive A — Comportamiento Omnicanal: Online vs. Físico.
+#### ┌─ 🔹 Deep Dive A — Comportamiento Omnicanal: Online vs. Físico
 
 <details>
 <summary><strong>Ver desarrollo del Deep Dive A</strong></summary>  
@@ -657,143 +761,132 @@ Determinar si el deterioro comercial observado en 2026 presenta el mismo comport
 
 **1. El crecimiento de pedidos de 2026 se concentra exclusivamente en Online**
 
-El canal **Online aumentó sus pedidos un 18,10%**, mientras que el canal **Físico se contrajo un 28,82%**.
-
-Como resultado, la participación del canal Online sobre el total de pedidos pasó de **70,59% a 79,93%**, mientras que el canal Físico disminuyó de **29,41% a 20,07%**.
+El canal **Online aumentó sus pedidos un 18,10%**, mientras que el canal **Físico se contrajo un 28,82%**. La participación del canal Online sobre el total de pedidos pasó de **70,59% a 79,93%**.
 
 **2. El crecimiento de Online no se traduce en un mayor valor por pedido**
 
-A pesar del aumento de pedidos, el canal Online registra una caída del **42,95% en el Ticket Comercial**, pasando de $1.055.898 a $602.436.
-
-El canal Físico también presenta un deterioro significativo, aunque de menor magnitud, con una caída del **36,75%**.
+A pesar del aumento de pedidos, el canal Online registra una caída del **42,95% en el Ticket Comercial**. El canal Físico también se deteriora, aunque en menor magnitud (**−36,75%**).
 
 **3. El ASP Neto disminuye en ambos canales**
 
-El valor promedio generado por unidad también se reduce en ambos canales.
-
-El **ASP Neto Online cae 24,58%**, mientras que el canal Físico registra una disminución del **19,32%**.
-
-Esto indica que la caída del Ticket no está asociada únicamente a la cantidad de unidades por pedido, sino que también existe un menor valor promedio por unidad comercializada.
+El **ASP Neto Online cae 24,58%**, mientras que el Físico cae **19,32%** — la caída de Ticket no se explica solo por menos unidades por pedido, también hay un menor valor promedio por unidad.
 
 **4. La tasa de descuento aumenta de forma similar en ambos canales**
 
-La Tasa de Descuento aumenta **3,06 pp en Online** y **3,29 pp en Físico**, alcanzando aproximadamente un **6%** en ambos canales durante 2026.
-
-Por lo tanto, el incremento de los descuentos se presenta como un fenómeno transversal a los canales y no como una diferencia exclusiva del canal Online.
+La Tasa de Descuento sube **3,06 pp en Online** y **3,29 pp en Físico**, alcanzando ~6% en ambos — el incremento de descuentos es transversal, no exclusivo de un canal.
 
 **5. El deterioro comercial es transversal, aunque la composición por canal cambia**
 
-En 2026 se observa una fuerte recomposición del volumen de pedidos hacia Online, mientras que **ambos canales experimentan una reducción significativa del valor generado por pedido y por unidad**.
-
-La evolución por canal permite complementar el diagnóstico general: el crecimiento de Online modifica la estructura comercial, pero no evita el deterioro del valor promedio de las operaciones.
+En 2026 hay una fuerte recomposición del volumen hacia Online, pero **ambos canales sufren una reducción significativa del valor generado por pedido y por unidad**.
 
 </details>
 
-#### ├─ 🔹 Deep Dive B — Devoluciones por Categoría.
+#### └─ 🔹 Deep Dive B — Devoluciones por Categoría: ¿Dónde se concentra el deterioro?
 
 <details>
 <summary><strong>Ver desarrollo del Deep Dive B</strong></summary>  
 <br>
 
-[Ver Consulta SQL →](./sql_business_analysis/deep_dive_b_devoluciones_por_categoria.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/deep_dive_b_devoluciones_categoria.sql) <br>
 
 #### 🔹 Objetivo
 
-Identificar cómo evolucionó la **tasa de devolución por categoría** entre 2025 y 2026 y determinar dónde se concentra el deterioro observado en las devoluciones.
+Q1 mostró que la Tasa de Devolución consolidada casi se duplicó (3,28% → 7,03%). Este Deep Dive abre esa tasa por categoría para determinar si el deterioro es generalizado o está concentrado en categorías específicas.
 
 #### 🔹 Resultados
 
-| Categoría       | Unidades Vendidas 2025 | Devueltas 2025 | Tasa 2025 | Unidades Vendidas 2026 | Devueltas 2026 | Tasa 2026 |    Variación |
-| :-------------- | ---------------------: | -------------: | --------: | ---------------------: | -------------: | --------: | -----------: |
-| **Audio**       |                    707 |             25 |     3,54% |                    862 |             71 | **8,24%** | **+4,70 pp** |
-| **Accesorios**  |                  1.222 |             39 |     3,19% |                    782 |             48 | **6,14%** | **+2,95 pp** |
-| **Hogar**       |                  1.000 |             32 |     3,20% |                    940 |             46 | **4,89%** | **+1,69 pp** |
-| **Computación** |                    767 |             26 |     3,39% |                    690 |             43 | **6,23%** | **+2,84 pp** |
-| **TV y Video**  |                    791 |             27 |     3,41% |                    402 |             27 | **6,72%** | **+3,30 pp** |
-| **Telefonía**   |                    259 |             11 |     4,25% |                    102 |              8 | **7,84%** | **+3,60 pp** |
+| Categoría       | Devoluciones 2025 | Devoluciones 2026 | Tasa Dev. 2025 | Tasa Dev. 2026 | Δ Tasa (pp) | Tasa Dev. Unidades 2026 |
+| :-------------- | -----------------: | -----------------: | --------------: | --------------: | -----------: | ------------------------: |
+| **TV y Video**  |        $25,35 M |        $31,24 M |          2,99% |          7,57% |   **+4,57** |                     6,72% |
+| **Audio**       |         $6,13 M |        $15,28 M |          3,91% |      **7,94%** |   **+4,02** |                 **8,24%** |
+| **Computación** |         $8,22 M |         $9,55 M |          3,38% |          6,49% |   **+3,11** |                     6,23% |
+| **Accesorios**  |         $3,36 M |         $3,99 M |          3,44% |          6,08% |   **+2,64** |                     6,14% |
+| **Telefonía**   |         $7,07 M |         $4,90 M |          3,94% |          6,54% |   **+2,60** |                     7,84% |
+| **Hogar**       |         $3,55 M |         $5,30 M |          3,23% |          5,00% |   **+1,77** |                     4,89% |
+| **Total (chequeo)** | **$53,67 M** | **$70,26 M** | — | — | — | — |
+
+> *Nota: "Tasa Dev." se mide como Devoluciones $ / Ventas Netas Comerciales de la categoría; "Tasa Dev. Unidades" mide unidades devueltas / unidades vendidas, para distinguir si el problema es de valor o de volumen devuelto.*
 
 #### 🔹 Hallazgos
 
-**1. La tasa de devolución aumenta en todas las categorías**
+**1. TV y Video, ya la categoría más golpeada en ventas y ganancia, es también la que más empeoró en devoluciones**
 
-Entre 2025 y 2026, **todas las categorías presentan un incremento de su tasa de devolución**.
+Con **+4,57 pp**, TV y Video tiene el mayor deterioro de tasa de devolución de toda la empresa — un factor adicional, no cuantificado en Q3/Q5, que agrava su deterioro: no solo se vendió menos, sino que una porción creciente de lo vendido terminó devuelto.
 
-Esto indica que el deterioro observado a nivel general no se concentra exclusivamente en una única categoría, sino que tiene un comportamiento transversal.
+**2. Audio tiene la tasa de devolución más alta en términos absolutos**
 
-**2. Audio presenta el mayor deterioro**
+Con **7,94%** en 2026 (la más alta de todas las categorías) y **8,24% en unidades**, Audio confirma un problema de calidad o ajuste de expectativas que se suma a lo ya visto en Q3/Q5: es la categoría cuyo crecimiento de unidades resultó, en parte, engañoso — ahora se ve que también es la que más se devuelve.
 
-La categoría **Audio** registra el mayor incremento de la tasa de devolución, pasando de **3,54% a 8,24%**, un aumento de **4,70 pp**.
+**3. El deterioro de devoluciones es generalizado, pero de intensidad muy dispar**
 
-Además, las unidades devueltas aumentan de **25 a 71**, mientras que las unidades vendidas también crecen de 707 a 862.
-
-**3. TV y Video también presenta un incremento significativo**
-
-La tasa de devolución de **TV y Video** aumenta de **3,41% a 6,72%**, equivalente a **+3,30 pp**.
-
-En este caso, las unidades vendidas disminuyen prácticamente a la mitad, de 791 a 402, mientras que las unidades devueltas se mantienen en **27 unidades**.
-
-**4. Telefonía mantiene una de las tasas más elevadas**
-
-Telefonía pasa de una tasa de devolución de **4,25% a 7,84%**, un incremento de **3,60 pp**.
-
-Sin embargo, su volumen absoluto es reducido: las devoluciones pasan de 11 a 8 unidades, por lo que la tasa debe interpretarse considerando el bajo volumen de operaciones de la categoría.
-
-**5. El deterioro también alcanza categorías de mayor volumen**
-
-**Accesorios** y **Computación** presentan incrementos de **2,95 pp** y **2,84 pp**, respectivamente.
-
-En 2026, Accesorios registra **48 unidades devueltas** y Computación **43**, por lo que ambas categorías contribuyen de manera relevante al volumen total de devoluciones.
-
-**6. El deterioro de las devoluciones es transversal, pero con distinta intensidad**
-
-El análisis muestra un aumento generalizado de la tasa de devolución, aunque con comportamientos diferentes según la categoría.
-
-**Audio presenta el mayor incremento relativo de la tasa**, mientras que **Accesorios concentra el mayor número de unidades devueltas entre las categorías analizadas**.
-
-Por lo tanto, la evolución de las devoluciones debe considerarse tanto desde la **tasa** como desde el **volumen absoluto de unidades devueltas**, evitando interpretar una categoría únicamente por uno de estos indicadores.
-
-</details>
-
-#### ├─ 🔹 Deep Dive C — Ineficiencia Logística por Canal.
-
-<details>
-<summary><strong>Ver desarrollo del Deep Dive C</strong></summary>  
-<br>
-
-[Ver Consulta SQL →](./sql_business_analysis/deep_dive_c_ineficiencia_logistica_por_canal.sql) <br>
-
-#### 🔹 Objetivo
-
-Evaluación del **costo logístico asignado sobre las ventas netas** por canal de venta entre 2025 y 2026, para identificar dónde se generan las principales ineficiencias de envío dentro de las órdenes entregadas.
-
-#### 🔹 Resultados
-
-| Canal | Costo Logístico 2025 | Ventas Netas 2025 | Log. % Ventas 2025 | Costo Logístico 2026 | Ventas Netas 2026 | Log. % Ventas 2026 | Var. Nominal Costo | Variación |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Online** | $14.520.471,20 | $1.140.257.590,43 | 1,27% | $23.094.500,11 | $735.444.420,87 | **3,14%** | +$8.574.028,91 | **+1,87 pp** |
-| **Physical** | $2.879.697,07 | $439.996.862,33 | 0,65% | $2.779.564,05 | $193.412.452,48 | **1,44%** | -$100.133,02 | **+0,78 pp** |
-
-#### 🔹 Hallazgos
-
-**1. El impacto logístico sobre las ventas se incrementó en ambos canales**
-
-A pesar de la caída generalizada en el volumen de ventas netas entre 2025 y 2026, **el porcentaje del costo logístico sobre la facturación aumentó de manera transversal** tanto en el canal Digital (**Online**) como en el presencial (**Physical**).
-
-**2. El canal Online concentra la mayor ineficiencia operativa**
-
-El costo logístico en **Online** no solo creció en términos relativos pasando del **1,27% al 3,14%** (+1,87 pp), sino que sufrió un importante incremento nominal: el gasto total de envío aumentó en **+$8.574.028,91** (+59,05%) aun cuando las ventas netas del canal cayeron un **35,50%**.
-
-**3. El canal Físico sostiene su costo total, pero pierde eficiencia sobre facturación**
-
-En **Physical**, el costo logístico nominal se mantuvo prácticamente estable (con un leve descenso de **-$100.133,02**). Sin embargo, debido a una reducción drástica de sus ventas netas (de **$439,99M a $193,41M**), la incidencia logística sobre la facturación se duplicó, pasando de **0,65% a 1,44%** (+0,78 pp).
-
-**4. Desconexión entre facturación y costos de envío en la operación digital**
-
-El análisis evidencia que el canal **Online** absorbió incrementos tarifarios o ineficiencias en el despacho de mercadería que no acompañaron la escala comercial de 2026, convirtiéndose en el principal driver del aumento de costos operativos globales.
+Las 6 categorías empeoraron su tasa de devolución (entre +1,77 pp y +4,57 pp), sin excepciones — mismo patrón de deterioro transversal que ya se vio en Q6.1 con el margen neto.
 
 </details>
 
 ---
+
+## 🎯 Conclusiones Generales
+
+### El diagnóstico en una frase
+
+La empresa no atraviesa una crisis de demanda aislada ni un problema de costos aislado: **vende menos, a menor valor por unidad, con más devoluciones, y cada peso que factura le cuesta más producirlo y entregarlo**. Las cinco preguntas centrales y los dos Deep Dives coinciden en el mismo punto de origen: **TV y Video**, con dos causas adicionales que actúan en paralelo en **Audio** y **Accesorios**.
+
+### La Cascada P&L completa
+
+Q1 planteó la pregunta, Q4 mostró los ratios, Q5 descompuso la Ganancia Bruta. Uniendo los tres, la cascada completa —de Ventas Brutas a Ganancia Neta— cierra así:
+
+| Concepto | 2025 | 2026 | Var. YoY |
+| :--- | ---: | ---: | ---: |
+| Ventas Brutas | $1.684,4 M | $1.064,0 M | **−36,83%** |
+| (−) Descuentos comerciales | $50,5 M | $64,9 M | +28,50% |
+| **Ventas Netas Comerciales** | **$1.633,9 M** | **$999,1 M** | **−38,85%** |
+| (−) Devoluciones | $53,7 M | $70,3 M | +30,90% |
+| **Ventas Netas Finales** | **$1.580,3 M** | **$928,9 M** | **−41,22%** |
+| (−) Costo de Ventas (COGS) | $1.270,0 M | $804,0 M | −36,69% |
+| **Ganancia Bruta** | **$310,2 M** | **$124,9 M** | **−59,75%** |
+| (−) Costo Logístico | $14,52 M | $23,09 M | +59,05% |
+| **Ganancia Neta** | **$295,70 M** | **$101,77 M** | **−65,58%** |
+| **Margen Neto** | **18,71%** | **10,96%** | **−7,75 pp** |
+
+> *Esta última línea es una resta aritmética directa, no una descomposición PVM: Q5 explica exclusivamente la variación de la Ganancia Bruta, y el rol de la logística en el paso a Ganancia Neta ya está cubierto por Q4 (consolidado) y Q6.2 (por categoría).*
+
+Cada escalón de esta cascada tiene una pregunta que ya fue respondida en el cuerpo de la investigación: por qué cayeron las Ventas Netas Comerciales (Q2-Q3), por qué creció el Costo de Ventas en proporción (Q4-Q5), y cómo se traduce todo esto en la salud actual de cada categoría (Q6).
+
+### Los dos diagnósticos
+
+**Rama Comercial (Q1-Q3):** el Ticket Comercial cayó **41,37%**, en partes casi iguales por UPT (−23,67%) y ASP (−23,18%). La caída del ASP no fue un problema de política de precios —Precio de Lista y Descuento casi se cancelan entre sí— sino de **mix**: se vendió relativamente menos de lo caro y más de lo barato, agravado por **lanzamientos 2026 que entraron a precios por debajo del promedio**.
+
+**Rama de Rentabilidad (Q4-Q6):** la Ganancia Neta cayó **65,58%**, casi el doble que las ventas. La causa principal no fue el mix ni el precio, sino **la pérdida de volumen de productos ya establecidos** (66% del efecto) sumada a un **costo de mercadería creciente** (35%) — los lanzamientos, lejos de ser un problema para la ganancia, la sostuvieron parcialmente.
+
+Estos dos diagnósticos, aunque midan magnitudes distintas (ASP vs. Ganancia Bruta), señalan **la misma dirección causal**: el negocio ya establecido se deterioró, y los lanzamientos amortiguaron el golpe en rentabilidad al mismo tiempo que lo profundizaron en precio promedio.
+
+### Radiografía por categoría: cuatro problemas distintos, no uno solo
+
+**TV y Video — el epicentro, en franco deterioro**
+Es la categoría más golpeada en cada una de las cinco preguntas: lidera la caída del ASP (Q3, −49,0%), la caída de Ganancia Bruta (Q5, −$100,88 M, 54,4% del total), y el peor deterioro de tasa de devolución de toda la empresa (Deep Dive B, +4,57 pp). Sigue siendo la categoría de mayor contribución a la Ganancia Neta (Q6.1, 37,7%), pero **ya opera en pérdida en el segundo semestre** (−1,04%). Toda la investigación converge en **2-3 productos puntuales**: TCL Monitor TV 21, TCL Chromecast 25 y TCL Monitor TV 19 explican, ellos solos, la mayor parte del daño en cada nivel de análisis.
+
+**Audio y Computación — crecimiento que esconde tres problemas, no uno**
+Ambas ganan participación de mercado (Q3) gracias a sus lanzamientos 2026, que además sostienen su Ganancia Bruta (Q5). Pero esa lectura optimista se cae en dos frentes: Audio tiene la **tasa de devolución más alta de toda la empresa** (Deep Dive B, 7,94%/8,24% en unidades), y **3 de los 11 lanzamientos de ambas categorías dan margen neto negativo** (Q6.3: Dell Teclado 3 −24,61%, Edifier Auriculares 32 −13,48%, Lenovo Mouse 8 −3,52%). El crecimiento es real, pero no homogéneo ni sin costo.
+
+**Accesorios — el problema estructural, no coyuntural**
+Es la única categoría, junto a TV y Video, con margen negativo en el 2° semestre (Q6.1, −3,72%), pero a diferencia de TV y Video su deterioro **no se explica por 1-2 productos**: combina el peor aumento de COGS y el peor aumento de costo logístico de toda la empresa (Q6.2), y una porción amplia de su catálogo opera con márgenes estructuralmente bajos (Q6.3). Tiene bajo peso en el resultado total (2,67% de contribución), pero es la categoría que exige el rediseño más profundo.
+
+**Hogar — la única excepción positiva**
+Es la única categoría que empujó el ASP hacia arriba (Q3, +$12.683) y la única con efecto Mix positivo en Ganancia Bruta (Q5, +$8,55 M), sin lanzamientos de por medio. También empeoró en devolución y costo, como el resto, pero partiendo de una base sana. Vale la pena entender qué hizo distinto.
+
+**Un patrón transversal, fuera de las categorías:** el deterioro comercial no es un problema de canal — Online y Físico caen de forma casi idéntica en Ticket, ASP y tasa de descuento (Deep Dive A). El crecimiento de pedidos en Online no compensa la caída de valor por operación en ningún canal.
+
+### Recomendaciones, en orden de urgencia
+
+1. **Investigar de inmediato los 3 SKUs de TV y Video** (TCL Monitor TV 21, TV 19, Chromecast 25): son, a la vez, el problema de precio (Q3), de ganancia (Q5) y de devoluciones (Deep Dive B) más grande de la empresa. Cualquier causa raíz que se identifique ahí (calidad, competencia, pricing) tiene el mayor apalancamiento posible sobre el resultado total.
+2. **Auditar los 3 lanzamientos 2026 con margen negativo** (Dell Teclado 3, Edifier Auriculares 32, Lenovo Mouse 8): decidir si se ajusta precio, se renegocia costo de abastecimiento, o se discontinúan — antes de escalar más lanzamientos con el mismo criterio comercial.
+3. **Revisar la causa de devoluciones en Audio**: con la tasa más alta de la empresa, sostener el crecimiento de la categoría sin resolver esto es agrandar un problema, no una oportunidad.
+4. **Repensar Accesorios de forma estructural**, no producto por producto: renegociar costos de logística (dado su bajo ticket promedio) o reconsiderar el mix de la categoría en su conjunto.
+5. **Documentar y replicar lo que hizo bien Hogar**: es el único caso de mix favorable sin lanzamientos — entender esa dinámica puede aportar una palanca de recuperación de bajo riesgo para otras categorías.
+
+### Alcance y limitaciones
+
+Esta investigación reconstruye el **qué** y el **por dónde** del deterioro con reconciliación matemática exacta en sus dos bridges (Q3, residuo $0,00; Q5, residuo $0,00). No cubre, y queda como trabajo futuro: **causas de raíz cualitativas** (por qué cayó la demanda de TV y Video, por qué suben las devoluciones de Audio — esta investigación cuantifica el efecto, no la causa comercial u operativa de fondo); **elasticidad precio-volumen** (no se estima si una suba de precio en Hogar sostendría su volumen); y **granularidad estacional completa** (el corte de 2° semestre en Q6.1 es un indicio de tendencia, no un análisis mensual). Estas limitaciones no invalidan las conclusiones: acotan dónde termina el diagnóstico y empieza la decisión de negocio.
 
 ## 🧭 Conclusiones Generales
 
@@ -956,12 +1049,88 @@ Estas métricas se calculan antes de devoluciones para aislar el comportamiento 
 
 
 
+```mermaid
+flowchart TD
+    A["🔎 INVESTIGACIÓN DE DESEMPEÑO<br/>COMERCIAL Y RENTABILIDAD"]
 
+    A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 66,20%"]
 
+    B --> C["💵 Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Cómo se explica la caída de Ventas Netas?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><b>Volumen:</b> −$333,3 M<br/><b>Mix continuos:</b> −$204,7 M<br/><b>SKUs nuevos:</b> −$110,8 M<br/><b>Descuentos:</b> −$34,3 M<br/><b>Precio:</b> +$48,3 M<br/><b>Residuo:</b> $0"]
 
+    B --> D["📈 RAMA COMERCIAL"]
+    B --> E["💰 RAMA DE RENTABILIDAD"]
 
+    D --> D1["Q3 — DESCOMPOSICIÓN DEL TICKET<br/><br/>¿Por qué cae?<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP:</b> ↓ 23,18%<br/><b>Ticket:</b> ↓ 41,37%"]
 
+    D1 --> D2["Q4 — DESCOMPOSICIÓN DEL ASP<br/><br/>¿Por qué cae?<br/><b>Mix (SKUs continuos):</b> −$54,2 K<br/><b>SKUs nuevos:</b> −$29,3 K<br/><b>Precio de Lista:</b> +$12,8 K<br/><b>Descuentos:</b> −$9,1 K<br/><b>Categoría clave:</b> TV y Video / Computación-Audio"]
 
+    E --> E1["Q5 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Cómo se deterioró la rentabilidad?<br/><b>COGS / Ventas Netas Finales:</b> +6,19 pp<br/><b>Logística / Ventas Netas Finales:</b> +1,69 pp<br/><b>Margen Neto:</b> 18,53% → 10,66%"]
+
+    E1 --> E2["Q6 — PVM DE GANANCIA BRUTA<br/><br/>¿Por qué cambió la Ganancia Bruta?<br/><b>Δ Ganancia Bruta:</b> −$185,4 M<br/><b>Volumen:</b> −$71,1 M<br/><b>Mix:</b> −$74,8 M<br/><b>Precio:</b> +$9,9 M<br/><b>Costo:</b> −$64,6 M<br/><b>Lanzamientos:</b> +$15,2 M"]
+
+    E1 --> E3["Q7 — RENTABILIDAD POR CATEGORÍA Y SKU<br/><br/>¿Dónde se concentra la pérdida final?<br/><b>Criterio:</b> VNF − COGS − Logística<br/><b>TV y Video:</b> 37,7% Gan. Neta<br/><b>Accesorios:</b> Margen Neto 4,42%<br/><b>SKUs en Rojo:</b> 10 productos"]
+
+    C --> F["🎯 CONCLUSIONES GENERALES & CASCADA P&L"]
+    D2 --> F
+    E2 --> F
+    E3 --> F
+
+    subgraph DEEP_DIVES ["🔍 PROFUNDIZACIÓN OPERATIVA"]
+        G["<b>Deep Dive A — Comportamiento Omnicanal</b><br/>Online +18,1% vs. Físico −28,8%"]
+
+        H["<b>Deep Dive B — Devoluciones por Categoría</b><br/>Audio: 8,24% en 2026 (+4,70 pp)"]
+
+        I["<b>Deep Dive C — Ineficiencia Logística por Canal</b><br/>Online: 1,27% → 3,14% sobre Ventas Netas Finales"]
+    end
+
+    style DEEP_DIVES stroke-dasharray: 5 5
+```
+
+---
+
+```mermaid
+flowchart TD
+    A["🔎 INVESTIGACIÓN DE DESEMPEÑO<br/>COMERCIAL Y RENTABILIDAD"]
+
+    A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 66,20%"]
+
+    B --> C["💵 Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Cómo se explica la caída de Ventas Netas?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><b>Volumen:</b> −$333,3 M<br/><b>Mix continuos:</b> −$204,7 M<br/><b>SKUs nuevos:</b> −$110,8 M<br/><b>Descuentos:</b> −$34,3 M<br/><b>Precio:</b> +$48,3 M<br/><b>Residuo:</b> $0"]
+
+    B --> D["📈 RAMA COMERCIAL"]
+    B --> E["💰 RAMA DE RENTABILIDAD"]
+
+    D --> D1["Q3 — DESCOMPOSICIÓN DEL TICKET<br/><br/>¿Por qué cae?<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP:</b> ↓ 23,18%<br/><b>Ticket:</b> ↓ 41,37%"]
+
+    D1 --> D2["Q4 — DESCOMPOSICIÓN DEL ASP<br/><br/>¿Por qué cae?<br/><b>Mix (SKUs continuos):</b> −$54,2 K<br/><b>SKUs nuevos:</b> −$29,3 K<br/><b>Precio de Lista:</b> +$12,8 K<br/><b>Descuentos:</b> −$9,1 K<br/><b>Categorías:</b> TV y Video / Computación-Audio"]
+
+    E --> E1["Q5 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Cómo se deterioró la rentabilidad?<br/><b>COGS / Ventas Netas Finales:</b> +6,19 pp<br/><b>Logística / Ventas Netas Finales:</b> +1,69 pp<br/><b>Margen Neto:</b> 18,53% → 10,66%"]
+
+    E1 --> E2["Q6 — PVM DE GANANCIA BRUTA<br/><br/>¿Por qué cambió la Ganancia Bruta?<br/><b>Δ Ganancia Bruta:</b> −$185,4 M<br/><b>Volumen:</b> −$71,1 M<br/><b>Mix:</b> −$74,8 M<br/><b>Precio:</b> +$9,9 M<br/><b>Costo:</b> −$64,6 M<br/><b>Lanzamientos:</b> +$15,2 M"]
+
+    E1 --> E3["Q7 — RENTABILIDAD POR CATEGORÍA Y SKU<br/><br/>¿Dónde se concentra la pérdida final?<br/><b>Criterio:</b> VNF − COGS − Logística<br/><b>TV y Video:</b> 37,7% Gan. Neta<br/><b>Accesorios:</b> Margen Neto 4,42%<br/><b>SKUs en Rojo:</b> 10 productos"]
+
+    C --> F["🎯 CONCLUSIONES GENERALES<br/>& CASCADA P&L"]
+    D2 --> F
+    E2 --> F
+    E3 --> F
+
+    subgraph DEEP_DIVES ["🔍 PROFUNDIZACIÓN OPERATIVA"]
+        direction LR
+        G["<b>Deep Dive A</b><br/>Comportamiento Omnicanal<br/><br/>Online +18,1%<br/>vs. Físico −28,8%"]
+
+        H["<b>Deep Dive B</b><br/>Devoluciones por Categoría<br/><br/>Audio: 8,24% en 2026<br/>(+4,70 pp)"]
+
+        I["<b>Deep Dive C</b><br/>Ineficiencia Logística por Canal<br/><br/>Online: 1,27% → 3,14%"]
+    end
+
+    F --> J[" "]
+    J ~~~ G
+    J ~~~ H
+    J ~~~ I
+
+    style J fill:none,stroke:none,color:none
+    style DEEP_DIVES stroke-dasharray: 5 5
+```
 
 
 
