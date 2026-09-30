@@ -115,8 +115,6 @@ La caída de ingresos se acompaña de una reducción significativa del ticket pr
 
 La Tasa de Devolución aumentó de **3,28% a 7,03% (+3,75 pp)**, profundizando la caída de las Ventas Netas Finales hasta un **−41,22%**.
 
-> *Estos resultados abren dos líneas de análisis: una **Rama Comercial**, orientada a explicar la contracción de las Ventas Netas, y una **Rama de Rentabilidad**, orientada a explicar el deterioro de la ganancia.*
-
 #### 🔸 Diagnóstico de Rentabilidad
 
 **4. La ganancia cae más que las ventas**
@@ -127,7 +125,7 @@ En 2026, la Ganancia Neta cayó un **−65,58%**, frente a una caída del **−3
 
 El problema de rentabilidad antecede a la caída de facturación de 2026. En 2025, a pesar de un crecimiento del **+26,62%** en Ventas Netas, la Ganancia Neta cayó un **−1,47%** y el Margen Neto perdió **−5,24 pp**.
 
-> *La desconexión entre la evolución de los ingresos y la ganancia fundamenta la apertura de la **Rama de Rentabilidad**, que analizará primero la estructura del P&L y luego descompondrá la variación de la Ganancia Bruta mediante un PVM formal.*
+> *El diagnóstico muestra, por un lado, una fuerte contracción de las Ventas Netas y del Ticket Comercial y, por otro, un deterioro de la rentabilidad que ya se había manifestado durante 2025.*
 
 <br>
 
@@ -135,15 +133,20 @@ El problema de rentabilidad antecede a la caída de facturación de 2026. En 202
 
 El diagnóstico muestra que en 2026 la cantidad de pedidos se mantiene relativamente estable, mientras que las **Ventas Netas disminuyen $634,8 M (−38,85%)**.
 
-**Q2 construye un puente financiero de Ventas Netas para cuantificar cuánto de esta variación se explica por Volumen, Mix, Precio, Descuentos y cambios en los SKUs comercializados.**
+**Q2 construye un puente financiero de Ventas Netas para descomponer esta variación en efectos de Volumen, Mix, Precio, Descuentos y cambios en los SKUs comercializados.**
 
-Este puente establece la explicación monetaria de la caída antes de profundizar, en la **Rama Comercial**, en el comportamiento del Ticket, el UPT y el ASP.
+Este puente permite pasar del **diagnóstico agregado de Q1** a una **atribución monetaria de los principales componentes de la variación**, antes de profundizar en las ramas Comercial y de Rentabilidad.
 
 <br>
 
 </details>
 
-#### ├─ 🔹 Q2 — Puente Financiero de Ventas Netas: ¿Cómo se explica la caída de las Ventas Netas?
+
+
+
+
+
+#### ├─ 🔹 Q3 — Puente Financiero de Ventas Netas: ¿Cómo se explica la caída de las Ventas Netas?
 
 <details>
 <summary><strong>Ver desarrollo de Q2</strong></summary>  
