@@ -45,25 +45,22 @@ flowchart TD
     
     E1 --> E2["Q6 — PVM DE GANANCIA BRUTA<br/><br/>¿Por qué cambia la Ganancia Bruta?<br/><b>Δ Ganancia Bruta:</b> −$185,4 M<br/><br/><b>Drivers principales:</b><br/>Mix + Volumen + Costo"]
     
-    E1 --> E3["Q7 — RENTABILIDAD POR CATEGORÍA Y SKU<br/><br/>¿Dónde se concentra la pérdida?<br/><br/><b>Foco crítico:</b> Categoría TV/Video y 10 SKUs con margen neto negativo"]
+    E1 --> E3["Q7 — RENTABILIDAD POR CATEGORÍA Y SKU<br/><br/>¿Dónde se concentra la pérdida?<br/><br/><b>Foco crítico:</b> Categoría TV/Video con mayor caída de Ganancia Neta y Accesorios con más productos de Margen Neto negativo"]
 
     %% El puente analítico de Devoluciones hacia Q5 (Único Deep Dive flotante)
     E1 -.->|Ajuste de Ventas Netas a VNF| H
 
     subgraph DEEP_DIVES ["🔍 DEEP DIVES OPERATIVOS"]
-        H["<b>Deep Dive B</b><br/>Devoluciones por Categoría<br/><br/><b>Foco:</b> Alerta en Audio (+4,7 pp)"]
+        H["<b>Deep Dive A</b><br/>Devoluciones por Categoría<br/><br/><b>Foco:</b> Alerta en Audio (+4,7 pp)"]
     end
 
     %% ==========================================
     %% EFECTO LLAVE ACOSTADA UNIFICADORA
     %% ==========================================
-    D2 ---> LLAVE{" 🤝 CONSOLIDACIÓN DE HALLAZGOS<br/><i>(Comercial + Rentabilidad + Devoluciones)</i> "}
+    D2 ---> LLAVE{" 🤝 CONSOLIDACIÓN DE HALLAZGOS<br/>y<br/>🎯 RECOMENDACIONES ESTRATÉGICAS"}
     E2 ---> LLAVE
     E3 ---> LLAVE
     H  ---> LLAVE
-
-    %% Destino final
-    LLAVE ==> F["🎯 CONCLUSIONES GENERALES<br/>& CASCADA P&L"]
 
     style LLAVE fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#fff
     style DEEP_DIVES stroke-dasharray: 5 5
@@ -762,61 +759,13 @@ El diagnóstico confirma dos patrones claros: una **pérdida concentrada por esc
 
 ### Profundización Operativa (Deep Dives)
 
-#### ┌─ 🔹 Deep Dive A — Comportamiento Omnicanal: Online vs. Físico
-
-<details>
-<summary><strong>Ver desarrollo del Deep Dive A</strong></summary>  
-<br>
-
-[Ver Consulta SQL →](./sql_business_analysis/deep_dive_a_canal.sql) <br>
-
-#### 🔹 Objetivo
-
-Determinar si el deterioro comercial observado en 2026 presenta el mismo comportamiento en los canales **Online y Físico**, analizando la evolución de pedidos, Ticket Comercial, ASP Neto y tasa de descuento.
-
-#### 🔹 Resultados
-
-| Métrica                      | Online 2025 | Online 2026 |          YoY | Físico 2025 | Físico 2026 |          YoY |
-| :--------------------------- | ----------: | ----------: | -----------: | ----------: | ----------: | -----------: |
-| **Pedidos**                  |       1.116 |       1.318 |  **+18,10%** |         465 |         331 |  **−28,82%** |
-| **Participación en pedidos** |      70,59% |      79,93% | **+9,34 pp** |      29,41% |      20,07% | **−9,34 pp** |
-| **Ticket Comercial**         |  $1.055.898 |    $602.436 |  **−42,95%** |    $979.667 |    $619.651 |  **−36,75%** |
-| **ASP Neto**                 |    $349.876 |    $263.879 |  **−24,58%** |    $330.584 |    $266.716 |  **−19,32%** |
-| **Tasa de Descuento**        |       2,98% |       6,04% | **+3,06 pp** |       3,03% |       6,31% | **+3,29 pp** |
-
-#### 🔹 Hallazgos
-
-**1. El crecimiento de pedidos de 2026 se concentra exclusivamente en Online**
-
-El canal **Online aumentó sus pedidos un 18,10%**, mientras que el canal **Físico se contrajo un 28,82%**. La participación del canal Online sobre el total de pedidos pasó de **70,59% a 79,93%**.
-
-**2. El crecimiento de Online no se traduce en un mayor valor por pedido**
-
-A pesar del aumento de pedidos, el canal Online registra una caída del **42,95% en el Ticket Comercial**. El canal Físico también se deteriora, aunque en menor magnitud (**−36,75%**).
-
-**3. El ASP Neto disminuye en ambos canales**
-
-El **ASP Neto Online cae 24,58%**, mientras que el Físico cae **19,32%** — la caída de Ticket no se explica solo por menos unidades por pedido, también hay un menor valor promedio por unidad.
-
-**4. La tasa de descuento aumenta de forma similar en ambos canales**
-
-La Tasa de Descuento sube **3,06 pp en Online** y **3,29 pp en Físico**, alcanzando ~6% en ambos — el incremento de descuentos es transversal, no exclusivo de un canal.
-
-**5. El deterioro comercial es transversal, aunque la composición por canal cambia**
-
-En 2026 hay una fuerte recomposición del volumen hacia Online, pero **ambos canales sufren una reducción significativa del valor generado por pedido y por unidad**.
-
-</details>
-
-#### └─ 🔹 Deep Dive B — Devoluciones por Categoría: ¿Dónde se concentra el deterioro?
+#### ├─ 🔹 Deep Dive A — Devoluciones por Categoría: ¿Dónde se concentra el deterioro?
 
 <details>
 <summary><strong>Ver desarrollo del Deep Dive B</strong></summary>  
 <br>
 
 [Ver Consulta SQL →](./sql_business_analysis/deep_dive_b_devoluciones_categoria.sql) <br>
-
-#### 🔹 Objetivo
 
 Q1 mostró que la Tasa de Devolución consolidada casi se duplicó (3,28% → 7,03%). Este Deep Dive abre esa tasa por categoría para determinar si el deterioro es generalizado o está concentrado en categorías específicas.
 
