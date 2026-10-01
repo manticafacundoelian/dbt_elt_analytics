@@ -234,7 +234,7 @@ Ambos fenómenos se reprodujeron transversalmente en **Online y Físico**, lo qu
 
 <br>
 
-#### Q3.1 — Descomposición del Ticket (UPT vs. ASP)
+#### 🔸 Q3.1 — Descomposición del Ticket (UPT vs. ASP)
 
 [Ver Consulta SQL →](./sql_business_analysis/q3.1_descomposicion_ticket.sql) 
 <br>
@@ -262,7 +262,7 @@ Esto indica que en 2026 los clientes compraron **menos unidades por pedido y, ad
 
 <br>
 
-#### Q3.2 — Comportamiento Omnicanal
+#### 🔸 Q3.2 — Comportamiento Omnicanal
 
 [Ver Consulta SQL →](./sql_business_analysis/q3.2_comportamiento_omnicanal.sql) 
 <br>
@@ -394,7 +394,7 @@ Los **0 SKUs descontinuados** confirman que toda la caída se explica por mix y 
 Ganó share (+3,81 pp) con mix positivo (+$12.404,76) y sin lanzamientos, el espejo exacto de TV y Video.
 <br>
 
-#### 🔸 Q3.3 — Bridge por SKU (Detalle y Ranking de Impacto)
+#### 🔸 Q4.3 — Bridge por SKU (Detalle y Ranking de Impacto)
 
 [Ver Consulta SQL →](./sql_business_analysis/q3_3_descomposicion_asp_sku.sql) 
 <br>
@@ -432,7 +432,7 @@ Los 5 productos de mayor impacto negativo explican el **72,6%** de la caída tot
 
 El diagnóstico comercial explica la caída de las Ventas Netas, pero no todavía por qué la Ganancia Neta cayó más proporcionalmente (−65,58% vs. −38,85%).
 
-**Q4 y Q5 abordan la Rama de Rentabilidad**, analizando la estructura de costos y márgenes para entender esa brecha.  
+**Q5, Q6 y Q7 abordan la Rama de Rentabilidad**, analizando la estructura de costos y márgenes para entender esa brecha.  
 <br>
 </details>
 
