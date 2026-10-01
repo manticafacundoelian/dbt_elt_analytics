@@ -81,7 +81,8 @@ La investigación busca responder **siete preguntas principales de diagnóstico*
 <summary><strong>Ver desarrollo de Q1</strong></summary>  
 <br>    
 
-[Ver Consulta SQL →](./sql_business_analysis/q1_diagnostico_macro_yoy.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q1_diagnostico_macro_yoy.sql) 
+<br>
 
 #### 🔹 Resultados
 
@@ -126,7 +127,6 @@ En 2026, la Ganancia Neta cayó un **−65,58%**, frente a una caída del **−3
 El problema de rentabilidad antecede a la caída de facturación de 2026. En 2025, a pesar de un crecimiento del **+26,62%** en Ventas Netas, la Ganancia Neta cayó un **−1,47%** y el Margen Neto perdió **−5,24 pp**.
 
 > *El diagnóstico muestra, por un lado, una fuerte contracción de las Ventas Netas y del Ticket Comercial y, por otro, un deterioro de la rentabilidad que ya se había manifestado durante 2025.*
-
 <br>
 
 #### 🔹 Puente analítico → Q2
@@ -136,100 +136,89 @@ El diagnóstico muestra que en 2026 la cantidad de pedidos se mantiene relativam
 **Q2 construye un puente financiero de Ventas Netas para descomponer esta variación en efectos de Volumen, Mix, Precio, Descuentos y cambios en los SKUs comercializados.**
 
 Este puente permite pasar del **diagnóstico agregado de Q1** a una **atribución monetaria de los principales componentes de la variación**, antes de profundizar en las ramas Comercial y de Rentabilidad.
-
 <br>
-
 </details>
 
-
-
-
-
-
-#### ├─ 🔹 Q3 — Puente Financiero de Ventas Netas: ¿Cómo se explica la caída de las Ventas Netas?
+#### ├─ 🔹 Q2 — Puente Financiero de Ventas Netas: ¿Cómo se explica la caída de las Ventas Netas?
 
 <details>
 <summary><strong>Ver desarrollo de Q2</strong></summary>  
 <br>    
 
-[Ver Consulta SQL →](./sql_business_analysis/q2_puente_ventas_netas.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q2_puente_ventas_netas.sql) 
+<br>
 
 #### 🔹 Resultados
 
-| Efecto                        |   2025 → 2026 |
-| :---------------------------- | ------------: |
-| **Variación de Ventas Netas** | **−$634,8 M** |
-| **Volumen**                   |     −$333,3 M |
-| **Mix — SKUs continuos**      |     −$204,7 M |
-| **Precio**                    |      +$48,3 M |
-| **Descuentos**                |      −$34,3 M |
-| **SKUs nuevos**               |     −$110,8 M |
-| **SKUs descontinuados**       |        $0,0 M |
-| **Residuo**                   |    **$0,0 M** |
+El puente descompone la variación de las **Ventas Netas entre 2025 y 2026** mediante efectos de **Volumen, Mix de SKUs continuos, Precio de Lista, Descuentos y cambios en el portafolio**.
+
+| Efecto                        | Impacto 2025 → 2026 |
+| :---------------------------- | ------------------: |
+| **Variación de Ventas Netas** |       **−$634,8 M** |
+| Volumen                       |           −$333,3 M |
+| Mix — SKUs continuos          |           −$204,7 M |
+| Precio de Lista               |            +$48,3 M |
+| Descuentos                    |            −$34,3 M |
+| SKUs nuevos                   |           −$110,8 M |
+| SKUs descontinuados           |              $0,0 M |
+| **Residuo**                   |          **$0,0 M** |
 
 > *Nota: El puente descompone la variación de Ventas Netas entre 2025 y 2026 en efectos de **Volumen, Mix de SKUs continuos, Precio, Descuentos y altas/bajas de productos**. El residuo de $0 confirma la conciliación exacta del puente.*
 
 #### 🔹 Hallazgos
 
-**1. La caída de Ventas Netas está explicada principalmente por el efecto volumen**
+#### 🔸 Principales impulsores de la caída
 
-Entre 2025 y 2026, las Ventas Netas disminuyeron **$634,8 M (−38,85%)**. El principal efecto negativo corresponde al **Volumen, con −$333,3 M**, seguido por el **Mix de SKUs continuos, con −$204,7 M**.
+**1. El Volumen concentra el mayor impacto negativo**
 
-En conjunto, ambos efectos explican la mayor parte de la contracción observada.
+El efecto Volumen explica una reducción de **$333,3 M** en las Ventas Netas, siendo el principal componente negativo del puente.
 
+**2. El Mix de productos profundiza la contracción**
+
+El Mix de los **SKUs continuos** aportó un impacto negativo de **$204,7 M**, indicando un cambio desfavorable en la composición de las ventas entre los productos que permanecieron activos en ambos períodos.
+
+**3. Los SKUs nuevos no compensaron la pérdida del negocio existente**
+
+Los productos incorporados en 2026 generaron un impacto de **−$110,8 M** bajo la metodología del puente, por lo que su incorporación no compensó los efectos negativos provenientes del volumen y del mix.
+
+#### 🔸 Factores de compensación
+
+**4. El aumento del Precio de Lista compensó parcialmente la caída**
+
+El efecto Precio de Lista aportó **+$48,3 M**, funcionando como un factor de compensación frente a los principales impactos negativos.
+
+**5. Los Descuentos profundizaron la contracción**
+
+El efecto Descuentos tuvo un impacto de **−$34,3 M**, reduciendo parcialmente el beneficio generado por el aumento de los precios de lista.
 <br>
 
-**2. El Mix y los nuevos SKUs profundizan la caída**
+#### 🔹 Puente analítico → Ramas Comercial y de Rentabilidad
 
-El **Mix de los SKUs continuos** aportó un impacto negativo de **$204,7 M**, mientras que los **SKUs nuevos** generaron un efecto de **−$110,8 M**.
+Q2 cuantifica **cómo se descompone la caída de las Ventas Netas**, identificando los principales efectos que explican la variación monetaria.
 
-Esto indica que la caída de las Ventas Netas no responde únicamente a una reducción del volumen vendido, sino también a **un cambio en la composición de los productos comercializados**.
+La **Rama Comercial** profundiza en cómo esta contracción se manifestó en el comportamiento por pedido, mediante **Ticket, UPT y ASP Neto (Q3–Q4)**.
 
+La **Rama de Rentabilidad** analiza cómo la evolución de las ventas y los costos se tradujo en el deterioro del resultado económico, mediante el **P&L, el PVM de Ganancia Bruta y la rentabilidad por producto (Q5–Q7)**.
 <br>
-
-**3. El precio compensó parcialmente la contracción**
-
-El efecto **Precio** fue positivo, con un aporte de **+$48,3 M**, pero no alcanzó para compensar los efectos negativos de Volumen, Mix, Descuentos y SKUs nuevos.
-
-Los **Descuentos**, por su parte, tuvieron un impacto adicional de **−$34,3 M**.
-
-<br>
-
-**4. El puente reconcilia exactamente la variación observada**
-
-La suma de todos los efectos explica exactamente la variación de **−$634,8 M**, sin residuo:
-
-**Volumen + Mix + Precio + Descuentos + SKUs nuevos + SKUs descontinuados = Δ Ventas Netas**
-
-Esto permite pasar de la observación de la caída de ventas a una **explicación monetaria de sus principales componentes**.
-
-<br>
-
-#### 🔹 Puente analítico → Q3
-
-El puente muestra **cómo se explica monetariamente la caída de las Ventas Netas**, pero no profundiza en el comportamiento comercial que llevó a esa contracción.
-
-**Q3 descompondrá el Ticket Comercial en sus componentes —UPT y ASP— para identificar cómo cambió la cantidad de unidades por pedido y el valor promedio de las unidades vendidas.**
-
-<br>
-
 </details>
 
-#### ├─ 🔹 Q3 — Descomposición del Ticket: ¿Por qué cayó el Ticket Comercial? (UPT vs. ASP)
+#### ├─ 🔹 Q3 — Descomposición del Ticket y Comportamiento Omnicanal: ¿Por qué cayó el Ticket Comercial?
 
 <details>
-<summary><strong>Ver desarrollo de Q3</strong></summary>  
-
+<summary><strong>Ver desarrollo de Q3.1</strong></summary>  
 <br>
 
+#### 🔹 Síntesis
 
-#### ├─ 🔹 Q2 — Descomposición del Ticket: ¿Por qué cayó el ticket comercial? (UPT vs. ASP)
+El **Ticket Comercial cayó 41,37%** entre 2025 y 2026 debido a una contracción simultánea de sus dos componentes: **UPT −23,67%** y **ASP −23,18%**.
 
-<details>
-<summary><strong>Ver desarrollo de Q2</strong></summary>  
-<br>    
+Este deterioro se reproduce en ambos canales: el Ticket cayó **42,95% en Online** y **36,75% en Físico**, acompañado en ambos casos por menores UPT y ASP y un aumento de la tasa de descuento. Por lo tanto, la caída del ticket responde a un **deterioro generalizado del comportamiento comercial**, no exclusivamente al cambio en la participación de los canales.
+<br>
 
-[Ver Consulta SQL →](./sql_business_analysis/q2_descomposicion_ticket.sql) <br>
+####🔸 Q3.1 — Descomposición del Ticket (UPT vs. ASP)
+
+[Ver Consulta SQL →](./sql_business_analysis/q3.1_descomposicion_ticket.sql) 
+<br>
 
 #### 🔹 Resultados
 
@@ -250,24 +239,54 @@ El puente muestra **cómo se explica monetariamente la caída de las Ventas Neta
 
 Entre 2025 y 2026, el Ticket Comercial disminuyó **41,37%**. La descomposición muestra una caída prácticamente equivalente en sus dos componentes: **UPT −23,67%** y **ASP −23,18%**.
 
-Esto indica que en 2026 los clientes compraron **menos unidades por pedido y, además, a un menor valor promedio por unidad**.  
-
+Esto indica que en 2026 los clientes compraron **menos unidades por pedido y, además, a un menor valor promedio por unidad**.
 <br>
 
-#### 🔹 Puente analítico → Q3
+#### 🔸 Q3.2 — Comportamiento Omnicanal
 
-La caída del ASP puede deberse a distintas causas: cambios en el precio de lista, en los descuentos otorgados, o en qué productos efectivamente se vendieron.
-**Q3 descompondrá el ASP en sus componentes (Mix, Precio, Descuento y Lanzamientos)** para identificar cuál de esas causas explica el deterioro.  
-
+[Ver Consulta SQL →](./sql_business_analysis/q3.2_comportamiento_omnicanal.sql) 
 <br>
 
+#### 🔹 Resultados
+
+| Canal | Pedidos 2025 | Pedidos 2026 | YoY Pedidos | Participación 2025 | Participación 2026 | Ticket 2025 | Ticket 2026 | YoY Ticket | UPT 2025 | UPT 2026 | YoY UPT | ASP 2025 | ASP 2026 | YoY ASP | Δ Tasa Descuento |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Online** | 1.116 | 1.318 | **+18,10%** | 70,59% | 79,93% | $1.055.898 | $602.436 | **−42,95%** | 3,02 | 2,28 | **−24,35%** | $349.876 | $263.879 | **−24,58%** | **+3,06 pp** |
+| **Físico** | 465 | 331 | **−28,82%** | 29,41% | 20,07% | $979.667 | $619.651 | **−36,75%** | 2,96 | 2,32 | **−21,60%** | $330.584 | $266.716 | **−19,32%** | **+3,29 pp** |
+
+#### 🔹 Hallazgos
+
+**1. El deterioro del ticket se reproduce en ambos canales**
+
+El Ticket Comercial cayó **42,95% en Online** y **36,75% en Físico**. La magnitud es diferente, pero el patrón es consistente: **ambos canales pierden valor por pedido**.
+
+**2. UPT y ASP caen simultáneamente en ambos canales**
+
+En Online, el UPT disminuyó **24,35%** y el ASP **24,58%**. En Físico, las caídas fueron de **21,60%** y **19,32%**, respectivamente.
+
+Esto refuerza el hallazgo de Q3.1: la contracción del ticket no responde a un único componente ni a un único canal.
+
+**3. El mix de canales cambia, pero no explica por sí solo el deterioro**
+
+La participación de Online aumentó de **70,59% a 79,93%**, mientras Físico cayó de **29,41% a 20,07%**. Sin embargo, el ticket se deterioró dentro de **ambos canales**, por lo que el cambio de participación no explica por sí solo la caída del ticket total.
+
+**4. Los descuentos aumentaron en ambos canales**
+
+La tasa de descuento aumentó **+3,06 pp en Online** y **+3,29 pp en Físico**, acompañando la caída del ASP en ambos canales.
+<br>
+
+#### 🔹 Puente analítico → Q4
+
+Q3 identifica **qué está pasando con el valor por pedido**: los clientes compran menos unidades y cada unidad genera un menor valor promedio.
+
+**Q4 profundiza el segundo componente —el ASP Neto— para determinar qué factores explican la caída del valor promedio por unidad.**
+<br>
 </details>
 
-#### ├─ 🔹 Q3 — Descomposición del ASP: ¿Por qué cayó el ASP Comercial?
+#### ├─ 🔹 Q4 — Descomposición del ASP Neto: ¿Por qué cayó el precio unitario neto?
 
 <details>
 <summary><strong>Ver desarrollo de Q3</strong></summary>  
-
 <br>
 
 #### 🔹 Síntesis
@@ -283,12 +302,12 @@ Al bajar a categoría, aparecen **dos historias distintas detrás del mismo núm
 A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% del total, con **TCL Monitor TV 21** como el caso más extremo (−$19.439, el 24,4% de toda la caída), producto de una pérdida de más de la mitad de sus unidades vendidas.
 
 **Conclusión:** el ASP no bajó por una causa única. Es la superposición de un problema de demanda en categorías tradicionales (TV y Video) y precios de entrada bajos en las categorías con lanzamientos nuevos (Computación, Audio). Cualquier acción correctiva debería tratarlas por separado, porque responden a problemas de negocio distintos.
-
 <br>
 
-#### 🔸 Q3.1 — Puente Agregado (Mix + Precio + Descuento + Nuevos + Descontinuados)
+#### 🔸 Q4.1 — Puente Agregado (Mix + Precio + Descuento + Nuevos + Descontinuados)
 
-[Ver Consulta SQL →](./sql_business_analysis/q3_1_descomposicion_asp_agregada.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q4_1_descomposicion_asp_agregada.sql) 
+<br>
 
 #### 🔹 Resultados
 
@@ -324,9 +343,10 @@ Los **0 SKUs descontinuados** confirman que toda la caída se explica por mix y 
 
 <br>
 
-#### 🔸 Q3.2 — Puente por Categoría
+#### 🔸 Q4.2 — Puente por Categoría
 
-[Ver Consulta SQL →](./sql_business_analysis/q3_2_descomposicion_asp_categoria.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q4_2_descomposicion_asp_categoria.sql) 
+<br>
 
 #### 🔹 Resultados
 
@@ -349,12 +369,12 @@ Los **0 SKUs descontinuados** confirman que toda la caída se explica por mix y 
 **2. Hogar es la única categoría que empuja el ASP hacia arriba**
 
 Ganó share (+3,81 pp) con mix positivo (+$12.404,76) y sin lanzamientos, el espejo exacto de TV y Video.
-
 <br>
 
 #### 🔸 Q3.3 — Bridge por SKU (Detalle y Ranking de Impacto)
 
-[Ver Consulta SQL →](./sql_business_analysis/q3_3_descomposicion_asp_sku.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q3_3_descomposicion_asp_sku.sql) 
+<br>
 
 #### 🔹 Resultados — Top 5 Mayor Impacto Negativo
 
@@ -383,7 +403,6 @@ Ganó share (+3,81 pp) con mix positivo (+$12.404,76) y sin lanzamientos, el esp
 **1. El impacto está muy concentrado, y el caso extremo confirma Q3.2**
 
 Los 5 productos de mayor impacto negativo explican el **72,6%** de la caída total. El más extremo, **TCL Monitor TV 21**, perdió más de la mitad de sus unidades (295 → 136) y explica por sí solo el **24,4%** de la caída del ASP — la manifestación a nivel producto de la pérdida de mix que ya vimos en TV y Video.  
-
 <br>
 
 #### 🔹 Puente analítico → Rama de Rentabilidad
@@ -391,12 +410,10 @@ Los 5 productos de mayor impacto negativo explican el **72,6%** de la caída tot
 El diagnóstico comercial explica la caída de las Ventas Netas, pero no todavía por qué la Ganancia Neta cayó más proporcionalmente (−65,58% vs. −38,85%).
 
 **Q4 y Q5 abordan la Rama de Rentabilidad**, analizando la estructura de costos y márgenes para entender esa brecha.  
-
 <br>
-
 </details>
 
-#### ├─ 🔹 Q4 — Estructura de Rentabilidad y Ratios P&L: ¿Cómo se deterioró la rentabilidad?
+#### ├─ 🔹 Q5 — Estructura de Rentabilidad y Ratios P&L: ¿Cómo se deterioró la rentabilidad?
 
 <details>
 <summary><strong>Ver desarrollo de Q4</strong></summary>  
