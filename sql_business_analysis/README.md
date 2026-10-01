@@ -66,51 +66,7 @@ flowchart TD
     style DEEP_DIVES stroke-dasharray: 5 5
 ```
 
-## 🗺️ Hoja de Ruta Ejecutiva & Resumen de Diagnóstico
-
-```mermaid
-flowchart TD
-
-    A["🔎 INVESTIGACIÓN DE DESEMPEÑO<br/>COMERCIAL Y RENTABILIDAD"]
-
-    A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 65,58%"]
-
-    B --> C["Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Qué efectos explican monetariamente su variación?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><br/><b>Drivers principales:</b><br/>Volumen + Mix + SKUs nuevos"]
-
-    %% Apertura con cuadritos conectores
-    C --> D["📈 RAMA COMERCIAL"]
-    C --> E["💰 RAMA DE RENTABILIDAD"]
-
-    %% Desarrollo de la Rama Comercial Unificada
-    D --> D1["Q3 — DESCOMPOSICIÓN DEL TICKET Y ENFOQUE OMNICANAL<br/><br/>¿Por qué cae la facturación por pedido?<br/><b>Ticket Comercial:</b> ↓ 41,37%<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP Neto:</b> ↓ 23,18%<br/><br/>Patrón consistente en ambos canales"]
-
-    D1 --> D2["Q4 — DESCOMPOSICIÓN DEL ASP NETO<br/><br/>¿Por qué cae el precio unitario neto?<br/><b>Δ ASP:</b> −$79.818,6<br/><br/><b>Drivers principales:</b><br/>Mix Continuos + SKUs Nuevos"]
-
-    %% Desarrollo de la Rama de Rentabilidad
-    E --> E1["Q5 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Cómo se deteriora la rentabilidad?<br/><b>Margen Neto:</b> 18,71% → 10,96%<br/><br/><b>Causas:</b> Presión en COGS y Logística"]
-    
-    E1 --> E2["Q6 — PVM DE GANANCIA BRUTA<br/><br/>¿Por qué cambia la Ganancia Bruta?<br/><b>Δ Ganancia Bruta:</b> −$185,4 M<br/><br/><b>Drivers principales:</b><br/>Mix + Volumen + Costo"]
-    
-    E1 --> E3["Q7 — RENTABILIDAD POR CATEGORÍA Y SKU<br/><br/>¿Dónde se concentra la pérdida?<br/><br/><b>Foco crítico:</b> Categoría TV/Video con mayor caída de Ganancia Neta y Accesorios con más productos de Margen Neto negativo"]
-
-    %% El puente analítico de Devoluciones hacia Q5 (Único Deep Dive flotante)
-    E1 -.->|Ajuste de Ventas Netas a VNF| H
-
-    subgraph DEEP_DIVES ["🔍 DEEP DIVES OPERATIVOS"]
-        H["<b>Deep Dive A</b><br/>Devoluciones por Categoría<br/><br/><b>Foco:</b> Alerta en Audio (+4,7 pp)"]
-    end
-
-    %% ==========================================
-    %% EFECTO LLAVE ACOSTADA UNIFICADORA
-    %% ==========================================
-    D2 ---> LLAVE{" 🤝 CONSOLIDACIÓN DE HALLAZGOS<br/>y<br/>🎯 RECOMENDACIONES ESTRATÉGICAS"}
-    E2 ---> LLAVE
-    E3 ---> LLAVE
-    H  ---> LLAVE
-
-    style LLAVE fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#fff
-    style DEEP_DIVES stroke-dasharray: 5 5
-```
+---
 
 ## 🔎 Investigación y Desarrollo
 
