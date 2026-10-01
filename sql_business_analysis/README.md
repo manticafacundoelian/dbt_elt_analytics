@@ -29,6 +29,52 @@ flowchart TD
 
     A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 65,58%"]
 
+    B --> C["📈 RAMA COMERCIAL"]
+    B --> E["💰 RAMA DE RENTABILIDAD"]
+
+    %% Rama Comercial: Q2 y Q3→Q4 son lentes paralelos, no secuenciales
+    C --> C1["Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Qué efectos explican monetariamente su variación?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><br/><b>Drivers principales:</b><br/>Volumen + Mix + SKUs nuevos"]
+
+    C --> C2["Q3 — DESCOMPOSICIÓN DEL TICKET Y ENFOQUE OMNICANAL<br/><br/>¿Por qué cae la facturación por pedido?<br/><b>Ticket Comercial:</b> ↓ 41,37%<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP Neto:</b> ↓ 23,18%<br/><br/>Patrón consistente en ambos canales"]
+
+    C2 --> C3["Q4 — DESCOMPOSICIÓN DEL ASP NETO<br/><br/>¿Por qué cae el precio unitario neto?<br/><b>Δ ASP:</b> −$79.818,6<br/><br/><b>Drivers principales:</b><br/>Mix Continuos + SKUs Nuevos"]
+
+    %% Rama de Rentabilidad: Q5 es la raíz, Q6 y Q7 son ramas paralelas
+    E --> E1["Q5 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Cómo se deteriora la rentabilidad?<br/><b>Margen Neto:</b> 18,71% → 10,96%<br/><br/><b>Causas:</b> Presión en COGS y Logística"]
+    
+    E1 --> E2["Q6 — PVM DE GANANCIA BRUTA<br/><br/>¿Por qué cambia la Ganancia Bruta?<br/><b>Δ Ganancia Bruta:</b> −$185,4 M<br/><br/><b>Drivers principales:</b><br/>Mix + Volumen + Costo"]
+    
+    E1 --> E3["Q7 — RENTABILIDAD POR CATEGORÍA Y SKU<br/><br/>¿Dónde se concentra la pérdida?<br/><br/><b>Foco crítico:</b> Categoría TV/Video con mayor caída de Ganancia Neta y Accesorios con más productos de Margen Neto negativo"]
+
+    %% El Deep Dive abre un dato ya presentado en Q1 (Tasa de Devolución)
+    B -.->|Abre la Tasa de Devolución por categoría| H
+
+    subgraph DEEP_DIVES ["🔍 DEEP DIVES OPERATIVOS"]
+        H["<b>Deep Dive A</b><br/>Devoluciones por Categoría<br/><br/><b>Foco:</b> Alerta en Audio (+4,7 pp)"]
+    end
+
+    %% ==========================================
+    %% EFECTO LLAVE ACOSTADA UNIFICADORA
+    %% ==========================================
+    C1 ---> LLAVE{" 🤝 CONSOLIDACIÓN DE HALLAZGOS<br/>y<br/>🎯 RECOMENDACIONES ESTRATÉGICAS"}
+    C3 ---> LLAVE
+    E2 ---> LLAVE
+    E3 ---> LLAVE
+    H  ---> LLAVE
+
+    style LLAVE fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#fff
+    style DEEP_DIVES stroke-dasharray: 5 5
+```
+
+## 🗺️ Hoja de Ruta Ejecutiva & Resumen de Diagnóstico
+
+```mermaid
+flowchart TD
+
+    A["🔎 INVESTIGACIÓN DE DESEMPEÑO<br/>COMERCIAL Y RENTABILIDAD"]
+
+    A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 65,58%"]
+
     B --> C["Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Qué efectos explican monetariamente su variación?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><br/><b>Drivers principales:</b><br/>Volumen + Mix + SKUs nuevos"]
 
     %% Apertura con cuadritos conectores
@@ -133,11 +179,13 @@ El problema de rentabilidad antecede a la caída de facturación de 2026. En 202
 
 <br>
 
-#### 🔹 Puente analítico → Q2
+#### 🔹 Puente analítico → Ramas Comercial y de Rentabilidad
 
-En 2026, los pedidos crecieron apenas **4,30%**, mientras las **Ventas Netas cayeron $634,8 M (−38,85%)**.
+El diagnóstico muestra, por un lado, una fuerte contracción de las **Ventas Netas** (−38,85%) y, por otro, una caída de la **Ganancia Neta** proporcionalmente mayor (−65,58%). Estas dos variables abren dos líneas de indagación independientes:
 
-**Q2 atribuye monetariamente la variación de las Ventas Netas a efectos de Volumen, Mix, Precio de Lista, Descuentos y cambios en los SKUs comercializados.**
+**La Rama Comercial (Q2–Q4)** cuantifica monetariamente esta caída y profundiza en cómo se manifestó en el comportamiento por pedido — Ticket, UPT y ASP.
+
+**La Rama de Rentabilidad (Q5–Q7)** analiza la estructura de costos y descompone la Ganancia Bruta para explicar por qué el resultado económico se deterioró más que las ventas.
 
 <br>
 
@@ -206,13 +254,11 @@ El efecto Descuentos tuvo un impacto de **−$34,3 M**, reduciendo parcialmente 
 
 <br>
 
-#### 🔹 Puente analítico → Ramas Comercial y de Rentabilidad
+#### 🔹 Puente analítico → Q3
 
-Q2 cuantifica **cómo se descompone la caída de las Ventas Netas**, identificando los principales efectos que explican la variación monetaria.
+Este puente cuantifica en pesos la variación total de las Ventas Netas: cuánto explica el volumen, el mix y la renovación del portafolio.
 
-La **Rama Comercial** profundiza en cómo esta contracción se manifestó en el comportamiento por pedido, mediante **Ticket, UPT y ASP Neto (Q3–Q4)**.
-
-La **Rama de Rentabilidad** analiza cómo la evolución de las ventas y los costos se tradujo en el deterioro del resultado económico, mediante el **P&L, el PVM de Ganancia Bruta y la rentabilidad por producto (Q5–Q7)**.
+**Q3 ofrece una lectura complementaria del mismo fenómeno**, esta vez en términos de comportamiento por pedido — Ticket Comercial, UPT y ASP —, para observar la caída desde la unidad económica con la que opera el negocio día a día, no solo desde el monto agregado.
 
 <br>
 </details>
@@ -419,11 +465,12 @@ Ganó share (+3,81 pp) con mix positivo (+$12.404,76) y sin lanzamientos, el esp
 Los 5 productos de mayor impacto negativo explican el **72,6%** de la caída total. El más extremo, **TCL Monitor TV 21**, perdió más de la mitad de sus unidades (295 → 136) y explica por sí solo el **24,4%** de la caída del ASP — la manifestación a nivel producto de la pérdida de mix que ya vimos en TV y Video.  
 <br>
 
-#### 🔹 Puente analítico → Rama de Rentabilidad
+#### 🔹 Puente analítico → Cierre de la Rama Comercial
 
-El diagnóstico comercial explica la caída de las Ventas Netas, pero no todavía por qué la Ganancia Neta cayó más proporcionalmente (−65,58% vs. −38,85%).
+Q4 completa el diagnóstico comercial: la caída del ASP se explica principalmente por **Mix** y por la incorporación de **SKUs nuevos a precios por debajo del promedio**, no por la política de precios o descuentos.
 
-**Q5, Q6 y Q7 abordan la Rama de Rentabilidad**, analizando la estructura de costos y márgenes para entender esa brecha.  
+Con esto, la **Rama Comercial queda completa**. La **Rama de Rentabilidad (Q5–Q7)**, abierta en paralelo desde el diagnóstico inicial, analiza cómo estos mismos fenómenos de ventas se tradujeron en el deterioro del resultado económico.
+
 <br>
 </details>
 
