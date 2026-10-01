@@ -154,9 +154,9 @@ En 2026, los pedidos crecieron apenas **4,30%**, mientras las **Ventas Netas cay
 
 #### 🔹 Síntesis
 
-La variación de las **Ventas Netas de −$634,8 M** se atribuye principalmente al **efecto Volumen (−$333,3 M)**, al **Mix de SKUs continuos (−$204,7 M)** y a los **SKUs nuevos (−$110,8 M)**.
+La variación de las **Ventas Netas** se atribuye principalmente a los efectos de **Volumen, Mix de SKUs continuos y cambios en el portafolio**, que concentraron los principales impactos negativos del período.
 
-El **Precio de Lista (+$48,3 M)** compensó parcialmente estos efectos, mientras que los **Descuentos (−$34,3 M)** profundizaron la variación negativa.
+El **Precio de Lista** actuó como factor de compensación parcial, mientras que los **Descuentos** profundizaron la variación negativa.
 
 <br>
 
