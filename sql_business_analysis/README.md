@@ -12,9 +12,9 @@ El análisis parte de un **diagnóstico macro** y avanza progresivamente desde l
 
 A partir de este diagnóstico, la investigación se estructura en dos grandes ramas:
 
-* **Rama comercial:** analiza la evolución de las Ventas Netas desde una perspectiva financiera y comercial, identificando los principales efectos que explican su variación y profundizando posteriormente en el comportamiento del **Ticket Comercial, el UPT y el ASP**.
+* **Rama comercial:** analiza la evolución de las Ventas Netas desde una perspectiva financiera y comercial, descomponiendo monetariamente su variación y profundizando en el comportamiento del **Ticket Comercial, el UPT y el ASP**.
 
-* **Rama de rentabilidad:** analiza el deterioro económico del negocio a través de la **estructura del P&L**, la evolución de los costos y la descomposición de la variación de la **Ganancia Bruta mediante un modelo PVM (Price–Volume–Mix)**, complementando el análisis con la rentabilidad por categoría y SKU.
+* **Rama de rentabilidad:** analiza el deterioro económico del negocio a través de la **estructura del P&L**, la evolución de los costos y la descomposición de la variación de la **Ganancia Bruta mediante un puente PVM ampliado (Price–Volume–Mix-Costo-Cambios en el Portfolio)**, complementando el análisis con la rentabilidad por categoría y SKU.
 
 El objetivo no es únicamente cuantificar la caída observada, sino **reconstruir sus principales mecanismos**, desde la evolución de las ventas y el comportamiento de los clientes hasta su impacto final sobre la rentabilidad.
 
@@ -29,23 +29,23 @@ flowchart TD
 
     A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 65,58%"]
 
-    B --> C["Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Cómo se explica la caída?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><br/><b>Drivers principales:</b><br/>Volumen + Mix + SKUs nuevos"]
+    B --> C["Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Qué efectos explican monetariamente su variación?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><br/><b>Drivers principales:</b><br/>Volumen + Mix + SKUs nuevos"]
 
     %% Apertura con cuadritos conectores
     C --> D["📈 RAMA COMERCIAL"]
     C --> E["💰 RAMA DE RENTABILIDAD"]
 
     %% Desarrollo de la Rama Comercial Unificada
-    D --> D1["Q3 — DESCOMPOSICIÓN DEL TICKET Y ENFOQUE OMNICANAL<br/><br/>¿Por qué cae la facturación por pedido?<br/><b>Ticket Comercial:</b> ↓ 41,37%<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP Neto:</b> ↓ 23,18%<br/><br/><b>Hallazgo clave:</b> Patrón idéntico cross-canal. El desplome de UPT (~23%) y ASP (~22%) destruyó el ticket tanto en Online (-43%) como en Físico (-37%)."]
+    D --> D1["Q3 — DESCOMPOSICIÓN DEL TICKET Y ENFOQUE OMNICANAL<br/><br/>¿Por qué cae la facturación por pedido?<br/><b>Ticket Comercial:</b> ↓ 41,37%<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP Neto:</b> ↓ 23,18%<br/><br/>Patrón consistente en ambos canales"]
 
     D1 --> D2["Q4 — DESCOMPOSICIÓN DEL ASP NETO<br/><br/>¿Por qué cae el precio unitario neto?<br/><b>Δ ASP:</b> −$79.818,6<br/><br/><b>Drivers principales:</b><br/>Mix Continuos + SKUs Nuevos"]
 
     %% Desarrollo de la Rama de Rentabilidad
-    E --> E1["Q5 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Cómo se deteriora la rentabilidad?<br/><b>Margen Neto:</b> 18,53% → 10,66%<br/><br/><b>Causas:</b> Presión en COGS y Logística"]
+    E --> E1["Q5 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Cómo se deteriora la rentabilidad?<br/><b>Margen Neto:</b> 18,71% → 10,96%<br/><br/><b>Causas:</b> Presión en COGS y Logística"]
     
     E1 --> E2["Q6 — PVM DE GANANCIA BRUTA<br/><br/>¿Por qué cambia la Ganancia Bruta?<br/><b>Δ Ganancia Bruta:</b> −$185,4 M<br/><br/><b>Drivers principales:</b><br/>Mix + Volumen + Costo"]
     
-    E1 --> E3["Q7 — RENTABILIDAD POR CATEGORÍA Y SKU<br/><br/>¿Dónde se concentra la pérdida?<br/><br/><b>Foco crítico:</b> Categoría TV/Video y 10 SKUs con margen destructivo"]
+    E1 --> E3["Q7 — RENTABILIDAD POR CATEGORÍA Y SKU<br/><br/>¿Dónde se concentra la pérdida?<br/><br/><b>Foco crítico:</b> Categoría TV/Video y 10 SKUs con margen neto negativo"]
 
     %% El puente analítico de Devoluciones hacia Q5 (Único Deep Dive flotante)
     E1 -.->|Ajuste de Ventas Netas a VNF| H
@@ -84,7 +84,7 @@ La investigación busca responder **siete preguntas principales de diagnóstico*
 
 #### 🔹 Síntesis
 
-El diagnóstico muestra, por un lado, una fuerte contracción de las Ventas Netas y del Ticket Comercial y, por otro, un deterioro de la rentabilidad que ya se había manifestado durante 2025.*
+El diagnóstico muestra, por un lado, una fuerte contracción de las Ventas Netas y del Ticket Comercial y, por otro, un deterioro de la rentabilidad que ya se había manifestado durante 2025.
 
 <br>
 
@@ -139,7 +139,7 @@ El problema de rentabilidad antecede a la caída de facturación de 2026. En 202
 
 En 2026, los pedidos crecieron apenas **4,30%**, mientras las **Ventas Netas cayeron $634,8 M (−38,85%)**.
 
-**Q2 descompone esta caída en efectos de Volumen, Mix, Precio de Lista, Descuentos y cambios en los SKUs comercializados.**
+**Q2 atribuye monetariamente la variación de las Ventas Netas a efectos de Volumen, Mix, Precio de Lista, Descuentos y cambios en los SKUs comercializados.**
 
 <br>
 
@@ -269,7 +269,7 @@ Esto indica que en 2026 los clientes compraron **menos unidades por pedido y, ad
 
 #### 🔹 Resultados
 
-| Canal      | Pedidos 2025 | Pedidos 2026 | YoY Pedidos | Participación 2025 | Participación 2026 | Ticket 2025 | Ticket 2026 |  YoY Ticket | UPT 2025 | UPT 2026 |     YoY UPT | ASP 2025 | ASP 2026 |     YoY ASP | Δ Tasa Descuento |
+| Canal      | Pedidos 2025 | Pedidos 2026 | YoY Pedidos | Participación de Pedidos 2025 | Participación de Pedidos 2026 | Ticket 2025 | Ticket 2026 |  YoY Ticket | UPT 2025 | UPT 2026 |     YoY UPT | ASP 2025 | ASP 2026 |     YoY ASP | Δ Tasa Descuento |
 | :--------- | -----------: | -----------: | ----------: | -----------------: | -----------------: | ----------: | ----------: | ----------: | -------: | -------: | ----------: | -------: | -------: | ----------: | ---------------: |
 | **Online** |        1.116 |        1.318 | **+18,10%** |             70,59% |             79,93% |  $1.055.898 |    $602.436 | **−42,95%** |     3,02 |     2,28 | **−24,35%** | $349.876 | $263.879 | **−24,58%** |     **+3,06 pp** |
 | **Físico** |          465 |          331 | **−28,82%** |             29,41% |             20,07% |    $979.667 |    $619.651 | **−36,75%** |     2,96 |     2,32 | **−21,60%** | $330.584 | $266.716 | **−19,32%** |     **+3,29 pp** |
@@ -291,9 +291,9 @@ Esto refuerza el hallazgo de Q3.1: la contracción del ticket no responde a un �
 
 La participación de Online aumentó de **70,59% a 79,93%**, mientras Físico cayó de **29,41% a 20,07%**. Sin embargo, el ticket se deterioró dentro de **ambos canales**, por lo que el cambio de participación no explica por sí solo la caída del ticket total.
 
-**4. Los descuentos aumentaron en ambos canales**
+**4. Los descuentos aumentaron en ambos canales de manera similar**
 
-La tasa de descuento aumentó **+3,06 pp en Online** y **+3,29 pp en Físico**, acompañando la caída del ASP en ambos canales.
+La tasa de descuento aumentó **+3,06 pp en Online** y **+3,29 pp en Físico**.
 
 <br>
 
@@ -309,22 +309,16 @@ Q3 identifica **qué está pasando con el valor por pedido**: los clientes compr
 #### ├─ 🔹 Q4 — Descomposición del ASP Neto: ¿Por qué cae el valor promedio por unidad?
 
 <details>
-<summary><strong>Ver desarrollo de Q3</strong></summary>  
+<summary><strong>Ver desarrollo de Q4</strong></summary>  
+
 <br>
 
 #### 🔹 Síntesis
 
-El ASP cayó **−$79.819 (−23,2%)** entre 2025 y 2026, explicado principalmente por dos efectos: el **Mix de productos continuos (−67,9%)** y la **entrada de SKUs nuevos a precios bajos (−36,7%)**. Los efectos de **Precio de Lista y Descuento casi se cancelan entre sí** (+$3.690 neto), por lo que no explican en términos netos la caída del ASP.
+La caída del **ASP** responde principalmente a un cambio en la **composición de los productos vendidos** y a la incorporación de **SKUs nuevos con valores unitarios inferiores al promedio previo**.
 
-Al bajar a categoría, aparecen **dos historias distintas detrás del mismo número**:
+Los efectos de **Precio de Lista y Descuentos** tuvieron un impacto secundario en términos netos, por lo que el deterioro del valor promedio por unidad se concentra principalmente en el **mix y la renovación del portafolio**.
 
-- **TV y Video** (−49,0% del Δ ASP) cae por **pérdida pura de mix**: perdió 6 puntos de share sin ningún lanzamiento nuevo. Los clientes simplemente compraron menos de esta categoría.
-- **Computación y Audio**, en cambio, **ganaron participación** pero fueron hundidas por sus propios **lanzamientos 2026**, que entraron a precios por debajo del promedio. El mix, en estas categorías, no es el problema — incluso ayuda en Audio.
-- **Hogar** es la única categoría que empuja el ASP hacia arriba, con el mecanismo inverso al de TV y Video: ganó mix sin lanzar productos nuevos.
-
-A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% del total, con **TCL Monitor TV 21** como el caso más extremo (−$19.439, el 24,4% de toda la caída), producto de una pérdida de más de la mitad de sus unidades vendidas.
-
-**Conclusión:** el ASP no bajó por una causa única. Es la superposición de un problema de demanda en categorías tradicionales (TV y Video) y precios de entrada bajos en las categorías con lanzamientos nuevos (Computación, Audio). Cualquier acción correctiva debería tratarlas por separado, porque responden a problemas de negocio distintos.
 <br>
 
 #### 🔸 Q4.1 — Puente Agregado (Mix + Precio + Descuento + Nuevos + Descontinuados)
@@ -350,7 +344,7 @@ A nivel SKU, la caída está **muy concentrada**: 5 productos explican el 72,6% 
 | **Precio**                       |      $12.778,52 |   **−16,0%** |
 | **Descuentos**                   |      −$9.088,17 |    **11,4%** |
 | **SKUs Descontinuados**          |           $0,00 |        0,0% |
-| **Total (chequeo de residuo)**   |     **$0,00** ✅ |      100,0% |
+| **Chequeo de Residuo y % Total**   |     **$0,00** ✅ |      100,0% |
 
 > *Nota metodológica: el efecto Mix se valúa a precio del año base (2025) y los efectos Precio y Descuento se ponderan con el volumen del año actual (2026). Esta convención asegura que el puente cierre exacto (residuo $0), a costa de que la interacción entre cambio de mix y cambio de precio quede incluida dentro del efecto Precio.*
 
@@ -373,7 +367,7 @@ Los **0 SKUs descontinuados** confirman que toda la caída se explica por mix y 
 
 #### 🔹 Resultados
 
-| Categoría | Unid. 2025 | Unid. 2026 | Part. 2025 | Part. 2026 | Δ Part. (pp) | Mix | Precio | Descuento | Nuevos | Total | % del Δ ASP |
+| Categoría | Unid. 2025 | Unid. 2026 | Part. 2025 | Part. 2026 | Δ Part. (pp) | Mix | Precio | Descuento | Nuevos | Total | % contribución al Δ ASP |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | **TV y Video** | 791 | 402 | 16,67% | 10,64% | **−6,03** | −40.717,38 | 5.642,40 | −4.004,87 | 0,00 | **−39.079,85** | **49,0%** |
 | **Computación** | 767 | 690 | 16,16% | 18,26% | +2,10 | −15.885,31 | 1.348,05 | −971,26 | −17.671,74 | **−33.180,25** | **41,6%** |
@@ -387,7 +381,7 @@ Los **0 SKUs descontinuados** confirman que toda la caída se explica por mix y 
 
 **1. Dos categorías explican el 90,6% de la caída, por mecanismos opuestos**
 
-**TV y Video** (−49,0%) cae por **pérdida pura de mix**: perdió 6 puntos de share, sin ningún SKU nuevo, y ni precio ni descuento lo compensan. **Computación** (−41,6%), en cambio, **ganó participación** (+2,10 pp) pero fue hundida por sus propios **lanzamientos 2026**, que entraron por debajo del promedio (−$17.671,74). El mismo patrón se repite en **Audio**, que ganó +7,92 pp de share (la mayor suba de todas) y aun así cae, arrastrada por sus lanzamientos.
+**TV y Video** (−49,0%) presenta una caída dominada por el efecto Mix: perdió 6 puntos de share, sin ningún SKU nuevo, y ni precio ni descuento lo compensan. **Computación** (−41,6%), en cambio, **ganó participación** (+2,10 pp) pero ven presionado su ASP por la incorporación de SKUs nuevos, que entraron por debajo del promedio (−$17.671,74). El mismo patrón se repite en **Audio**, que ganó +7,92 pp de share (la mayor suba de todas) y aun así cae, arrastrada por sus lanzamientos.
 
 **2. Hogar es la única categoría que empuja el ASP hacia arriba**
 
@@ -396,7 +390,7 @@ Ganó share (+3,81 pp) con mix positivo (+$12.404,76) y sin lanzamientos, el esp
 
 #### 🔸 Q4.3 — Bridge por SKU (Detalle y Ranking de Impacto)
 
-[Ver Consulta SQL →](./sql_business_analysis/q3_3_descomposicion_asp_sku.sql) 
+[Ver Consulta SQL →](./sql_business_analysis/q4_3_descomposicion_asp_sku.sql) 
 <br>
 
 #### 🔹 Resultados — Top 5 Mayor Impacto Negativo
@@ -439,16 +433,20 @@ El diagnóstico comercial explica la caída de las Ventas Netas, pero no todaví
 #### ├─ 🔹 Q5 — Estructura de Rentabilidad y Ratios P&L: ¿Cómo se deterioró la rentabilidad?
 
 <details>
-<summary><strong>Ver desarrollo de Q4</strong></summary>  
+<summary><strong>Ver desarrollo de Q5</strong></summary>  
+
+<br>
+
+#### 🔹 Síntesis
+
+La rentabilidad se deterioró por una **mayor presión del Costo de Ventas sobre el ingreso retenido**, acompañada por un incremento del peso de los **costos logísticos**.
+
+El problema no comienza en 2026: ya durante 2025 el crecimiento de las ventas dejó de traducirse en una mejora equivalente de la **Ganancia Bruta y el Margen Neto**.
+
 <br>
 
 [Ver Consulta SQL →](./sql_business_analysis/q4_rentabilidad_ratios_pnl.sql) <br>
 
-#### 🔹 Criterio metodológico
-
-Para el análisis de rentabilidad se toma como base la **Venta Neta Final**, es decir, la venta después de devoluciones aprobadas.
-
-Esta decisión busca medir la rentabilidad sobre el **ingreso económico efectivamente retenido por la empresa**. En consecuencia, los ratios de costos y márgenes de Q4 se calculan sobre esta base.
 
 #### 🔹 Resultados
 
@@ -456,12 +454,14 @@ Esta decisión busca medir la rentabilidad sobre el **ingreso económico efectiv
 | :--------------------------- | ---------: | ---------: | -----------: | -------: | -----------: |
 | **Ventas Netas Finales**     | $1.253,3 M | $1.580,3 M |  **+26,09%** | $928,9 M |  **−41,22%** |
 | **Costo de Ventas**          |   $943,1 M | $1.270,0 M |  **+34,60%** | $804,0 M |  **−36,69%** |
-| **Costo de Ventas / Ventas** |     75,25% |     80,37% | **+5,12 pp** |   86,56% | **+6,19 pp** |
+| **Costo de Ventas / VNF** |     75,25% |     80,37% | **+5,12 pp** |   86,56% | **+6,19 pp** |
 | **Ganancia Bruta**           |   $310,2 M |   $310,2 M |   **−0,01%** | $124,9 M |  **−59,75%** |
 | **Margen Bruto**             |     24,75% |     19,63% | **−5,12 pp** |   13,44% | **−6,19 pp** |
-| **Costo Logístico / Ventas** |      0,81% |      0,92% | **+0,11 pp** |    2,49% | **+1,57 pp** |
+| **Costo Logístico / VNF** |      0,81% |      0,92% | **+0,11 pp** |    2,49% | **+1,57 pp** |
 | **Ganancia Neta**            |   $300,1 M |   $295,7 M |   **−1,47%** | $101,8 M |  **−65,58%** |
 | **Margen Neto**              |     23,95% |     18,71% | **−5,24 pp** |   10,96% | **−7,75 pp** |
+
+> Para el análisis de rentabilidad se toma como base la **Venta Neta Final**, es decir, la venta después de devoluciones aprobadas. Esta decisión busca medir la rentabilidad sobre el **ingreso económico efectivamente retenido por la empresa**.
 
 #### 🔹 Hallazgos
 
@@ -491,11 +491,11 @@ El siguiente paso es determinar cuánto del deterioro de la **Ganancia Bruta** c
 
 <br>
 
-#### 🔹 Puente analítico → Q5
+#### 🔹 Puente analítico → Q6
 
-Q4 muestra que el deterioro de 2026 combina una fuerte contracción de las ventas, **como demostró la Rama Comercial**, con un aumento del peso del **Costo de Ventas**, que comprimió el **Margen Bruto hasta 13,44%** y redujo la **Ganancia Bruta un 59,75%**.
+Q5 muestra que el deterioro de 2026 combina una fuerte contracción de las ventas, **como demostró la Rama Comercial**, con un aumento del peso del **Costo de Ventas**, que comprimió el **Margen Bruto hasta 13,44%** y redujo la **Ganancia Bruta un 59,75%**.
 
-**Q5 descompone esta caída de la Ganancia Bruta mediante un PVM formal —Volumen → Mix → Precio → Costo → Nuevos Lanzamientos → Descontinuados**, para cuantificar qué componentes explican el deterioro entre 2025 y 2026.
+**Q6 descompone esta caída de la Ganancia Bruta mediante un PVM formal —Volumen → Mix → Precio → Costo → Nuevos Lanzamientos → Descontinuados**, para cuantificar qué componentes explican el deterioro entre 2025 y 2026.
 
 <br>
 
