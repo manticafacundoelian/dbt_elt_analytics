@@ -85,6 +85,7 @@ La investigación busca responder **siete preguntas principales de diagnóstico*
 #### 🔹 Síntesis
 
 El diagnóstico muestra, por un lado, una fuerte contracción de las Ventas Netas y del Ticket Comercial y, por otro, un deterioro de la rentabilidad que ya se había manifestado durante 2025.*
+
 <br>
 
 [Ver Consulta SQL →](./sql_business_analysis/q1_diagnostico_macro_yoy.sql) 
@@ -144,11 +145,20 @@ En 2026, los pedidos crecieron apenas **4,30%**, mientras las **Ventas Netas cay
 
 </details>
 
-#### ├─ 🔹 Q2 — Puente Financiero de Ventas Netas: ¿Cómo se explica la caída de las Ventas Netas?
+#### ├─ 🔹 Q2 — Puente Financiero de Ventas Netas: ¿Qué efectos explican monetariamente su variación?
 
 <details>
 <summary><strong>Ver desarrollo de Q2</strong></summary>  
-<br>    
+
+<br>
+
+#### 🔹 Síntesis
+
+La variación de las **Ventas Netas de −$634,8 M** se atribuye principalmente al **efecto Volumen (−$333,3 M)**, al **Mix de SKUs continuos (−$204,7 M)** y a los **SKUs nuevos (−$110,8 M)**.
+
+El **Precio de Lista (+$48,3 M)** compensó parcialmente estos efectos, mientras que los **Descuentos (−$34,3 M)** profundizaron la variación negativa.
+
+<br>
 
 [Ver Consulta SQL →](./sql_business_analysis/q2_puente_ventas_netas.sql) 
 <br>
@@ -172,7 +182,7 @@ El puente descompone la variación de las **Ventas Netas entre 2025 y 2026** med
 
 #### 🔹 Hallazgos
 
-#### 🔸 Principales impulsores de la caída
+#### Principales impulsores de la caída
 
 **1. El Volumen concentra el mayor impacto negativo**
 
@@ -186,7 +196,7 @@ El Mix de los **SKUs continuos** aportó un impacto negativo de **$204,7 M**, in
 
 Los productos incorporados en 2026 generaron un impacto de **−$110,8 M** bajo la metodología del puente, por lo que su incorporación no compensó los efectos negativos provenientes del volumen y del mix.
 
-#### 🔸 Factores de compensación
+#### Factores de compensación
 
 **4. El aumento del Precio de Lista compensó parcialmente la caída**
 
@@ -195,6 +205,7 @@ El efecto Precio de Lista aportó **+$48,3 M**, funcionando como un factor de co
 **5. Los Descuentos profundizaron la contracción**
 
 El efecto Descuentos tuvo un impacto de **−$34,3 M**, reduciendo parcialmente el beneficio generado por el aumento de los precios de lista.
+
 <br>
 
 #### 🔹 Puente analítico → Ramas Comercial y de Rentabilidad
@@ -204,23 +215,26 @@ Q2 cuantifica **cómo se descompone la caída de las Ventas Netas**, identifican
 La **Rama Comercial** profundiza en cómo esta contracción se manifestó en el comportamiento por pedido, mediante **Ticket, UPT y ASP Neto (Q3–Q4)**.
 
 La **Rama de Rentabilidad** analiza cómo la evolución de las ventas y los costos se tradujo en el deterioro del resultado económico, mediante el **P&L, el PVM de Ganancia Bruta y la rentabilidad por producto (Q5–Q7)**.
+
 <br>
 </details>
 
-#### ├─ 🔹 Q3 — Descomposición del Ticket y Comportamiento Omnicanal: ¿Por qué cayó el Ticket Comercial?
+#### ├─ 🔹 Q3 — Descomposición del Ticket y Comportamiento Omnicanal: ¿Por qué cae la facturación por pedido?
 
 <details>
-<summary><strong>Ver desarrollo de Q3.1</strong></summary>  
+<summary><strong>Ver desarrollo de Q3</strong></summary>  
+
 <br>
 
 #### 🔹 Síntesis
 
-El **Ticket Comercial cayó 41,37%** entre 2025 y 2026 debido a una contracción simultánea de sus dos componentes: **UPT −23,67%** y **ASP −23,18%**.
+La **facturación por pedido cayó** entre 2025 y 2026 porque los clientes compraron **menos unidades por pedido** y cada unidad generó un **menor valor promedio**, dando como resultado una caída del Ticket Comercial.
 
-Este deterioro se reproduce en ambos canales: el Ticket cayó **42,95% en Online** y **36,75% en Físico**, acompañado en ambos casos por menores UPT y ASP y un aumento de la tasa de descuento. Por lo tanto, la caída del ticket responde a un **deterioro generalizado del comportamiento comercial**, no exclusivamente al cambio en la participación de los canales.
+Ambos fenómenos se reprodujeron transversalmente en **Online y Físico**, lo que indica que el deterioro responde principalmente a un **cambio en el comportamiento comercial**, más que a un problema asociado exclusivamente a un canal.
+
 <br>
 
-####🔸 Q3.1 — Descomposición del Ticket (UPT vs. ASP)
+#### Q3.1 — Descomposición del Ticket (UPT vs. ASP)
 
 [Ver Consulta SQL →](./sql_business_analysis/q3.1_descomposicion_ticket.sql) 
 <br>
@@ -245,19 +259,21 @@ Este deterioro se reproduce en ambos canales: el Ticket cayó **42,95% en Online
 Entre 2025 y 2026, el Ticket Comercial disminuyó **41,37%**. La descomposición muestra una caída prácticamente equivalente en sus dos componentes: **UPT −23,67%** y **ASP −23,18%**.
 
 Esto indica que en 2026 los clientes compraron **menos unidades por pedido y, además, a un menor valor promedio por unidad**.
+
 <br>
 
-#### 🔸 Q3.2 — Comportamiento Omnicanal
+#### Q3.2 — Comportamiento Omnicanal
 
 [Ver Consulta SQL →](./sql_business_analysis/q3.2_comportamiento_omnicanal.sql) 
 <br>
 
 #### 🔹 Resultados
 
-| Canal | Pedidos 2025 | Pedidos 2026 | YoY Pedidos | Participación 2025 | Participación 2026 | Ticket 2025 | Ticket 2026 | YoY Ticket | UPT 2025 | UPT 2026 | YoY UPT | ASP 2025 | ASP 2026 | YoY ASP | Δ Tasa Descuento |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Online** | 1.116 | 1.318 | **+18,10%** | 70,59% | 79,93% | $1.055.898 | $602.436 | **−42,95%** | 3,02 | 2,28 | **−24,35%** | $349.876 | $263.879 | **−24,58%** | **+3,06 pp** |
-| **Físico** | 465 | 331 | **−28,82%** | 29,41% | 20,07% | $979.667 | $619.651 | **−36,75%** | 2,96 | 2,32 | **−21,60%** | $330.584 | $266.716 | **−19,32%** | **+3,29 pp** |
+| Canal      | Pedidos 2025 | Pedidos 2026 | YoY Pedidos | Participación 2025 | Participación 2026 | Ticket 2025 | Ticket 2026 |  YoY Ticket | UPT 2025 | UPT 2026 |     YoY UPT | ASP 2025 | ASP 2026 |     YoY ASP | Δ Tasa Descuento |
+| :--------- | -----------: | -----------: | ----------: | -----------------: | -----------------: | ----------: | ----------: | ----------: | -------: | -------: | ----------: | -------: | -------: | ----------: | ---------------: |
+| **Online** |        1.116 |        1.318 | **+18,10%** |             70,59% |             79,93% |  $1.055.898 |    $602.436 | **−42,95%** |     3,02 |     2,28 | **−24,35%** | $349.876 | $263.879 | **−24,58%** |     **+3,06 pp** |
+| **Físico** |          465 |          331 | **−28,82%** |             29,41% |             20,07% |    $979.667 |    $619.651 | **−36,75%** |     2,96 |     2,32 | **−21,60%** | $330.584 | $266.716 | **−19,32%** |     **+3,29 pp** |
+
 
 #### 🔹 Hallazgos
 
@@ -278,6 +294,7 @@ La participación de Online aumentó de **70,59% a 79,93%**, mientras Físico ca
 **4. Los descuentos aumentaron en ambos canales**
 
 La tasa de descuento aumentó **+3,06 pp en Online** y **+3,29 pp en Físico**, acompañando la caída del ASP en ambos canales.
+
 <br>
 
 #### 🔹 Puente analítico → Q4
@@ -285,10 +302,11 @@ La tasa de descuento aumentó **+3,06 pp en Online** y **+3,29 pp en Físico**, 
 Q3 identifica **qué está pasando con el valor por pedido**: los clientes compran menos unidades y cada unidad genera un menor valor promedio.
 
 **Q4 profundiza el segundo componente —el ASP Neto— para determinar qué factores explican la caída del valor promedio por unidad.**
+
 <br>
 </details>
 
-#### ├─ 🔹 Q4 — Descomposición del ASP Neto: ¿Por qué cayó el precio unitario neto?
+#### ├─ 🔹 Q4 — Descomposición del ASP Neto: ¿Por qué cae el valor promedio por unidad?
 
 <details>
 <summary><strong>Ver desarrollo de Q3</strong></summary>  
