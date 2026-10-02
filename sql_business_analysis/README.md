@@ -808,6 +808,8 @@ Las 6 categorías empeoraron su tasa de devolución (entre +1,77 pp y +4,57 pp),
 
 ---
 
+## Conclusiones Generales
+
 ## 🤝 Consolidación de Hallazgos
 
 Las siete preguntas centrales y el Deep Dive, leídas en conjunto, arman una sola historia contada desde tres ángulos distintos —el monto total ($), el valor por unidad (ASP) y la salud actual de cada categoría—, que convergen todas en el mismo origen: **TV y Video**, con dos complicaciones adicionales que operan en paralelo en **Audio/Computación** y en **Accesorios**.
@@ -857,7 +859,6 @@ Las tres cuentan la misma historia con unidades distintas: el **Mix** y el **Vol
 
 **Una señal de alerta adicional: el deterioro se acelera dentro del año.** Más allá de TV y Video y Accesorios a nivel categoría, varios productos puntuales muestran una caída de margen mucho más severa en el 2° semestre que en el promedio anual — el caso más marcado es **Liliana Cafetera 50** (−33,11% en el 2S vs. −13,62% en el año completo), lo que sugiere que el deterioro de 2026 todavía no tocó piso.
 
----
 
 ## 🎯 Recomendaciones Estratégicas
 
