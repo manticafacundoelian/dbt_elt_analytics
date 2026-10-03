@@ -23,6 +23,51 @@ A partir de este diagnóstico, la investigación se estructura en dos grandes ra
 El objetivo no es únicamente cuantificar la caída observada, sino **reconstruir sus principales mecanismos**, desde la evolución de las ventas y el comportamiento de los clientes hasta su impacto final sobre la rentabilidad.
 
 ---
+## 🗺️ Hoja de Ruta Ejecutiva & Resumen de Diagnóstico
+
+```mermaid
+flowchart TD
+
+    A["🔎 INVESTIGACIÓN DE DESEMPEÑO<br/>COMERCIAL Y RENTABILIDAD"]
+
+    A --> B["Q1 — DIAGNÓSTICO MACRO<br/><br/>¿Qué está pasando?<br/><b>Ventas Netas:</b> ↓ 38,85%<br/><b>Ganancia Neta:</b> ↓ 65,58%"]
+
+    B -->|Por qué cayeron las Ventas Netas| C["📈 RAMA COMERCIAL"]
+    B -->|Por qué cayó la Ganancia Neta, más que proporcionalmente| E["💰 RAMA DE RENTABILIDAD"]
+
+    %% Rama Comercial: Q2 y Q3→Q4 son lentes paralelos, no secuenciales
+    C -->|Perspectiva del catálogo: qué se vendió| C1["Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Qué efectos explican monetariamente su variación?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><br/><b>Drivers principales:</b><br/>Volumen + Mix + SKUs nuevos"]
+
+    C -->|Perspectiva del cliente: cómo compró cada pedido| C2["Q3 — DESCOMPOSICIÓN DEL TICKET Y ENFOQUE OMNICANAL<br/><br/>¿Por qué cae la facturación por pedido?<br/><b>Ticket Comercial:</b> ↓ 41,37%<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP Neto:</b> ↓ 23,18%<br/><br/>Patrón consistente en ambos canales"]
+
+    C2 --> C3["Q4 — DESCOMPOSICIÓN DEL ASP NETO<br/><br/>¿Por qué cae el precio unitario neto?<br/><b>Δ ASP:</b> −$79.818,6<br/><br/><b>Drivers principales:</b><br/>Mix Continuos + SKUs Nuevos"]
+
+    %% Rama de Rentabilidad: Q5 es la raíz, Q6 y Q7 son ramas paralelas
+    E --> E1["Q5 — ESTRUCTURA P&L Y RATIOS<br/><br/>¿Cómo se deteriora la rentabilidad?<br/><b>Margen Neto:</b> 18,71% → 10,96%<br/><br/><b>Causas:</b> Presión en COGS y Logística"]
+    
+    E1 -->|Por qué cambió la Ganancia Bruta, en pesos| E2["Q6 — PVM DE GANANCIA BRUTA<br/><br/>¿Por qué cambia la Ganancia Bruta?<br/><b>Δ Ganancia Bruta:</b> −$185,4 M<br/><br/><b>Drivers principales:</b><br/>Mix + Volumen + Costo"]
+    
+    E1 -->|Dónde está la pérdida hoy, por categoría y producto| E3["Q7 — RENTABILIDAD POR CATEGORÍA Y SKU<br/><br/>¿Dónde se concentra la pérdida?<br/><br/><b>Foco crítico:</b> Categoría TV/Video con mayor caída de Ganancia Neta y Accesorios con más productos de Margen Neto negativo"]
+
+    %% El Deep Dive abre un dato ya presentado en Q1 (Tasa de Devolución)
+    B -.->|Abre la Tasa de Devolución por categoría| H
+
+    subgraph DEEP_DIVES ["🔍 DEEP DIVES OPERATIVOS"]
+        H["<b>Deep Dive A</b><br/>Devoluciones por Categoría<br/><br/><b>Foco:</b> Alerta en Audio (+4,7 pp)"]
+    end
+
+    %% ==========================================
+    %% EFECTO LLAVE ACOSTADA UNIFICADORA
+    %% ==========================================
+    C1 ---> LLAVE{" 🤝 CONSOLIDACIÓN DE HALLAZGOS<br/>y<br/>🎯 RECOMENDACIONES ESTRATÉGICAS"}
+    C3 ---> LLAVE
+    E2 ---> LLAVE
+    E3 ---> LLAVE
+    H  ---> LLAVE
+
+    style LLAVE fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#fff
+    style DEEP_DIVES stroke-dasharray: 5 5
+```
 
 ## 🗺️ Hoja de Ruta Ejecutiva & Resumen de Diagnóstico
 
