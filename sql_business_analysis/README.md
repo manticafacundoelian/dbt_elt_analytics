@@ -163,13 +163,13 @@ El diagnóstico muestra, por un lado, una fuerte contracción de las **Ventas Ne
 
 #### 🔹 Síntesis
 
-Las **Ventas Netas disminuyeron $634,8 M entre 2025 y 2026**, explicadas principalmente por una fuerte contracción del **Volumen**, seguida por un efecto negativo de **Mix de SKUs continuos**.
+Las **Ventas Netas disminuyeron $634,8 M entre 2025 y 2026**, explicadas principalmente por una fuerte contracción del **Volumen**, seguida por un efecto negativo de **Mix**.
 
-Frente a estos efectos adversos, el **Precio de Lista** y, especialmente, la incorporación de **SKUs nuevos**, actuaron como factores de compensación. Los **Descuentos** profundizaron parcialmente la caída, mientras que el efecto de los **SKUs descontinuados fue prácticamente nulo**.
+Frente a estos efectos adversos, el **Precio** y, especialmente, la incorporación de **SKUs Nuevos**, actuaron como factores de compensación. Los **Descuentos** profundizaron parcialmente la caída, mientras que el efecto de los **SKUs Descontinuados fue prácticamente nulo**.
 
-La apertura por **canal** muestra que el mayor deterioro absoluto se concentra en **Online**, aunque Physical presenta un impacto particularmente fuerte del Mix. Al cruzar **categoría × canal**, la contracción queda fuertemente concentrada en **TV y Video**, especialmente Online, seguida por **Telefonía y Computación**.
+La apertura por **canal** muestra que el mayor deterioro absoluto se concentra en **Online**, aunque **Físico** presenta un impacto particularmente fuerte del Mix. Al cruzar **categoría × canal**, la contracción queda fuertemente concentrada en **TV y Video**, especialmente Online, seguida por **Telefonía y Computación**.
 
-En contraste, **Audio Online y Hogar Online** presentan una evolución positiva, mostrando que el deterioro no fue homogéneo en todo el negocio.
+En contraste, **Audio Online** y **Hogar Online** presentan una evolución positiva, mostrando que el deterioro no fue homogéneo en todo el negocio.
 
 <br>
 
@@ -181,16 +181,16 @@ En contraste, **Audio Online y Hogar Online** presentan una evolución positiva,
 
 | Efecto                        | Impacto 2025 → 2026 |
 | :---------------------------- | ------------------: |
-| **Variación de Ventas Netas** |       **−$634,8 M** |
+| **Δ Ventas Netas**            |       **−$634,8 M** |
 | Volumen                       |           −$614,9 M |
-| Mix — SKUs continuos          |           −$161,3 M |
-| Precio de Lista               |            +$37,8 M |
+| Mix                           |           −$161,3 M |
+| Precio                        |            +$37,8 M |
 | Descuentos                    |            −$26,8 M |
-| SKUs nuevos                   |           +$130,5 M |
-| SKUs descontinuados           |             −$0,2 M |
+| SKUs Nuevos                   |           +$130,5 M |
+| SKUs Descontinuados           |             −$0,2 M |
 | **Impacto total**             |       **−$634,8 M** |
 
-> *Nota: El puente atribuye la variación de Ventas Netas entre 2025 y 2026 a efectos de **Volumen, Mix de SKUs continuos, Precio de Lista, Descuentos y cambios en el portafolio**. El impacto total coincide exactamente con la variación observada, confirmando la conciliación del puente.*
+> *Nota: El puente atribuye la variación de Ventas Netas entre 2025 y 2026 a efectos de **Volumen y Mix sobre SKUs continuos**, **Precio de Lista**, **Descuentos** y **cambios en el portafolio**, considerando **SKUs Nuevos y SKUs Descontinuados como efectos directos**. El impacto total coincide exactamente con la variación observada, confirmando la conciliación del puente.*
 
 #### 🔹 Hallazgos
 
@@ -226,32 +226,32 @@ El efecto asociado a los **SKUs descontinuados fue de apenas −$0,2 M**, por lo
 
 #### 🔹 Resultados
 
-| Canal        |    VN 2025 |  VN 2026 |     Variación |   Volumen |       Mix | Precio lista | Descuentos | SKUs nuevos |
-| :----------- | ---------: | -------: | ------------: | --------: | --------: | -----------: | ---------: | ----------: |
-| **Online**   | $1.178,4 M | $794,0 M | **−$384,4 M** | −$443,5 M |  −$51,4 M |     +$30,2 M |   −$20,9 M |   +$101,3 M |
-| **Physical** |   $455,5 M | $205,1 M | **−$250,4 M** | −$171,4 M | −$109,8 M |      +$7,6 M |    −$5,8 M |    +$29,2 M |
+| Canal | Ventas 2025 | Ventas 2026 | Δ Ventas | Impacto Volumen | Impacto Mix | Impacto Precio | Impacto Descuentos | SKUs Nuevos | SKUs Descontinuados | Impacto Total |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Online** | $1,178.4M | $794.0M | -$384.4M | -$443.5M | -$51.4M | +$30.2M | -$20.9M | +$101.3M | $0.00M | -$384.4M |
+| **Físico** | $455.5M | $205.1M | -$250.4M | -$171.4M | -$109.8M | +$7.6M | -$5.8M | +$29.2M | -$0.2M | -$250.4M |
 
 #### 🔹 Hallazgos
 
 **1. Online concentra la mayor caída absoluta**
 
-El canal Online redujo sus Ventas Netas en **$384,4 M**, frente a una caída de **$250,4 M en Physical**, por lo que concentra la mayor parte del deterioro agregado.
+El canal Online redujo sus Ventas Netas en **$384,4 M**, frente a una caída de **$250,4 M en Físico**, por lo que concentra la mayor parte del deterioro agregado.
 
 **2. El Volumen domina en ambos canales**
 
-El principal efecto negativo en Online fue el **Volumen (−$443,5 M)**, mientras que en Physical alcanzó **−$171,4 M**.
+El principal efecto negativo en Online fue el **Volumen (−$443,5 M)**, mientras que en Físico alcanzó **−$171,4 M**.
 
 Esto confirma que la contracción de unidades comercializadas constituye el principal problema comercial en ambos canales.
 
-**3. Physical presenta un deterioro de Mix especialmente fuerte**
+**3. Físico presenta un deterioro de Mix especialmente fuerte**
 
-El Mix tuvo un impacto de **−$109,8 M en Physical**, más del doble del observado en Online (**−$51,4 M**).
+El Mix tuvo un impacto de **−$109,8 M en Físico**, más del doble del observado en Online (**−$51,4 M**).
 
 Esto indica que el canal físico no solo perdió volumen, sino que también experimentó un cambio particularmente desfavorable en la composición de los productos vendidos.
 
 **4. Los nuevos SKUs compensaron parcialmente la caída**
 
-La incorporación de nuevos productos aportó **+$101,3 M en Online** y **+$29,2 M en Physical**, funcionando como un factor de compensación frente a la contracción del Volumen y otros efectos negativos.
+La incorporación de nuevos productos aportó **+$101,3 M en Online** y **+$29,2 M en Físico**, funcionando como un factor de compensación frente a la contracción del Volumen y otros efectos negativos.
 
 El aporte fue relevante en ambos canales, aunque insuficiente para revertir la caída de Ventas Netas.
 
@@ -263,18 +263,18 @@ El aporte fue relevante en ambos canales, aunque insuficiente para revertir la c
 
 #### 🔹 Resultados
 
-| Categoría       | Canal    |  Variación VN | Principal efecto negativo |
+| Categoría       | Canal    |  Δ Ventas Netas | Principal efecto negativo |
 | :-------------- | :------- | ------------: | :------------------------ |
 | **TV y Video**  | Online   | **−$302,3 M** | Volumen −$237,2 M         |
-| **TV y Video**  | Physical | **−$132,1 M** | Volumen −$81,7 M          |
+| **TV y Video**  | Físico   | **−$132,1 M** | Volumen −$81,7 M          |
 | **Telefonía**   | Online   |  **−$73,1 M** | Volumen −$49,0 M          |
-| **Computación** | Physical |  **−$50,1 M** | Volumen −$29,8 M          |
+| **Computación** | Físico   |  **−$50,1 M** | Volumen −$29,8 M          |
 | **Computación** | Online   |  **−$45,9 M** | Volumen −$61,7 M          |
-| **Telefonía**   | Physical |  **−$31,5 M** | Volumen −$18,6 M          |
+| **Telefonía**   | Físico   |  **−$31,5 M** | Volumen −$18,6 M          |
 | **Accesorios**  | Online   |  **−$19,1 M** | Volumen −$25,9 M          |
-| **Accesorios**  | Physical |  **−$12,9 M** | Volumen −$10,8 M          |
-| **Hogar**       | Physical |  **−$12,7 M** | Volumen −$12,1 M          |
-| **Audio**       | Physical |  **−$11,1 M** | Volumen −$18,4 M          |
+| **Accesorios**  | Físico   |  **−$12,9 M** | Volumen −$10,8 M          |
+| **Hogar**       | Físico   |  **−$12,7 M** | Volumen −$12,1 M          |
+| **Audio**       | Físico   |  **−$11,1 M** | Volumen −$18,4 M          |
 | **Hogar**       | Online   |   **+$8,9 M** | Mix +$37,5 M              |
 | **Audio**       | Online   |  **+$47,1 M** | SKUs nuevos +$64,3 M      |
 
@@ -284,17 +284,17 @@ El aporte fue relevante en ambos canales, aunque insuficiente para revertir la c
 
 TV y Video presenta una caída conjunta de aproximadamente **$434,4 M** entre ambos canales, explicando cerca de **68% de la contracción total de Ventas Netas**.
 
-El mayor deterioro se encuentra en **Online**, con **−$302,3 M**, seguido por Physical con **−$132,1 M**.
+El mayor deterioro se encuentra en **Online**, con **−$302,3 M**, seguido por **Físico** con **−$132,1 M**.
 
 **2. La caída de TV y Video combina Volumen y Mix**
 
-En TV y Video Online, el Volumen aportó **−$237,2 M** y el Mix **−$68,9 M**. En Physical, ambos efectos también fueron negativos, con **−$81,7 M de Volumen** y **−$52,5 M de Mix**.
+En TV y Video Online, el Volumen aportó **−$237,2 M** y el Mix **−$68,9 M**. En Físico, ambos efectos también fueron negativos, con **−$81,7 M de Volumen** y **−$52,5 M de Mix**.
 
 Por lo tanto, el deterioro de esta categoría no responde únicamente a una menor cantidad vendida, sino también a una composición menos favorable de las ventas.
 
 **3. Telefonía y Computación constituyen el segundo foco de deterioro**
 
-Telefonía cayó tanto en Online (**−$73,1 M**) como en Physical (**−$31,5 M**), mientras que Computación disminuyó **−$45,9 M en Online** y **−$50,1 M en Physical**.
+Telefonía cayó tanto en Online (**−$73,1 M**) como en Físico (**−$31,5 M**), mientras que Computación disminuyó **−$45,9 M en Online** y **−$50,1 M en Físico**.
 
 En estos cruces, el Volumen representa el principal factor negativo y se combina con efectos desfavorables de Mix.
 
@@ -439,7 +439,7 @@ Los efectos de **Precio de Lista y Descuentos** tuvieron un impacto secundario e
 
 | Efecto                          |    Impacto ($) | % del Δ Total |
 | :------------------------------- | --------------: | -------------: |
-| **Mix (SKUs continuos)**         |     −$54.180,70 |    **67,9%** |
+| **Mix**         |     −$54.180,70 |    **67,9%** |
 | **SKUs Nuevos**                  |     −$29.328,29 |    **36,7%** |
 | **Precio**                       |      $12.778,52 |   **−16,0%** |
 | **Descuentos**                   |      −$9.088,17 |    **11,4%** |
