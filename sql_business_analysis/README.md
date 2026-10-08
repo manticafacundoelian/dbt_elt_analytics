@@ -39,7 +39,8 @@ flowchart TD
     B --> E["💰 RAMA DE RENTABILIDAD"]
 
     %% Rama Comercial: Q2 y Q3→Q4 son lentes paralelos, no secuenciales
-    C --> C1["Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Qué efectos explican monetariamente su variación?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><br/><b>Drivers principales:</b><br/>Volumen + Mix + SKUs nuevos"]
+
+    C --> C1["Q2 — PUENTE FINANCIERO DE VENTAS NETAS<br/><br/>¿Qué efectos explican monetariamente su variación?<br/><b>Δ Ventas Netas:</b> −$634,8 M<br/><br/><b>Drivers:</b> Volumen ↓ + Mix ↓<br/><b>Compensan:</b> SKUs nuevos + Precio de Lista<br/><b>Foco:</b> TV y Video, principalmente Online<br/><b>Excepciones:</b> Audio y Hogar Online"]
 
     C --> C2["Q3 — DESCOMPOSICIÓN DEL TICKET Y ENFOQUE OMNICANAL<br/><br/>¿Por qué cae la facturación por pedido?<br/><b>Ticket Comercial:</b> ↓ 41,37%<br/><b>UPT:</b> ↓ 23,67%<br/><b>ASP Neto:</b> ↓ 23,18%<br/><br/>Patrón consistente en ambos canales"]
 
@@ -162,68 +163,162 @@ El diagnóstico muestra, por un lado, una fuerte contracción de las **Ventas Ne
 
 #### 🔹 Síntesis
 
-La variación de las **Ventas Netas** se atribuye principalmente a los efectos de **Volumen, Mix de SKUs continuos y cambios en el portafolio**, que concentraron los principales impactos negativos del período.
+Las **Ventas Netas disminuyeron $634,8 M entre 2025 y 2026**, explicadas principalmente por una fuerte contracción del **Volumen**, seguida por un efecto negativo de **Mix de SKUs continuos**.
 
-El **Precio de Lista** actuó como factor de compensación parcial, mientras que los **Descuentos** profundizaron la variación negativa.
+Frente a estos efectos adversos, el **Precio de Lista** y, especialmente, la incorporación de **SKUs nuevos**, actuaron como factores de compensación. Los **Descuentos** profundizaron parcialmente la caída, mientras que el efecto de los **SKUs descontinuados fue prácticamente nulo**.
+
+La apertura por **canal** muestra que el mayor deterioro absoluto se concentra en **Online**, aunque Physical presenta un impacto particularmente fuerte del Mix. Al cruzar **categoría × canal**, la contracción queda fuertemente concentrada en **TV y Video**, especialmente Online, seguida por **Telefonía y Computación**.
+
+En contraste, **Audio Online y Hogar Online** presentan una evolución positiva, mostrando que el deterioro no fue homogéneo en todo el negocio.
 
 <br>
 
-[Ver Consulta SQL →](./sql_business_analysis/q2_puente_ventas_netas.sql) 
-<br>
+#### 🔸 Q2.1 — Puente agregado total
+
+[Ver Consulta SQL →](./sql_business_analysis/q2.1_puente_ventas_netas_total.sql) <br>
 
 #### 🔹 Resultados
-
-El puente descompone la variación de las **Ventas Netas entre 2025 y 2026** mediante efectos de **Volumen, Mix de SKUs continuos, Precio de Lista, Descuentos y cambios en el portafolio**.
 
 | Efecto                        | Impacto 2025 → 2026 |
 | :---------------------------- | ------------------: |
 | **Variación de Ventas Netas** |       **−$634,8 M** |
-| Volumen                       |           −$333,3 M |
-| Mix — SKUs continuos          |           −$204,7 M |
-| Precio de Lista               |            +$48,3 M |
-| Descuentos                    |            −$34,3 M |
-| SKUs nuevos                   |           −$110,8 M |
-| SKUs descontinuados           |              $0,0 M |
-| **Residuo**                   |          **$0,0 M** |
+| Volumen                       |           −$614,9 M |
+| Mix — SKUs continuos          |           −$161,3 M |
+| Precio de Lista               |            +$37,8 M |
+| Descuentos                    |            −$26,8 M |
+| SKUs nuevos                   |           +$130,5 M |
+| SKUs descontinuados           |             −$0,2 M |
+| **Impacto total**             |       **−$634,8 M** |
 
-> *Nota: El puente descompone la variación de Ventas Netas entre 2025 y 2026 en efectos de **Volumen, Mix de SKUs continuos, Precio, Descuentos y altas/bajas de productos**. El residuo de $0 confirma la conciliación exacta del puente.*
+> *Nota: El puente atribuye la variación de Ventas Netas entre 2025 y 2026 a efectos de **Volumen, Mix de SKUs continuos, Precio de Lista, Descuentos y cambios en el portafolio**. El impacto total coincide exactamente con la variación observada, confirmando la conciliación del puente.*
 
 #### 🔹 Hallazgos
 
-#### Principales impulsores de la caída
+**1. El Volumen explica la mayor parte de la caída**
 
-**1. El Volumen concentra el mayor impacto negativo**
+El efecto Volumen alcanzó **−$614,9 M**, siendo ampliamente el principal factor de deterioro. La contracción de las unidades comercializadas explica, por sí sola, una parte sustancial de la caída de Ventas Netas.
 
-El efecto Volumen explica una reducción de **$333,3 M** en las Ventas Netas, siendo el principal componente negativo del puente.
+**2. El Mix también tuvo un impacto negativo relevante**
 
-**2. El Mix de productos profundiza la contracción**
+El Mix de los **SKUs continuos** aportó **−$161,3 M**, mostrando que el deterioro no se explica únicamente por vender menos unidades. También cambió desfavorablemente la composición de las ventas entre los productos que permanecieron activos en ambos períodos.
 
-El Mix de los **SKUs continuos** aportó un impacto negativo de **$204,7 M**, indicando un cambio desfavorable en la composición de las ventas entre los productos que permanecieron activos en ambos períodos.
+**3. Los nuevos SKUs compensaron parcialmente la contracción**
 
-**3. Los SKUs nuevos no compensaron la pérdida del negocio existente**
+La incorporación de **SKUs nuevos aportó +$130,5 M**, convirtiéndose en el principal factor positivo del puente. Si bien este efecto no alcanzó para revertir la caída generada por Volumen y Mix, sí compensó una parte significativa del deterioro.
 
-Los productos incorporados en 2026 generaron un impacto de **−$110,8 M** bajo la metodología del puente, por lo que su incorporación no compensó los efectos negativos provenientes del volumen y del mix.
+**4. El Precio de Lista aportó una compensación adicional**
 
-#### Factores de compensación
+El aumento del **Precio de Lista generó +$37,8 M**, contribuyendo positivamente a las Ventas Netas y amortiguando parcialmente los efectos negativos.
 
-**4. El aumento del Precio de Lista compensó parcialmente la caída**
+**5. Los Descuentos profundizaron la caída**
 
-El efecto Precio de Lista aportó **+$48,3 M**, funcionando como un factor de compensación frente a los principales impactos negativos.
+El efecto de los **Descuentos fue de −$26,8 M**, contrarrestando parte del beneficio obtenido por los mayores precios de lista.
 
-**5. Los Descuentos profundizaron la contracción**
+**6. Los SKUs descontinuados tuvieron un impacto marginal**
 
-El efecto Descuentos tuvo un impacto de **−$34,3 M**, reduciendo parcialmente el beneficio generado por el aumento de los precios de lista.
+El efecto asociado a los **SKUs descontinuados fue de apenas −$0,2 M**, por lo que prácticamente no tuvo incidencia sobre la variación total.
+
+<br>
+
+#### 🔸 Q2.2 — Puente por canal
+
+[Ver Consulta SQL →](./sql_business_analysis/q2.2_puente_ventas_netas_canal.sql) <br>
+
+#### 🔹 Resultados
+
+| Canal        |    VN 2025 |  VN 2026 |     Variación |   Volumen |       Mix | Precio lista | Descuentos | SKUs nuevos |
+| :----------- | ---------: | -------: | ------------: | --------: | --------: | -----------: | ---------: | ----------: |
+| **Online**   | $1.178,4 M | $794,0 M | **−$384,4 M** | −$443,5 M |  −$51,4 M |     +$30,2 M |   −$20,9 M |   +$101,3 M |
+| **Physical** |   $455,5 M | $205,1 M | **−$250,4 M** | −$171,4 M | −$109,8 M |      +$7,6 M |    −$5,8 M |    +$29,2 M |
+
+#### 🔹 Hallazgos
+
+**1. Online concentra la mayor caída absoluta**
+
+El canal Online redujo sus Ventas Netas en **$384,4 M**, frente a una caída de **$250,4 M en Physical**, por lo que concentra la mayor parte del deterioro agregado.
+
+**2. El Volumen domina en ambos canales**
+
+El principal efecto negativo en Online fue el **Volumen (−$443,5 M)**, mientras que en Physical alcanzó **−$171,4 M**.
+
+Esto confirma que la contracción de unidades comercializadas constituye el principal problema comercial en ambos canales.
+
+**3. Physical presenta un deterioro de Mix especialmente fuerte**
+
+El Mix tuvo un impacto de **−$109,8 M en Physical**, más del doble del observado en Online (**−$51,4 M**).
+
+Esto indica que el canal físico no solo perdió volumen, sino que también experimentó un cambio particularmente desfavorable en la composición de los productos vendidos.
+
+**4. Los nuevos SKUs compensaron parcialmente la caída**
+
+La incorporación de nuevos productos aportó **+$101,3 M en Online** y **+$29,2 M en Physical**, funcionando como un factor de compensación frente a la contracción del Volumen y otros efectos negativos.
+
+El aporte fue relevante en ambos canales, aunque insuficiente para revertir la caída de Ventas Netas.
+
+<br>
+
+#### 🔹 Q2.3 — Puente por categoría × canal
+
+[Ver Consulta SQL →](./sql_business_analysis/q2.3_puente_ventas_netas_categoria_canal.sql) <br>
+
+#### 🔹 Resultados
+
+| Categoría       | Canal    |  Variación VN | Principal efecto negativo |
+| :-------------- | :------- | ------------: | :------------------------ |
+| **TV y Video**  | Online   | **−$302,3 M** | Volumen −$237,2 M         |
+| **TV y Video**  | Physical | **−$132,1 M** | Volumen −$81,7 M          |
+| **Telefonía**   | Online   |  **−$73,1 M** | Volumen −$49,0 M          |
+| **Computación** | Physical |  **−$50,1 M** | Volumen −$29,8 M          |
+| **Computación** | Online   |  **−$45,9 M** | Volumen −$61,7 M          |
+| **Telefonía**   | Physical |  **−$31,5 M** | Volumen −$18,6 M          |
+| **Accesorios**  | Online   |  **−$19,1 M** | Volumen −$25,9 M          |
+| **Accesorios**  | Physical |  **−$12,9 M** | Volumen −$10,8 M          |
+| **Hogar**       | Physical |  **−$12,7 M** | Volumen −$12,1 M          |
+| **Audio**       | Physical |  **−$11,1 M** | Volumen −$18,4 M          |
+| **Hogar**       | Online   |   **+$8,9 M** | Mix +$37,5 M              |
+| **Audio**       | Online   |  **+$47,1 M** | SKUs nuevos +$64,3 M      |
+
+#### 🔹 Hallazgos
+
+**1. TV y Video concentra el principal deterioro**
+
+TV y Video presenta una caída conjunta de aproximadamente **$434,4 M** entre ambos canales, explicando cerca de **68% de la contracción total de Ventas Netas**.
+
+El mayor deterioro se encuentra en **Online**, con **−$302,3 M**, seguido por Physical con **−$132,1 M**.
+
+**2. La caída de TV y Video combina Volumen y Mix**
+
+En TV y Video Online, el Volumen aportó **−$237,2 M** y el Mix **−$68,9 M**. En Physical, ambos efectos también fueron negativos, con **−$81,7 M de Volumen** y **−$52,5 M de Mix**.
+
+Por lo tanto, el deterioro de esta categoría no responde únicamente a una menor cantidad vendida, sino también a una composición menos favorable de las ventas.
+
+**3. Telefonía y Computación constituyen el segundo foco de deterioro**
+
+Telefonía cayó tanto en Online (**−$73,1 M**) como en Physical (**−$31,5 M**), mientras que Computación disminuyó **−$45,9 M en Online** y **−$50,1 M en Physical**.
+
+En estos cruces, el Volumen representa el principal factor negativo y se combina con efectos desfavorables de Mix.
+
+**4. Audio Online y Hogar Online funcionan como excepciones positivas**
+
+Mientras prácticamente todos los demás cruces categoría × canal presentan caídas, **Audio Online creció $47,1 M** y **Hogar Online $8,9 M**.
+
+En Audio Online, el crecimiento estuvo impulsado principalmente por **SKUs nuevos (+$64,3 M)** y un **Mix favorable (+$21,4 M)**, que compensaron la caída de Volumen.
+
+En Hogar Online, el principal impulsor fue el **Mix (+$37,5 M)**, que compensó una caída de Volumen de **−$29,2 M**.
 
 <br>
 
 #### 🔹 Puente analítico → Q3
 
-Este puente cuantifica en pesos la variación total de las Ventas Netas: cuánto explica el volumen, el mix y la renovación del portafolio.
+Q2 cuantifica **dónde y por qué monetariamente se movió la Venta Neta**, pasando del resultado agregado a su distribución por **canal** y finalmente a la combinación de **categoría × canal**.
 
-**Q3 ofrece una lectura complementaria del mismo fenómeno**, esta vez en términos de comportamiento por pedido — Ticket Comercial, UPT y ASP —, para observar la caída desde la unidad económica con la que opera el negocio día a día, no solo desde el monto agregado.
+El diagnóstico muestra que la contracción está dominada por una fuerte caída del **Volumen**, acompañada por un deterioro del **Mix**, mientras que la incorporación de nuevos SKUs y los mayores precios de lista compensaron parcialmente el impacto negativo.
+
+**Q3 cambia la unidad de análisis:** pasa del valor monetario total al comportamiento por pedido, descomponiendo la evolución del **Ticket Comercial** mediante **órdenes, UPT y ASP**, y profundizando además en la evolución de cada canal.
 
 <br>
 </details>
+
 
 #### ├─ 🔹 Q3 — Descomposición del Ticket y Comportamiento Omnicanal: ¿Por qué cae la facturación por pedido?
 
