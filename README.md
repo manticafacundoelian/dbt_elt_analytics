@@ -84,29 +84,7 @@ El objetivo de este proyecto es identificar las causas raíz detrás de la caíd
 
 ## 🎯 Recomendaciones Estratégicas Basadas en Evidencia
 
-**1. Recuperar el valor por pedido antes que perseguir únicamente crecimiento en volumen**
 
-El principal deterioro comercial está en la pérdida simultánea de **UPT y ASP**. La estrategia comercial debería orientarse a recuperar unidades por pedido y valor por operación mediante estrategias de *cross-selling*, bundles, venta complementaria y una arquitectura de promociones que incentive la ampliación de la cesta sin depender exclusivamente de descuentos generalizados.
-
-**2. Revisar el mix y el desempeño del portafolio por categoría y SKU**
-
-El PVM muestra que **Mix, Volumen y Costo** concentran los mayores efectos negativos, con una fuerte incidencia de **TV y Video, Computación y Telefonía**. Se recomienda revisar la composición del portafolio, el posicionamiento de precios, la rotación y la rentabilidad por SKU, utilizando el nivel de producto para identificar aquellos casos donde la reducción de volumen, el cambio de mix o la estructura de costos están erosionando la Ganancia Bruta.
-
-**3. Revisar la política de descuentos y protección de margen**
-
-La tasa de descuento prácticamente se duplica entre 2025 y 2026, mientras el ASP Bruto también cae. Se recomienda evaluar promociones por categoría, producto y canal, diferenciando descuentos que generan volumen incremental de aquellos que simplemente reducen el valor de las operaciones existentes.
-
-**4. Atacar la ineficiencia logística del canal Online**
-
-El canal Online concentra el crecimiento de pedidos, pero al mismo tiempo presenta un fuerte incremento del costo logístico relativo y absoluto. Se recomienda revisar tarifas y condiciones con operadores logísticos, costos por pedido, políticas de envío y posibilidades de consolidación de órdenes, buscando desacoplar el crecimiento del costo logístico de la caída de la facturación.
-
-**5. Reducir devoluciones mediante análisis por categoría y SKU**
-
-El aumento de la tasa de devolución es transversal al portafolio y alcanza niveles especialmente elevados en determinadas categorías. Se recomienda profundizar en las causas de devolución por **SKU, categoría y canal**, identificando patrones asociados a calidad, expectativa del producto, información comercial, embalaje o experiencia de entrega, para intervenir sobre los productos y procesos que concentran mayores tasas y volúmenes.
-
-**6. Incorporar un seguimiento ejecutivo integrado**
-
-Para monitorear la recuperación, el negocio debería seguir de manera conjunta indicadores de **Pedidos, UPT, ASP, Ticket, Mix, Tasa de Descuento, Margen Bruto, Costo Logístico y Tasa de Devolución**. El seguimiento integrado permite evitar que una mejora en una métrica —por ejemplo, volumen de pedidos— oculte un deterioro simultáneo en valor por operación o rentabilidad.
 
 ---
 ---
@@ -154,38 +132,6 @@ El pipeline organiza las transformaciones en tres capas, separando progresivamen
 
 Investigación progresiva realizada con SQL y DBeaver sobre el Data Warehouse en DuckDB, orientada a explicar el deterioro comercial y financiero observado entre 2025 y 2026.
 
-La investigación parte de un **diagnóstico macro (Q1)** y profundiza progresivamente en dos dimensiones: el **desempeño comercial**, mediante la descomposición del Ticket Promedio y el análisis de sus drivers (**Q2–Q3**), y la **rentabilidad**, mediante el análisis de la estructura del P&L y un **PVM formal de Ganancia Bruta** (**Q4–Q5**).
-
-**Estructura del diagnóstico:**
-
-* **Q1 — Diagnóstico Macro:** evolución de pedidos, ventas, devoluciones, rentabilidad y Ticket Comercial.
-* **Q2 — Descomposición del Ticket:** análisis de UPT (unidades por pedido) y ASP (precio promedio por unidad).
-* **Q3 — Drivers del ASP:** análisis del ASP Bruto, descuentos y composición por categoría, incluyendo cambios de mix y evolución del ASP dentro de cada categoría.
-* **Q4 — Rentabilidad y P&L:** evolución de Ventas Netas Finales, COGS, Ganancia Bruta, logística, Ganancia Neta y márgenes.
-* **Q5 — PVM de Ganancia Bruta:** descomposición formal de la variación de Ganancia Bruta entre **Volumen, Mix, Precio, Costo, Lanzamientos y Discontinuados**, con profundización a nivel de **Empresa → Categoría → SKU**.
-
-**Metodología destacada:**
-
-* Todas las consultas utilizan un universo consistente de pedidos con estado `delivered`.
-* El análisis comercial trabaja con métricas **pre-devoluciones**, mientras que el análisis de rentabilidad incorpora el efecto de las devoluciones mediante las métricas finales.
-* El PVM reconcilia exactamente la variación de Ganancia Bruta entre 2025 y 2026 (**−$185,4 M**), separando los efectos de productos continuos de los productos nuevos y discontinuados.
-* La descomposición se mantiene en tres niveles de profundidad: **consolidado, categoría y SKU**, permitiendo pasar del diagnóstico general a la localización de los principales efectos dentro del portafolio.
-
-**Principales hallazgos:**
-
-* El deterioro del Ticket Comercial en 2026 (**−41,37%**) surge de dos componentes de magnitud similar: una reducción de las unidades por pedido (**UPT −23,67%**) y una caída del precio promedio por unidad (**ASP −23,18%**).
-
-* La caída del ASP combina un deterioro del **ASP Bruto (−20,65%)**, un aumento de la **Tasa de Descuento (+3,10 pp)** y cambios en la composición del mix. A nivel de categoría, **Computación** presenta una caída de ASP del **−32,74%**, mientras que **Audio** incrementa su participación en unidades en **+7,92 pp**.
-
-* El deterioro de la rentabilidad ya era visible en 2025: mientras las Ventas Netas Finales crecieron **+26,09%**, la Ganancia Bruta prácticamente no varió y el Margen Bruto cayó **5,12 pp**. En 2026, el Margen Bruto descendió nuevamente hasta **13,44%**, acompañado por un aumento de la participación del COGS de **6,19 pp**.
-
-* El PVM descompone la caída de **$185,4 M** de Ganancia Bruta entre seis efectos. Los mayores efectos negativos individuales corresponden a **Mix (−$74,8 M), Volumen (−$71,1 M) y Costo (−$64,6 M)**, mientras que **Precio (+$9,9 M)** y **Lanzamientos (+$15,2 M)** compensan parcialmente la caída.
-
-* El análisis por categoría permite identificar dónde se concentran los efectos negativos de la variación de Ganancia Bruta. **TV y Video** presenta el mayor efecto PVM negativo (**−$100,9 M**), seguida por **Computación (−$32,3 M)** y **Telefonía (−$22,1 M)**.
-
-* A nivel SKU, los efectos negativos se concentran especialmente en productos como **TCL Monitor TV 21, TCL Chromecast 25 y Acer Memoria RAM 2**. A su vez, algunos lanzamientos y productos con efectos positivos de volumen generan compensaciones parciales frente a los componentes negativos.
-
-**Conclusión del diagnóstico:** El análisis evidencia que el deterioro de 2026 no responde a un único factor. La caída del valor por operación combina una reducción de **UPT y ASP**, mientras que la rentabilidad se ve presionada por efectos negativos de **Mix, Volumen y Costo**, con una concentración significativa en **TV y Video, Computación y Telefonía**. A esto se suman el aumento de las **devoluciones** y del **costo logístico relativo**, que profundizan el impacto sobre el resultado final. En conjunto, la investigación permite pasar de la detección de una caída de desempeño a la identificación de los principales factores y segmentos que explican el deterioro.
 
 * 📁 **Directorio:** [`/sql_business_analysis`](./sql_business_analysis)
 
