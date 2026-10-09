@@ -752,199 +752,150 @@ Q6 cuantifica la descomposición dinámica de la pérdida de Ganancia Bruta entr
 <br>
 </details>
 
-#### └─ 🔹 Q7 — Rentabilidad por Categoría y Producto: ¿Dónde se genera (o se pierde) la Ganancia Neta?
+#### └─ 🔹 Q7 — Salud de Cartera y Atribución de Margen: P&L Estático 2026 y Fuga Logística
 
 <details>
-<summary><strong>📊 Resultados, hallazgos y diagnóstico por categoría y producto</strong></summary>
+<summary><strong>Ver desarrollo de Q7</strong></summary>  
 
-### 🎯 Síntesis ejecutiva
+<br>
 
-Q7 identifica dónde se materializa el deterioro de la rentabilidad, pasando del nivel de categoría al de producto. El análisis muestra que la caída de la ganancia neta no responde únicamente a una contracción de las ventas: también interviene el deterioro de los márgenes, asociado al mayor peso del costo de ventas y, en determinadas categorías, de la logística.
+#### 🔹 Síntesis
 
-**TV y Video concentra más de la mitad de la caída de la ganancia neta**, mientras que Audio evidencia que vender más no garantiza ganar más. Accesorios presenta el deterioro relativo más severo, con un margen neto reducido y pérdidas durante el segundo semestre acumulado de 2026.
+El análisis de salud de cartera sobre el P&L 2026 revela que la empresa operó con un **Margen Neto Global del 10,96%** ($101,8 M de Ganancia Neta sobre $928,9 M de Ventas Netas), tras deducir **$23,1 M en Costos Logísticos**. 
 
-A nivel de producto, las mayores pérdidas absolutas se concentran en artículos de TV y Video y Computación. En paralelo, distintos productos continuos y algunos lanzamientos de 2026 pasan a operar con margen neto negativo.
+Sin embargo, el resultado consolidado oculta una severa distorsión estructural: **14 SKUs (el 22,9% del portafolio comercializado, desplegados en 19 combinaciones SKU × Canal) operan en terreno de pérdida neta**, destruyendo **−$9,5 M en efectivo** a pesar de generar $140,4 M en ventas (el 15,1% de la facturación total).
 
-El diagnóstico distingue así dos frentes: recuperar la contribución económica de los productos que concentran la caída y corregir las condiciones de rentabilidad de aquellos que ya generan pérdidas.
+El diagnóstico integral demuestra tres patrones críticos de fuga de rentabilidad:
+1. **Destrucción Directa en Precio/COGS (Cuadrante C1):** $107,3 M en ventas pierden dinero desde la góndola (Margen Bruto de −4,60%).
+2. **Fuga Logística Silenciosa (Cuadrante C2):** $33,1 M en ventas generan margen bruto positivo (4,91%), pero el flete fijo en el canal Online devora totalmente la ganancia en productos de bajo ticket (especialmente en Accesorios y Hogar), convirtiéndolas en pérdidas netas (−4,50%).
+3. **Aceleración por Price Lag en el 2º Semestre:** La destrucción de valor se concentró críticamente en la segunda mitad del año por la falta de actualización oportuna de precios comerciales ante el aumento de costos de reposición y fletes.
 
----
+El **Cuadrante Sostenible (C4)** sostiene la operación generando $104,1 M de ganancia neta (102,3% del resultado total), subsidiando involuntariamente los $9,5 M destruidos por los cuadrantes deficitarios.
 
-### 🔹 Q7.1 — Rentabilidad por Categoría
+<br>
 
-**Pregunta de negocio:** ¿Qué categorías explican la caída de la ganancia neta y cuáles presentan los mayores problemas de rentabilidad?
+#### 🔸 Q7.1 — Diagnóstico Global de Cartera 2026 (Cuadrantes de Salud)
 
-#### 📋 Resultados
+[Ver Consulta SQL →](./sql_business_analysis/q7.1_diagnostico_cartera_2026.sql) <br>
 
-| Categoría   | Ganancia neta 2026 | Var. ganancia neta | Participación en la caída total | Margen bruto 2026 | Δ margen bruto | Logística / VNF 2026 | Δ logística | Margen neto 2026 | Δ margen neto | Margen neto 2S 2026 | Participación en ganancia neta 2026 |
-| ----------- | -----------------: | -----------------: | ------------------------------: | ----------------: | -------------: | -------------------: | ----------: | ---------------: | ------------: | ------------------: | ----------------------------------: |
-| TV y Video  |           $38,36 M |           -72,32 % |                         51,68 % |           10,84 % |       -6,47 pp |               0,79 % |    +0,34 pp |          10,05 % |      -6,81 pp |             -1,04 % |                             37,70 % |
-| Computación |           $25,38 M |           -57,08 % |                         17,40 % |           21,19 % |       -4,98 pp |               2,75 % |    +1,74 pp |          18,45 % |      -6,72 pp |              8,99 % |                             24,94 % |
-| Telefonía   |            $9,06 M |           -70,51 % |                         11,17 % |           13,85 % |       -4,57 pp |               0,92 % |    +0,31 pp |          12,93 % |      -4,88 pp |              8,71 % |                              8,90 % |
-| Audio       |           $16,64 M |           -44,95 % |                          7,01 % |           12,69 % |       -8,80 pp |               3,30 % |    +1,91 pp |           9,39 % |     -10,71 pp |              2,79 % |                             16,35 % |
-| Accesorios  |            $2,72 M |           -82,22 % |                          6,48 % |           10,82 % |       -8,27 pp |               6,40 % |    +3,55 pp |           4,42 % |     -11,81 pp |             -3,72 % |                              2,67 % |
-| Hogar       |            $9,60 M |           -55,83 % |                          6,26 % |           15,34 % |       -7,59 pp |               5,81 % |    +3,33 pp |           9,52 % |     -10,92 pp |              4,12 % |                              9,44 % |
+#### 🔹 Resultados
 
-**Referencias:**
+| Cuadrante de Salud | Cant. SKUs | Unidades | Ventas Netas | Ganancia Bruta | Costo Logístico | Ganancia Neta | Margen Bruto % | Margen Neto % | % Facturación |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 🔴 **C1: Destructor Bruto** *(MB < 0%)* | 8 | 460 | $107,3M | −$4,93M | $3,05M | **−$7,99M** | −4,60% | −7,44% | 11,55% |
+| 🟠 **C2: Fuga Logística** *(MB > 0% \| MN < 0%)* | 6 | 417 | $33,1M | +$1,63M | $3,11M | **−$1,49M** | +4,91% | −4,50% | 3,56% |
+| 🟡 **C3: Margen Neto Bajo** *(MN 0% a 10%)* | 14 | 614 | $126,9M | +$11,60M | $4,46M | **+$7,14M** | +9,14% | +5,63% | 13,66% |
+| 🟢 **C4: Cartera Sostenible** *(MN > 10%)* | 33 | 2.044 | $661,6M | +$116,57M | $12,47M | **+$104,10M** | +17,62% | +15,73% | 71,23% |
+| **Total Empresa** | **61** | **3.535** | **$928,9M** | **+$124,86M** | **$23,09M** | **+$101,77M** | **+13,44%** | **+10,96%** | **100,00%** |
 
-* **VNF:** Ventas Netas Finales, luego de devoluciones.
-* **pp:** puntos porcentuales.
-* **Participación en la caída total:** proporción de la disminución global de la ganancia neta atribuible a cada categoría.
-* **Participación en ganancia neta 2026:** proporción de la ganancia neta global de 2026 aportada por cada categoría.
-* Los porcentajes pueden presentar pequeñas diferencias por redondeo.
+#### 🔹 Hallazgos
 
-#### 🔎 Hallazgos principales
+**1. $140,4 M de facturación están atrapados en operaciones deficitarias**
+Los cuadrantes **C1 y C2 suman $140,4 M en Ventas Netas** (15,1% del revenue total) que no generan retorno positivo. La empresa está financiando volumen de ventas que destruye **−$9,48 M de Ganancia Neta**.
 
-**1. TV y Video concentra la mayor parte de la pérdida de ganancia neta.**
+**2. C1: Vender con margen bruto negativo**
+8 SKUs registran pérdidas antes de cualquier costo operativo. Generaron **−$4,93 M de pérdida bruta** y requirieron **$3,05 M adicionales en fletes**, acumulando un impacto negativo final de **−$7,99 M**. Esto evidencia fallas graves de comercialización y descalce frente a la subida de costos de proveedores.
 
-La categoría pierde **$100,22 millones** de ganancia neta frente a 2025 y explica el **51,68 % de la caída global**. Sus ventas netas finales disminuyen un 53,57 %, mientras que el margen bruto cae del 17,31 % al 10,84 %.
+**3. C2: La "Fuga Logística" captura el 9,3% del costo de envío total**
+6 SKUs muestran una rentabilidad en góndola débil (+4,91% de Margen Bruto), pero el gasto de envío ($3,11 M) representa un **9,41% sobre la venta neta de este cuadrante**, sobrepasando el margen comercial e invirtiendo el resultado a **−$1,49 M netos**.
 
-El deterioro combina una fuerte contracción comercial con una menor rentabilidad sobre las ventas. Aunque continúa aportando el 37,70 % de la ganancia neta de 2026, su margen neto del segundo semestre acumulado es negativo (-1,04 %), lo que señala un deterioro especialmente relevante en el período más reciente analizado.
+**4. Concentración de la Ganancia en el Cuadrante Sostenible (C4)**
+El **71,2% de los ingresos ($661,6 M)** y el **102,3% de la Ganancia Neta de la empresa ($104,1 M)** proviene de 33 SKUs saludables con un Margen Neto promedio del **15,73%**.
 
-**2. Audio aumenta sus ventas, pero reduce su ganancia neta.**
+<br>
 
-Audio es el caso más claro de desacople entre crecimiento comercial y rentabilidad: las ventas netas finales aumentan un **17,83 %**, pero la ganancia neta disminuye un **44,95 %**.
+#### 🔸 Q7.2 — Atribución Logística por Canal y Categoría
 
-El margen bruto se contrae 8,80 pp y el margen neto cae 10,71 pp, hasta el 9,39 %. La evolución sugiere que el crecimiento de las ventas no está compensando el deterioro de la rentabilidad por venta.
+[Ver Consulta SQL →](./sql_business_analysis/q7.2_atribucion_logistica_categoria_canal.sql) <br>
 
-**3. Accesorios presenta el mayor deterioro relativo.**
+#### 🔹 Resultados
 
-La ganancia neta cae un 82,22 % y el margen neto pasa del 16,23 % al 4,42 %, con una contracción de 11,81 pp.
+| Categoría | Canal | Unid. | Ventas Netas | Ganancia Bruta | Costo Logístico | Ganancia Neta | Peso Log. % | Margen Bruto % | Margen Neto % | Δ Margen (pp) |
+| :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Accesorios** | Físico | 168 | $15,35M | $1,94M | $0,00M | **$1,94M** | 0,00% | 12,61% | **12,61%** | 0,00 pp |
+| **Accesorios** | Online | 566 | $46,24M | $4,73M | **$3,94M** | **$0,78M** | **8,53%** | 10,22% | **1,69%** | **−8,53 pp** |
+| **Audio** | Físico | 156 | $35,08M | $5,02M | $0,00M | **$5,02M** | 0,00% | 14,32% | **14,32%** | 0,00 pp |
+| **Audio** | Online | 635 | $142,11M | $17,47M | **$5,85M** | **$11,62M** | **4,11%** | 12,29% | **8,18%** | **−4,11 pp** |
+| **Computación** | Físico | 133 | $26,37M | $5,13M | $0,00M | **$5,13M** | 0,00% | 19,47% | **19,47%** | 0,00 pp |
+| **Computación** | Online | 514 | $111,19M | $24,02M | **$3,78M** | **$20,24M** | **3,40%** | 21,60% | **18,21%** | **−3,39 pp** |
+| **Hogar** | Físico | 165 | $18,42M | $2,82M | $0,00M | **$2,82M** | 0,00% | 15,30% | **15,30%** | 0,00 pp |
+| **Hogar** | Online | 729 | $82,39M | $12,64M | **$5,86M** | **$6,78M** | **7,11%** | 15,35% | **8,23%** | **−7,12 pp** |
+| **TV y Video** | Físico | 77 | $81,31M | $8,31M | $0,00M | **$8,31M** | 0,00% | 10,22% | **10,22%** | 0,00 pp |
+| **TV y Video** | Online | 298 | $300,33M | $33,08M | **$3,02M** | **$30,06M** | **1,01%** | 11,02% | **10,01%** | **−1,01 pp** |
+| **Telefonía** | Físico | 22 | $16,88M | $2,62M | $0,00M | **$2,62M** | 0,00% | 15,51% | **15,51%** | 0,00 pp |
+| **Telefonía** | Online | 72 | $53,19M | $7,09M | **$0,64M** | **$6,44M** | **1,21%** | 13,32% | **12,11%** | **−1,21 pp** |
 
-La categoría combina un aumento de 8,27 pp en la proporción del costo de ventas y un incremento de 3,55 pp en la incidencia logística. La logística representa el **6,40 % de las ventas netas finales**, la proporción más alta entre las categorías analizadas.
+#### 🔹 Hallazgos
 
-El margen neto del segundo semestre acumulado es de -3,72 %, por lo que la categoría ya presenta pérdidas operativas bajo la definición de rentabilidad utilizada en el modelo para ese período.
+**1. Accesorios Online: Fuga logística crítica (Margen Neto al borde del colapso)**
+Accesorios es la categoría más castigada por la logística e-commerce. El gasto de envío ($3,94 M) representa un **8,53% sobre la venta neta**, devorando más del 83% de su ganancia bruta y colapsando su rentabilidad final del **10,22% bruto a apenas un 1,69% neto**. Se despachan volúmenes de bajo ticket promedio donde el flete fijo destruye la ecuación comercial.
 
-**4. Hogar mantiene relativamente las ventas, pero pierde rentabilidad.**
+**2. Hogar Online: El flete erosiona casi la mitad del margen**
+El canal digital de Hogar absorbe **$5,86 M en envíos** (7,11% de la facturación del canal). Esto reduce la rentabilidad neta a la mitad (**de 15,35% a 8,23%**), indicando la necesidad de establecer montos mínimos de compra o esquemas de envío compartido para productos voluminosos o de bajo ticket.
 
-Las ventas netas finales de Hogar caen apenas un 5,20 %, mientras que la ganancia neta disminuye un 55,83 %.
+**3. Computación Online: El canal digital más saludable del negocio**
+Computación logra combinar un excelente margen bruto (21,60%) con una baja dilución logística (3,40%), entregando un **Margen Neto del 18,21%** ($20,24 M de ganancia neta en Online).
 
-El margen bruto retrocede 7,59 pp y el margen neto pierde 10,92 pp. Al mismo tiempo, la incidencia logística aumenta 3,33 pp y alcanza el 5,81 % de las ventas.
+**4. Dilución eficiente en productos de alto ticket (TV y Video y Telefonía)**
+Dado su elevado precio promedio por unidad, en **TV y Video** y **Telefonía** el costo logístico representa tan solo el **1,01%** y **1,21%** de los ingresos en Online respectivamente, manteniendo márgenes netos saludables superiores al 10%.
 
-Esto muestra que la contracción de la ganancia no puede explicarse solamente por la evolución de la facturación: también se deteriora la rentabilidad obtenida sobre ella.
+<br>
 
-**5. El deterioro del margen bruto es transversal.**
+#### 🔸 Q7.3 — Matriz de SKUs Críticos y Alerta de Aceleración 2S 2026
 
-Todas las categorías registran una caída del margen bruto y un aumento de la proporción de las ventas absorbida por el costo de ventas.
+[Ver Consulta SQL →](./sql_business_analysis/q7.3_skus_criticos_c1_c2.sql) <br>
 
-La magnitud varía: Computación presenta la menor contracción del margen bruto (-4,98 pp), mientras que Audio, Accesorios y Hogar registran caídas más pronunciadas. Por lo tanto, el problema no se limita a una categoría específica, aunque su impacto económico sí está concentrado de manera desigual.
+#### 🔹 Resultados (Combinaciones SKU × Canal en Terreno Deficitario)
 
-#### 💡 Lectura de negocio
-
-El análisis por categoría permite distinguir tres situaciones:
-
-* **Pérdida económica concentrada:** TV y Video explica más de la mitad de la caída global de la ganancia neta.
-* **Crecimiento sin rentabilidad equivalente:** Audio incrementa sus ventas, pero pierde ganancia neta y margen.
-* **Rentabilidad comprometida por costos y logística:** Accesorios y Hogar muestran una elevada incidencia logística y una fuerte contracción de sus márgenes.
-
-Estas diferencias justifican profundizar el análisis a nivel de producto para identificar cuáles explican las pérdidas absolutas y cuáles ya presentan rentabilidad negativa.
-
----
-
-### 🔹 Q7.2 — Rentabilidad por Producto
-
-**Pregunta de negocio:** ¿Qué productos explican las mayores pérdidas de ganancia neta y cuáles presentan márgenes negativos?
-
-#### 📋 Resultados
-
-La consulta ordena los productos por deterioro de la ganancia neta y permite comparar su evolución comercial, el margen bruto, el margen neto y el desempeño del segundo semestre acumulado de 2026.
-
-Para facilitar la lectura, se destacan los productos con mayores caídas absolutas y algunos casos de rentabilidad negativa. La tabla no debe interpretarse como un listado exhaustivo de todos los productos deficitarios.
-
-| Producto                   | Categoría   | Estado SKU    | Ganancia neta 2025 | Ganancia neta 2026 | Δ ganancia neta | Var. ventas netas | Margen neto 2025 | Margen neto 2026 | Δ margen neto | Margen neto 2S 2026 |
-| -------------------------- | ----------- | ------------- | -----------------: | -----------------: | --------------: | ----------------: | ---------------: | ---------------: | ------------: | ------------------: |
-| TCL Monitor TV 21          | TV y Video  | Continuo      |           $63,44 M |           $19,16 M |       -$44,28 M |          -54,94 % |          18,03 % |          12,08 % |      -5,95 pp |              2,84 % |
-| TCL Chromecast 25          | TV y Video  | Continuo      |           $41,48 M |           $14,68 M |       -$26,80 M |          -52,53 % |          17,52 % |          13,06 % |      -4,45 pp |              6,83 % |
-| Acer Memoria RAM 2         | Computación | Continuo      |           $27,03 M |            $6,18 M |       -$20,85 M |          -74,64 % |          31,26 % |          28,20 % |      -3,06 pp |             23,54 % |
-| TCL Monitor TV 19          | TV y Video  | Continuo      |           $12,24 M |           -$1,86 M |       -$14,11 M |          -57,09 % |          10,32 % |          -3,66 % |     -13,98 pp |            -13,69 % |
-| Lenovo Mouse 1             | Computación | Continuo      |           $15,71 M |            $3,63 M |       -$12,08 M |          -67,53 % |          15,55 % |          11,07 % |      -4,49 pp |              2,27 % |
-| Samsung Smart TV 20        | TV y Video  | Continuo      |           $10,42 M |            $0,72 M |        -$9,70 M |          -68,80 % |          15,13 % |           3,35 % |     -11,77 pp |             -4,17 % |
-| ASUS Notebook 5            | Computación | Continuo      |           $10,49 M |            $3,20 M |        -$7,29 M |          -50,40 % |          34,52 % |          21,25 % |     -13,27 pp |             15,88 % |
-| Philips Barra de Sonido 28 | Audio       | Continuo      |           $13,04 M |            $6,24 M |        -$6,80 M |          -22,85 % |          22,18 % |          13,75 % |      -8,42 pp |              7,41 % |
-| Samsung Smartphone 14      | Telefonía   | Continuo      |            $7,73 M |            $1,16 M |        -$6,58 M |          -76,61 % |          32,85 % |          21,04 % |     -11,81 pp |             14,81 % |
-| Sony Parlante Bluetooth 31 | Audio       | Continuo      |           $10,52 M |            $4,44 M |        -$6,08 M |          -28,59 % |          26,68 % |          15,76 % |     -10,92 pp |              8,36 % |
-| Edifier Auriculares 29     | Audio       | Continuo      |            $3,99 M |           -$0,31 M |        -$4,30 M |          -39,68 % |          13,49 % |          -1,72 % |     -15,21 pp |             -8,31 % |
-| Anker Mousepad 34          | Accesorios  | Continuo      |            $2,43 M |           -$0,32 M |        -$2,75 M |          -46,19 % |          15,32 % |          -3,80 % |     -19,12 pp |            -14,09 % |
-| Anker Hub USB 36           | Accesorios  | Continuo      |            $0,94 M |           -$1,31 M |        -$2,25 M |          -36,84 % |           4,57 % |         -10,06 % |     -14,63 pp |            -15,76 % |
-| Liliana Ventilador 47      | Hogar       | Continuo      |            $0,77 M |           -$1,16 M |        -$1,93 M |          -14,22 % |           4,94 % |          -8,69 % |     -13,63 pp |            -16,11 % |
-| Edifier Auriculares 32     | Audio       | Nuevo en 2026 |                  — |           -$3,04 M |        -$3,04 M |                 — |                — |         -13,48 % |             — |            -13,48 % |
-| Dell Teclado 3             | Computación | Nuevo en 2026 |                  — |           -$0,56 M |        -$0,56 M |                 — |                — |         -24,61 % |             — |            -24,61 % |
-
-**Notas metodológicas:**
-
-* Los importes se presentan redondeados para facilitar la lectura; los cálculos se realizan sobre los valores originales.
-* En los productos nuevos en 2026 no existe una base comparable de 2025. Por eso, la variación interanual de ventas y margen no corresponde.
-* Los márgenes negativos representan pérdidas bajo la definición de ganancia neta operativa del modelo, que considera ventas netas finales, costo de los productos vendidos y costo logístico asignado.
-* El margen del segundo semestre corresponde al período acumulado disponible en la consulta, no necesariamente al semestre completo.
-* Los resultados mostrados no representan todos los productos con margen negativo: se seleccionaron casos relevantes para el diagnóstico.
-
-#### 🔎 Hallazgos principales
-
-**1. TCL Monitor TV 21 es el principal foco de pérdida absoluta.**
-
-La ganancia neta cae $44,28 millones frente a 2025, la mayor disminución entre los productos destacados. Las ventas netas finales retroceden un 54,94 % y el margen neto baja del 18,03 % al 12,08 %.
-
-El producto continúa siendo rentable en el acumulado de 2026, pero aporta considerablemente menos ganancia que en el año anterior. Su caso representa principalmente un problema de pérdida de escala comercial acompañado de deterioro del margen.
-
-**2. La contracción comercial de TV y Video también alcanza a otros productos relevantes.**
-
-TCL Chromecast 25 pierde $26,80 millones de ganancia neta, mientras que Samsung Smart TV 20 pierde $9,70 millones.
-
-En este último caso, el margen neto se reduce al 3,35 % y resulta negativo en el segundo semestre acumulado (-4,17 %). Por lo tanto, además de la caída del volumen, existe una señal de deterioro reciente de su rentabilidad.
-
-**3. TCL Monitor TV 19 pasa de generar ganancias a operar con pérdidas.**
-
-La ganancia neta cambia de $12,24 millones en 2025 a -$1,86 millones en 2026. El margen bruto también se vuelve negativo (-3,04 %), mientras que el margen neto llega al -3,66 % en el acumulado anual y al -13,69 % en el segundo semestre acumulado.
-
-Es uno de los casos más críticos porque combina una fuerte caída de las ventas con un deterioro suficiente para convertir un producto rentable en uno deficitario.
-
-**4. Algunos productos de Accesorios y Hogar también presentan márgenes negativos.**
-
-Anker Hub USB 36 alcanza un margen neto de -10,06 % y Anker Mousepad 34, de -3,80 %. En Hogar, Liliana Ventilador 47 llega al -8,69 %.
-
-Los tres muestran márgenes negativos en el segundo semestre acumulado, lo que refuerza las señales observadas en el análisis por categoría. Estos casos merecen una revisión específica de precios, costos de adquisición, descuentos, condiciones logísticas y volumen vendido.
-
-**5. Los lanzamientos de 2026 tienen resultados heterogéneos.**
-
-Edifier Auriculares 32 registra un margen neto de -13,48 %, mientras que Dell Teclado 3 presenta el valor más bajo entre los casos destacados (-24,61 %).
-
-Sin embargo, no todos los productos nuevos tienen resultados negativos. Philips Equipo de Audio 30 alcanza una ganancia neta de $6,75 millones y un margen neto del 21,13 %; Acer Notebook 7 obtiene $1,88 millones y un margen del 10,12 %.
-
-Por lo tanto, el problema no debe atribuirse automáticamente a la novedad del producto. Es necesario evaluar cada lanzamiento de acuerdo con su contribución económica, sus costos y su evolución comercial.
-
-**6. La pérdida absoluta y el peor margen son indicadores distintos.**
-
-TCL Monitor TV 21 presenta la mayor caída absoluta de ganancia neta, pero mantiene un margen positivo. En cambio, Anker Hub USB 36, TCL Monitor TV 19 y Liliana Ventilador 47 muestran márgenes negativos.
-
-Esta distinción es central para priorizar acciones: un producto puede requerir recuperar volumen y contribución sin ser deficitario, mientras que otro puede necesitar una revisión urgente de su estructura de costos y condiciones comerciales.
-
-#### 💡 Lectura de negocio
-
-El análisis por producto identifica dos prioridades complementarias:
-
-* **Recuperar contribución económica:** investigar la caída de ventas y ganancia en productos relevantes como TCL Monitor TV 21, TCL Chromecast 25 y Acer Memoria RAM 2.
-* **Corregir productos deficitarios:** revisar la rentabilidad de TCL Monitor TV 19, Anker Hub USB 36, Anker Mousepad 34, Liliana Ventilador 47 y los lanzamientos que presentan márgenes negativos.
-
-El objetivo no debería ser recuperar ventas indiscriminadamente, sino identificar qué combinación de volumen, precio, descuentos, costo de producto y logística permite recuperar una contribución rentable.
-
----
-
-### 🔹 Puente analítico → Conclusiones generales
-
-Q7 completa la investigación desde la visión consolidada hasta el detalle de categorías y productos.
-
-* **Q1–Q3** identifican la contracción comercial: la evolución de las ventas, el ticket, las unidades por pedido y el desempeño de los canales.
-* **Q2 y Q4** descomponen los cambios comerciales y del ASP, permitiendo distinguir los efectos del volumen, la composición de productos, los precios y los descuentos.
-* **Q6** explica cómo estos cambios y la evolución de los costos repercuten sobre la ganancia bruta.
-* **Q7** localiza la pérdida de rentabilidad: identifica las categorías que concentran el deterioro y los productos que más contribuyen a la caída o que ya operan con márgenes negativos.
-
-El diagnóstico resultante tiene tres dimensiones:
-
-1. **Contracción de escala:** la pérdida de ventas y volumen en productos relevantes reduce la ganancia generada.
-2. **Compresión de márgenes:** el costo de ventas absorbe una proporción creciente de las ventas, mientras que la incidencia logística aumenta especialmente en algunas categorías.
-3. **Rentabilidad desigual por producto:** conviven productos que siguen generando ganancias, pero aportan menos que en 2025, con otros que ya registran márgenes negativos.
-
-La investigación permite así pasar de una descripción de la caída de rentabilidad a una identificación concreta de sus principales focos. Las conclusiones generales deberán integrar estas dimensiones y las recomendaciones estratégicas deberán priorizar acciones según el impacto económico, sin confundir pérdida absoluta de ganancia con margen negativo.
-
+| Cuadrante | ID | Producto | Categoría | Canal | Unid. | Ventas Netas | Ganancia Bruta | Costo Logístico | Ganancia Neta 2026 | Margen Bruto % | Margen Neto % | Ganancia Neta 2S 2026 |
+| :--- | ---: | :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 🔴 **C1** | 32 | Edifier Auriculares 32 | Audio | Online | 90 | $18,34M | −$1,64M | $1,00M | **−$2,65M** | −8,97% | −14,44% | **−$2,65M** |
+| 🔴 **C1** | 19 | TCL Monitor TV 19 | TV y Video | Online | 22 | $32,36M | −$1,52M | $0,32M | **−$1,83M** | −4,68% | −5,66% | **−$2,70M** |
+| 🔴 **C1** | 36 | Anker Hub USB 36 | Accesorios | Online | 100 | $9,95M | −$0,54M | $0,65M | **−$1,19M** | −5,44% | −11,99% | **−$1,15M** |
+| 🔴 **C1** | 47 | Liliana Ventilador 47 | Hogar | Online | 126 | $11,18M | −$0,16M | $0,94M | **−$1,10M** | −1,43% | −9,86% | **−$1,15M** |
+| 🟠 **C2** | 34 | Anker Mousepad 34 | Accesorios | Online | 226 | $7,08M | +$0,91M | $1,41M | **−$0,50M** | +12,86% | −7,05% | **−$0,67M** |
+| 🟠 **C2** | 29 | Edifier Auriculares 29 | Audio | Online | 128 | $13,93M | +$0,63M | $1,11M | **−$0,48M** | +4,49% | −3,44% | **−$0,87M** |
+| 🔴 **C1** | 3 | Dell Teclado 3 | Computación | Online | 13 | $1,75M | −$0,30M | $0,14M | **−$0,44M** | −17,00% | −25,09% | **−$0,44M** |
+| 🔴 **C1** | 32 | Edifier Auriculares 32 | Audio | Físico | 21 | $4,24M | −$0,39M | $0,00M | **−$0,39M** | −9,31% | −9,31% | **−$0,39M** |
+| 🟠 **C2** | 27 | JBL Parlante Bluetooth 27 | Audio | Online | 38 | $7,19M | +$0,04M | $0,36M | **−$0,33M** | +0,51% | −4,55% | **−$0,50M** |
+| 🟠 **C2** | 8 | Lenovo Mouse 8 | Computación | Online | 19 | $4,31M | +$0,03M | $0,18M | **−$0,15M** | +0,60% | −3,59% | **−$0,09M** |
+| 🔴 **C1** | 3 | Dell Teclado 3 | Computación | Físico | 4 | $0,53M | −$0,12M | $0,00M | **−$0,12M** | −23,01% | −23,01% | **−$0,12M** |
+| 🔴 **C1** | 36 | Anker Hub USB 36 | Accesorios | Físico | 31 | $3,08M | −$0,12M | $0,00M | **−$0,12M** | −3,85% | −3,85% | **−$0,17M** |
+| 🔴 **C1** | 47 | Liliana Ventilador 47 | Hogar | Físico | 25 | $2,19M | −$0,06M | $0,00M | **−$0,06M** | −2,69% | −2,69% | **−$0,10M** |
+| 🔴 **C1** | 19 | TCL Monitor TV 19 | TV y Video | Físico | 13 | $18,56M | −$0,03M | $0,00M | **−$0,03M** | −0,17% | −0,17% | **−$0,93M** |
+| 🔴 **C1** | 27 | JBL Parlante Bluetooth 27 | Audio | Físico | 7 | $1,30M | −$0,02M | $0,00M | **−$0,02M** | −1,76% | −1,76% | **−$0,04M** |
+| 🟠 **C2** | 50 | Liliana Cafetera 50 | Hogar | Online | 3 | $0,16M | +$0,01M | $0,03M | **−$0,02M** | +6,07% | −13,62% | **−$0,02M** |
+| 🔴 **C1** | 8 | Lenovo Mouse 8 | Computación | Físico | 3 | $0,66M | −$0,02M | $0,00M | **−$0,02M** | −3,03% | −3,03% | **−$0,01M** |
+| 🟠 **C2** | 39 | TP-Link Hub USB 39 | Accesorios | Online | 3 | $0,42M | +$0,02M | $0,02M | **−$0,01M** | +3,98% | −1,77% | **−$0,01M** |
+| 🔴 **C1** | 11 | Motorola Smartphone 11 | Telefonía | Físico | 5 | $3,15M | −$0,01M | $0,00M | **−$0,01M** | −0,16% | −0,16% | **−$0,08M** |
+
+#### 🔹 Hallazgos
+
+**1. Alta concentración del daño en los Top 4 Destructores Brutos (C1)**
+Solo cuatro productos comercializados en Online explican **−$6,77 M en pérdidas netas directas** (el 71,4% de toda la destrucción de caja de los cuadrantes C1 y C2):
+- **Edifier Auriculares 32 (Online):** Pierde −$2,65 M (Margen Neto −14,44%).
+- **TCL Monitor TV 19 (Online):** Pierde −$1,83 M (Margen Neto −5,66%).
+- **Anker Hub USB 36 (Online):** Pierde −$1,19 M (Margen Neto −11,99%).
+- **Liliana Ventilador 47 (Online):** Pierde −$1,10 M (Margen Neto −9,86%).
+
+**2. Caso emblemático de Fuga Logística (C2): Anker Mousepad 34**
+Este producto generó un volumen saludable de 226 unidades y una **Ganancia Bruta positiva de +$0,91 M (12,86% de margen bruto)**. Sin embargo, la empresa absorbió **$1,41 M en costos de envío** (un 19,9% sobre la venta neta), convirtiendo la operación en una pérdida neta final de **−$0,50 M**.
+
+**3. Evidencia de Aceleración y "Price Lag" en el 2º Semestre (2S 2026)**
+La comparación con la ganancia neta del segundo semestre demuestra que **el deterioro financiero fue un incendio que se aceleró bruscamente a fines de 2026**:
+- **TCL Monitor TV 19 (Online):** Mientras el acumulado anual marca −$1,83 M, la pérdida en el 2S fue de **−$2,70 M** (lo que significa que en el 1S había sido rentable).
+- **TCL Monitor TV 19 (Físico):** Cierra el año en −$0,03 M, pero en el 2S perdió **−$0,93 M**.
+- **Edifier Auriculares 32 (Online):** La totalidad de la pérdida del año (−$2,65 M) se concentró en el segundo semestre.
+
+ Esto confirma que la empresa sufrió un severo retraso en el ajuste de precios comerciales frente a la subida de costos de reposición (COGS) e incrementos de tarifas logísticas durante la segunda parte del año.
+
+<br>
+
+#### 🔹 Conclusión de Salud de Cartera (Q7)
+
+El P&L de 2026 expone que **el 15,1% de la facturación comercializada es deficitaria**. La empresa no enfrenta simplemente un problema de volumen generalizado, sino una **fuga activa de liquidez** concentrada en **fijeza de precios por debajo de costos (C1)** e **incapacidad para cobrar envíos en productos de bajo ticket (C2)**, fenómenos que se profundizaron críticamente en el segundo semestre de 2026.
+
+<br>
 </details>
 
 
