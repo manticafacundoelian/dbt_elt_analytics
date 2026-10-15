@@ -534,63 +534,110 @@ Con esto, la **Rama Comercial queda completa**. La **Rama de Rentabilidad (Q5–
 #### ├─ 🔹 Q5 — Estructura de Rentabilidad y Ratios P&L: ¿Cómo se deterioró la rentabilidad?
 
 <details>
-<summary><strong>Ver desarrollo de Q5</strong></summary>  
+<summary><strong>Ver desarrollo de Q5</strong></summary>
 
 <br>
 
 #### 🔹 Síntesis
 
-La rentabilidad se deterioró por una **mayor presión del Costo de Ventas sobre el ingreso retenido**, acompañada por un incremento del peso de los **costos logísticos**.
+La rentabilidad se deterioró por una **mayor absorción de las Ventas Netas Finales por parte del Costo de Ventas**, acompañada por un incremento del peso de los costos logísticos. Aunque el deterioro se observa en la comparación interanual, **la crisis se profundizó especialmente entre S1 y S2 de 2026**, cuando el Margen Neto cayó de 16,89% a 2,30%.
 
-El problema no comienza en 2026: ya durante 2025 el crecimiento de las ventas dejó de traducirse en una mejora equivalente de la **Ganancia Bruta y el Margen Neto**.
+La **Ganancia Bruta es el principal foco de investigación**: cayó un 76,56% entre ambos semestres, reflejando el fuerte deterioro de la relación entre ingresos y costo de ventas. La mayor presión logística agravó posteriormente la caída de la Ganancia Neta.
+
+<br>
+
+#### 🔸 Q5.A — Evolución Interanual: ¿Cómo cambió la rentabilidad entre 2025 y 2026?
+
+[Ver Consulta SQL →](./sql_business_analysis/q5_a_rentabilidad_interanual.sql) <br>
+
+##### 🔹 Resultados
+
+| Métrica                   |       2025 |     2026 | Variación 2026 |
+| :------------------------ | ---------: | -------: | -------------: |
+| **Ventas Netas Finales**  | $1.580,3 M | $928,9 M |    **−41,22%** |
+| **Costo de Ventas**       | $1.270,0 M | $804,0 M |    **−36,69%** |
+| **Costo de Ventas / VNF** |     80,37% |   86,56% |   **+6,19 pp** |
+| **Ganancia Bruta**        |   $310,2 M | $124,9 M |    **−59,75%** |
+| **Margen Bruto**          |     19,63% |   13,44% |   **−6,19 pp** |
+| **Costo Logístico**       |    $14,5 M |  $23,1 M |    **+59,02%** |
+| **Costo Logístico / VNF** |      0,92% |    2,49% |   **+1,57 pp** |
+| **Ganancia Neta**         |   $295,7 M | $101,8 M |    **−65,58%** |
+| **Margen Neto**           |     18,71% |   10,96% |   **−7,75 pp** |
+
+> Para el análisis de rentabilidad se toma como base la **Venta Neta Final (VNF)**, es decir, la venta después de devoluciones aprobadas. Los ratios se calculan sobre el ingreso económico efectivamente retenido por la empresa.
+
+##### 🔹 Hallazgos
+
+**1. El Costo de Ventas absorbe una proporción creciente del ingreso**
+
+Entre 2025 y 2026, el ratio Costo de Ventas / VNF aumentó **6,19 pp**, pasando de 80,37% a 86,56%. Como consecuencia, el Margen Bruto descendió de 19,63% a 13,44%.
+
+La Ganancia Bruta cayó **59,75%**, una contracción superior a la de las Ventas Netas Finales (−41,22%). El deterioro, por lo tanto, no se limita a una menor escala de ventas: el ingreso retenido también genera una ganancia bruta proporcionalmente menor.
+
+**2. La presión logística aumenta en un contexto de contracción comercial**
+
+El Costo Logístico pasó de $14,5 M a $23,1 M, un incremento del **59,02%**. Su peso sobre las Ventas Netas Finales subió de 0,92% a 2,49%, es decir, **1,57 pp**.
+
+Este incremento agrega presión sobre el resultado después de que el Costo de Ventas ya absorbió una proporción mayor del ingreso.
+
+**3. La Ganancia Neta cae más que las ventas**
+
+La Ganancia Neta disminuyó **65,58%**, frente a una caída del 41,22% en las Ventas Netas Finales. El Margen Neto pasó de 18,71% a 10,96%, con una reducción de **7,75 pp**.
+
+La evolución interanual confirma un deterioro significativo de la rentabilidad, pero todavía no muestra cómo se distribuyó ese deterioro a lo largo de 2026.
 
 <br>
 
-[Ver Consulta SQL →](./sql_business_analysis/q4_rentabilidad_ratios_pnl.sql) <br>
+#### 🔸 Q5.B — Evolución Semestral: ¿Cuándo se profundizó la crisis de rentabilidad en 2026?
 
+[Ver Consulta SQL →](./sql_business_analysis/q5_b_rentabilidad_semestral.sql) <br>
 
-#### 🔹 Resultados
+##### 🔹 Resultados
 
-| Métrica                      |       2024 |       2025 |     YoY 2025 |     2026 |     YoY 2026 |
-| :--------------------------- | ---------: | ---------: | -----------: | -------: | -----------: |
-| **Ventas Netas Finales**     | $1.253,3 M | $1.580,3 M |  **+26,09%** | $928,9 M |  **−41,22%** |
-| **Costo de Ventas**          |   $943,1 M | $1.270,0 M |  **+34,60%** | $804,0 M |  **−36,69%** |
-| **Costo de Ventas / VNF** |     75,25% |     80,37% | **+5,12 pp** |   86,56% | **+6,19 pp** |
-| **Ganancia Bruta**           |   $310,2 M |   $310,2 M |   **−0,01%** | $124,9 M |  **−59,75%** |
-| **Margen Bruto**             |     24,75% |     19,63% | **−5,12 pp** |   13,44% | **−6,19 pp** |
-| **Costo Logístico / VNF** |      0,81% |      0,92% | **+0,11 pp** |    2,49% | **+1,57 pp** |
-| **Ganancia Neta**            |   $300,1 M |   $295,7 M |   **−1,47%** | $101,8 M |  **−65,58%** |
-| **Margen Neto**              |     23,95% |     18,71% | **−5,24 pp** |   10,96% | **−7,75 pp** |
+| Métrica                   |  2026-S1 |  2026-S2 | Variación S2 vs. S1 |
+| :------------------------ | -------: | -------: | ------------------: |
+| **Ventas Netas Finales**  | $551,2 M | $377,6 M |         **−31,49%** |
+| **Costo de Ventas**       | $450,1 M | $353,9 M |         **−21,36%** |
+| **Costo de Ventas / VNF** |   81,65% |   93,72% |       **+12,07 pp** |
+| **Ganancia Bruta**        | $101,1 M |  $23,7 M |         **−76,56%** |
+| **Margen Bruto**          |   18,35% |    6,28% |       **−12,07 pp** |
+| **Costo Logístico**       |   $8,1 M |  $15,0 M |         **+86,65%** |
+| **Costo Logístico / VNF** |    1,46% |    3,98% |        **+2,52 pp** |
+| **Ganancia Neta**         |  $93,1 M |   $8,7 M |         **−90,68%** |
+| **Margen Neto**           |   16,89% |    2,30% |       **−14,59 pp** |
 
-> Para el análisis de rentabilidad se toma como base la **Venta Neta Final**, es decir, la venta después de devoluciones aprobadas. Esta decisión busca medir la rentabilidad sobre el **ingreso económico efectivamente retenido por la empresa**.
+> S1 comprende enero-junio de 2026 y S2, julio-diciembre. La comparación permite identificar en qué tramo del año se intensificó el deterioro de la rentabilidad.
 
-#### 🔹 Hallazgos
+##### 🔹 Hallazgos
 
-**1. El costo de ventas absorbe una proporción cada vez mayor de las Ventas Netas Finales**
+**1. El segundo semestre concentra el deterioro más severo**
 
-Entre 2025 y 2026, el **Costo de Ventas / Ventas** aumentó **6,19 pp**, pasando de 80,37% a 86,56%.
+Entre S1 y S2, las Ventas Netas Finales disminuyeron **31,49%**, pero la Ganancia Bruta cayó **76,56%**, pasando de $101,1 M a $23,7 M.
 
-Como consecuencia, el **Margen Bruto** se redujo en la misma magnitud, de 19,63% a 13,44%.
+El Costo de Ventas pasó de representar el 81,65% al 93,72% de las ventas, un aumento de **12,07 pp**. En consecuencia, el Margen Bruto se redujo de 18,35% a 6,28%.
 
-El deterioro resulta especialmente relevante porque entre 2024 y 2025 las ventas habían crecido **26,09%**, pero la **Ganancia Bruta permaneció prácticamente sin cambios**, pasando de $310,2 M a $310,2 M.
+Al cierre de S2, por cada $100 de ingreso retenido, quedaban apenas **$6,28 de ganancia bruta** antes de cubrir los costos logísticos.
 
-**2. La presión logística se intensifica en 2026**
+**2. El incremento de la carga logística agrava el deterioro**
 
-El **Costo Logístico / Ventas** pasó de 0,92% en 2025 a 2,49% en 2026, un aumento de **1,57 pp**.
+El Costo Logístico aumentó de $8,1 M a $15,0 M, una suba del **86,65%**, pese a la contracción de las ventas.
 
-Aunque su peso es significativamente menor que el del Costo de Ventas, la mayor carga logística reduce todavía más la rentabilidad una vez deteriorado el margen bruto.
+Su participación sobre las Ventas Netas Finales pasó de 1,46% a 3,98%, un incremento de **2,52 pp**. Así, la logística ejerció una presión adicional sobre un margen bruto que ya se había reducido drásticamente.
 
-**3. La rentabilidad cae mucho más que las ventas**
+**3. La rentabilidad neta queda prácticamente desarticulada**
 
-Entre 2025 y 2026, las **Ventas Netas Finales disminuyeron 41,22%**, mientras que la **Ganancia Neta cayó 65,58%**.
+La Ganancia Neta cayó de $93,1 M a $8,7 M, una disminución del **90,68%**. El Margen Neto pasó de 16,89% a 2,30%, perdiendo **14,59 pp**.
 
-En consecuencia, el **Margen Neto** pasó de 18,71% a 10,96%, una reducción de **7,75 pp**.
-
-El deterioro no responde únicamente a una menor escala de ventas: una proporción creciente de las **Ventas Netas Finales** es absorbida por el **Costo de Ventas**, mientras que el **Costo Logístico** agrega una presión adicional sobre el resultado final.
-
-El siguiente paso es determinar cuánto del deterioro de la **Ganancia Bruta** corresponde a cada componente económico.
+La magnitud de la caída evidencia que el problema no es solamente la reducción de los ingresos: en S2, la combinación de un margen bruto mucho menor y una carga logística más elevada dejó una capacidad muy limitada para generar Ganancia Neta.
 
 <br>
+
+#### 🔹 Puente analítico → Q6
+
+El deterioro de la rentabilidad se concentra en la **Ganancia Bruta**, que cayó un 76,56% entre ambos semestres de 2026. El siguiente análisis descompone esta variación para cuantificar la contribución de los distintos componentes económicos que explican el cambio en el resultado.
+
+<br>
+</details>
 
 #### ├─ 🔹 Q6 — Puente de Ganancia Bruta 1S → 2S 2026: ¿Por qué cayó la Ganancia Bruta?
 
@@ -601,27 +648,15 @@ El siguiente paso es determinar cuánto del deterioro de la **Ganancia Bruta** c
 
 #### 🔹 Síntesis
 
-Q5 mostró que el resultado no se deteriora parejo: **la caída real de la rentabilidad está en el 2S de 2026**. **Q6 explica por qué cayó la Ganancia Bruta entre el 1S y el 2S** descomponiendo la variación en seis efectos (volumen, mezcla, precio, costo, productos nuevos y discontinuados) y la abre en cuatro niveles: empresa, canal, categoría × canal y producto × canal. Se lee en cuatro pasos:
+La Ganancia Bruta cayó **76,6% entre el 1S y el 2S de 2026**, de $101,15 M a $23,71 M (−$77,44 M), y el margen bruto retrocedió de 18,35% a 6,28%.
 
-- **Cuánto y por qué (Q6.A):** la Ganancia Bruta cayó **76,6%**, de **$101,15 M a $23,71 M (−$77,44 M)**, y el margen bruto de **18,35% a 6,28%**. El **costo explica el 56,0%** (−$43,35 M) y la **mezcla de productos el 33,8%** (−$26,19 M); el precio no compensó nada (**+$0,72 M**) y el **volumen total casi no cuenta** (−$0,34 M, 0,4%).
-- **En qué canal (Q6.B):** **Online explica el 77,7%** de la caída (−$60,17 M) y **Físico el 22,3%** (−$17,26 M), casi en proporción a su peso. En los dos canales el costo es el efecto principal y el margen bruto cae **−11,8 pp en Online y −13,1 pp en Físico**.
-- **En qué categorías (Q6.C):** **TV y Video explica el 53,1%** de la caída: su Ganancia Bruta se evaporó (**de $41,25 M a $0,14 M**). Con Computación y Telefonía, las tres categorías de ticket alto concentran el **83,0%**.
-- **En qué productos (Q6.D):** el costo unitario **subió en los 78 productos que se vendieron en ambos semestres** (mediana **+13,9%**) y el precio casi no se movió (mediana **+0,2%**). La mezcla negativa viene de **5 productos Online** que perdieron la mayor parte de sus unidades, y **dos lanzamientos** (Edifier Auriculares 32 y Dell Teclado 3) salieron con precio por debajo del costo.
+El deterioro se explica principalmente por dos efectos: **el costo, con una contribución negativa de $43,35 M (56,0% de la caída), y la mezcla de productos, con −$26,19 M (33,8%)**. El efecto precio fue levemente positivo (+$0,72 M), mientras que el volumen tuvo una incidencia marginal (−$0,34 M).
 
-**Conclusión:** la Ganancia Bruta se desplomó por dos causas distintas. Una es **generalizada: el costo unitario subió en todos los productos y el precio no lo acompañó (56%)**. La otra es **puntual: cayeron las unidades de unos pocos productos de ticket alto, sobre todo en TV y Video Online (mezcla, 34%)**. El volumen total no explica la caída: las unidades crecieron, pero en productos que dejan poco margen por unidad.
+La descomposición por canal y categoría muestra que el deterioro alcanza a ambos canales y se concentra en **TV y Video, Computación y Telefonía**, que reúnen el 83,0% de la caída. A nivel de producto, la presión del costo se extiende a todos los segmentos continuos analizados, mientras que el efecto negativo de mezcla se concentra en unos pocos productos de ticket alto, principalmente de TV y Video Online.
 
-> *Notas de lectura: (1) Todo es 2026, pedidos entregados y neto de devoluciones; 1S = enero–junio y 2S = julio–diciembre. Las unidades son efectivas (1.719 en el 1S y 1.816 en el 2S, 3.535 en total). El "precio" es el precio realizado (Ventas Netas Finales ÷ unidades efectivas), es decir, neto de descuentos y devoluciones, y el "costo" es el COGS final por unidad. (2) La unidad de análisis es el **segmento producto × canal** (94 en total). Es **continuo** si vendió unidades en ambos semestres (78 segmentos), **nuevo en 2S** si solo vendió en el 2S (8 segmentos: 3 SKUs nuevos en sus dos canales y 2 canales nuevos de SKUs que ya existían) y **discontinuado en 2S** si solo vendió en el 1S (8 segmentos: 1 SKU en sus dos canales y 6 canales de SKUs que siguen vendiéndose). Un segmento nuevo puede ser un SKU nuevo o un canal nuevo de un SKU que ya existía; la consulta lo aclara en la columna `origen_segmento`. (3) Precio, costo, volumen y mezcla se calculan solo con los continuos; los nuevos y discontinuados tienen su propio efecto, para que no contaminen a los demás. (4) La Ganancia Bruta no incluye logística: el costo de envío entra recién en Q7. (5) Los efectos son aditivos: Q6.B y Q6.C son la suma de las filas de Q6.D, y en cada nivel los seis efectos suman exactamente la variación de la Ganancia Bruta (residuo $0,00).*
+Además, dos lanzamientos registraron precios realizados inferiores a sus costos unitarios, generando pérdidas desde su incorporación.
 
-**Cómo se calcula cada efecto** (por segmento continuo; u = unidades, p = precio unitario, c = costo unitario, m = margen unitario = p − c; 1 = 1S, 2 = 2S):
-
-| Efecto | Qué mide | Fórmula |
-| :--- | :--- | :--- |
-| **Precio** | Cuánto ganó o perdió el segmento por cobrar distinto con las mismas unidades del 2S | u₂ × (p₂ − p₁) |
-| **Costo** | Cuánto ganó o perdió por pagar distinto cada unidad | u₂ × (c₁ − c₂) |
-| **Volumen** | Efecto de que cambie el total de unidades de los continuos, repartido según el peso de cada segmento en el 1S, valuado al margen unitario del 1S | (U₂ − U₁) × (u₁ ÷ U₁) × m₁ |
-| **Mezcla** | Efecto de que las unidades cambien de un producto a otro, valuado al margen unitario del 1S | U₂ × (u₂ ÷ U₂ − u₁ ÷ U₁) × m₁ |
-| **Nuevos** | Ganancia bruta que aportan los segmentos sin ventas en el 1S | u₂ × m₂ |
-| **Discontinuados** | Ganancia bruta que dejaron de aportar los segmentos sin ventas en el 2S | −u₁ × m₁ |
+**Conclusión:** la caída de la Ganancia Bruta combina una presión generalizada de los costos con una pérdida de contribución de productos de alto valor. El crecimiento de las unidades vendidas no alcanzó para compensar ambos efectos.
 
 <br>
 
@@ -654,21 +689,21 @@ Q5 mostró que el resultado no se deteriora parejo: **la caída real de la renta
 
 #### 🔹 Hallazgos
 
-**1. La Ganancia Bruta cayó 76,6% y el margen bruto perdió 12,07 pp**
+**1. La Ganancia Bruta cayó un 76,6% y el margen bruto perdió 12,07 pp**
 
-Pasó de **$101,15 M a $23,71 M (−$77,44 M)** y el margen bruto de **18,35% a 6,28%**. Las ventas bajaron **31,5%** con **5,6% más de unidades**.
+La Ganancia Bruta pasó de **$101,15 M a $23,71 M (−$77,44 M)** y el margen bruto, del **18,35% al 6,28%**. Las ventas cayeron un **31,5%**, pese a que las unidades efectivas aumentaron un **5,6%**.
 
-**2. El costo explica el 56% y el precio no compensó nada**
+**2. El costo fue el principal factor negativo**
 
-El efecto costo es de **−$43,35 M** y el efecto precio de **+$0,72 M**: por cada peso que el precio recuperó, el costo se llevó **$60**. No es un problema de precios que bajaron: los precios no cayeron, el costo subió.
+El efecto costo restó **$43,35 M (56,0% de la caída)**, mientras que el efecto precio aportó apenas **$0,72 M**. La contribución positiva del precio fue insuficiente para compensar el impacto negativo del costo.
 
-**3. El volumen no explica la caída: lo que se movió fue qué productos se vendieron**
+**3. La caída se explica principalmente por la composición de las ventas**
 
-Las unidades subieron **+97** (1.719 a 1.816), pero los productos que se vendieron en ambos semestres vendieron prácticamente lo mismo (**−6 unidades**, de ahí el efecto volumen de apenas −$0,34 M). El crecimiento sale de **+135 unidades en segmentos nuevos** y **−32 en discontinuados**. La caída de la Ganancia Bruta aparece en la **mezcla (−$26,19 M, 33,8%)**: se vendieron menos unidades de los productos que dejan más margen por unidad.
+Aunque las unidades efectivas aumentaron en 97, los segmentos continuos registraron una reducción de 6 unidades. El crecimiento neto provino de **135 unidades en segmentos nuevos**, parcialmente compensadas por la pérdida de 32 unidades en segmentos discontinuados. El efecto mezcla restó **$26,19 M (33,8% de la caída)**, reflejando la menor contribución de los productos vendidos en el segundo semestre.
 
-**4. El precio promedio por unidad engaña**
+**4. Los promedios por unidad no reflejan por sí solos los cambios de precio y costo**
 
-El precio promedio por unidad bajó **35,1%** ($320.661 a $207.952) y el costo promedio **25,6%**, pero **no es una baja de precios**: es que se vendieron más productos baratos y menos caros. El efecto precio puro, producto por producto, es **+$0,72 M**.
+El precio promedio por unidad cayó un **35,1%** y el costo promedio, un **25,6%**. Sin embargo, ambos indicadores también están afectados por los cambios en la composición de las ventas. El efecto precio del puente, que aísla la variación de precio en los segmentos continuos, fue positivo en **$0,72 M**.
 
 <br>
 
@@ -688,13 +723,13 @@ El precio promedio por unidad bajó **35,1%** ($320.661 a $207.952) y el costo p
 
 #### 🔹 Hallazgos
 
-**1. El problema está en los dos canales y casi en proporción a su tamaño**
+**1. La caída afecta a ambos canales, aunque Online concentra la mayor pérdida monetaria**
 
-Online explica el **77,7%** de la caída (−$60,17 M) y Físico el **22,3%** (−$17,26 M), con un peso en la Ganancia Bruta del 1S de 78,7% y 21,3%. El margen bruto baja **−11,81 pp en Online** (18,28% a 6,47%) y **−13,08 pp en Físico** (18,60% a 5,52%): el Físico cae más, y acá el flete no interviene (la Ganancia Bruta no lo incluye).
+Online explica el **77,7% de la caída de la Ganancia Bruta (−$60,17 M)** y Físico el **22,3% (−$17,26 M)**, en proporciones similares a su participación en la Ganancia Bruta del 1S. Sin embargo, el margen bruto retrocedió más en Físico: **−13,08 pp**, frente a **−11,81 pp en Online**. El deterioro, por lo tanto, no se limita al canal de mayor volumen.
 
-**2. El costo es el efecto principal en ambos canales, pero el resto se reparte distinto**
+**2. El costo es el principal efecto negativo en ambos canales, pero los factores secundarios difieren**
 
-En Online el costo explica el **57,7%** (−$34,74 M) y la mezcla el **37,7%** (−$22,70 M). En Físico el costo explica el **49,9%** (−$8,61 M), los **productos sin ventas en el 2S el 27,6%** (−$4,76 M) y la mezcla el **20,2%** (−$3,49 M). Los discontinuados pesan más en Físico porque ahí están **6 de los 8 segmentos** que dejaron de vender (ver Q6.D).
+En Online, el costo restó **$34,74 M** y la mezcla, **$22,70 M**. En Físico, el costo también fue el principal efecto negativo (**−$8,61 M**), seguido por los segmentos discontinuados (**−$4,76 M**) y la mezcla (**−$3,49 M**). La mayor incidencia de los discontinuados en Físico se relaciona con que **6 de los 8 segmentos que dejaron de vender en el 2S corresponden a ese canal**, como se detalla en Q6.D.
 
 <br>
 
@@ -724,21 +759,21 @@ En Online el costo explica el **57,7%** (−$34,74 M) y la mezcla el **37,7%** (
 
 #### 🔹 Hallazgos
 
-**1. TV y Video explica más de la mitad de la caída y su Ganancia Bruta se evaporó**
+**1. TV y Video concentra el 53,1% de la caída y prácticamente pierde toda su Ganancia Bruta**
 
-TV y Video (Online más Físico) pierde **$41,10 M, el 53,1% de la caída**: su Ganancia Bruta pasa de **$41,25 M a $0,14 M**. En Online el margen bruto baja de 15,60% a **0,51%** y en Físico de 15,15% a **−1,31%**: el Físico del 2S pierde plata incluso antes de cualquier flete.
+La categoría perdió **$41,10 M**, al pasar de **$41,25 M a $0,14 M** entre semestres. El deterioro se observa en ambos canales: el margen bruto de Online cayó del 15,60% al 0,51%, mientras que Físico pasó del 15,15% al −1,31%, registrando pérdidas brutas en el 2S.
 
-**2. Las tres categorías de ticket alto concentran el 83% de la caída**
+**2. Las categorías de mayor ticket concentran el 83% de la caída**
 
-TV y Video, Computación y Telefonía pasan de **$72,27 M a $7,98 M** de Ganancia Bruta (**83,0% de la caída**); Accesorios, Audio y Hogar pasan de **$28,88 M a $15,74 M** (17,0%). Esas categorías de ticket alto vendieron **42% menos unidades** (705 a 411) y las de ticket bajo **39% más** (1.014 a 1.405).
+TV y Video, Computación y Telefonía pasaron de **$72,27 M a $7,98 M** de Ganancia Bruta y explican el **83,0% del deterioro**. En conjunto, sus unidades efectivas cayeron un 41,7% (de 705 a 411), mientras que Accesorios, Audio y Hogar aumentaron sus unidades un 38,6% (de 1.014 a 1.405). Este desplazamiento ayuda a explicar la pérdida de contribución por mezcla.
 
-**3. La mezcla negativa se concentra en pocas combinaciones Online**
+**3. El efecto mezcla negativo se concentra en tres combinaciones Online**
 
-TV y Video Online (**−$18,89 M**), Computación Online (**−$9,29 M**) y Telefonía Online (**−$3,63 M**) suman **−$31,81 M** de mezcla, que Audio Online (**+$5,05 M**) y Hogar Online (**+$3,32 M**) compensan en parte porque ganaron unidades.
+TV y Video Online (**−$18,89 M**), Computación Online (**−$9,29 M**) y Telefonía Online (**−$3,63 M**) acumulan **−$31,81 M de efecto mezcla**. Parte de ese impacto se compensa con Audio Online (**+$5,05 M**) y Hogar Online (**+$3,32 M**), que registraron efectos de mezcla positivos.
 
-**4. El costo golpea a todas las categorías**
+**4. El costo tiene un efecto negativo en las 12 combinaciones de categoría y canal**
 
-El efecto costo es negativo en **las 12 combinaciones**, de −$0,57 M (Telefonía Físico) a −$12,43 M (TV y Video Online). En Audio Online es el efecto más grande (**−$9,20 M**), mayor que la caída total de esa combinación (−$5,34 M), porque la mezcla (+$5,05 M) la compensa.
+El efecto costo fue negativo en todas las combinaciones, desde **−$0,57 M en Telefonía Físico hasta −$12,43 M en TV y Video Online**. En Audio Online alcanzó **−$9,20 M**, superando la caída total de esa combinación (−$5,34 M) porque los efectos positivos de mezcla y precio compensaron parcialmente su impacto.
 
 <br>
 
@@ -781,72 +816,74 @@ El efecto costo es negativo en **las 12 combinaciones**, de −$0,57 M (Telefon�
 
 #### 🔹 Hallazgos
 
-**1. Diez segmentos explican el 63% de la caída**
+**1. Diez segmentos explican el 62,8% de la caída**
 
-Los 10 de la tabla suman **−$48,65 M (62,8%)** y son todos de **TV y Video, Computación y Telefonía**. TCL Monitor TV 21 Online solo explica **−$13,65 M**: vendió **72 unidades en el 1S y 28 en el 2S** y su margen unitario bajó de $203.986 a $36.931.
+Los 10 segmentos con mayor deterioro acumulan **−$48,65 M** y pertenecen a TV y Video, Computación y Telefonía. El caso más significativo es **TCL Monitor TV 21 Online**, con un efecto total de **−$13,65 M**: pasó de vender 72 unidades en el 1S a 28 en el 2S, mientras su margen unitario cayó de $203.986 a $36.931.
 
-**2. El costo subió en los 78 productos continuos, y no por unos pocos**
+**2. El aumento del costo fue generalizado**
 
-El costo unitario subió en **78 de 78** segmentos continuos, entre **+2,4% y +32,5%** (mediana **+13,9%**), mientras el precio tuvo una mediana de **+0,2%** y subió en **40 de 78**. Los 10 segmentos con mayor efecto costo concentran **52,3%** del total: es un fenómeno de toda la cartera, no de un puñado de productos. En **TCL Monitor TV 19 Online** el costo subió **26,7%** y el precio **4,2%**: pasó a vender cada unidad **$189.530 por debajo de su costo** y su margen bruto de **7,3% a −12,7%**.
+El costo unitario aumentó en los **78 segmentos producto × canal continuos analizados**, con variaciones de entre **+2,4% y +32,5%** y una mediana del **+13,9%**. En cambio, el precio realizado tuvo una mediana de apenas **+0,2%** y aumentó en 40 de los 78 segmentos. Esto indica que la presión sobre los costos alcanzó a toda la cartera de segmentos continuos, no solamente a los de mayor impacto. En **TCL Monitor TV 19 Online**, por ejemplo, el costo unitario subió un 26,7%, frente a un aumento del precio del 4,2%; el margen bruto pasó del 7,3% al −12,7%.
 
-**3. La mezcla negativa viene de 5 productos Online que perdieron la mayor parte de sus unidades**
+**3. La mezcla negativa se concentra en cinco productos Online**
 
-TCL Monitor TV 21 (**72 a 28** unidades), TCL Chromecast 25 (**56 a 14**), Acer Memoria RAM 2 (**40 a 3**), ASUS Webcam 6 (**34 a 16**) y Lenovo Mouse 1 (**68 a 11**) explican **−$27,53 M de mezcla, el 105% del efecto total** (el resto de los segmentos lo compensa en parte). No son los productos más baratos ganando mercado, sino productos puntuales que dejaron de venderse.
+TCL Monitor TV 21, TCL Chromecast 25, Acer Memoria RAM 2, ASUS Webcam 6 y Lenovo Mouse 1 acumulan **−$27,53 M de efecto mezcla**, equivalente al 105% del efecto mezcla total negativo. La pérdida se relaciona con la fuerte reducción de sus unidades vendidas entre semestres. El resto de los segmentos compensa parcialmente ese impacto.
 
-**4. Dos lanzamientos salieron con precio por debajo del costo**
+**4. Dos lanzamientos generaron pérdidas desde su incorporación**
 
-**Edifier Auriculares 32** (111 unidades, Online y Físico) tiene un precio unitario de **$203.784** contra un costo de **$222.058** y aporta **−$2,04 M** de Ganancia Bruta; **Dell Teclado 3** (17 unidades) vende a **$134.404** con costo de **$157.256** y aporta **−$0,42 M**. Juntos explican **−$2,46 M** del efecto de nuevos (−$2,22 M); los otros cuatro segmentos nuevos suman **+$0,24 M**. Edifier Auriculares 32 es además el **82% de las unidades nuevas** (111 de 135): buena parte del crecimiento en unidades del 2S es un lanzamiento que pierde plata en cada venta.
+**Edifier Auriculares 32** vendió 111 unidades entre Online y Físico, con precios unitarios inferiores a sus costos, y aportó aproximadamente **−$2,04 M** de Ganancia Bruta. **Dell Teclado 3** vendió 17 unidades bajo la misma condición y aportó **−$0,42 M**. En conjunto, ambos lanzamientos generaron **−$2,46 M**, mientras que los otros segmentos nuevos compensaron parcialmente esa pérdida. Edifier concentró el 82% de las unidades de los segmentos nuevos, por lo que una parte importante de las nuevas ventas se originó en un producto con margen unitario negativo.
 
-**5. Los discontinuados son segmentos chicos: no hay que leerlos como una decisión**
+**5. Los segmentos discontinuados no necesariamente representan productos retirados**
 
-De los 8 segmentos que dejaron de vender, **6 son un canal de un SKU que sigue vendiéndose** (**−$5,04 M** de los **−$6,06 M**) y el único SKU que desaparece por completo (LG Chromecast 22, en sus dos canales) suma **−$1,02 M**. Todos vendieron **entre 1 y 13 unidades en el 1S**: con volúmenes tan bajos, no vender en el 2S puede ser azar de demanda y no una salida decidida. El caso más grande es TCL Chromecast 25 en Físico (13 unidades, **−$2,78 M**).
+De los ocho segmentos discontinuados, seis corresponden a canales en los que un producto dejó de venderse, aunque continuó comercializándose por otro canal. Estos concentran **−$5,04 M** de los **−$6,06 M** del efecto discontinuados. El único SKU que dejó de venderse por completo fue LG Chromecast 22, en ambos canales, con un efecto de **−$1,02 M**. Como estos segmentos registraban entre 1 y 13 unidades en el 1S, la ausencia de ventas en el 2S no demuestra por sí sola una decisión comercial de discontinuación.
 
-> *Cómo se conecta con Q8: Q6 mide la caída **en pesos**, donde pesa la mezcla porque perder unidades de un producto que deja $200 mil por unidad cuesta mucho. Q8 mide la caída **en puntos de margen**, donde la mezcla suma a favor (+0,72 pp: esos mismos productos tenían un margen porcentual menor al promedio). Son dos lecturas de la misma caída y no se contradicen: la plata se perdió por el costo y por unos pocos productos que dejaron de venderse; el margen se perdió sobre todo por el costo (89%) y por lanzamientos que entraron a pérdida (16%).*
+
 
 **Límites de la lectura**
 
-- **Cuánto y dónde, no por qué.** Q6 muestra que el costo unitario subió en toda la cartera y que cayeron las unidades de ciertos productos, pero no explica por qué subió el costo ni por qué esos productos vendieron menos.
-- **La mezcla depende de la valuación.** Se mide en pesos, al margen unitario del 1S: un producto de ticket alto pesa más que uno barato aunque la tasa de margen sea menor. Por eso se complementa con Q8.
-- **Segmentos con pocas unidades.** Los nuevos, los discontinuados y varios productos de ticket alto mueven pocas unidades por semestre (a veces una sola). Un caso aislado puede moverse por azar y debería leerse junto con el resto.
-- **Precio realizado.** Incluye descuentos y devoluciones: no distingue entre bajar el precio de lista y dar más descuentos.
-- **Ganancia Bruta, sin logística.** El costo de envío no está en este puente; lo incorpora Q7.
+* **Alcance explicativo:** Q6 identifica dónde se concentra el deterioro, pero no determina las causas comerciales u operativas del aumento de costos ni de la caída de unidades.
+* **Valuación de la mezcla:** el efecto se mide en pesos usando los márgenes unitarios del 1S, por lo que los productos de mayor contribución por unidad tienen más peso. Q8 complementa esta lectura desde los puntos de margen.
+* **Volúmenes reducidos:** algunos segmentos nuevos o discontinuados registran pocas unidades. Sus resultados deben interpretarse con cautela y no como evidencia suficiente de una tendencia o decisión comercial.
+* **Precio realizado:** incorpora descuentos y devoluciones, por lo que no permite distinguir por sí solo entre cambios en el precio de lista y variaciones en los descuentos.
+* **Alcance del puente:** el análisis corresponde a la Ganancia Bruta y no incluye la logística, cuyo impacto se estudia en Q8.
 
 <br>
 
 #### 🔹 Puente analítico → Q7
 
-Q6 respondió **por qué cayó la Ganancia Bruta en pesos**: un costo unitario que subió en toda la cartera sin que el precio lo acompañara, y la caída de unidades de unos pocos productos de ticket alto, sobre todo en TV y Video Online. **Q7 mira la cartera de 2026 con el flete incluido: qué parte pierde plata hoy, por qué vía y desde cuándo.**
+Q6 identificó **dónde y en qué magnitud cayó la Ganancia Bruta en pesos**: el aumento generalizado del costo unitario en los segmentos continuos analizados y la pérdida de contribución de algunos productos de ticket alto, especialmente en TV y Video Online.
 
-</details>
+**Q7 profundiza el diagnóstico desde la rentabilidad**, analizando cuánto del deterioro se relaciona con la variación del margen y cuánto con los cambios en la composición de las ventas.
 
 #### 🔹 Puente analítico → Q7
 
-Q6 cuantifica la descomposición dinámica de la pérdida de Ganancia Bruta entre 2025 y 2026, identificando la **combinación de subida de COGS, colapso de volumen en TV y Video y degradación de Mix** como las causas fundamentales de la erosión monetaria.
+Q6 explicó **cómo se descompone la caída de la Ganancia Bruta en términos monetarios**: el costo fue el principal factor negativo, seguido por la mezcla de productos, mientras que el efecto precio compensó parcialmente la caída.
 
-**Q7 cambia la lente hacia la foto estática de salud del portafolio (2026):** evaluará la calidad actual del margen por SKU e incorporará los costos logísticos y de envío para medir el **Margen de Contribución Post-Logística**, identificando zonas de "fuga silenciosa" y productos que operan a margen negativo.
+**Q7 aborda la misma evolución desde otra perspectiva: la rentabilidad porcentual.** Analiza cómo varió el margen bruto entre semestres y cuánto contribuyeron los distintos efectos a esa variación en puntos porcentuales.
+
 
 <br>
 </details>
 
-#### ├─ 🔹 Q8 — Margen Bruto 1S → 2S 2026: ¿Qué hundió el margen, los productos o la mezcla?
+
+#### ├─ 🔹 Q7 — Margen Bruto 1S → 2S 2026: ¿Qué hundió el margen, los productos o la mezcla?
 
 <details>
-<summary><strong>Ver desarrollo de Q8</strong></summary>  
+<summary><strong>Ver desarrollo de Q7</strong></summary>  
 
 <br>
 
 #### 🔹 Síntesis
 
-Q6 explicó la caída de la Ganancia Bruta **en pesos** y Q7 mostró qué parte de la cartera pierde plata hoy. **Q8 vuelve sobre el margen bruto del 1S al 2S de 2026 y lo mide en puntos porcentuales**: ¿cuánto de la caída se debe a que cada producto gana menos por peso vendido (efecto margen), cuánto a que cambió qué productos se venden (efecto mezcla) y cuánto a los productos que entraron o dejaron de venderse? Igual que Q6, se abre en cuatro niveles. Se lee en cuatro pasos:
+Q6 explicó la caída de la Ganancia Bruta **en pesos**. **Q7 vuelve sobre el margen bruto del 1S al 2S de 2026 y lo mide en puntos porcentuales**: ¿cuánto de la caída se debe a que cada producto gana menos por peso vendido (efecto margen), cuánto a que cambió qué productos se venden (efecto mezcla) y cuánto a los productos que entraron o dejaron de venderse? Igual que Q6, se abre en cuatro niveles. Se lee en cuatro pasos:
 
-- **Cuánto y por qué (Q8.A):** el margen bruto cayó **12,07 pp, de 18,35% a 6,28%**. El **margen propio de los productos explica −10,95 pp (90,8%)**: los productos ganan menos por cada peso que venden. Los **productos nuevos agregan −1,96 pp (16,2%)** y los que dejaron de venderse **−0,13 pp (1,1%)**. La **mezcla juega a favor (+0,97 pp)**: no empeoró el margen, lo amortiguó.
-- **En qué canal (Q8.B):** **Online explica el 77,7%** de la caída (−9,38 pp) y **Físico el 22,3%** (−2,69 pp).
-- **En qué categorías (Q8.C):** seis combinaciones, cinco de ellas Online más TV y Video Físico, explican el **86,6%** de la caída. **TV y Video Online (−3,26 pp) y Audio Online (−3,06 pp)** concentran más de la mitad. El efecto margen es negativo en las **12 combinaciones**.
-- **En qué productos (Q8.D):** los **78 productos continuos perdieron margen** y **23 segmentos terminaron el 2S con margen bruto negativo**: son el 26% de las ventas del 2S y explican **−5,20 pp (43%)** de la caída. Un solo lanzamiento, **Edifier Auriculares 32, explica −1,64 pp (13,6%)**.
+- **Cuánto y por qué (Q7.A):** el margen bruto cayó **12,07 pp, de 18,35% a 6,28%**. El **margen propio de los productos explica −10,95 pp (90,8%)**: los productos ganan menos por cada peso que venden. Los **productos nuevos agregan −1,96 pp (16,2%)** y los que dejaron de venderse **−0,13 pp (1,1%)**. La **mezcla juega a favor (+0,97 pp)**: no empeoró el margen, lo amortiguó.
+- **En qué canal (Q7.B):** **Online explica el 77,7%** de la caída (−9,38 pp) y **Físico el 22,3%** (−2,69 pp).
+- **En qué categorías (Q7.C):** seis combinaciones, cinco de ellas Online más TV y Video Físico, explican el **86,6%** de la caída. **TV y Video Online (−3,26 pp) y Audio Online (−3,06 pp)** concentran más de la mitad. El efecto margen es negativo en las **12 combinaciones**.
+- **En qué productos (Q7.D):** los **78 productos continuos perdieron margen** y **23 segmentos terminaron el 2S con margen bruto negativo**: son el 26% de las ventas del 2S y explican **−5,20 pp (43%)** de la caída. Un solo lanzamiento, **Edifier Auriculares 32, explica −1,64 pp (13,6%)**.
 
 **Conclusión:** el margen bruto cayó 12,07 pp casi por completo porque **los productos ganan mucho menos por cada peso vendido (−10,95 pp, 91%)**, algo que Q6 muestra que viene del costo: el precio casi no se movió. La mezcla no lo empeoró (sumó +0,97 pp) y los lanzamientos que entraron con margen negativo agregaron **−1,96 pp**. La caída está repartida en toda la cartera, pero es más profunda en un grupo de productos que hoy venden por debajo de su costo.
 
-> *Notas de lectura: (1) Todo es 2026, pedidos entregados y neto de devoluciones; 1S = enero–junio y 2S = julio–diciembre. Margen bruto = Ganancia Bruta ÷ Ventas Netas Finales; la **participación** de cada segmento es su peso en las ventas netas del semestre. (2) La unidad de análisis es el segmento producto × canal (94), con los mismos criterios que Q6: **continuo** (ventas en ambos semestres, 78), **nuevo en 2S** (8) y **sin ventas en el 2S** o "discontinuado" (8). Un segmento cuenta como sin ventas si su venta neta es menor a medio centavo. (3) El **efecto margen** reúne precio y costo del propio segmento. Q8 no los separa, pero Q6 sí: el efecto precio fue casi nulo (+$0,72 M contra −$43,35 M del costo), por lo que el efecto margen es esencialmente costo. (4) Cada fila de Q8.B, C y D es la **contribución** del grupo a la variación del margen global, no el cambio de su margen propio: el "efecto margen" de un canal o categoría es la suma de los efectos margen de sus productos. (5) Los efectos son aditivos y en cada nivel suman exactamente la variación del margen global (residuo 0).*
+> *Notas de lectura: (1) Todo es 2026, pedidos entregados y neto de devoluciones; 1S = enero–junio y 2S = julio–diciembre. Margen bruto = Ganancia Bruta ÷ Ventas Netas Finales; la **participación** de cada segmento es su peso en las ventas netas finales del semestre. (2) La unidad de análisis es el segmento producto × canal (94), con los mismos criterios que Q6: **continuo** (ventas en ambos semestres, 78), **nuevo en 2S** (8) y **sin ventas en el 2S** o "discontinuado" (8). Un segmento cuenta como sin ventas si su venta neta es menor a medio centavo. (3) El **efecto margen** reúne precio y costo del propio segmento. Q7 no los separa, pero Q6 sí: el efecto precio fue casi nulo (+$0,72 M contra −$43,35 M del costo), por lo que el efecto margen es esencialmente costo. (4) Cada fila de Q7.B, C y D es la **contribución** del grupo a la variación del margen global, no el cambio de su margen propio: el "efecto margen" de un canal o categoría es la suma de los efectos margen de sus productos. (5) Los efectos son aditivos y en cada nivel suman exactamente la variación del margen global (residuo 0).*
 
 **Cómo se calcula cada efecto** (por segmento; w = participación en las ventas netas del semestre, m = margen bruto del segmento, M₁ = margen bruto global del 1S como referencia; 1 = 1S, 2 = 2S):
 
@@ -861,9 +898,9 @@ Q6 explicó la caída de la Ganancia Bruta **en pesos** y Q7 mostró qué parte 
 
 <br>
 
-#### 🔸 Q8.A — Descomposición Agregada: Total Empresa
+#### 🔸 Q7.A — Descomposición Agregada: Total Empresa
 
-[Ver Consulta SQL →](./sql_business_analysis/q8a_efecto_margen_mix_agregado.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q7a_efecto_margen_mix_agregado.sql) <br>
 
 #### 🔹 Resultados
 
@@ -887,7 +924,7 @@ Q6 explicó la caída de la Ganancia Bruta **en pesos** y Q7 mostró qué parte 
 
 **1. El margen bruto cayó 12,07 pp, de 18,35% a 6,28%**
 
-Las ventas bajaron **31,5%** y la Ganancia Bruta **76,6%**: la Ganancia Bruta cae más que las ventas porque además de vender menos, cada peso vendido deja menos.
+Las ventas bajaron **31,5%** y la Ganancia Bruta **76,6%**: la Ganancia Bruta cae más que las ventas porque además de vender menos, cada peso vendido deja menos. Visto desde el costo, es el mismo movimiento que muestra Q5.B: el costo de ventas pasó de **81,65% a 93,72%** de las ventas (+12,07 pp).
 
 **2. El 91% de la caída es margen propio de los productos, y es esencialmente costo**
 
@@ -903,9 +940,9 @@ Los 8 segmentos nuevos restan **−1,96 pp (16,2%)**: **Edifier Auriculares 32 (
 
 <br>
 
-#### 🔸 Q8.B — Descomposición por Canal
+#### 🔸 Q7.B — Descomposición por Canal
 
-[Ver Consulta SQL →](./sql_business_analysis/q8b_efecto_margen_mix_canal.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q7b_efecto_margen_mix_canal.sql) <br>
 
 #### 🔹 Resultados
 
@@ -929,9 +966,9 @@ En Online la mezcla suma **+1,03 pp** (se achicó el peso de productos de margen
 
 <br>
 
-#### 🔸 Q8.C — Descomposición por Categoría × Canal
+#### 🔸 Q7.C — Descomposición por Categoría × Canal
 
-[Ver Consulta SQL →](./sql_business_analysis/q8c_efecto_margen_mix_categoria_canal.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q7c_efecto_margen_mix_categoria_canal.sql) <br>
 
 #### 🔹 Resultados
 
@@ -963,15 +1000,15 @@ En Online la mezcla suma **+1,03 pp** (se achicó el peso de productos de margen
 
 De los **−3,06 pp** de Audio Online, **−1,33 pp (43%)** son la entrada de Edifier Auriculares 32; el resto (**−1,75 pp**) es el margen propio de sus otros productos, que baja de 21,68% a 6,77%. Es la combinación con la mayor entrada de lanzamientos.
 
-**3. El margen propio cae en las 12 combinaciones; la única que no resta es Telefonía Online**
+**3. El margen propio cae en las 12 combinaciones, pero Telefonía Online termina con contribución positiva**
 
 El efecto margen es negativo en **las 12 combinaciones** (de −0,09 pp en Telefonía Físico a −3,78 pp en TV y Video Online). Telefonía Online es la única con contribución positiva (**+0,14 pp**) porque su mezcla (**+0,71 pp**) compensa su margen propio (−0,56 pp): su peso en las ventas cayó de 7,98% a 2,44%, y eran productos de margen bajo el promedio.
 
 <br>
 
-#### 🔸 Q8.D — Descomposición por Producto × Canal (detalle)
+#### 🔸 Q7.D — Descomposición por Producto × Canal (detalle)
 
-[Ver Consulta SQL →](./sql_business_analysis/q8d_efecto_margen_mix_producto_canal.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q7d_efecto_margen_mix_producto_canal.sql) <br>
 
 #### 🔹 Resultados
 
@@ -1028,491 +1065,27 @@ En Q6 era el mayor perdedor de plata (**−$13,65 M**: vendió 72 unidades en el
 
 **Edifier Auriculares 32** (Online y Físico) vende con margen de **−8,97% y −9,31%** y pesa **5,98%** de las ventas del 2S: resta **−1,64 pp (13,6% de la caída)**. **Dell Teclado 3** vende con **−17,00% y −23,01%** y resta **−0,22 pp**. Son los mismos dos productos que en Q6 aparecen con precio por debajo del costo.
 
-> *Cómo se conecta con Q6 y Q7: Q6 mide la caída en pesos (costo −56%, mezcla −34%) y Q8 en puntos de margen (margen propio −91%, entrada −16%, salida −1%, y una mezcla a favor de +0,97 pp). Son dos lentes del mismo hecho y no se contradicen: la mezcla cuesta plata pero no empeora la tasa. Q7 agrega la logística y muestra el margen neto, donde el flete suma 2,5 pp a la caída.*
+> *Cómo se conecta con Q6 y Q8: Q6 mide la caída en pesos (costo −56%, mezcla −34%) y Q7 en puntos de margen (margen propio −91%, entrada −16%, salida −1%, y una mezcla a favor de +0,97 pp). Son dos lentes del mismo hecho y no se contradicen: la mezcla cuesta plata pero no empeora la tasa. Q8 agrega la logística y muestra el margen neto: según Q5.B, el margen neto cae 14,59 pp, de los cuales 12,07 pp son margen bruto (esta Q7) y 2,52 pp son logística.*
 
 **Límites de la lectura**
 
-- **No separa precio de costo.** El efecto margen reúne a los dos; la separación está en Q6. Que sea costo es una conclusión de Q6, no de Q8.
+- **No separa precio de costo.** El efecto margen reúne a los dos; la separación está en Q6. Que sea costo es una conclusión de Q6, no de Q7.
 - **La mezcla depende de la referencia.** Se mide contra el margen global del 1S (18,35%). Cambiar la referencia redistribuye el total entre mezcla, entrada y salida, pero no su suma.
 - **Segmentos con pocas unidades.** Los nuevos y varios productos de ticket alto mueven pocas unidades por semestre: un caso aislado puede moverse por azar y debe leerse junto con el resto.
-- **Margen bruto, sin logística.** El costo de envío no está en este análisis; lo incorpora Q7.
+- **Margen bruto, sin logística.** El costo de envío no está en este análisis; lo incorpora Q8.
 
 <br>
 
-#### 🔹 Puente analítico → Conclusiones Generales
+#### 🔹 Puente analítico → Q8
 
-Q8 cierra la Rama de Rentabilidad: Q6 mostró que la Ganancia Bruta cayó por un costo que subió en toda la cartera y por la caída de unidades de unos pocos productos de ticket alto; Q7 identificó qué parte de la cartera pierde plata hoy y por qué vía; y **Q8 confirma que el margen se hundió casi por completo por el costo (−10,95 pp, 91%) y por lanzamientos que entraron con margen negativo (−1,96 pp)**, mientras la mezcla lo amortiguó.
-
-**Las Conclusiones Generales integran la lectura comercial y la de rentabilidad en un solo diagnóstico, con las acciones correspondientes.**
-
-</details>
-
-#### ├─ 🔹 Q7 — Salud de Cartera 2026: ¿Dónde se pierde rentabilidad hoy?
-
-<details>
-<summary><strong>Ver desarrollo de Q7</strong></summary>  
-
-<br>
-
-#### 🔹 Síntesis
-
-Q5 mostró cómo se compone el resultado y Q6 por qué cayó la Ganancia Bruta. **Q7 es una foto de 2026** (2025 solo se usa como control de estacionalidad en Q7.4) y responde otra pregunta: **¿qué parte de la cartera pierde plata hoy, por qué vía, desde cuándo y por qué se hundió el margen?** Se lee en cuatro pasos:
-
-- **Cuántos y cuánto (Q7.1):** **12 de los 48 SKUs** operan en pérdida neta, en 19 combinaciones SKU × canal. Facturan **$140,4 M (15,1% de las ventas)** y destruyen **−$9,48 M**. El resto de la cartera sostiene el resultado: el cuadrante sostenible (71,2% de la facturación) genera el 102,3% de la Ganancia Neta.
-- **Por qué vía (Q7.2):** hay dos mecanismos distintos. En 13 combinaciones **el producto se vende por debajo de su costo** (C1: −$7,99 M). En otras 6 **el margen es positivo pero el flete lo consume** (C2: −$1,49 M, todas en Online). El peso del flete varía mucho por categoría: **8,53% de las ventas Online en Accesorios y 7,11% en Hogar**, contra cerca de 1% en TV y Video y Telefonía.
-- **Quiénes y cuándo (Q7.3):** **cuatro combinaciones Online explican el 71,5% de la pérdida.** En el 1S estas 19 combinaciones todavía ganaban **+$2,61 M** y en el 2S perdieron **−$12,09 M**. Tres lanzamientos 2026 entraron al mercado sin margen, y los productos que ya existían vieron colapsar su margen en el 2S, incluso en el canal Físico, donde no hay flete.
-- **Por qué se hundió el margen (Q7.4):** el margen neto de la empresa pasó de **16,89% en el 1S a 2,30% en el 2S**. Comparando los mismos SKUs, el **costo unitario subió 15,5% y el precio neto casi no cambió (+0,2%)**: el costo explica el 101% de la brecha de Ganancia Bruta (−$43,0 M). Es generalizado (**44 de 44 SKUs y todas las categorías**), no estacional (en 2025 ambos semestres rinden 18,7%) y la logística agrega 2,5 pp más.
-
-**Conclusión:** la pérdida es una porción chica y concentrada de la cartera, con dos causas distintas (margen bruto negativo y flete) y una dimensión temporal marcada: casi toda ocurre en el segundo semestre, y su origen es un salto del costo unitario que el precio no acompañó, no un problema de unos pocos productos.
-
-> *Notas de lectura: (1) Todo es 2026, pedidos entregados y neto de devoluciones; las unidades son efectivas (3.535), por eso difieren de las 3.778 de Q2 y Q3. (2) Un mismo SKU puede caer en cuadrantes distintos según el canal (JBL Parlante Bluetooth 27 y Lenovo Mouse 8 son C1 en Físico y C2 en Online), por eso Q7.1 suma 61 SKUs por cuadrante y el total real es 48. (3) Las compras en el canal Físico no tienen costo de envío, por construcción del dataset: por eso C2 solo puede existir en Online. (4) El envío se prorratea por unidades dentro del pedido, no por valor: un producto barato carga el mismo flete por unidad que uno caro, lo que eleva el peso logístico del bajo ticket por construcción. (5) En Q7.4, 1S = enero–junio y 2S = julio–diciembre; el "precio" es el precio realizado (Ventas Netas Finales ÷ unidades efectivas), es decir, neto de descuentos y devoluciones.*
-
-<br>
-
-#### 🔸 Q7.1 — Diagnóstico Global de Cartera 2026 (Cuadrantes de Salud)
-
-[Ver Consulta SQL →](./sql_business_analysis/q7.1_diagnostico_cartera_2026.sql) <br>
-
-#### 🔹 Resultados
-
-| Cuadrante de Salud | SKUs distintos | Combinaciones SKU × Canal | Unidades | Ventas Netas Finales | Ganancia Bruta | Costo Logístico | Ganancia Neta | Margen Bruto % | Margen Neto % | % Facturación |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 🔴 **C1: Destructor Bruto** *(MB < 0%)* | 8 | 13 | 460 | $107,29 M | −$4,93 M | $3,05 M | **−$7,99 M** | −4,60% | −7,44% | 11,55% |
-| 🟠 **C2: Fuga Logística** *(MB ≥ 0% \| MN < 0%)* | 6 | 6 | 417 | $33,08 M | +$1,63 M | $3,11 M | **−$1,49 M** | +4,91% | −4,50% | 3,56% |
-| 🟡 **C3: Margen Neto Bajo** *(MN 0% a 10%)* | 14 | 18 | 614 | $126,90 M | +$11,60 M | $4,46 M | **+$7,14 M** | +9,14% | +5,63% | 13,66% |
-| 🟢 **C4: Cartera Sostenible** *(MN > 10%)* | 33 | 57 | 2.044 | $661,59 M | +$116,57 M | $12,47 M | **+$104,10 M** | +17,62% | +15,73% | 71,23% |
-| **Total Empresa** | **48** | **94** | **3.535** | **$928,86 M** | **+$124,86 M** | **$23,09 M** | **+$101,77 M** | **+13,44%** | **+10,96%** | **100,00%** |
-
-> *Criterio de los cuadrantes, aplicado a cada combinación SKU × canal con montos sin redondear: C1 si el margen bruto es negativo; C2 si el margen bruto es positivo pero el neto es negativo; C3 si el margen neto está entre 0% y 10%; C4 si supera el 10%.*
-
-#### 🔹 Hallazgos
-
-**1. $140,4 M de facturación están en operaciones deficitarias**
-
-Los cuadrantes **C1 y C2 suman $140,4 M en Ventas Netas Finales** (15,1% del total) y **−$9,48 M de Ganancia Neta**. Son **12 SKUs distintos de 48 (25% del catálogo)**, en 19 combinaciones SKU × canal.
-
-**2. C1: vender por debajo del costo**
-
-13 combinaciones (8 SKUs) registran pérdida **antes de cualquier costo logístico**: **−$4,93 M de pérdida bruta**, a los que se suman **$3,05 M de fletes**, para un resultado de **−$7,99 M**. Es el problema más grande de la cartera.
-
-**3. C2: el flete consume un margen que sí existía**
-
-6 combinaciones, todas Online, tienen margen bruto positivo pero débil (**+4,91%**). Su gasto de envío (**$3,11 M**) equivale al **9,41% de las ventas del cuadrante** y al **13,5% del costo logístico total** de la empresa, y deja una pérdida neta de **−$1,49 M**.
-
-**4. La ganancia depende del cuadrante sostenible**
-
-C4 (33 SKUs, 71,2% de la facturación) genera **$104,10 M, el 102,3% de la Ganancia Neta**. C3 aporta otro 7,0% y C1 y C2 restan 9,3%. Además, C1 y C2 usan **$6,17 M de logística (26,7% del total)** para generar el 15,1% de la facturación: la empresa paga envíos de productos que ya pierden dinero antes de enviarse.
-
-<br>
-
-#### 🔸 Q7.2 — Atribución Logística por Categoría y Canal
-
-[Ver Consulta SQL →](./sql_business_analysis/q7.2_atribucion_logistica_categoria_canal.sql) <br>
-
-#### 🔹 Resultados
-
-| Categoría | Canal | Unid. | Ventas Netas Finales | Ganancia Bruta | Costo Logístico | Ganancia Neta | Peso Log. % | Margen Bruto % | Margen Neto % |
-| :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Accesorios** | Físico | 168 | $15,35 M | $1,94 M | $0,00 M | **$1,94 M** | 0,00% | 12,61% | **12,61%** |
-| **Accesorios** | Online | 566 | $46,24 M | $4,73 M | $3,94 M | **$0,78 M** | 8,53% | 10,22% | **1,69%** |
-| **Audio** | Físico | 156 | $35,08 M | $5,02 M | $0,00 M | **$5,02 M** | 0,00% | 14,32% | **14,32%** |
-| **Audio** | Online | 635 | $142,11 M | $17,47 M | $5,85 M | **$11,62 M** | 4,11% | 12,29% | **8,18%** |
-| **Computación** | Físico | 133 | $26,37 M | $5,13 M | $0,00 M | **$5,13 M** | 0,00% | 19,47% | **19,47%** |
-| **Computación** | Online | 514 | $111,19 M | $24,02 M | $3,78 M | **$20,24 M** | 3,40% | 21,60% | **18,21%** |
-| **Hogar** | Físico | 165 | $18,42 M | $2,82 M | $0,00 M | **$2,82 M** | 0,00% | 15,30% | **15,30%** |
-| **Hogar** | Online | 729 | $82,39 M | $12,64 M | $5,86 M | **$6,78 M** | 7,11% | 15,35% | **8,23%** |
-| **TV y Video** | Físico | 77 | $81,31 M | $8,31 M | $0,00 M | **$8,31 M** | 0,00% | 10,22% | **10,22%** |
-| **TV y Video** | Online | 298 | $300,33 M | $33,08 M | $3,02 M | **$30,06 M** | 1,01% | 11,02% | **10,01%** |
-| **Telefonía** | Físico | 22 | $16,88 M | $2,62 M | $0,00 M | **$2,62 M** | 0,00% | 15,51% | **15,51%** |
-| **Telefonía** | Online | 72 | $53,19 M | $7,09 M | $0,64 M | **$6,44 M** | 1,21% | 13,32% | **12,11%** |
-| **Total Empresa** | **—** | **3.535** | **$928,86 M** | **$124,86 M** | **$23,09 M** | **$101,77 M** | **2,49%** | **13,44%** | **10,96%** |
-
-> *Peso Log. % = Costo Logístico / Ventas Netas Finales del grupo. Los totales reconcilian con Q7.1 y con la Ganancia Neta de Q1.*
-
-#### 🔹 Hallazgos
-
-**1. Toda la logística está en Online, y es lo único que diferencia la rentabilidad de los canales**
-
-Online concentra los **$23,09 M** de costo logístico (**3,14%** de sus ventas). Los márgenes brutos de ambos canales son prácticamente iguales (**Online 13,46%, Físico 13,36%**), así que la diferencia de margen neto (**10,32% contra 13,36%**) es íntegramente logística. Como el Físico no tiene costo de envío por construcción del dataset, esta comparación muestra cuánto pesa el flete, no una ventaja operativa del canal.
-
-**2. Accesorios Online: el flete se come el margen**
-
-Con un peso logístico de **8,53%**, el envío ($3,94 M) absorbe el **83,4% del margen bruto** de la categoría y reduce el margen de **10,22% bruto a apenas 1,69% neto**. Es la categoría con el menor ticket del catálogo.
-
-**3. Hogar y Audio Online: la factura logística más grande**
-
-Hogar (**$5,86 M, 7,11%**) y Audio (**$5,85 M, 4,11%**) pagan, cada una, un cuarto del costo logístico total. Entre Accesorios, Hogar y Audio suman el **67,8% de toda la logística**. En Hogar el envío se lleva el 46,4% del margen bruto (de 15,35% a 8,23% neto) y en Audio el 33,5% (de 12,29% a 8,18%).
-
-**4. Alto ticket: el flete se diluye, pero el margen bruto es el problema**
-
-En **TV y Video** y **Telefonía** el flete pesa solo **1,01%** y **1,21%** de las ventas Online. En TV y Video, sin embargo, el margen bruto es de los más bajos del catálogo (**11,02% Online, 10,22% Físico**): su limitación no es logística sino de precio y costo. **Computación Online** es el segmento Online más sano: margen neto de **18,21%**.
-
-<br>
-
-#### 🔸 Q7.3 — SKUs Críticos y Evolución por Semestre
-
-[Ver Consulta SQL →](./sql_business_analysis/q7.3_skus_criticos_c1_c2.sql) <br>
-
-#### 🔹 Resultados (19 combinaciones SKU × Canal en terreno deficitario)
-
-| Cuad. | Producto | Categoría | Canal | Estado | 1ª venta 2026 | Unid. | Ventas Netas Finales | Ganancia Neta | MB % | MN % | MN 1S % | MN 2S % |
-| :--- | :--- | :--- | :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 🔴 **C1** | Edifier Auriculares 32 | Audio | Online | Nuevo 2026 | 2026-07-11 | 90 | $18,34 M | **−$2,65 M** | −8,97% | −14,44% | — | **−14,44%** |
-| 🔴 **C1** | TCL Monitor TV 19 | TV y Video | Online | Continuo | 2026-01-22 | 22 | $32,36 M | **−$1,83 M** | −4,68% | −5,66% | 6,69% | **−13,86%** |
-| 🔴 **C1** | Anker Hub USB 36 | Accesorios | Online | Continuo | 2026-01-01 | 100 | $9,95 M | **−$1,19 M** | −5,44% | −11,99% | −1,32% | **−17,42%** |
-| 🔴 **C1** | Liliana Ventilador 47 | Hogar | Online | Continuo | 2026-01-13 | 126 | $11,18 M | **−$1,10 M** | −1,43% | −9,86% | 0,92% | **−17,77%** |
-| 🟠 **C2** | Anker Mousepad 34 | Accesorios | Online | Continuo | 2026-01-01 | 226 | $7,08 M | **−$0,50 M** | 12,86% | −7,05% | 4,91% | **−18,34%** |
-| 🟠 **C2** | Edifier Auriculares 29 | Audio | Online | Continuo | 2026-01-01 | 128 | $13,93 M | **−$0,48 M** | 4,49% | −3,44% | 7,19% | **−10,36%** |
-| 🔴 **C1** | Dell Teclado 3 | Computación | Online | Nuevo 2026 | 2026-09-17 | 13 | $1,75 M | **−$0,44 M** | −17,00% | −25,09% | — | **−25,09%** |
-| 🔴 **C1** | Edifier Auriculares 32 | Audio | Físico | Nuevo 2026 | 2026-07-18 | 21 | $4,24 M | **−$0,39 M** | −9,31% | −9,31% | — | **−9,31%** |
-| 🟠 **C2** | JBL Parlante Bluetooth 27 | Audio | Online | Continuo | 2026-01-02 | 38 | $7,19 M | **−$0,33 M** | 0,51% | −4,55% | 4,34% | **−15,25%** |
-| 🟠 **C2** | Lenovo Mouse 8 | Computación | Online | Nuevo 2026 | 2026-05-14 | 19 | $4,31 M | **−$0,15 M** | 0,60% | −3,59% | −1,67% | **−14,01%** |
-| 🔴 **C1** | Dell Teclado 3 | Computación | Físico | Nuevo 2026 | 2026-11-23 | 4 | $0,53 M | **−$0,12 M** | −23,01% | −23,01% | — | **−23,01%** |
-| 🔴 **C1** | Anker Hub USB 36 | Accesorios | Físico | Continuo | 2026-01-09 | 31 | $3,08 M | **−$0,12 M** | −3,85% | −3,85% | 4,26% | **−9,66%** |
-| 🔴 **C1** | Liliana Ventilador 47 | Hogar | Físico | Continuo | 2026-01-15 | 25 | $2,19 M | **−$0,06 M** | −2,69% | −2,69% | 4,90% | **−7,89%** |
-| 🔴 **C1** | TCL Monitor TV 19 | TV y Video | Físico | Continuo | 2026-01-16 | 13 | $18,56 M | **−$0,03 M** | −0,17% | −0,17% | 7,76% | **−13,22%** |
-| 🔴 **C1** | JBL Parlante Bluetooth 27 | Audio | Físico | Continuo | 2026-05-12 | 7 | $1,30 M | **−$0,02 M** | −1,76% | −1,76% | 7,52% | **−3,34%** |
-| 🟠 **C2** | Liliana Cafetera 50 | Hogar | Online | Continuo | 2026-01-11 | 3 | $0,16 M | **−$0,02 M** | 6,07% | −13,62% | −3,41% | **−33,11%** |
-| 🔴 **C1** | Lenovo Mouse 8 | Computación | Físico | Nuevo 2026 | 2026-06-05 | 3 | $0,66 M | **−$0,02 M** | −3,03% | −3,03% | −2,77% | **−3,54%** |
-| 🟠 **C2** | TP-Link Hub USB 39 | Accesorios | Online | Continuo | 2026-06-18 | 3 | $0,42 M | **−$0,01 M** | 3,98% | −1,77% | 1,37% | **−8,99%** |
-| 🔴 **C1** | Motorola Smartphone 11 | Telefonía | Físico | Continuo | 2026-01-11 | 5 | $3,15 M | **−$0,01 M** | −0,16% | −0,16% | 4,15% | **−6,33%** |
-
-> *Estado: "Nuevo 2026" indica que el producto no tuvo ventas en 2025. MN 1S / 2S = margen neto del primer (ene-jun) y segundo semestre (jul-dic); "—" indica que no hubo ventas en el 1S. Las combinaciones suman −$9,48 M en el año: +$2,61 M en el 1S y −$12,09 M en el 2S.*
-
-#### 🔹 Hallazgos
-
-**1. Cuatro combinaciones Online explican el 71,5% de la pérdida**
-
-**Edifier Auriculares 32** (−$2,65 M), **TCL Monitor TV 19** (−$1,83 M), **Anker Hub USB 36** (−$1,19 M) y **Liliana Ventilador 47** (−$1,10 M), todas en Online, suman **−$6,78 M** de los −$9,48 M de C1 y C2.
-
-**2. La pérdida es del segundo semestre**
-
-En el 1S las 19 combinaciones ganaban **+$2,61 M**; en el 2S perdieron **−$12,09 M**. De las 13 combinaciones de productos que ya existían en 2025, **11 eran rentables en el 1S y las 13 tienen margen neto negativo en el 2S** (entre −3,34% y −33,11%). El caso más claro es **TCL Monitor TV 19**: **+6,69% a −13,86% en Online** y **+7,76% a −13,22% en Físico**.
-
-**3. El deterioro es de margen bruto, no de flete**
-
-En el canal Físico no hay costo de envío, y aun así los cinco productos continuos caen: **TCL Monitor TV 19** (+7,76% a −13,22%), **Anker Hub USB 36** (+4,26% a −9,66%), **Liliana Ventilador 47** (+4,90% a −7,89%), **JBL Parlante Bluetooth 27** (+7,52% a −3,34%) y **Motorola Smartphone 11** (+4,15% a −6,33%). La fuga logística (C2) es un problema distinto, que se suma en Online.
-
-**4. Tres lanzamientos entraron sin margen**
-
-**Edifier Auriculares 32**, **Dell Teclado 3** y **Lenovo Mouse 8** explican **−$3,78 M (39,9% de la pérdida)**. Edifier 32 y Dell Teclado 3 se vendieron por debajo del costo durante todo su período de venta (margen bruto de **−8,97% / −9,31%** y **−17,00% / −23,01%**, Online / Físico), y Lenovo Mouse 8 salió con margen casi nulo (**+0,60% Online, −3,03% Físico**). Edifier 32 empezó a venderse en julio y Dell Teclado 3 en septiembre, por eso toda su pérdida cae en el 2S: no es un deterioro posterior, es un precio de lanzamiento que nunca cubrió el costo.
-
-**5. Anker Mousepad 34: el caso típico de fuga logística**
-
-Vendió 226 unidades con **margen bruto de +12,86%**, pero el envío costó **$1,41 M (19,9% de sus ventas)** y la dejó en **−$0,50 M**.
-
-> *Q7.3 muestra **cuándo** colapsó el margen bruto de los productos que ya existían, pero no **por qué**. Q7.4 responde esa pregunta: con los mismos SKUs, el costo unitario subió y el precio no.*
-
-<br>
-
-#### 🔸 Q7.4 — Diagnóstico Semestral: ¿Por qué se hundió el margen en el 2S?
-
-[Ver Consulta SQL →](./sql_business_analysis/q7.4_diagnostico_semestral.sql) <br>
-
-Q7.3 mostró que la pérdida se concentra en el 2S, pero no explicó el motivo. Q7.4 lo busca en tres cortes: **A)** qué parte del estado de resultados se movió, **B)** si fue precio o costo, comparando **los mismos SKUs** entre semestres para que la mezcla de productos no contamine, y **C)** si el deterioro es de los lanzamientos o de toda la cartera.
-
-#### 🔹 Resultados A — Estado de resultados por semestre
-
-| Indicador | 1S 2025 | 2S 2025 | 1S 2026 | 2S 2026 |
-| :--- | ---: | ---: | ---: | ---: |
-| Unidades efectivas | 1.522 | 3.064 | 1.719 | 1.816 |
-| Ventas Netas Finales | $511,07 M | $1.069,19 M | $551,22 M | $377,64 M |
-| Precio unitario promedio | $335.787 | $348.951 | $320.661 | $207.952 |
-| Costo unitario promedio | $269.820 | $280.474 | $261.819 | $194.895 |
-| Logística por unidad | $3.048 | $3.225 | $4.687 | $8.281 |
-| Tasa de descuento | 2,89% | 3,05% | 4,03% | 8,81% |
-| **COGS % ventas** | 80,35% | 80,38% | 81,65% | 93,72% |
-| **Peso logístico %** | 0,91% | 0,92% | 1,46% | 3,98% |
-| **Margen Neto %** | **18,74%** | **18,70%** | **16,89%** | **2,30%** |
-
-> *Margen Neto % = 100% − COGS % − Peso logístico %. Los semestres de 2025 funcionan como control: el margen es el mismo en ambos (18,74% y 18,70%).*
-
-| Variación del Margen Neto | 2S 2026 vs 1S 2026 | 2S 2026 vs 2S 2025 |
-| :--- | ---: | ---: |
-| COGS % ventas | +12,07 pp | +13,34 pp |
-| Peso logístico % | +2,52 pp | +3,06 pp |
-| **Margen Neto %** | **−14,59 pp** | **−16,40 pp** |
-
-#### 🔹 Resultados B — ¿Precio o costo? Los mismos SKUs, 2S vs 1S de 2026
-
-| Categoría | SKUs | Índice de precio | Índice de costo | Efecto precio | Efecto costo | Brecha de Ganancia Bruta | MB a valores 1S | MB real 2S | Δ MB |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Accesorios | 10 | +0,75% | +14,47% | +$0,23 M | −$3,79 M | −$3,56 M | 16,11% | 4,68% | −11,43 pp |
-| Audio | 7 | +0,61% | +16,40% | +$0,52 M | −$10,87 M | −$10,35 M | 23,12% | 11,05% | −12,07 pp |
-| Computación | 9 | +0,98% | +18,76% | +$0,43 M | −$5,94 M | −$5,51 M | 27,71% | 14,98% | −12,73 pp |
-| Hogar | 7 | −0,63% | +11,64% | −$0,37 M | −$5,42 M | −$5,80 M | 21,17% | 11,43% | −9,74 pp |
-| TV y Video | 6 | −0,16% | +16,33% | −$0,19 M | −$16,20 M | −$16,39 M | 14,29% | 0,12% | −14,16 pp |
-| Telefonía | 5 | +0,19% | +12,75% | +$0,03 M | −$1,46 M | −$1,43 M | 20,21% | 10,21% | −10,00 pp |
-| **Total Empresa** | **44** | **+0,19%** | **+15,53%** | **+$0,65 M** | **−$43,69 M** | **−$43,04 M** | **19,70%** | **7,41%** | **−12,29 pp** |
-
-> *Índice de precio = Ventas Netas Finales 2S ÷ (unidades 2S × precio unitario 1S) − 1; el índice de costo se calcula igual con el costo unitario. Se valúa a las cantidades del 2S, así que la mezcla queda fuera. Efecto precio + Efecto costo = Brecha de Ganancia Bruta (exacto). MB a valores 1S = margen bruto que habrían tenido las unidades del 2S con los precios y costos del 1S. El conjunto comparable cubre 44 SKUs y el 92,98% de las ventas del 2S.*
-
-> *Control 2025: con el mismo cálculo (30 SKUs, 68,65% de las ventas del 2S), el índice de precio es −0,18%, el de costo 0,00% y el margen bruto cambia −0,14 pp. Sin estacionalidad.*
-
-**De 19,70% a 6,28% de margen bruto, en pasos**
-
-| Paso | Efecto | Margen Bruto acumulado |
-| :--- | ---: | ---: |
-| Margen Bruto 1S 2026 (empresa) | | 18,35% |
-| Mezcla de SKUs *(aproximado, ver nota)* | +1,35 pp | 19,70% |
-| Precio y costo (mismos SKUs) | **−12,29 pp** | 7,41% |
-| Lanzamientos y SKUs sin comparación | −1,13 pp | 6,28% |
-| **Margen Bruto 2S 2026 (empresa)** | **−12,07 pp** | **6,28%** |
-
-**Top 8 SKUs por brecha de Ganancia Bruta (de 44)**
-
-| # | Producto | Categoría | Var. precio | Var. costo | Efecto precio | Efecto costo | Brecha de Ganancia Bruta | % de la brecha |
-| ---: | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | TCL Monitor TV 21 | TV y Video | −2,39% | +12,51% | −$1,12 M | −$4,90 M | **−$6,03 M** | 14,0% |
-| 2 | TCL Monitor TV 19 | TV y Video | +2,18% | +24,67% | +$0,56 M | −$5,91 M | **−$5,34 M** | 12,4% |
-| 3 | Liliana Cafetera 46 | Hogar | −0,65% | +11,61% | −$0,24 M | −$3,26 M | **−$3,50 M** | 8,1% |
-| 4 | Sony Parlante Bluetooth 31 | Audio | −0,94% | +20,16% | −$0,15 M | −$2,34 M | **−$2,49 M** | 5,8% |
-| 5 | Philips Equipo de Audio 30 | Audio | −0,62% | +13,40% | −$0,14 M | −$2,03 M | **−$2,16 M** | 5,0% |
-| 6 | Philips Barra de Sonido 28 | Audio | +2,72% | +15,71% | +$0,54 M | −$2,48 M | **−$1,94 M** | 4,5% |
-| 7 | Samsung Smart TV 20 | TV y Video | +0,58% | +19,78% | +$0,07 M | −$1,99 M | **−$1,92 M** | 4,5% |
-| 8 | Acer Notebook 7 | Computación | +1,12% | +21,77% | +$0,14 M | −$2,00 M | **−$1,86 M** | 4,3% |
-
-> *Los 8 SKUs suman 58,6% de la brecha y los dos TCL Monitor TV, 26,4%. Los 44 SKUs suman los −$43,04 M del total.*
-
-#### 🔹 Resultados C — Categoría × estado del SKU (margen bruto)
-
-| Categoría | Estado del SKU | Unid. 1S | Unid. 2S | MB 1S | MB 2S | Δ MB |
-| :--- | :--- | ---: | ---: | ---: | ---: | ---: |
-| **Accesorios** | **Total** | 353 | 381 | **17,23%** | **4,68%** | **−12,54 pp** |
-|  | Continuo | 335 | 355 | 16,79% | 3,76% | −13,03 pp |
-|  | Nuevo 2026 | 18 | 26 | 29,24% | 22,34% | −6,90 pp |
-| **Audio** | **Total** | 289 | 502 | **22,02%** | **6,90%** | **−15,12 pp** |
-|  | Continuo | 199 | 227 | 19,85% | 6,82% | −13,03 pp |
-|  | Nuevo 2026 | 90 | 275 | 27,90% | 6,98% | −20,92 pp |
-| **Computación** | **Total** | 379 | 268 | **25,20%** | **13,35%** | **−11,85 pp** |
-|  | Continuo | 210 | 89 | 26,34% | 18,28% | −8,05 pp |
-|  | Nuevo 2026 | 169 | 179 | 20,66% | 7,23% | −13,43 pp |
-| **Hogar** | **Total** | 372 | 522 | **20,79%** | **11,43%** | **−9,35 pp** |
-|  | Continuo | 372 | 522 | 20,79% | 11,43% | −9,35 pp |
-| **TV y Video** | **Total** | 254 | 121 | **15,50%** | **0,12%** | **−15,38 pp** |
-|  | Continuo | 254 | 121 | 15,50% | 0,12% | −15,38 pp |
-| **Telefonía** | **Total** | 72 | 22 | **14,96%** | **10,11%** | **−4,85 pp** |
-|  | Continuo | 72 | 20 | 14,96% | 10,21% | −4,75 pp |
-|  | Nuevo 2026 | 0 | 2 | — | 9,25% | — |
-
-> *MB = margen bruto del grupo en cada semestre. "Nuevo 2026" = sin ventas en 2025. Hogar y TV y Video no tienen lanzamientos. En Telefonía, el único lanzamiento (2 unidades) vendió solo en el 2S.*
-
-#### 🔹 Hallazgos
-
-**1. El 83% de la caída del margen neto es costo de ventas**
-
-El margen neto cae **−14,59 pp** (de 16,89% a 2,30%): **+12,07 pp (82,7%)** viene del COGS y **+2,52 pp (17,3%)** de la logística. Las ventas bajan **31,5%** con **5,6% más de unidades**: el ticket promedio cae **35%** ($320.661 a $207.952).
-
-**2. Con los mismos SKUs, el costo subió 15,53% y el precio casi no se movió (+0,19%)**
-
-El efecto costo es de **−$43,69 M** y el efecto precio de **+$0,65 M**: el costo explica el **101,5%** de la brecha de Ganancia Bruta de **−$43,04 M**. El margen bruto de esos SKUs habría sido **19,70%** con los valores del 1S y fue **7,41%**. No es un problema de precios: el precio neto no cayó, el costo se disparó.
-
-**3. Es generalizado, no de un puñado de productos**
-
-El costo unitario subió en **los 44 SKUs** (entre **+4,49% y +24,67%**, mediana **+14,48%**) y en **las 6 categorías** (de **+11,64% en Hogar** a **+18,76% en Computación**). El precio neto se movió entre **−0,63% y +0,98%** por categoría, y **20 de los 44 SKUs bajaron** su precio neto. En pesos, **TV y Video explica el 38,1%** de la brecha y **Audio el 24,0%**.
-
-**4. No es estacionalidad**
-
-En 2025 el margen neto fue **18,74% en el 1S y 18,70% en el 2S**, y el mismo índice da costo **0,00%** y precio **−0,18%**. Lo que pasó en 2026 no es un patrón de fin de año.
-
-**5. La logística suma 2,52 pp por dos motivos a la vez**
-
-El costo logístico por unidad subió **76,7%** ($4.687 a $8.281) mientras el ticket promedio caía 35%, y el flete pesa más cuanto más barata es la unidad. Esta consulta no permite distinguir si el flete por unidad subió por más ventas Online, por un envío más caro por pedido o por menos unidades por pedido.
-
-**6. La mezcla ayudó un poco y los lanzamientos restaron**
-
-La mezcla suma **+1,35 pp** (aproximado): TV y Video, con margen bajo el promedio en el 1S, pasó de **48% a 31% de las ventas**. Los lanzamientos y los SKUs sin comparación restan **−1,13 pp**: en Audio los lanzamientos caen **−20,92 pp**, e incluyen a Edifier Auriculares 32, que salió bajo el costo.
-
-**7. El deterioro no es solo de los lanzamientos**
-
-Los productos que ya existían bajan su margen bruto en **todas las categorías**: de **−4,75 pp en Telefonía** a **−15,38 pp en TV y Video**. Los lanzamientos agravan el cuadro, pero no lo originan.
-
-> *Cómo se conecta con Q6: Q6 explicó la caída de la Ganancia Bruta **en pesos** del año, donde el volumen pesa más. Q7.4 explica la caída del **margen** del 2S, donde el costo unitario es la causa. Son preguntas distintas y no se contradicen: el volumen mueve los pesos y el costo mueve el margen.*
-
-**Límites de la lectura**
-
-- **Precio neto, no precio de lista.** El precio realizado ya descuenta promociones y devoluciones. La tasa de descuento pasó de **4,03% a 8,81%** y el precio neto se mantuvo, lo que sugiere que el precio de lista subió, pero esta consulta no separa lista y descuento.
-- **Corte semestral.** No se puede saber si el costo subió de golpe o de a poco, ni si los precios lo alcanzarían más adelante (rezago) o si directamente no hay traspaso. Para eso haría falta el mismo índice por trimestre.
-- **La mezcla es aproximada.** Quedan afuera de la comparación 4 SKUs sin ventas en ambos semestres (Dell Teclado 3, Apple Smartphone 16, LG Chromecast 22 y Edifier Auriculares 32), por eso el paso de mezcla (+1,35 pp) incluye un pequeño efecto de composición.
-
-<br>
-
-#### 🔹 Puente analítico → Conclusiones Generales
-
-Q7 cierra la Rama de Rentabilidad: Q5 mostró cómo se compone el resultado, Q6 explicó por qué cayó la Ganancia Bruta en pesos y Q7 identifica **dónde se pierde rentabilidad hoy, por qué vía y por qué se hundió el margen**: una cartera chica y concentrada de productos que se venden sin margen o cuyo flete supera su margen, y un salto del costo unitario de **15,5%** en el segundo semestre que el precio no acompañó (**+0,2%**).
-
-**Las Conclusiones Generales integran la lectura comercial y la de rentabilidad en un solo diagnóstico, con las acciones correspondientes.**
+Q7 pasó la caída del 1S al 2S a **puntos de margen bruto**: el margen se hundió casi por completo por el costo (**−10,95 pp, 91%**) y por lanzamientos que entraron con margen negativo (**−1,96 pp**), mientras la mezcla lo amortiguó (**+0,97 pp**). **Q8 mira la cartera de 2026 con el flete incluido: qué parte pierde plata hoy, por qué vía y cuánto pesa la logística sobre el margen neto.**
 
 <br>
 </details>
 
 
 
-#### ├─ 🔹 Q7 — Salud de Cartera 2026: ¿Dónde se pierde rentabilidad hoy?
 
-<details>
-<summary><strong>Ver desarrollo de Q7</strong></summary>  
-
-<br>
-
-#### 🔹 Síntesis
-
-Q5 mostró cómo se compone el resultado y Q6 por qué cayó la Ganancia Bruta. **Q7 es una foto de 2026** (no compara contra 2025) y responde otra pregunta: **¿qué parte de la cartera pierde plata hoy, por qué vía y desde cuándo?** Se lee en tres pasos:
-
-- **Cuántos y cuánto (Q7.1):** **12 de los 48 SKUs** operan en pérdida neta, en 19 combinaciones SKU × canal. Facturan **$140,4 M (15,1% de las ventas)** y destruyen **−$9,48 M**. El resto de la cartera sostiene el resultado: el cuadrante sostenible (71,2% de la facturación) genera el 102,3% de la Ganancia Neta.
-- **Por qué vía (Q7.2):** hay dos mecanismos distintos. En 13 combinaciones **el producto se vende por debajo de su costo** (C1: −$7,99 M). En otras 6 **el margen es positivo pero el flete lo consume** (C2: −$1,49 M, todas en Online). El peso del flete varía mucho por categoría: **8,53% de las ventas Online en Accesorios y 7,11% en Hogar**, contra cerca de 1% en TV y Video y Telefonía.
-- **Quiénes y cuándo (Q7.3):** **cuatro combinaciones Online explican el 71,5% de la pérdida.** En el 1S estas 19 combinaciones todavía ganaban **+$2,61 M** y en el 2S perdieron **−$12,09 M**. Tres lanzamientos 2026 entraron al mercado sin margen, y los productos que ya existían vieron colapsar su margen en el 2S, incluso en el canal Físico, donde no hay flete.
-
-**Conclusión:** la pérdida es una porción chica y concentrada de la cartera, con dos causas distintas (margen bruto negativo y flete) y una dimensión temporal marcada: casi toda ocurre en el segundo semestre.
-
-> *Notas de lectura: (1) Todo es 2026, pedidos entregados y neto de devoluciones; las unidades son efectivas (3.535), por eso difieren de las 3.778 de Q2 y Q3. (2) Un mismo SKU puede caer en cuadrantes distintos según el canal (JBL Parlante Bluetooth 27 y Lenovo Mouse 8 son C1 en Físico y C2 en Online), por eso Q7.1 suma 61 SKUs por cuadrante y el total real es 48. (3) Las compras en el canal Físico no tienen costo de envío, por construcción del dataset: por eso C2 solo puede existir en Online. (4) El envío se prorratea por unidades dentro del pedido, no por valor: un producto barato carga el mismo flete por unidad que uno caro, lo que eleva el peso logístico del bajo ticket por construcción.*
-
-<br>
-
-#### 🔸 Q7.1 — Diagnóstico Global de Cartera 2026 (Cuadrantes de Salud)
-
-[Ver Consulta SQL →](./sql_business_analysis/q7.1_diagnostico_cartera_2026.sql) <br>
-
-#### 🔹 Resultados
-
-| Cuadrante de Salud | SKUs distintos | Combinaciones SKU × Canal | Unidades | Ventas Netas Finales | Ganancia Bruta | Costo Logístico | Ganancia Neta | Margen Bruto % | Margen Neto % | % Facturación |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 🔴 **C1: Destructor Bruto** *(MB < 0%)* | 8 | 13 | 460 | $107,29 M | −$4,93 M | $3,05 M | **−$7,99 M** | −4,60% | −7,44% | 11,55% |
-| 🟠 **C2: Fuga Logística** *(MB ≥ 0% \| MN < 0%)* | 6 | 6 | 417 | $33,08 M | +$1,63 M | $3,11 M | **−$1,49 M** | +4,91% | −4,50% | 3,56% |
-| 🟡 **C3: Margen Neto Bajo** *(MN 0% a 10%)* | 14 | 18 | 614 | $126,90 M | +$11,60 M | $4,46 M | **+$7,14 M** | +9,14% | +5,63% | 13,66% |
-| 🟢 **C4: Cartera Sostenible** *(MN > 10%)* | 33 | 57 | 2.044 | $661,59 M | +$116,57 M | $12,47 M | **+$104,10 M** | +17,62% | +15,73% | 71,23% |
-| **Total Empresa** | **48** | **94** | **3.535** | **$928,86 M** | **+$124,86 M** | **$23,09 M** | **+$101,77 M** | **+13,44%** | **+10,96%** | **100,00%** |
-
-> *Criterio de los cuadrantes, aplicado a cada combinación SKU × canal con montos sin redondear: C1 si el margen bruto es negativo; C2 si el margen bruto es positivo pero el neto es negativo; C3 si el margen neto está entre 0% y 10%; C4 si supera el 10%.*
-
-#### 🔹 Hallazgos
-
-**1. $140,4 M de facturación están en operaciones deficitarias**
-
-Los cuadrantes **C1 y C2 suman $140,4 M en Ventas Netas Finales** (15,1% del total) y **−$9,48 M de Ganancia Neta**. Son **12 SKUs distintos de 48 (25% del catálogo)**, en 19 combinaciones SKU × canal.
-
-**2. C1: vender por debajo del costo**
-
-13 combinaciones (8 SKUs) registran pérdida **antes de cualquier costo logístico**: **−$4,93 M de pérdida bruta**, a los que se suman **$3,05 M de fletes**, para un resultado de **−$7,99 M**. Es el problema más grande de la cartera.
-
-**3. C2: el flete consume un margen que sí existía**
-
-6 combinaciones, todas Online, tienen margen bruto positivo pero débil (**+4,91%**). Su gasto de envío (**$3,11 M**) equivale al **9,41% de las ventas del cuadrante** y al **13,5% del costo logístico total** de la empresa, y deja una pérdida neta de **−$1,49 M**.
-
-**4. La ganancia depende del cuadrante sostenible**
-
-C4 (33 SKUs, 71,2% de la facturación) genera **$104,10 M, el 102,3% de la Ganancia Neta**. C3 aporta otro 7,0% y C1 y C2 restan 9,3%. Además, C1 y C2 usan **$6,17 M de logística (26,7% del total)** para generar el 15,1% de la facturación: la empresa paga envíos de productos que ya pierden dinero antes de enviarse.
-
-<br>
-
-#### 🔸 Q7.2 — Atribución Logística por Categoría y Canal
-
-[Ver Consulta SQL →](./sql_business_analysis/q7.2_atribucion_logistica_categoria_canal.sql) <br>
-
-#### 🔹 Resultados
-
-| Categoría | Canal | Unid. | Ventas Netas Finales | Ganancia Bruta | Costo Logístico | Ganancia Neta | Peso Log. % | Margen Bruto % | Margen Neto % |
-| :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Accesorios** | Físico | 168 | $15,35 M | $1,94 M | $0,00 M | **$1,94 M** | 0,00% | 12,61% | **12,61%** |
-| **Accesorios** | Online | 566 | $46,24 M | $4,73 M | $3,94 M | **$0,78 M** | 8,53% | 10,22% | **1,69%** |
-| **Audio** | Físico | 156 | $35,08 M | $5,02 M | $0,00 M | **$5,02 M** | 0,00% | 14,32% | **14,32%** |
-| **Audio** | Online | 635 | $142,11 M | $17,47 M | $5,85 M | **$11,62 M** | 4,11% | 12,29% | **8,18%** |
-| **Computación** | Físico | 133 | $26,37 M | $5,13 M | $0,00 M | **$5,13 M** | 0,00% | 19,47% | **19,47%** |
-| **Computación** | Online | 514 | $111,19 M | $24,02 M | $3,78 M | **$20,24 M** | 3,40% | 21,60% | **18,21%** |
-| **Hogar** | Físico | 165 | $18,42 M | $2,82 M | $0,00 M | **$2,82 M** | 0,00% | 15,30% | **15,30%** |
-| **Hogar** | Online | 729 | $82,39 M | $12,64 M | $5,86 M | **$6,78 M** | 7,11% | 15,35% | **8,23%** |
-| **TV y Video** | Físico | 77 | $81,31 M | $8,31 M | $0,00 M | **$8,31 M** | 0,00% | 10,22% | **10,22%** |
-| **TV y Video** | Online | 298 | $300,33 M | $33,08 M | $3,02 M | **$30,06 M** | 1,01% | 11,02% | **10,01%** |
-| **Telefonía** | Físico | 22 | $16,88 M | $2,62 M | $0,00 M | **$2,62 M** | 0,00% | 15,51% | **15,51%** |
-| **Telefonía** | Online | 72 | $53,19 M | $7,09 M | $0,64 M | **$6,44 M** | 1,21% | 13,32% | **12,11%** |
-| **Total Empresa** | **—** | **3.535** | **$928,86 M** | **$124,86 M** | **$23,09 M** | **$101,77 M** | **2,49%** | **13,44%** | **10,96%** |
-
-> *Peso Log. % = Costo Logístico / Ventas Netas Finales del grupo. Los totales reconcilian con Q7.1 y con la Ganancia Neta de Q1.*
-
-#### 🔹 Hallazgos
-
-**1. Toda la logística está en Online, y es lo único que diferencia la rentabilidad de los canales**
-
-Online concentra los **$23,09 M** de costo logístico (**3,14%** de sus ventas). Los márgenes brutos de ambos canales son prácticamente iguales (**Online 13,46%, Físico 13,36%**), así que la diferencia de margen neto (**10,32% contra 13,36%**) es íntegramente logística. Como el Físico no tiene costo de envío por construcción del dataset, esta comparación muestra cuánto pesa el flete, no una ventaja operativa del canal.
-
-**2. Accesorios Online: el flete se come el margen**
-
-Con un peso logístico de **8,53%**, el envío ($3,94 M) absorbe el **83,4% del margen bruto** de la categoría y reduce el margen de **10,22% bruto a apenas 1,69% neto**. Es la categoría con el menor ticket del catálogo.
-
-**3. Hogar y Audio Online: la factura logística más grande**
-
-Hogar (**$5,86 M, 7,11%**) y Audio (**$5,85 M, 4,11%**) pagan, cada una, un cuarto del costo logístico total. Entre Accesorios, Hogar y Audio suman el **67,8% de toda la logística**. En Hogar el envío se lleva el 46,4% del margen bruto (de 15,35% a 8,23% neto) y en Audio el 33,5% (de 12,29% a 8,18%).
-
-**4. Alto ticket: el flete se diluye, pero el margen bruto es el problema**
-
-En **TV y Video** y **Telefonía** el flete pesa solo **1,01%** y **1,21%** de las ventas Online. En TV y Video, sin embargo, el margen bruto es de los más bajos del catálogo (**11,02% Online, 10,22% Físico**): su limitación no es logística sino de precio y costo. **Computación Online** es el segmento Online más sano: margen neto de **18,21%**.
-
-<br>
-
-#### 🔸 Q7.3 — SKUs Críticos y Evolución por Semestre
-
-[Ver Consulta SQL →](./sql_business_analysis/q7.3_skus_criticos_c1_c2.sql) <br>
-
-#### 🔹 Resultados (19 combinaciones SKU × Canal en terreno deficitario)
-
-| Cuad. | Producto | Categoría | Canal | Estado | 1ª venta 2026 | Unid. | Ventas Netas Finales | Ganancia Neta | MB % | MN % | MN 1S % | MN 2S % |
-| :--- | :--- | :--- | :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 🔴 **C1** | Edifier Auriculares 32 | Audio | Online | Nuevo 2026 | 2026-07-11 | 90 | $18,34 M | **−$2,65 M** | −8,97% | −14,44% | — | **−14,44%** |
-| 🔴 **C1** | TCL Monitor TV 19 | TV y Video | Online | Continuo | 2026-01-22 | 22 | $32,36 M | **−$1,83 M** | −4,68% | −5,66% | 6,69% | **−13,86%** |
-| 🔴 **C1** | Anker Hub USB 36 | Accesorios | Online | Continuo | 2026-01-01 | 100 | $9,95 M | **−$1,19 M** | −5,44% | −11,99% | −1,32% | **−17,42%** |
-| 🔴 **C1** | Liliana Ventilador 47 | Hogar | Online | Continuo | 2026-01-13 | 126 | $11,18 M | **−$1,10 M** | −1,43% | −9,86% | 0,92% | **−17,77%** |
-| 🟠 **C2** | Anker Mousepad 34 | Accesorios | Online | Continuo | 2026-01-01 | 226 | $7,08 M | **−$0,50 M** | 12,86% | −7,05% | 4,91% | **−18,34%** |
-| 🟠 **C2** | Edifier Auriculares 29 | Audio | Online | Continuo | 2026-01-01 | 128 | $13,93 M | **−$0,48 M** | 4,49% | −3,44% | 7,19% | **−10,36%** |
-| 🔴 **C1** | Dell Teclado 3 | Computación | Online | Nuevo 2026 | 2026-09-17 | 13 | $1,75 M | **−$0,44 M** | −17,00% | −25,09% | — | **−25,09%** |
-| 🔴 **C1** | Edifier Auriculares 32 | Audio | Físico | Nuevo 2026 | 2026-07-18 | 21 | $4,24 M | **−$0,39 M** | −9,31% | −9,31% | — | **−9,31%** |
-| 🟠 **C2** | JBL Parlante Bluetooth 27 | Audio | Online | Continuo | 2026-01-02 | 38 | $7,19 M | **−$0,33 M** | 0,51% | −4,55% | 4,34% | **−15,25%** |
-| 🟠 **C2** | Lenovo Mouse 8 | Computación | Online | Nuevo 2026 | 2026-05-14 | 19 | $4,31 M | **−$0,15 M** | 0,60% | −3,59% | −1,67% | **−14,01%** |
-| 🔴 **C1** | Dell Teclado 3 | Computación | Físico | Nuevo 2026 | 2026-11-23 | 4 | $0,53 M | **−$0,12 M** | −23,01% | −23,01% | — | **−23,01%** |
-| 🔴 **C1** | Anker Hub USB 36 | Accesorios | Físico | Continuo | 2026-01-09 | 31 | $3,08 M | **−$0,12 M** | −3,85% | −3,85% | 4,26% | **−9,66%** |
-| 🔴 **C1** | Liliana Ventilador 47 | Hogar | Físico | Continuo | 2026-01-15 | 25 | $2,19 M | **−$0,06 M** | −2,69% | −2,69% | 4,90% | **−7,89%** |
-| 🔴 **C1** | TCL Monitor TV 19 | TV y Video | Físico | Continuo | 2026-01-16 | 13 | $18,56 M | **−$0,03 M** | −0,17% | −0,17% | 7,76% | **−13,22%** |
-| 🔴 **C1** | JBL Parlante Bluetooth 27 | Audio | Físico | Continuo | 2026-05-12 | 7 | $1,30 M | **−$0,02 M** | −1,76% | −1,76% | 7,52% | **−3,34%** |
-| 🟠 **C2** | Liliana Cafetera 50 | Hogar | Online | Continuo | 2026-01-11 | 3 | $0,16 M | **−$0,02 M** | 6,07% | −13,62% | −3,41% | **−33,11%** |
-| 🔴 **C1** | Lenovo Mouse 8 | Computación | Físico | Nuevo 2026 | 2026-06-05 | 3 | $0,66 M | **−$0,02 M** | −3,03% | −3,03% | −2,77% | **−3,54%** |
-| 🟠 **C2** | TP-Link Hub USB 39 | Accesorios | Online | Continuo | 2026-06-18 | 3 | $0,42 M | **−$0,01 M** | 3,98% | −1,77% | 1,37% | **−8,99%** |
-| 🔴 **C1** | Motorola Smartphone 11 | Telefonía | Físico | Continuo | 2026-01-11 | 5 | $3,15 M | **−$0,01 M** | −0,16% | −0,16% | 4,15% | **−6,33%** |
-
-> *Estado: "Nuevo 2026" indica que el producto no tuvo ventas en 2025. MN 1S / 2S = margen neto del primer (ene-jun) y segundo semestre (jul-dic); "—" indica que no hubo ventas en el 1S. Las combinaciones suman −$9,48 M en el año: +$2,61 M en el 1S y −$12,09 M en el 2S.*
-
-#### 🔹 Hallazgos
-
-**1. Cuatro combinaciones Online explican el 71,5% de la pérdida**
-
-**Edifier Auriculares 32** (−$2,65 M), **TCL Monitor TV 19** (−$1,83 M), **Anker Hub USB 36** (−$1,19 M) y **Liliana Ventilador 47** (−$1,10 M), todas en Online, suman **−$6,78 M** de los −$9,48 M de C1 y C2.
-
-**2. La pérdida es del segundo semestre**
-
-En el 1S las 19 combinaciones ganaban **+$2,61 M**; en el 2S perdieron **−$12,09 M**. De las 13 combinaciones de productos que ya existían en 2025, **11 eran rentables en el 1S y las 13 tienen margen neto negativo en el 2S** (entre −3,34% y −33,11%). El caso más claro es **TCL Monitor TV 19**: **+6,69% a −13,86% en Online** y **+7,76% a −13,22% en Físico**.
-
-**3. El deterioro es de margen bruto, no de flete**
-
-En el canal Físico no hay costo de envío, y aun así los cinco productos continuos caen: **TCL Monitor TV 19** (+7,76% a −13,22%), **Anker Hub USB 36** (+4,26% a −9,66%), **Liliana Ventilador 47** (+4,90% a −7,89%), **JBL Parlante Bluetooth 27** (+7,52% a −3,34%) y **Motorola Smartphone 11** (+4,15% a −6,33%). La fuga logística (C2) es un problema distinto, que se suma en Online.
-
-**4. Tres lanzamientos entraron sin margen**
-
-**Edifier Auriculares 32**, **Dell Teclado 3** y **Lenovo Mouse 8** explican **−$3,78 M (39,9% de la pérdida)**. Edifier 32 y Dell Teclado 3 se vendieron por debajo del costo durante todo su período de venta (margen bruto de **−8,97% / −9,31%** y **−17,00% / −23,01%**, Online / Físico), y Lenovo Mouse 8 salió con margen casi nulo (**+0,60% Online, −3,03% Físico**). Edifier 32 empezó a venderse en julio y Dell Teclado 3 en septiembre, por eso toda su pérdida cae en el 2S: no es un deterioro posterior, es un precio de lanzamiento que nunca cubrió el costo.
-
-**5. Anker Mousepad 34: el caso típico de fuga logística**
-
-Vendió 226 unidades con **margen bruto de +12,86%**, pero el envío costó **$1,41 M (19,9% de sus ventas)** y la dejó en **−$0,50 M**.
-
-> *Hipótesis a validar: los datos muestran el colapso del margen bruto en el 2S de productos que eran rentables, pero no permiten separar si se debió a un aumento del costo de reposición, a una baja de precios o mayores descuentos, o a una combinación. Atribuirlo a un atraso de precios frente a los costos requiere comparar el precio y el costo unitario por trimestre, y queda como siguiente paso.*
-
-<br>
-
-#### 🔹 Puente analítico → Conclusiones Generales
-
-Q7 cierra la Rama de Rentabilidad: Q5 mostró cómo se compone el resultado, Q6 explicó por qué cayó la Ganancia Bruta y Q7 identifica **dónde se pierde rentabilidad hoy y por qué vía**: una cartera chica y concentrada de productos que se venden sin margen o cuyo flete supera su margen, con un deterioro que se acelera en el segundo semestre.
-
-**Las Conclusiones Generales integran la lectura comercial y la de rentabilidad en un solo diagnóstico, con las acciones correspondientes.**
-
-<br>
-</details>
 
 ### Profundización Operativa (Deep Dives)
 
