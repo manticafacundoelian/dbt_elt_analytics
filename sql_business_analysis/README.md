@@ -1101,8 +1101,187 @@ Q7 pasó la caída del 1S al 2S a **puntos de margen bruto**: el margen se hundi
 <br>
 </details>
 
+#### └── 🔹 Q8 — Foto del 2S 2026: ¿Qué parte de la cartera pierde plata hoy?
 
+<details>
+<summary><strong>Ver desarrollo de Q8</strong></summary>  
 
+<br>
+
+#### 🔹 Síntesis
+
+Q5 mostró cómo se compone el resultado, Q6 por qué cayó la Ganancia Bruta en pesos y Q7 por qué cayó el margen bruto en puntos. **Q8 es la foto del 2S de 2026**, el semestre más reciente, y suma el flete que Q6 y Q7 no miran: **¿qué parte de la cartera pierde plata hoy, por qué vía y quién la explica?** El 1S se usa solo como punto de comparación. Se lee en tres pasos:
+
+- **Cuánto y por qué vía (Q8.A):** **31 de los 86 segmentos producto × canal pierden plata** en el 2S. Facturan **$129,27 M (34,2% de las ventas)** y pierden **−$13,23 M**, más de lo que gana toda la empresa (**+$8,67 M**). Hay dos mecanismos: **23 segmentos venden por debajo de su costo** (C1, −$12,04 M, el 91% de la pérdida) y **8, todos Online, tienen margen bruto positivo pero el flete lo consume** (C2, −$1,20 M).
+- **Dónde pesa el flete (Q8.B):** el flete pasó de **1,46% a 3,98% de las ventas** (+2,52 pp), todo en el canal Online (de 1,85% a 5,01% de sus ventas) y en las seis categorías. Solo **tres de las doce combinaciones categoría × canal** terminan en pérdida: **Accesorios Online** por el flete, **TV y Video Online y Físico** por margen bruto.
+- **Quiénes son (Q8.C):** **seis segmentos explican el 71% de la pérdida**. **Dos lanzamientos** (Edifier Auriculares 32 y Dell Teclado 3) aportan el 27% y los **27 segmentos que ya se vendían en el 1S** el 73%; casi todos ganaban plata en el 1S.
+
+**Conclusión:** la pérdida del 2S está en el 36% de los segmentos y la explica sobre todo un **margen bruto negativo (91%)**, con el flete como agravante en Online. El resto de la cartera rinde como rendía la empresa entera antes: los segmentos sostenibles (C4) tienen un margen bruto de **18,90%**, frente al **18,35%** de toda la empresa en el 1S. El problema no está repartido parejo: está concentrado en pocos productos.
+
+> *Notas de lectura: (1) Todo es 2026, pedidos entregados y neto de devoluciones; 1S = enero–junio y 2S = julio–diciembre. Se clasifica con el resultado del 2S y no con el del año, porque el año promedia un semestre sano con uno deteriorado. (2) La unidad de análisis es el segmento producto × canal, igual que en Q6 y Q7. Un mismo producto puede caer en cuadrantes distintos según el canal (TP-Link Hub USB 37 es C1 en Físico y C2 en Online), por eso se cuentan segmentos y no productos. (3) Las compras en el canal Físico no tienen costo de envío, por construcción del dataset: por eso C2 solo existe en Online. (4) El envío de cada pedido se reparte entre sus productos en proporción a su valor neto de descuentos (cantidad × precio unitario × (1 − descuento)). No se reduce por devoluciones (se pagó igual), mientras que las ventas son netas de devoluciones. (5) Un segmento con ventas netas menores a medio centavo no se clasifica (por ejemplo, un producto cuyas unidades del 2S fueron todas devueltas); evita que un residuo decimal lo mande a C1 con un margen sin sentido. (6) **Controles:** el Total Empresa de Q8.A y Q8.B coincide con Q5.B (margen bruto 6,28%, flete 3,98%, margen neto 2,30%), y C1 coincide con los 23 segmentos de margen bruto negativo de Q7.D (ventas $98,4 M, Ganancia Bruta −$8,09 M).*
+
+**Criterio de los cuadrantes**, aplicado a cada segmento producto × canal con los montos del 2S sin redondear:
+
+| Cuadrante | Condición |
+| :--- | :--- |
+| 🔴 **C1: Destructor Bruto** | Ganancia Bruta negativa: vende por debajo del costo, antes de cualquier flete |
+| 🟠 **C2: Fuga Logística** | Ganancia Bruta positiva, pero Ganancia Neta (Bruta − flete) negativa |
+| 🟡 **C3: Margen Neto Bajo** | Margen neto entre 0% y 10% |
+| 🟢 **C4: Cartera Sostenible** | Margen neto mayor a 10% |
+
+<br>
+
+#### 🔸 Q8.A — Diagnóstico de Cartera del 2S: Cuadrantes de Salud
+
+[Ver Consulta SQL →](./sql_business_analysis/q8a_cuadrantes_salud_2s.sql) <br>
+
+#### 🔹 Resultados
+
+| Cuadrante de Salud | Segmentos | Ventas Netas Finales | Ganancia Bruta | Costo Logístico | Ganancia Neta | Margen Bruto % | Margen Neto % | Peso del flete | % Facturación | % del Flete | % de la Ganancia Neta |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 🔴 **C1: Destructor Bruto** *(MB < 0%)* | 23 | $98,36 M | −$8,09 M | $3,95 M | **−$12,04 M** | −8,23% | −12,24% | 4,01% | 26,05% | 26,25% | −138,80% |
+| 🟠 **C2: Fuga Logística** *(MB ≥ 0% \| MN < 0%)* | 8 | $30,92 M | +$1,73 M | $2,92 M | **−$1,20 M** | +5,58% | −3,87% | 9,45% | 8,19% | 19,43% | −13,79% |
+| 🟡 **C3: Margen Neto Bajo** *(MN 0% a 10%)* | 25 | $169,93 M | +$15,25 M | $6,17 M | **+$9,08 M** | +8,97% | +5,35% | 3,63% | 45,00% | 41,00% | 104,74% |
+| 🟢 **C4: Cartera Sostenible** *(MN > 10%)* | 30 | $78,44 M | +$14,83 M | $2,00 M | **+$12,82 M** | +18,90% | +16,35% | 2,55% | 20,77% | 13,32% | 147,85% |
+| *Subtotal críticos (C1 + C2)* | 31 | $129,27 M | −$6,37 M | $6,87 M | **−$13,23 M** | −4,92% | −10,24% | 5,31% | 34,23% | 45,68% | −152,59% |
+| *Subtotal resto (C3 + C4)* | 55 | $248,37 M | +$30,08 M | $8,17 M | **+$21,91 M** | +12,11% | +8,82% | 3,29% | 65,77% | 54,32% | 252,59% |
+| **Total Empresa** | **86** | **$377,64 M** | **+$23,71 M** | **$15,04 M** | **+$8,67 M** | **+6,28%** | **+2,30%** | **3,98%** | **100,00%** | **100,00%** | **100,00%** |
+
+> *Los subtotales y los porcentajes de la derecha salen directo de la consulta. Los productos distintos no se suman entre cuadrantes: C1 reúne 13 productos y C2 8, y uno de ellos (TP-Link Hub USB 37) está en los dos. La Ganancia Bruta total ($23,71 M) es la misma que usa Q6 como punto de llegada.*
+
+#### 🔹 Hallazgos
+
+**1. 31 de 86 segmentos pierden plata, y pierden más de lo que gana toda la empresa**
+
+C1 y C2 son el **36% de los segmentos**, facturan **$129,27 M (34,2%)** y suman **−$13,23 M** de Ganancia Neta, contra **+$8,67 M** de toda la empresa. Los otros 55 segmentos (65,8% de las ventas) ganan **$21,91 M**, un **margen neto de 8,82%**, y son **2,5 veces** la ganancia neta total.
+
+**2. C1: vender por debajo del costo es el 91% de la pérdida**
+
+Los **23 segmentos de C1 (13 productos)** pierden **−$8,09 M antes del flete** (margen bruto de −8,23%). El flete suma otros **$3,95 M** y deja una pérdida neta de **−$12,04 M (−12,24% de sus ventas)**. Son los mismos 23 segmentos con margen bruto negativo que detectó Q7.D.
+
+**3. C2: el flete consume un margen que sí existía**
+
+Los **8 segmentos de C2** tienen un margen bruto positivo pero flaco (**+5,58%**), y su flete equivale al **9,45% de sus ventas**: pierden **−$1,20 M (−3,87%)**. Es una pérdida chica (9% del total crítico), pero muestra que el margen no alcanzó para pagar el envío.
+
+**4. Casi la mitad del flete se gasta en segmentos que pierden plata**
+
+C1 y C2 concentran el **34,2% de las ventas** y el **45,7% del costo logístico** ($6,87 M de $15,04 M): C1 usa el 26,2% y C2 el 19,4%.
+
+**5. El núcleo sano rinde como la empresa entera rendía en el 1S, pero C3 está cerca de la línea**
+
+**C4** (30 segmentos, 20,8% de las ventas) tiene un margen bruto de **18,90%** y uno neto de **16,35%** (el total de la empresa en el 1S fue 18,35% y 16,89%), y genera **$12,82 M, el 148% de la Ganancia Neta**. **C3**, el cuadrante más grande (**45,0% de las ventas**), deja solo **5,35% neto**: está lejos del problema de C1 pero cerca de la línea del 0%.
+
+<br>
+
+#### 🔸 Q8.B — Peso Logístico por Categoría y Canal: 1S vs 2S
+
+[Ver Consulta SQL →](./sql_business_analysis/q8b_logistica_categoria_canal.sql) <br>
+
+#### 🔹 Resultados
+
+| Categoría | Canal | Ventas Netas 2S | Var. ventas vs 1S | Costo Logístico 2S | Peso del flete 1S → 2S | Margen Bruto 1S → 2S | Margen Neto 1S → 2S | Ganancia Neta 2S |
+| :--- | :--- | ---: | ---: | ---: | :---: | :---: | :---: | ---: |
+| Accesorios | Físico | $5,83 M | −38,8% | $0,00 M | 0,00% → 0,00% | 18,10% → 3,65% | 18,10% → 3,65% | +$0,21 M |
+| Accesorios | Online | $25,65 M | +24,6% | $2,65 M | 6,30% → 10,32% | 16,82% → 4,92% | 10,53% → −5,40% | **−$1,38 M** |
+| Audio | Físico | $19,81 M | +29,7% | $0,00 M | 0,00% → 0,00% | 23,18% → 7,48% | 23,18% → 7,48% | +$1,48 M |
+| Audio | Online | $89,52 M | +70,2% | $4,50 M | 2,57% → 5,02% | 21,68% → 6,77% | 19,11% → 1,75% | +$1,57 M |
+| Computación | Físico | $10,30 M | −35,9% | $0,00 M | 0,00% → 0,00% | 24,97% → 10,89% | 24,97% → 10,89% | +$1,12 M |
+| Computación | Online | $36,21 M | −51,7% | $2,03 M | 2,33% → 5,60% | 25,25% → 14,05% | 22,92% → 8,45% | +$3,06 M |
+| Hogar | Físico | $10,43 M | +30,4% | $0,00 M | 0,00% → 0,00% | 21,78% → 10,34% | 21,78% → 10,34% | +$1,08 M |
+| Hogar | Online | $48,31 M | +41,7% | $4,30 M | 4,59% → 8,90% | 20,56% → 11,67% | 15,97% → 2,77% | +$1,34 M |
+| TV y Video | Físico | $24,37 M | −57,2% | $0,00 M | 0,00% → 0,00% | 15,15% → −1,31% | 15,15% → −1,31% | **−$0,32 M** |
+| TV y Video | Online | $91,15 M | −56,4% | $1,34 M | 0,80% → 1,47% | 15,60% → 0,51% | 14,79% → −0,97% | **−$0,88 M** |
+| Telefonía | Físico | $6,84 M | −31,8% | $0,00 M | 0,00% → 0,00% | 19,01% → 10,37% | 19,01% → 10,37% | +$0,71 M |
+| Telefonía | Online | $9,22 M | −79,0% | $0,23 M | 0,95% → 2,45% | 14,03% → 9,92% | 13,09% → 7,48% | +$0,69 M |
+| **TOTAL EMPRESA** |  | **$377,64 M** | **−31,5%** | **$15,04 M** | **1,46% → 3,98%** | **18,35% → 6,28%** | **16,89% → 2,30%** | **+$8,67 M** |
+
+> *Peso del flete = costo logístico ÷ Ventas Netas Finales del grupo. El 1S incluye a todos los productos que vendieron en ese semestre, por eso la fila total coincide con Q5.B en las dos columnas. En negrita, las tres combinaciones con Ganancia Neta negativa.*
+
+#### 🔹 Hallazgos
+
+**1. El flete casi se duplicó en pesos y pasó de 1,46% a 3,98% de las ventas**
+
+Son **+2,52 pp** de margen neto que se van en envíos. Todo ocurre en Online, porque Físico no tiene flete: el peso del flete sobre las **ventas Online** pasó de **1,85% a 5,01%**. Mientras las ventas totales cayeron 31,5%, el flete pasó de **$8,06 M a $15,04 M** (+87%).
+
+**2. Sube en las seis categorías Online: pesa más cuanto más barato es el producto**
+
+El aumento va de **+0,67 pp (TV y Video)** a **+4,31 pp (Hogar)**. Hay dos razones, las dos visibles en la consulta: dentro de cada categoría el flete pesa más, y las ventas Online se movieron hacia categorías de ticket bajo (**Accesorios +24,6%, Audio +70,2%, Hogar +41,7%**, contra **TV y Video −56,4%, Computación −51,7%, Telefonía −79,0%**). El canal Online pesó lo mismo en las ventas (79,0% en el 1S y 79,5% en el 2S): no es un cambio de canal. Por unidad se paga un flete parecido (**$8.509 en Accesorios y $13.851 en TV y Video**), pero el ticket promedio va de **$82.476 a $939.738**: por eso el flete pesa **10,3%** de la venta en Accesorios, **8,9%** en Hogar y **1,5%** en TV y Video.
+
+**3. Solo tres combinaciones pierden plata, por causas distintas**
+
+**Accesorios Online (−$1,38 M, margen neto de −5,40%)** es un problema de flete: su margen bruto (4,92%) es menor que lo que pesa el envío (10,32%). **TV y Video Online (−$0,88 M)** y **TV y Video Físico (−$0,32 M)** son un problema de margen bruto: terminan en **0,51% y −1,31%**, con un flete de apenas 1,47% o nulo. Las tres suman **−$2,59 M**.
+
+**4. La pérdida real no se ve a nivel categoría: se esconde dentro de combinaciones que ganan**
+
+Nueve de las doce combinaciones tienen Ganancia Neta positiva, pero los 31 segmentos de Q8.A pierden **−$13,23 M**: el promedio de la categoría tapa a los productos que pierden. Por eso hace falta bajar al producto (Q8.C).
+
+**5. El margen bruto cayó en las doce combinaciones; el flete agrega, no explica**
+
+Físico, sin flete, perdió entre **8,64 y 16,46 pp** de margen neto, el mismo orden que Online (**5,61 a 17,36 pp**). El flete explica entre el **4%** (TV y Video Online) y el **33%** (Hogar Online) de la caída del margen neto de cada combinación Online, y a nivel empresa **2,52 de los 14,59 pp (17%)** (columna `pct_caida_margen_neto_por_flete`). El resto es el margen bruto de Q7.
+
+**6. TV y Video quedó sin margen**
+
+Pasó de **48,3% de las ventas en el 1S a 30,6% en el 2S** (suma de las dos filas de la categoría) (sus ventas cayeron 56,6%) y su margen bruto cayó de cerca del 15% a **0,51% en Online y −1,31% en Físico**. Es la categoría que más pesaba en el 1S y la que ya no deja ganancia.
+
+<br>
+
+#### 🔸 Q8.C — Productos Críticos (C1 y C2) del 2S, con su 1S al Lado
+
+[Ver Consulta SQL →](./sql_business_analysis/q8c_skus_criticos_2s.sql) <br>
+
+#### 🔹 Resultados
+
+| # | Cuadrante | Producto | Canal | Estado | Ventas Netas 2S | Margen Bruto 1S → 2S | Margen Neto 1S → 2S | Ganancia Neta 2S | % acumulado |
+| ---: | :---: | :--- | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | 🔴 C1 | **TCL Monitor TV 19** | Online | Continuo | $19,44 M | 7,34% → −12,67% | 6,69% → −13,86% | **−$2,70 M** | 20,4% |
+| 2 | 🔴 C1 | **Edifier Auriculares 32** | Online | Nuevo en 2S | $18,34 M | — → −8,97% | — → −14,44% | **−$2,65 M** | 40,4% |
+| 3 | 🔴 C1 | **Anker Hub USB 36** | Online | Continuo | $6,59 M | 2,56% → −9,52% | −1,32% → −17,42% | **−$1,15 M** | 49,0% |
+| 4 | 🔴 C1 | **Liliana Ventilador 47** | Online | Continuo | $6,45 M | 5,57% → −6,57% | 0,92% → −17,77% | **−$1,15 M** | 57,7% |
+| 5 | 🔴 C1 | **TCL Monitor TV 19** | Físico | Continuo | $7,02 M | 7,76% → −13,22% | 7,76% → −13,22% | **−$0,93 M** | 64,7% |
+| 6 | 🔴 C1 | **Edifier Auriculares 29** | Online | Continuo | $8,44 M | 12,32% → −0,60% | 7,19% → −10,36% | **−$0,87 M** | 71,3% |
+| 7 | 🟠 C2 | **Anker Mousepad 34** | Online | Continuo | $3,64 M | 18,78% → 7,27% | 4,91% → −18,34% | **−$0,67 M** | 76,4% |
+| 8 | 🔴 C1 | **JBL Parlante Bluetooth 27** | Online | Continuo | $3,26 M | 7,45% → −7,84% | 4,34% → −15,25% | **−$0,50 M** | 80,1% |
+| 9 | 🔴 C1 | **Dell Teclado 3** | Online | Nuevo en 2S | $1,75 M | — → −17,00% | — → −25,09% | **−$0,44 M** | 83,4% |
+| 10 | 🔴 C1 | **Edifier Auriculares 32** | Físico | Nuevo en 2S | $4,24 M | — → −9,31% | — → −9,31% | **−$0,39 M** | 86,4% |
+| 11 | 🔴 C1 | **Samsung Smart TV 20** | Online | Continuo | $7,82 M | 13,87% → −2,44% | 12,32% → −4,53% | **−$0,35 M** | 89,1% |
+| 12 | 🟠 C2 | **TP-Link Memoria USB 35** | Online | Continuo | $3,60 M | 19,11% → 5,76% | 14,48% → −5,20% | **−$0,19 M** | 90,5% |
+
+> *Se muestran los 12 mayores de los 31 segmentos críticos, ordenados por Ganancia Neta del 2S; el % acumulado es sobre los −$13,23 M del total. Los otros 19 pierden menos de $0,18 M cada uno y suman el 9,5% restante. Las cifras por producto, por canal y por estado de los hallazgos suman filas de la consulta (columna `pct_de_la_perdida`). "Nuevo en 2S" = el segmento no tuvo unidades efectivas en el 1S, por eso no tiene margen del 1S.*
+
+#### 🔹 Hallazgos
+
+**1. Seis segmentos explican el 71% de la pérdida, y casi todos son Online**
+
+**TCL Monitor TV 19 Online (−$2,70 M)**, **Edifier Auriculares 32 Online (−$2,65 M)**, **Anker Hub USB 36 Online (−$1,15 M)**, **Liliana Ventilador 47 Online (−$1,15 M)**, **TCL Monitor TV 19 Físico (−$0,93 M)** y **Edifier Auriculares 29 Online (−$0,87 M)** suman el **71,3%**. Sumando los dos canales, cinco productos explican el **76,6%**: TCL Monitor TV 19 (−$3,62 M, 27,4%), Edifier Auriculares 32 (−$3,04 M, 23,0%), Anker Hub USB 36 (10,0%), Liliana Ventilador 47 (9,4%) y Edifier Auriculares 29 (6,8%). **Online** reúne 20 de los 31 segmentos y el **84,8%** de la pérdida (−$11,23 M); **Físico**, 11 segmentos y **−$2,01 M** sin flete: la pérdida de Físico es de precio y costo.
+
+**2. Dos lanzamientos entraron vendiendo por debajo del costo**
+
+**Edifier Auriculares 32** y **Dell Teclado 3** (cuatro segmentos, Online y Físico) no se vendían en el 1S. Vendieron **128 unidades por $24,85 M** con margen bruto de **−8,97% y −9,31%** (Edifier) y **−17,00% y −23,01%** (Dell), y suman **−$3,60 M (27% de la pérdida)**. Son los mismos dos productos que Q6 y Q7 muestran con precio por debajo del costo.
+
+**3. Los 27 segmentos que ya se vendían explican el 73%, y casi todos ganaban plata en el 1S**
+
+Pierden **−$9,63 M**. **23 de los 27 tenían margen neto positivo en el 1S** y **26 de los 27 perdieron 10 pp o más** de margen neto entre semestres. El caso más grande, **TCL Monitor TV 19 Online**, pasó de un margen bruto de **7,34% a −12,67%** y de un margen neto de **6,69% a −13,86%**. Estos productos no estaban rotos: se rompieron en el 2S.
+
+**4. C2: ticket bajo, margen que cae y flete que sube**
+
+De los 8 segmentos de C2, **4 son Accesorios y 2 Hogar**. En los ocho cayó el margen bruto (**entre 9,8 y 14,2 pp**) y subió el peso del flete (**entre 0,7 y 11,7 pp**, columnas `peso_logistico_1s_pct` y `peso_logistico_2s_pct`). El mayor es **Anker Mousepad 34 Online**: ticket de **$31.388**, un flete que pasó de **13,9% a 25,6%** de la venta y **−$0,67 M** (5% de la pérdida).
+
+**Límites de la lectura**
+
+- **Es la foto de un semestre.** Muestra a quién le va mal hoy, no si seguirá así. Varios segmentos de la lista mueven una o dos unidades (Liliana Cafetera 50 Online, TP-Link Hub USB 39 Online, Lenovo Mouse 8 Físico): lo que pesa es el comienzo de la tabla, no la cola.
+- **El flete está asignado, no medido por producto.** Se reparte por valor dentro de cada pedido y no se reduce por devoluciones. El peso por categoría refleja sobre todo el ticket de los pedidos en que se vende.
+- **Los cuadrantes dependen de umbrales** (0% y 10%). Un segmento en C3 con un margen neto de 1% o 2% está a un deterioro de pasar a C2.
+- **No separa precio de costo.** Que el margen bruto caiga por costo es una conclusión de Q6, no de Q8.
+- **Solo ve lo que se vende hoy.** Los segmentos sin ventas en el 2S no aparecen: ya dejaron la cartera.
+
+<br>
+
+#### 🔹 Puente analítico → Conclusiones Generales
+
+Q8 cierra la rama de Rentabilidad. Q5 mostró que el margen neto cayó de 16,89% a 2,30% entre semestres, Q6 y Q7 explicaron que la causa es un costo unitario que subió sin que el precio lo acompañara, y **Q8 mostró dónde está la pérdida hoy: 31 segmentos que pierden −$13,23 M, concentrados en pocos productos, con el flete como agravante en Online.** Las **Conclusiones Generales** reúnen lo que dicen las tres ramas y lo traducen en recomendaciones.
+
+<br>
+</details>
 
 
 ### Profundización Operativa (Deep Dives)
