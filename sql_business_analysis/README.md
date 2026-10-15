@@ -874,27 +874,25 @@ Q6 explicó **cómo se descompone la caída de la Ganancia Bruta en términos mo
 
 #### 🔹 Síntesis
 
-Q6 explicó la caída de la Ganancia Bruta **en pesos**. **Q7 vuelve sobre el margen bruto del 1S al 2S de 2026 y lo mide en puntos porcentuales**: ¿cuánto de la caída se debe a que cada producto gana menos por peso vendido (efecto margen), cuánto a que cambió qué productos se venden (efecto mezcla) y cuánto a los productos que entraron o dejaron de venderse? Igual que Q6, se abre en cuatro niveles. Se lee en cuatro pasos:
+Q6 explicó la caída de la Ganancia Bruta **en términos monetarios**. Q7 analiza el mismo deterioro desde la perspectiva del **margen bruto porcentual**: ¿cuánto aportaron los cambios en los márgenes de los segmentos, las variaciones en la composición de las ventas y la entrada o salida de segmentos?
 
-- **Cuánto y por qué (Q7.A):** el margen bruto cayó **12,07 pp, de 18,35% a 6,28%**. El **margen propio de los productos explica −10,95 pp (90,8%)**: los productos ganan menos por cada peso que venden. Los **productos nuevos agregan −1,96 pp (16,2%)** y los que dejaron de venderse **−0,13 pp (1,1%)**. La **mezcla juega a favor (+0,97 pp)**: no empeoró el margen, lo amortiguó.
-- **En qué canal (Q7.B):** **Online explica el 77,7%** de la caída (−9,38 pp) y **Físico el 22,3%** (−2,69 pp).
-- **En qué categorías (Q7.C):** seis combinaciones, cinco de ellas Online más TV y Video Físico, explican el **86,6%** de la caída. **TV y Video Online (−3,26 pp) y Audio Online (−3,06 pp)** concentran más de la mitad. El efecto margen es negativo en las **12 combinaciones**.
-- **En qué productos (Q7.D):** los **78 productos continuos perdieron margen** y **23 segmentos terminaron el 2S con margen bruto negativo**: son el 26% de las ventas del 2S y explican **−5,20 pp (43%)** de la caída. Un solo lanzamiento, **Edifier Auriculares 32, explica −1,64 pp (13,6%)**.
+El margen bruto global cayó **12,07 pp, del 18,35% al 6,28%** entre el primer y el segundo semestre de 2026. La descomposición identifica cuatro contribuciones:
 
-**Conclusión:** el margen bruto cayó 12,07 pp casi por completo porque **los productos ganan mucho menos por cada peso vendido (−10,95 pp, 91%)**, algo que Q6 muestra que viene del costo: el precio casi no se movió. La mezcla no lo empeoró (sumó +0,97 pp) y los lanzamientos que entraron con margen negativo agregaron **−1,96 pp**. La caída está repartida en toda la cartera, pero es más profunda en un grupo de productos que hoy venden por debajo de su costo.
+* **Efecto margen:** −10,95 pp. Explica el 90,8% de la caída y refleja el deterioro de los márgenes de los segmentos que vendieron en ambos semestres. En conjunto con los resultados de Q6, este efecto se asocia principalmente con la presión de los costos.
+* **Efecto entrada:** −1,96 pp. Los segmentos que comenzaron a vender en el 2S redujeron el margen global, principalmente por los lanzamientos de Edifier Auriculares 32 y Dell Teclado 3, que registraron márgenes brutos negativos.
+* **Efecto salida:** −0,13 pp. La desaparición de ventas de ocho segmentos tuvo una incidencia negativa reducida sobre el margen global.
+* **Efecto mezcla:** +0,97 pp. Los cambios en la participación de los segmentos compensaron parcialmente el deterioro, porque la composición de las ventas evolucionó favorablemente respecto del margen global del 1S.
 
-> *Notas de lectura: (1) Todo es 2026, pedidos entregados y neto de devoluciones; 1S = enero–junio y 2S = julio–diciembre. Margen bruto = Ganancia Bruta ÷ Ventas Netas Finales; la **participación** de cada segmento es su peso en las ventas netas finales del semestre. (2) La unidad de análisis es el segmento producto × canal (94), con los mismos criterios que Q6: **continuo** (ventas en ambos semestres, 78), **nuevo en 2S** (8) y **sin ventas en el 2S** o "discontinuado" (8). Un segmento cuenta como sin ventas si su venta neta es menor a medio centavo. (3) El **efecto margen** reúne precio y costo del propio segmento. Q7 no los separa, pero Q6 sí: el efecto precio fue casi nulo (+$0,72 M contra −$43,35 M del costo), por lo que el efecto margen es esencialmente costo. (4) Cada fila de Q7.B, C y D es la **contribución** del grupo a la variación del margen global, no el cambio de su margen propio: el "efecto margen" de un canal o categoría es la suma de los efectos margen de sus productos. (5) Los efectos son aditivos y en cada nivel suman exactamente la variación del margen global (residuo 0).*
+**¿Dónde se concentra la caída?**
 
-**Cómo se calcula cada efecto** (por segmento; w = participación en las ventas netas del semestre, m = margen bruto del segmento, M₁ = margen bruto global del 1S como referencia; 1 = 1S, 2 = 2S):
+* **Q7.A — Total empresa:** cuantifica las contribuciones de los cuatro efectos y explica la variación global.
+* **Q7.B — Canal:** Online concentra el 77,7% de la caída, en línea con su peso en las ventas, aunque Físico registra una reducción mayor de su margen propio.
+* **Q7.C — Categoría × canal:** seis combinaciones explican el 86,6% de la caída. TV y Video Online y Audio Online son las de mayor contribución negativa.
+* **Q7.D — Producto × canal:** identifica los segmentos con mayor deterioro y los casos que requieren atención. Al cierre del 2S, 23 segmentos registraron margen bruto negativo y representaron el 26% de las ventas del semestre.
 
-| Efecto | Qué mide | Fórmula |
-| :--- | :--- | :--- |
-| **Margen** | Cuánto cambió el margen del propio segmento, con su peso promedio | ((w₁ + w₂) ÷ 2) × (m₂ − m₁) |
-| **Mezcla** | Qué aportó que el segmento ganara o perdiera peso: suma si se movió hacia un margen mayor al de referencia, resta si no | (w₂ − w₁) × (((m₁ + m₂) ÷ 2) − M₁) |
-| **Entrada** | Qué aportó un segmento sin ventas en el 1S: suma si su margen supera al de referencia | w₂ × (m₂ − M₁) |
-| **Salida** | Qué aportó la salida de un segmento sin ventas en el 2S: suma si tenía margen menor al de referencia | −w₁ × (m₁ − M₁) |
+**Conclusión:** el deterioro del margen bruto se explica principalmente por la pérdida de rentabilidad de los segmentos que continuaron vendiendo, acompañada por el aporte negativo de los nuevos segmentos. La mezcla amortiguó parcialmente la caída, pero no alcanzó para compensarla. Q6 aporta evidencia de que el costo fue el principal factor negativo en términos monetarios, mientras que Q7 cuantifica cómo se distribuye el deterioro del margen porcentual.
 
-*Se mide contra M₁ y no contra cero porque un segmento mejora el margen global solo si su margen supera al promedio: perder peso de un producto de margen bajo mejora el margen total aunque ese producto "pierda plata". Cambiar la referencia redistribuye el total entre mezcla, entrada y salida, pero no cambia la variación total.*
+> **Notas de lectura:** El análisis considera pedidos entregados y ventas netas finales, netas de devoluciones. El margen bruto se calcula como Ganancia Bruta dividida por Ventas Netas Finales. La unidad de análisis es el segmento producto × canal. Los efectos se expresan en puntos porcentuales y su suma reconcilia con la variación del margen bruto global. El efecto margen combina las variaciones de precio y costo; su interpretación económica se complementa con Q6. La logística no está incluida en Q7 y se incorpora en Q8.
 
 <br>
 
