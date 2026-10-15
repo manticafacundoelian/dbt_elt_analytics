@@ -1101,7 +1101,7 @@ Q7 pasó la caída del 1S al 2S a **puntos de margen bruto**: el margen se hundi
 <br>
 </details>
 
-#### └── 🔹 Q8 — Foto del 2S 2026: ¿Qué parte de la cartera pierde plata hoy?
+#### ├─ 🔹 Q8 — Foto del 2S 2026: ¿Qué parte de la cartera pierde plata hoy?
 
 <details>
 <summary><strong>Ver desarrollo de Q8</strong></summary>  
@@ -1118,7 +1118,7 @@ Q5 mostró cómo se compone el resultado, Q6 por qué cayó la Ganancia Bruta en
 
 **Conclusión:** la pérdida del 2S está en el 36% de los segmentos y la explica sobre todo un **margen bruto negativo (91%)**, con el flete como agravante en Online. El resto de la cartera rinde como rendía la empresa entera antes: los segmentos sostenibles (C4) tienen un margen bruto de **18,90%**, frente al **18,35%** de toda la empresa en el 1S. El problema no está repartido parejo: está concentrado en pocos productos.
 
-> *Notas de lectura: (1) Todo es 2026, pedidos entregados y neto de devoluciones; 1S = enero–junio y 2S = julio–diciembre. Se clasifica con el resultado del 2S y no con el del año, porque el año promedia un semestre sano con uno deteriorado. (2) La unidad de análisis es el segmento producto × canal, igual que en Q6 y Q7. Un mismo producto puede caer en cuadrantes distintos según el canal (TP-Link Hub USB 37 es C1 en Físico y C2 en Online), por eso se cuentan segmentos y no productos. (3) Las compras en el canal Físico no tienen costo de envío, por construcción del dataset: por eso C2 solo existe en Online. (4) El envío de cada pedido se reparte entre sus productos en proporción a su valor neto de descuentos (cantidad × precio unitario × (1 − descuento)). No se reduce por devoluciones (se pagó igual), mientras que las ventas son netas de devoluciones. (5) Un segmento con ventas netas menores a medio centavo no se clasifica (por ejemplo, un producto cuyas unidades del 2S fueron todas devueltas); evita que un residuo decimal lo mande a C1 con un margen sin sentido. (6) **Controles:** el Total Empresa de Q8.A y Q8.B coincide con Q5.B (margen bruto 6,28%, flete 3,98%, margen neto 2,30%), y C1 coincide con los 23 segmentos de margen bruto negativo de Q7.D (ventas $98,4 M, Ganancia Bruta −$8,09 M).*
+> *Notas de lectura: (1) Todo es 2026, pedidos entregados y neto de devoluciones; 1S = enero–junio y 2S = julio–diciembre. Se clasifica con el resultado del 2S y no con el del año, porque el año promedia un semestre sano con uno deteriorado. (2) La unidad de análisis es el segmento producto × canal, igual que en Q6 y Q7. Un mismo producto puede caer en cuadrantes distintos según el canal (TP-Link Hub USB 37 es C1 en Físico y C2 en Online), por eso se cuentan segmentos y no productos. (3) Las compras en el canal Físico no tienen costo de envío, por construcción del dataset: por eso C2 solo existe en Online. (4) El envío de cada pedido se reparte entre sus productos en proporción a su valor neto de descuentos (cantidad × precio unitario × (1 − descuento)). No se reduce por devoluciones (se pagó igual), mientras que las ventas son netas de devoluciones. (5) Un segmento con ventas netas menores a medio centavo no se clasifica (por ejemplo, un producto cuyas unidades del 2S fueron todas devueltas); evita que un residuo decimal lo mande a C1 con un margen sin sentido. (6) **Controles:** el Total Empresa de Q8.A y Q8.B coincide con Q5.B (costo de ventas 93,72%, margen bruto 6,28%, flete 3,98%, margen neto 2,30%), y C1 coincide con los 23 segmentos de margen bruto negativo de Q7.D (ventas $98,4 M, Ganancia Bruta −$8,09 M).*
 
 **Criterio de los cuadrantes**, aplicado a cada segmento producto × canal con los montos del 2S sin redondear:
 
@@ -1137,15 +1137,15 @@ Q5 mostró cómo se compone el resultado, Q6 por qué cayó la Ganancia Bruta en
 
 #### 🔹 Resultados
 
-| Cuadrante de Salud | Segmentos | Ventas Netas Finales | Ganancia Bruta | Costo Logístico | Ganancia Neta | Margen Bruto % | Margen Neto % | Peso del flete | % Facturación | % del Flete | % de la Ganancia Neta |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 🔴 **C1: Destructor Bruto** *(MB < 0%)* | 23 | $98,36 M | −$8,09 M | $3,95 M | **−$12,04 M** | −8,23% | −12,24% | 4,01% | 26,05% | 26,25% | −138,80% |
-| 🟠 **C2: Fuga Logística** *(MB ≥ 0% \| MN < 0%)* | 8 | $30,92 M | +$1,73 M | $2,92 M | **−$1,20 M** | +5,58% | −3,87% | 9,45% | 8,19% | 19,43% | −13,79% |
-| 🟡 **C3: Margen Neto Bajo** *(MN 0% a 10%)* | 25 | $169,93 M | +$15,25 M | $6,17 M | **+$9,08 M** | +8,97% | +5,35% | 3,63% | 45,00% | 41,00% | 104,74% |
-| 🟢 **C4: Cartera Sostenible** *(MN > 10%)* | 30 | $78,44 M | +$14,83 M | $2,00 M | **+$12,82 M** | +18,90% | +16,35% | 2,55% | 20,77% | 13,32% | 147,85% |
-| *Subtotal críticos (C1 + C2)* | 31 | $129,27 M | −$6,37 M | $6,87 M | **−$13,23 M** | −4,92% | −10,24% | 5,31% | 34,23% | 45,68% | −152,59% |
-| *Subtotal resto (C3 + C4)* | 55 | $248,37 M | +$30,08 M | $8,17 M | **+$21,91 M** | +12,11% | +8,82% | 3,29% | 65,77% | 54,32% | 252,59% |
-| **Total Empresa** | **86** | **$377,64 M** | **+$23,71 M** | **$15,04 M** | **+$8,67 M** | **+6,28%** | **+2,30%** | **3,98%** | **100,00%** | **100,00%** | **100,00%** |
+| Cuadrante de Salud | Segmentos | Ventas Netas Finales | Costo de Ventas | Ganancia Bruta | Costo Logístico | Ganancia Neta | Margen Bruto % | Margen Neto % | Peso del flete | % Facturación | % del Flete | % de la Ganancia Neta |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 🔴 **C1: Destructor Bruto** *(MB < 0%)* | 23 | $98,36 M | $106,45 M | −$8,09 M | $3,95 M | **−$12,04 M** | −8,23% | −12,24% | 4,01% | 26,05% | 26,25% | −138,80% |
+| 🟠 **C2: Fuga Logística** *(MB ≥ 0% \| MN < 0%)* | 8 | $30,92 M | $29,19 M | +$1,73 M | $2,92 M | **−$1,20 M** | +5,58% | −3,87% | 9,45% | 8,19% | 19,43% | −13,79% |
+| 🟡 **C3: Margen Neto Bajo** *(MN 0% a 10%)* | 25 | $169,93 M | $154,68 M | +$15,25 M | $6,17 M | **+$9,08 M** | +8,97% | +5,35% | 3,63% | 45,00% | 41,00% | 104,74% |
+| 🟢 **C4: Cartera Sostenible** *(MN > 10%)* | 30 | $78,44 M | $63,61 M | +$14,83 M | $2,00 M | **+$12,82 M** | +18,90% | +16,35% | 2,55% | 20,77% | 13,32% | 147,85% |
+| *Subtotal críticos (C1 + C2)* | 31 | $129,27 M | $135,64 M | −$6,37 M | $6,87 M | **−$13,23 M** | −4,92% | −10,24% | 5,31% | 34,23% | 45,68% | −152,59% |
+| *Subtotal resto (C3 + C4)* | 55 | $248,37 M | $218,29 M | +$30,08 M | $8,17 M | **+$21,91 M** | +12,11% | +8,82% | 3,29% | 65,77% | 54,32% | 252,59% |
+| **Total Empresa** | **86** | **$377,64 M** | **$353,93 M** | **+$23,71 M** | **$15,04 M** | **+$8,67 M** | **+6,28%** | **+2,30%** | **3,98%** | **100,00%** | **100,00%** | **100,00%** |
 
 > *Los subtotales y los porcentajes de la derecha salen directo de la consulta. Los productos distintos no se suman entre cuadrantes: C1 reúne 13 productos y C2 8, y uno de ellos (TP-Link Hub USB 37) está en los dos. La Ganancia Bruta total ($23,71 M) es la misma que usa Q6 como punto de llegada.*
 
@@ -1157,7 +1157,7 @@ C1 y C2 son el **36% de los segmentos**, facturan **$129,27 M (34,2%)** y suman 
 
 **2. C1: vender por debajo del costo es el 91% de la pérdida**
 
-Los **23 segmentos de C1 (13 productos)** pierden **−$8,09 M antes del flete** (margen bruto de −8,23%). El flete suma otros **$3,95 M** y deja una pérdida neta de **−$12,04 M (−12,24% de sus ventas)**. Son los mismos 23 segmentos con margen bruto negativo que detectó Q7.D.
+Los **23 segmentos de C1 (13 productos)** pierden **−$8,09 M antes del flete**: su costo de ventas (**$106,45 M, el 108,2% de sus ventas**) supera a lo que facturan ($98,36 M), un margen bruto de −8,23%. El flete suma otros **$3,95 M** y deja una pérdida neta de **−$12,04 M (−12,24% de sus ventas)**. Son los mismos 23 segmentos con margen bruto negativo que detectó Q7.D.
 
 **3. C2: el flete consume un margen que sí existía**
 
@@ -1280,7 +1280,6 @@ De los 8 segmentos de C2, **4 son Accesorios y 2 Hogar**. En los ocho cayó el m
 
 Q8 cierra la rama de Rentabilidad. Q5 mostró que el margen neto cayó de 16,89% a 2,30% entre semestres, Q6 y Q7 explicaron que la causa es un costo unitario que subió sin que el precio lo acompañara, y **Q8 mostró dónde está la pérdida hoy: 31 segmentos que pierden −$13,23 M, concentrados en pocos productos, con el flete como agravante en Online.** Las **Conclusiones Generales** reúnen lo que dicen las tres ramas y lo traducen en recomendaciones.
 
-<br>
 </details>
 
 
