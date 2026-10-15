@@ -850,16 +850,9 @@ De los ocho segmentos discontinuados, seis corresponden a canales en los que un 
 
 #### 🔹 Puente analítico → Q7
 
-Q6 identificó **dónde y en qué magnitud cayó la Ganancia Bruta en pesos**: el aumento generalizado del costo unitario en los segmentos continuos analizados y la pérdida de contribución de algunos productos de ticket alto, especialmente en TV y Video Online.
-
-**Q7 profundiza el diagnóstico desde la rentabilidad**, analizando cuánto del deterioro se relaciona con la variación del margen y cuánto con los cambios en la composición de las ventas.
-
-#### 🔹 Puente analítico → Q7
-
 Q6 explicó **cómo se descompone la caída de la Ganancia Bruta en términos monetarios**: el costo fue el principal factor negativo, seguido por la mezcla de productos, mientras que el efecto precio compensó parcialmente la caída.
 
 **Q7 aborda la misma evolución desde otra perspectiva: la rentabilidad porcentual.** Analiza cómo varió el margen bruto entre semestres y cuánto contribuyeron los distintos efectos a esa variación en puntos porcentuales.
-
 
 <br>
 </details>
@@ -952,15 +945,17 @@ Los 8 segmentos nuevos restan **−1,96 pp (16,2%)**: **Edifier Auriculares 32 (
 
 > *Cada fila es la contribución del canal a la variación del margen global (−12,07 pp), no el cambio de su propio margen: los márgenes propios de cada canal están en la columna "MB 1S → 2S".*
 
-#### 🔹 Hallazgos
+#### Hallazgos
 
-**1. Online explica el 77,7% de la caída, casi lo que pesa en las ventas**
+1. **Online concentra el 77,7% de la caída global del margen bruto.** Su contribución fue de −9,38 pp, frente a −2,69 pp de Físico. Esta distribución es coherente con el peso de Online en las ventas, que aumentó del 78,99% al 79,46% entre semestres.
 
-Online aporta **−9,38 pp** y Físico **−2,69 pp**. Online representa el 79% de las ventas, y su margen cae **−11,81 pp** (de 18,28% a 6,47%); el de Físico cae **−13,08 pp** (de 18,60% a 5,52%). El reparto entre canales coincide con el de Q6 en pesos.
+2. **Físico registró una caída mayor en su margen bruto propio.** Su margen pasó del 18,60% al 5,52%, una reducción de 13,08 pp. En Online, el margen bajó del 18,28% al 6,47%, una caída de 11,81 pp. Por lo tanto, aunque Online concentra la mayor parte del deterioro global, Físico experimentó una reducción más pronunciada de su margen porcentual.
 
-**2. La mezcla ayuda en Online y es neutral en Físico**
+3. **El deterioro se explica principalmente por la pérdida de margen dentro de los canales, no por una mezcla desfavorable entre ellos.** El efecto margen aportó −8,85 pp en Online y −2,11 pp en Físico. En cambio, el efecto mezcla fue favorable en Online (+1,03 pp) y prácticamente neutro en Físico (−0,05 pp). La composición de las ventas entre canales, por lo tanto, compensó parcialmente la caída en el canal Online, pero no logró revertir el resultado global.
 
-En Online la mezcla suma **+1,03 pp** (se achicó el peso de productos de margen bajo), mientras que la entrada de lanzamientos resta **−1,50 pp**. En Físico la mezcla es casi nula (**−0,05 pp**) y el margen propio explica **−2,11 pp**: ahí la caída es casi pura pérdida de margen.
+4. **La entrada de nuevos segmentos también contribuyó negativamente, principalmente en Online.** El efecto entrada fue de −1,50 pp en este canal y de −0,46 pp en Físico. El efecto salida fue menor en ambos: −0,06 pp y −0,07 pp, respectivamente.
+
+**Conclusión:** Online es el principal contribuyente a la caída global por su participación en las ventas, mientras que Físico experimenta un deterioro mayor de su margen propio. En ambos canales predomina el efecto margen; los cambios en la composición de las ventas entre canales no explican la caída y, en conjunto, la mezcla la amortigua parcialmente.
 
 <br>
 
@@ -988,19 +983,28 @@ En Online la mezcla suma **+1,03 pp** (se achicó el peso de productos de margen
 
 > *El efecto de cada fila es la suma de los efectos de sus productos. Por eso, por ejemplo, la mezcla de una combinación puede tener un signo distinto del que sugiere su margen promedio: depende de qué productos de la combinación ganaron o perdieron peso.*
 
-#### 🔹 Hallazgos
+#### Hallazgos
 
-**1. Seis combinaciones explican el 86,6% de la caída**
+1. **La caída del margen bruto está concentrada en seis combinaciones de categoría y canal.** En conjunto, explican el 86,6% del deterioro global, con una contribución de −10,46 pp. Las principales son:
 
-**TV y Video Online (−3,26 pp, 27,0%)**, **Audio Online (−3,06 pp, 25,4%)**, Computación Online (−1,35 pp), Hogar Online (−0,99 pp), TV y Video Físico (−0,94 pp) y Accesorios Online (−0,86 pp) suman **−10,46 pp**.
+   * **TV y Video Online:** −3,26 pp.
+   * **Audio Online:** −3,06 pp.
+   * **Computación Online:** −1,35 pp.
+   * **Hogar Online:** −0,99 pp.
+   * **TV y Video Físico:** −0,94 pp.
+   * **Accesorios Online:** −0,86 pp.
 
-**2. Audio Online: casi la mitad de su caída es un solo lanzamiento**
+   Las dos primeras combinaciones, TV y Video Online y Audio Online, explican por sí solas el 52,4% de la caída global.
 
-De los **−3,06 pp** de Audio Online, **−1,33 pp (43%)** son la entrada de Edifier Auriculares 32; el resto (**−1,75 pp**) es el margen propio de sus otros productos, que baja de 21,68% a 6,77%. Es la combinación con la mayor entrada de lanzamientos.
+2. **TV y Video Online presenta el mayor aporte negativo, principalmente por el deterioro del margen de sus segmentos.** El margen bruto de la combinación pasó del 15,60% al 0,51%. Su efecto margen fue de −3,78 pp, parcialmente compensado por un efecto mezcla de +0,57 pp. El resultado total fue de −3,26 pp. Por lo tanto, el deterioro no se atribuye principalmente a un cambio desfavorable en la composición de sus ventas, sino a la pérdida de margen dentro de los segmentos.
 
-**3. El margen propio cae en las 12 combinaciones, pero Telefonía Online termina con contribución positiva**
+3. **En Audio Online, la entrada de nuevos segmentos explica una parte importante del impacto negativo.** La contribución total fue de −3,06 pp. De ese resultado, −1,33 pp corresponden al efecto entrada, asociado principalmente a Edifier Auriculares 32. Los restantes −1,75 pp del efecto margen reflejan el deterioro de los segmentos que continuaron vendiendo. El margen bruto de Audio Online cayó del 21,68% al 6,77%.
 
-El efecto margen es negativo en **las 12 combinaciones** (de −0,09 pp en Telefonía Físico a −3,78 pp en TV y Video Online). Telefonía Online es la única con contribución positiva (**+0,14 pp**) porque su mezcla (**+0,71 pp**) compensa su margen propio (−0,56 pp): su peso en las ventas cayó de 7,98% a 2,44%, y eran productos de margen bajo el promedio.
+4. **El efecto margen fue negativo en las doce combinaciones de categoría y canal.** Esto indica que el deterioro de los márgenes no se limitó a unas pocas categorías: estuvo presente en todas las combinaciones analizadas. Sin embargo, la contribución total no fue negativa en todos los casos, porque los efectos de mezcla, entrada y salida también influyen en el resultado.
+
+5. **Telefonía Online fue la única combinación con una contribución total positiva.** Su aporte fue de +0,14 pp, a pesar de registrar un efecto margen negativo de −0,56 pp. El efecto mezcla, de +0,71 pp, compensó ese deterioro. La participación de Telefonía Online en las ventas bajó del 7,98% al 2,44%; como su margen en el primer semestre estaba por debajo del promedio global, la pérdida de participación favoreció el margen agregado.
+
+**Conclusión:** el deterioro se concentra en TV y Video Online y Audio Online, aunque por mecanismos diferentes. En la primera predomina la pérdida de margen de los segmentos; en la segunda se suma el impacto de las nuevas incorporaciones, especialmente Edifier Auriculares 32. El efecto margen negativo en todas las combinaciones evidencia que el problema fue extendido, mientras que los efectos de mezcla explican algunas diferencias en la contribución final de cada categoría y canal.
 
 <br>
 
@@ -1041,36 +1045,52 @@ El efecto margen es negativo en **las 12 combinaciones** (de −0,09 pp en Telef
 
 > *Los 94 segmentos están en la consulta, ordenados por contribución. "Margen" = efecto del cambio de margen del propio segmento; los nuevos solo tienen efecto entrada. Un segmento nuevo resta aunque su margen sea positivo si es menor al de referencia (18,35%).*
 
-#### 🔹 Hallazgos
+#### Hallazgos
 
-**1. 23 de 94 segmentos terminaron el 2S con margen bruto negativo**
+1. **La caída del margen está concentrada en un conjunto reducido de segmentos producto × canal.** Los diez segmentos con mayor contribución negativa acumulan −6,60 pp, equivalentes al 54,7% del deterioro global.
 
-Representan el **26% de las ventas del 2S** ($98,4 M), una Ganancia Bruta de **−$8,09 M** y **−5,20 pp (43%)** de la caída. En el 1S había **uno solo** con margen negativo (Lenovo Mouse 8 Físico) y **18 segmentos continuos pasaron de margen positivo a negativo**.
+   | Segmento producto × canal           | Contribución al cambio del margen global |
+   | ----------------------------------- | ---------------------------------------: |
+   | TCL Monitor TV 19 — Online          |                                 −1,34 pp |
+   | Edifier Auriculares 32 — Online     |                                 −1,33 pp |
+   | TCL Monitor TV 21 — Online          |                                 −1,03 pp |
+   | Liliana Cafetera 46 — Online        |                                 −0,48 pp |
+   | Philips Barra de Sonido 28 — Online |                                 −0,45 pp |
+   | ASUS Webcam 6 — Online              |                                 −0,43 pp |
+   | Sony Parlante Bluetooth 31 — Online |                                 −0,42 pp |
+   | Anker Hub USB 36 — Online           |                                 −0,39 pp |
+   | TCL Monitor TV 19 — Físico          |                                 −0,37 pp |
+   | Edifier Auriculares 29 — Online     |                                 −0,36 pp |
+   | **Total**                           |                             **−6,60 pp** |
 
-**2. Diez segmentos explican el 55% de la caída**
+2. **Aumentó la presencia de segmentos con margen bruto negativo.** En el segundo semestre, 23 de los 94 segmentos analizados registraron margen bruto negativo. En conjunto, representaron el 26% de las ventas del período, aproximadamente $98,4 millones, y generaron una ganancia bruta de −$8,09 millones. Su contribución a la caída del margen global fue de −5,20 pp, equivalente al 43% del deterioro total.
 
-Los 10 de la tabla suman **−6,60 pp (54,7%)**. Los tres más grandes son **TCL Monitor TV 19 Online (−1,34 pp)**, **Edifier Auriculares 32 Online (−1,33 pp)** y **TCL Monitor TV 21 Online (−1,03 pp)**.
+   En el primer semestre solo había un segmento con margen bruto negativo: Lenovo Mouse 8 — Físico. Además, 18 segmentos continuos pasaron de un margen positivo en el primer semestre a uno negativo en el segundo.
 
-**3. Ganar participación vendiendo por debajo del costo también resta**
+3. **Algunos segmentos aumentaron su participación en las ventas pese a registrar márgenes negativos o cercanos a cero.** Entre los casos más relevantes se encuentran:
 
-Tres productos Online duplicaron su peso en las ventas con margen negativo o casi nulo: **TCL Monitor TV 19** (de 2,34% a 5,15%, margen de 7,34% a **−12,67%**, mezcla **−0,59 pp**), **Anker Hub USB 36** (0,61% a 1,74%, margen **−9,52%**, mezcla **−0,25 pp**) y **Edifier Auriculares 29** (1,00% a 2,23%, margen **−0,60%**, mezcla **−0,15 pp**). La mezcla no siempre ayuda: cuando un producto de margen bajo gana peso, la diluye.
+   * **TCL Monitor TV 19 — Online:** su participación subió del 2,34% al 5,15%, mientras que su margen pasó del 7,34% al −12,67%. El cambio de participación generó un efecto mezcla de −0,59 pp.
+   * **Anker Hub USB 36 — Online:** su participación aumentó del 0,61% al 1,74%, con un margen de −9,52% en el segundo semestre. Su efecto mezcla fue de −0,25 pp.
+   * **Edifier Auriculares 29 — Online:** su participación creció del 1,00% al 2,23%, pese a registrar un margen de −0,60%. Su efecto mezcla aportó −0,15 pp.
 
-**4. El mismo producto, dos lecturas: TCL Monitor TV 21 Online**
+   Estos casos muestran que una mayor participación comercial no necesariamente mejora la rentabilidad: cuando crecen segmentos con márgenes negativos o muy bajos, la composición de las ventas puede deteriorar el margen global.
 
-En Q6 era el mayor perdedor de plata (**−$13,65 M**: vendió 72 unidades en el 1S y 28 en el 2S). Acá su contribución es de **−1,03 pp**: su margen propio cae **−1,68 pp** (de 16,13% a 3,00%) y su mezcla **suma +0,65 pp**, porque perdió peso (de 16,52% a 9,12%) con un margen menor al promedio. Perdió mucha plata y mejoró algo la tasa.
+4. **TCL Monitor TV 21 — Online ilustra la diferencia entre perder margen y perder participación.** En Q6 fue el principal segmento en términos de pérdida monetaria de ganancia bruta, con una variación de aproximadamente −$13,65 millones; sus unidades vendidas bajaron de 72 a 28. En Q7, su contribución al cambio del margen global fue de −1,03 pp: el efecto margen aportó −1,68 pp, parcialmente compensado por un efecto mezcla de +0,65 pp. La participación de sus ventas cayó del 16,52% al 9,12%. Aunque el producto perdió participación, eso favoreció parcialmente el margen global porque su margen estaba por debajo del promedio de referencia. Sin embargo, ese efecto favorable no alcanzó para compensar su propio deterioro de margen.
 
-**5. Dos lanzamientos concentran casi toda la entrada negativa**
+5. **Las nuevas incorporaciones también explican parte de la caída, especialmente por los márgenes negativos de Edifier Auriculares 32 y Dell Teclado 3.** Los segmentos nuevos de Edifier aportaron en conjunto −1,64 pp, mientras que los de Dell contribuyeron con −0,22 pp.
 
-**Edifier Auriculares 32** (Online y Físico) vende con margen de **−8,97% y −9,31%** y pesa **5,98%** de las ventas del 2S: resta **−1,64 pp (13,6% de la caída)**. **Dell Teclado 3** vende con **−17,00% y −23,01%** y resta **−0,22 pp**. Son los mismos dos productos que en Q6 aparecen con precio por debajo del costo.
+   | Nuevo segmento producto × canal | Participación en ventas del 2S | Margen bruto del 2S | Efecto entrada |
+   | ------------------------------- | -----------------------------: | ------------------: | -------------: |
+   | Edifier Auriculares 32 — Online |                          4,86% |              −8,97% |       −1,33 pp |
+   | Edifier Auriculares 32 — Físico |                          1,12% |              −9,31% |       −0,31 pp |
+   | Dell Teclado 3 — Online         |                          0,46% |             −17,00% |       −0,16 pp |
+   | Dell Teclado 3 — Físico         |                          0,14% |             −23,01% |       −0,06 pp |
 
-> *Cómo se conecta con Q6 y Q8: Q6 mide la caída en pesos (costo −56%, mezcla −34%) y Q7 en puntos de margen (margen propio −91%, entrada −16%, salida −1%, y una mezcla a favor de +0,97 pp). Son dos lentes del mismo hecho y no se contradicen: la mezcla cuesta plata pero no empeora la tasa. Q8 agrega la logística y muestra el margen neto: según Q5.B, el margen neto cae 14,59 pp, de los cuales 12,07 pp son margen bruto (esta Q7) y 2,52 pp son logística.*
+   Edifier Auriculares 32 concentra la mayor parte del impacto negativo de las nuevas incorporaciones. Los demás segmentos nuevos tienen contribuciones individuales menores; incluso un segmento con margen positivo puede generar un efecto entrada negativo si su margen se encuentra por debajo del margen global de referencia del primer semestre.
 
-**Límites de la lectura**
+6. **Los resultados de Q6 y Q7 se complementan, pero expresan dimensiones diferentes del deterioro.** Q6 identifica los factores detrás de la variación monetaria de la ganancia bruta: el efecto costo fue de −$43,35 millones, mientras que el efecto precio aportó +$0,72 millones. Q7 identifica cómo se distribuye el deterioro del margen porcentual entre los segmentos, la entrada y salida de segmentos y los cambios en la mezcla. La evidencia conjunta apunta a que la presión de costos fue un factor central, pero los puntos porcentuales de Q7 no deben interpretarse como equivalentes a los porcentajes de contribución monetaria de Q6. Q8 completa el análisis incorporando la logística y su impacto sobre el margen neto.
 
-- **No separa precio de costo.** El efecto margen reúne a los dos; la separación está en Q6. Que sea costo es una conclusión de Q6, no de Q7.
-- **La mezcla depende de la referencia.** Se mide contra el margen global del 1S (18,35%). Cambiar la referencia redistribuye el total entre mezcla, entrada y salida, pero no su suma.
-- **Segmentos con pocas unidades.** Los nuevos y varios productos de ticket alto mueven pocas unidades por semestre: un caso aislado puede moverse por azar y debe leerse junto con el resto.
-- **Margen bruto, sin logística.** El costo de envío no está en este análisis; lo incorpora Q8.
+**Conclusión:** el análisis por producto y canal permite localizar los segmentos que más deterioran el margen y distinguir entre tres situaciones: pérdida de rentabilidad dentro de segmentos continuos, mayor participación de segmentos con márgenes negativos y nuevas incorporaciones que comienzan a vender por debajo del margen global de referencia. Estos casos no son equivalentes y requieren acciones distintas. En particular, los segmentos con margen negativo y participación creciente merecen una revisión prioritaria, mientras que TCL Monitor TV 21 — Online muestra que una contribución favorable de mezcla puede coexistir con un deterioro importante de la rentabilidad propia.
 
 <br>
 
