@@ -130,7 +130,20 @@ El pipeline organiza las transformaciones en tres capas, separando progresivamen
 
 ## 🔍 2. Investigación Analítica SQL
 
-Investigación progresiva realizada con SQL y DBeaver sobre el Data Warehouse en DuckDB, orientada a explicar el deterioro comercial y financiero observado entre 2025 y 2026.
+Análisis de un retail de tecnología (dataset ficticio, 2024–2026) sobre **DuckDB** y modelos **dbt** (staging → intermediate → marts). Son 8 consultas encadenadas en dos ramas, comercial y de rentabilidad, que responden una sola pregunta: **¿por qué cayeron las ventas y, sobre todo, la ganancia?** Los puentes concilian con la variación observada y la rentabilidad se mide sobre pedidos entregados, netos de devoluciones.
+
+| Consulta | Pregunta | Qué encontró |
+|---|---|---|
+| **Q1** | ¿Qué cambió? | Ventas Netas −38,85% y Ganancia Neta −65,58% (2025 → 2026) |
+| **Q2–Q4** | ¿Por qué se vende menos? | Por volumen y mezcla, no por precio. El ticket cae 41,37% (UPT −23,67%, ASP −23,18%) y TV y Video explica cerca del 68% de la caída |
+| **Q5** | ¿Cuándo se rompió la rentabilidad? | En el 2S: el margen neto pasa de 16,89% (1S) a 2,30% (2S) |
+| **Q6** | ¿Por qué cae la Ganancia Bruta? | −$77,44 M, sobre todo por el costo (56,0%) y la mezcla (33,8%) |
+| **Q7** | ¿Y el margen bruto? | −12,07 pp, de los cuales el 91% es margen propio de los productos |
+| **Q8** | ¿Qué pierde plata hoy? | 31 de 86 segmentos pierden −$13,23 M; cinco productos concentran el 76,6% |
+
+**Conclusión:** el costo unitario subió en los 78 segmentos continuos (mediana +13,9%) y el precio casi no se movió (+0,2%). La pérdida del 2S no está repartida: está concentrada en pocos productos, con TV y Video y dos lanzamientos a pérdida como focos.
+
+👉 [Ver la investigación completa, con consultas, resultados y recomendaciones](./sql_business_analysis/README.md)
 
 
 * 📁 **Directorio:** [`/sql_business_analysis`](./sql_business_analysis)
