@@ -130,18 +130,23 @@ El pipeline organiza las transformaciones en tres capas, separando progresivamen
 
 ## 🔍 2. Investigación Analítica SQL
 
-Análisis de un retail de tecnología (dataset ficticio, 2024–2026) sobre **DuckDB** y modelos **dbt** (staging → intermediate → marts). Son 8 consultas encadenadas en dos ramas, comercial y de rentabilidad, que responden una sola pregunta: **¿por qué cayeron las ventas y, sobre todo, la ganancia?** Los puentes concilian con la variación observada y la rentabilidad se mide sobre pedidos entregados, netos de devoluciones.
+## 🔍 Investigación SQL
 
-| Consulta | Pregunta | Qué encontró |
-|---|---|---|
-| **Q1** | ¿Qué cambió? | Ventas Netas −38,85% y Ganancia Neta −65,58% (2025 → 2026) |
-| **Q2–Q4** | ¿Por qué se vende menos? | Por volumen y mezcla, no por precio. El ticket cae 41,37% (UPT −23,67%, ASP −23,18%) y TV y Video explica cerca del 68% de la caída |
-| **Q5** | ¿Cuándo se rompió la rentabilidad? | En el 2S: el margen neto pasa de 16,89% (1S) a 2,30% (2S) |
-| **Q6** | ¿Por qué cae la Ganancia Bruta? | −$77,44 M, sobre todo por el costo (56,0%) y la mezcla (33,8%) |
-| **Q7** | ¿Y el margen bruto? | −12,07 pp, de los cuales el 91% es margen propio de los productos |
-| **Q8** | ¿Qué pierde plata hoy? | 31 de 86 segmentos pierden −$13,23 M; cinco productos concentran el 76,6% |
+Análisis de un retail de tecnología (dataset ficticio, 2024–2026) utilizando **DuckDB** y **dbt**, desde la preparación de los datos hasta los modelos analíticos. La investigación se organiza en 8 consultas encadenadas, agrupadas en dos ramas: comercial y rentabilidad, para responder una pregunta central: **¿qué explica la caída de las ventas y el deterioro de la ganancia?** Los puentes de variación concilian con los resultados observados y las métricas de rentabilidad se calculan sobre pedidos entregados, considerando las devoluciones.
 
-**Conclusión:** el costo unitario subió en los 78 segmentos continuos (mediana +13,9%) y el precio casi no se movió (+0,2%). La pérdida del 2S no está repartida: está concentrada en pocos productos, con TV y Video y dos lanzamientos a pérdida como focos.
+| Consulta  | Pregunta                                    | Principales hallazgos                                                                                                                                                                                                                                                           |
+| --------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Q1**    | ¿Qué cambió?                                | Las ventas netas cayeron **38,85 %** y la ganancia neta, **65,58 %** (2025 → 2026).                                                                                                                                                                                             |
+| **Q2–Q4** | ¿Qué explica la caída de las ventas?        | El volumen y la mezcla de productos explican gran parte del descenso. El ticket cayó **41,37 %**, con bajas tanto en unidades por pedido (UPT: **−23,67 %**) como en precio promedio de venta (ASP: **−23,18 %**). TV y Video explica cerca del **68 % de la caída de ventas**. |
+| **Q5**    | ¿Cuándo se deterioró la rentabilidad?       | El deterioro se concentra en el segundo semestre de 2026: el margen neto pasó del **16,89 %** en el primer semestre al **2,30 %** en el segundo.                                                                                                                                |
+| **Q6**    | ¿Qué explica la caída de la ganancia bruta? | La ganancia bruta disminuyó **$77,44 M**. El efecto del costo explica el **56,0 %** de la caída y la mezcla de productos, el **33,8 %**.                                                                                                                                        |
+| **Q7**    | ¿Qué explica la caída del margen bruto?     | El margen bruto cayó **12,07 puntos porcentuales**. El efecto del costo explica aproximadamente el **91 %** de ese deterioro.                                                                                                                                                   |
+| **Q8**    | ¿Dónde se concentran las pérdidas?          | **31 de 86 segmentos** de producto y canal registran pérdidas netas, por un total de **$13,23 M**. Cinco productos concentran el **76,6 %** de esas pérdidas.                                                                                                                   |
+
+**Conclusión:** el costo unitario aumentó en los 78 segmentos continuos analizados (mediana: **+13,9 %**), mientras que el precio realizado prácticamente no varió (mediana: **+0,2 %**). El deterioro de la rentabilidad en el segundo semestre no se distribuye uniformemente: se concentra en un grupo reducido de productos y segmentos, con TV y Video y dos lanzamientos deficitarios entre los principales focos.
+
+👉 **[Ver la investigación SQL completa: consultas, resultados y recomendaciones](URL_DEL_README_SQL)**
+
 
 👉 [Ver la investigación completa, con consultas, resultados y recomendaciones](./sql_business_analysis/README.md)
 
