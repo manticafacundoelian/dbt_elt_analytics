@@ -1101,7 +1101,7 @@ Q7 pasó la caída del 1S al 2S a **puntos de margen bruto**: el margen se hundi
 <br>
 </details>
 
-#### ├─ 🔹 Q8 — Foto del 2S 2026: ¿Qué parte de la cartera pierde plata hoy?
+#### └── 🔹 Q8 — Foto del 2S 2026: ¿Qué parte de la cartera pierde plata hoy?
 
 <details>
 <summary><strong>Ver desarrollo de Q8</strong></summary>  
@@ -1151,25 +1151,25 @@ Q5 mostró cómo se compone el resultado, Q6 por qué cayó la Ganancia Bruta en
 
 #### 🔹 Hallazgos
 
-**1. 31 de 86 segmentos pierden plata, y pierden más de lo que gana toda la empresa**
+**1. Más de un tercio de los segmentos destruye rentabilidad**
 
-C1 y C2 son el **36% de los segmentos**, facturan **$129,27 M (34,2%)** y suman **−$13,23 M** de Ganancia Neta, contra **+$8,67 M** de toda la empresa. Los otros 55 segmentos (65,8% de las ventas) ganan **$21,91 M**, un **margen neto de 8,82%**, y son **2,5 veces** la ganancia neta total.
+Los 31 segmentos críticos (C1 + C2), equivalentes al **36% de la cartera**, generan $129,27 M en ventas (34,2% del total), pero acumulan una **pérdida neta de $13,23 M**. En contraste, los otros 55 segmentos generan $21,91 M de ganancia neta. El resultado positivo de estos últimos permite compensar las pérdidas de los segmentos críticos y cerrar el semestre con una ganancia neta de $8,67 M.
 
-**2. C1: vender por debajo del costo es el 91% de la pérdida**
+**2. C1 concentra el principal problema: el costo de los productos supera sus ventas**
 
-Los **23 segmentos de C1 (13 productos)** pierden **−$8,09 M antes del flete**: su costo de ventas (**$106,45 M, el 108,2% de sus ventas**) supera a lo que facturan ($98,36 M), un margen bruto de −8,23%. El flete suma otros **$3,95 M** y deja una pérdida neta de **−$12,04 M (−12,24% de sus ventas)**. Son los mismos 23 segmentos con margen bruto negativo que detectó Q7.D.
+Los 23 segmentos de C1 presentan un margen bruto de **−8,23%**: sus $106,45 M de costo de ventas superan los $98,36 M facturados. La operación ya pierde dinero antes de considerar la logística. Al sumar $3,95 M de costo logístico, la pérdida neta alcanza los **$12,04 M**, con un margen neto de −12,24%. Este grupo reúne los mismos 23 segmentos con margen bruto negativo identificados en Q7.D.
 
-**3. C2: el flete consume un margen que sí existía**
+**3. En C2, la logística convierte un margen bruto positivo en una pérdida**
 
-Los **8 segmentos de C2** tienen un margen bruto positivo pero flaco (**+5,58%**), y su flete equivale al **9,45% de sus ventas**: pierden **−$1,20 M (−3,87%)**. Es una pérdida chica (9% del total crítico), pero muestra que el margen no alcanzó para pagar el envío.
+Los 8 segmentos de C2 generan un margen bruto de **5,58%**, pero el costo logístico representa el **9,45% de sus ventas**. El margen comercial no alcanza para absorber el gasto de envío y el grupo termina con una pérdida neta de $1,20 M (margen neto de −3,87%). A diferencia de C1, aquí el problema no comienza en el costo de los productos, sino en la insuficiente rentabilidad disponible para cubrir la logística.
 
-**4. Casi la mitad del flete se gasta en segmentos que pierden plata**
+**4. C4 es el núcleo más rentable de la cartera, mientras C3 requiere seguimiento**
 
-C1 y C2 concentran el **34,2% de las ventas** y el **45,7% del costo logístico** ($6,87 M de $15,04 M): C1 usa el 26,2% y C2 el 19,4%.
+C4 reúne 30 segmentos que generan $12,82 M de ganancia neta, con un **margen neto de 16,35%**. Su rentabilidad contrasta con la de C3, el cuadrante de mayor facturación (45% del total), que obtiene un margen neto de apenas **5,35%**. C3 sigue siendo rentable, pero su margen reducido lo vuelve más vulnerable ante aumentos de costos o descuentos adicionales.
 
-**5. El núcleo sano rinde como la empresa entera rendía en el 1S, pero C3 está cerca de la línea**
+**5. Los segmentos críticos consumen una proporción desproporcionada del gasto logístico**
 
-**C4** (30 segmentos, 20,8% de las ventas) tiene un margen bruto de **18,90%** y uno neto de **16,35%** (el total de la empresa en el 1S fue 18,35% y 16,89%), y genera **$12,82 M, el 148% de la Ganancia Neta**. **C3**, el cuadrante más grande (**45,0% de las ventas**), deja solo **5,35% neto**: está lejos del problema de C1 pero cerca de la línea del 0%.
+C1 y C2 concentran el **45,68% del costo logístico** ($6,87 M de $15,04 M), aunque representan el 34,23% de las ventas. Esto refuerza la necesidad de revisar las condiciones comerciales y logísticas de esos segmentos, distinguiendo entre los que ya venden por debajo del costo y aquellos cuyo margen no alcanza para cubrir el envío.
 
 <br>
 
