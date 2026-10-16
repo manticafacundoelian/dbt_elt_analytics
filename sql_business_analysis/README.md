@@ -1370,6 +1370,8 @@ Las 6 categorías empeoraron su tasa de devolución (entre +1,77 pp y +4,57 pp),
 
 ## Conclusiones Generales 
 
+---
+
 ## 🤝 Consolidación de Hallazgos
 
 Las dos ramas responden preguntas distintas y conviene no mezclarlas. La Rama Comercial (Q2–Q4) compara 2025 con 2026 y explica por qué se vende menos y con menor ticket. La Rama de Rentabilidad (Q5–Q8) compara el 1S con el 2S de 2026 y explica por qué el mismo negocio dejó de ganar plata.
