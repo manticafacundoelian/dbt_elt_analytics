@@ -1,10 +1,18 @@
 # 🔎 Investigación Analítica SQL
 
-Esta investigación forma parte de un proyecto analítico End-to-End que se puede ver completo en: https://github.com/manticafacundoelian/dbt_elt_analytics
+Esta investigación forma parte de un proyecto analítico End-to-End que se puede ver completo en el [repositorio de GitHub](https://github.com/manticafacundoelian/dbt_elt_analytics).
 
 ---
 
-> **TL;DR:** Entre 2025 y 2026, la Ganancia Neta cayó **−65,58%**, casi el doble que las Ventas Netas (−38,85%). No es un problema de pedidos sino de Ticket Comercial —por UPT y ASP combinados— y de rentabilidad, donde la pérdida de volumen pesa más que el propio encarecimiento de costos. La investigación descarta las explicaciones más obvias —precio y descuentos, que casi se cancelan entre sí— y aísla la causa real en una sola categoría (**TV y Video**, 51,7% de toda la caída) y **3 productos puntuales**. El diagnóstico se sostiene en 3 puentes financieros con reconciliación exacta ($0,00 de residuo) y cierra con recomendaciones accionables priorizadas.
+### TL;DR
+
+En 2026 las Ventas Netas Finales cayeron 41,2% y la Ganancia Neta 65,6% ($295,7 M → $101,8 M). Pero el año promedia dos semestres muy distintos: el margen neto fue de 16,89% en el 1S y de 2,30% en el 2S.
+
+* **Ventas (Q2–Q4):** se vendió menos y con un ticket más bajo, por volumen y mezcla, no por precios. TV y Video explica cerca del 68% de la caída.
+* **Rentabilidad (Q5–Q7):** del 1S al 2S la Ganancia Bruta cayó $77,44 M, sobre todo por el costo (56,0%): el costo unitario subió en los 78 segmentos continuos (mediana +13,9%) y el precio casi no se movió (+0,2%).
+* **Hoy (Q8):** 31 de los 86 segmentos pierden −$13,23 M en el 2S, contra +$8,67 M de toda la empresa. 23 venden por debajo de su costo y 8 pierden por el flete. Cinco productos concentran el 76,6% de la pérdida.
+* **Qué hacer:** corregir esos cinco productos, poner un piso de margen a los lanzamientos, trasladar el costo al precio, rediseñar el envío Online de ticket bajo y seguir la cartera por cuadrantes.
+
 
 [Ver Conclusiones Generales →](#-conclusiones-generales) 
 
@@ -1359,34 +1367,10 @@ Las 6 categorías empeoraron su tasa de devolución (entre +1,77 pp y +4,57 pp),
 </details>
 
 ---
-<!-- ============================================================ -->
-<!-- BLOQUE 1 — TL;DR (va arriba de todo el README)               -->
-<!-- ============================================================ -->
 
-🔹 TL;DR
+## Conclusiones Generales 
 
-En 2026 las Ventas Netas Finales cayeron 41,2% ($1.580,3 M → $928,9 M) y la Ganancia Neta 65,6% ($295,7 M → $101,8 M). Pero el año promedia dos semestres muy distintos: el margen neto fue de 16,89% en el 1S y de 2,30% en el 2S.
-
-- **Ventas (Q2–Q4):** se vendió menos y con un ticket más bajo, por volumen y mezcla, no por precios. El efecto Volumen (−$614,9 M) equivale a casi toda la caída neta (−$634,8 M); el ticket cayó 41,4% por menos unidades por pedido (−23,7%) y menor valor por unidad (−23,2%). TV y Video explica cerca del 68% de la caída.
-- **Rentabilidad (Q5–Q7):** del 1S al 2S la Ganancia Bruta cayó $77,44 M. El factor principal fue el costo (−$43,35 M, 56,0%): el costo unitario subió en los 78 segmentos que vendieron en ambos semestres (mediana +13,9%) y el precio realizado casi no se movió (mediana +0,2%).
-- **Hoy (Q8):** 31 de los 86 segmentos pierden −$13,23 M en el 2S, mientras toda la empresa gana +$8,67 M. 23 venden por debajo de su costo (−$12,04 M) y 8, todos Online, pierden por el flete (−$1,20 M). Cinco productos concentran el 76,6% de la pérdida.
-- **Lo que no explica el problema:** ni el flete (2,52 de los 14,59 pp que cayó el margen neto, 17%) ni las devoluciones (a lo sumo 0,34 pp de ese flete).
-- **Qué hacer:** decidir el destino de los cinco productos críticos, poner un piso de margen a los lanzamientos, trasladar el costo al precio sin devolverlo en descuentos, rediseñar el envío Online de ticket bajo, atacar las devoluciones y seguir la cartera por cuadrantes.
-
-<br>
-
-<!-- ============================================================ -->
-<!-- BLOQUE 2 — Conclusiones y Recomendaciones (último nodo)      -->
-<!-- ============================================================ -->
-
-└─ 🔹 Conclusiones Generales y Recomendaciones Estratégicas
-
-<details>
-<summary><strong>Ver Conclusiones Generales y Recomendaciones</strong></summary>
-
-<br>
-
-🔹 Conclusiones Generales
+## 🤝 Consolidación de Hallazgos
 
 Las dos ramas responden preguntas distintas y conviene no mezclarlas. La Rama Comercial (Q2–Q4) compara 2025 con 2026 y explica por qué se vende menos y con menor ticket. La Rama de Rentabilidad (Q5–Q8) compara el 1S con el 2S de 2026 y explica por qué el mismo negocio dejó de ganar plata.
 
@@ -1420,9 +1404,7 @@ El peso del flete subió de 1,46% a 3,98% de las ventas, todo en Online (1,85% �
 
 **Conclusión:** en 2026 se vendió menos y con un ticket más bajo; eso es lo comercial y explica la caída de ventas. Lo que borró la ganancia fue otra cosa y ocurrió en el 2S: el costo subió en toda la cartera sin que el precio lo siguiera, y un grupo acotado de productos, con TV y Video como foco principal, pasó a vender por debajo del costo. El resto de la cartera sigue rindiendo ($21,91 M de ganancia neta, 8,82% de margen neto, Q8.A): el problema es localizable y se puede atacar producto por producto.
 
-<br>
-
-🔹 Límites del análisis
+#### Límites del análisis
 
 - **Describe dónde y cuánto, no por qué.** No explica por qué subió el costo ni por qué cayó el volumen: eso exige información externa (proveedores, tipo de cambio, competencia, campañas). Por eso cada recomendación indica qué validar antes.
 - **"Ganancia Neta" es Ganancia Bruta menos costo logístico** (Q5.A). No incluye estructura, marketing, comisiones ni el envío de vuelta de las devoluciones, que el modelo no registra: un margen neto de 5% en este trabajo es, en términos contables, menor.
@@ -1430,9 +1412,7 @@ El peso del flete subió de 1,46% a 3,98% de las ventas, todo en Online (1,85% �
 - **El deterioro previo de 2025 no se descompone.** Q1 muestra que en 2025 el margen neto ya había perdido 5,24 pp con ventas +26,62%, pero la rama de rentabilidad analiza solo 2026.
 - **Flete asignado y segmentos chicos.** El flete se reparte por valor dentro de cada pedido, Físico no tiene flete por construcción y varios segmentos mueven pocas unidades (detalle en los límites de Q6 y Q8).
 
-<br>
-
-🔹 Recomendaciones Estratégicas
+## 🎯 Recomendaciones Estratégicas
 
 Están ordenadas por el tamaño del problema en el 2S. Como vara de comparación: cada punto de margen bruto equivale a $3,78 M por semestre con las ventas del 2S ($377,64 M), y la Ganancia Neta de ese semestre fue de $8,67 M. Los montos son órdenes de magnitud, no proyecciones: no consideran cómo reaccionaría la demanda.
 
@@ -1483,113 +1463,6 @@ Punto de partida para el seguimiento:
 | Peso del flete en Online | 1,85% → 5,01% | Q8.B |
 | Tasa de devolución (unidades) | 4,71% → 8,00% | Q8.B |
 | Ganancia Neta de C1 + C2 | −$13,23 M | Q8.A |
-
-<br>
-</details>
-
-<br>
-
-<!-- ============================================================ -->
-<!-- BLOQUE 3 — Mapa del análisis (reemplaza el mermaid viejo)    -->
-<!-- ============================================================ -->
-
-```mermaid
-flowchart TD
-    Q1["Q1 · Diagnóstico macro<br/>VNF −41,2% · Ganancia Neta −65,6%<br/>Margen neto 18,71% → 10,96%"]
-
-    subgraph COM["Rama Comercial: ¿por qué se vende menos?"]
-        Q2["Q2 · Puente de ventas<br/>Volumen −$614,9 M · Mix −$161,3 M<br/>SKUs nuevos +$130,5 M"]
-        Q3["Q3 · Ticket<br/>UPT −23,7% · ASP −23,2%"]
-        Q4["Q4 · ASP<br/>Mix 67,9% · SKUs nuevos 36,7%"]
-        Q2 --> Q3 --> Q4
-    end
-
-    subgraph REN["Rama de Rentabilidad: ¿por qué se ganó menos?"]
-        Q5["Q5 · Resultado<br/>Margen neto 1S 16,89% → 2S 2,30%"]
-        Q6["Q6 · Ganancia Bruta en pesos<br/>Costo −$43,35 M · Mezcla −$26,19 M"]
-        Q7["Q7 · Margen bruto en puntos<br/>Margen −10,95 pp · Entrada −1,96 pp · Mezcla +0,97 pp"]
-        Q8["Q8 · Foto del 2S<br/>31 de 86 segmentos pierden −$13,23 M"]
-        Q5 --> Q6 --> Q7 --> Q8
-    end
-
-    CG["Conclusiones y Recomendaciones<br/>Costo no trasladado a precio · pérdida concentrada en pocos productos"]
-
-    Q1 --> Q2
-    Q1 --> Q5
-    Q4 --> CG
-    Q8 --> CG
-```
-
-
-## Conclusiones Generales
-
-## 🤝 Consolidación de Hallazgos
-
-Las siete preguntas centrales y el Deep Dive, leídas en conjunto, arman una sola historia contada desde tres ángulos distintos —el monto total ($), el valor por unidad (ASP) y la salud actual de cada categoría—, que convergen todas en el mismo origen: **TV y Video**, con dos complicaciones adicionales que operan en paralelo en **Audio/Computación** y en **Accesorios**.
-
-#### La Cascada P&L completa
-
-Q1 planteó la pregunta, Q5 mostró los ratios, Q6 descompuso la Ganancia Bruta. Uniendo los tres, la cascada completa —de Ventas Brutas a Ganancia Neta— cierra así:
-
-| Concepto | 2025 | 2026 | Var. YoY |
-| :--- | ---: | ---: | ---: |
-| Ventas Brutas | $1.684,4 M | $1.064,0 M | **−36,83%** |
-| (−) Descuentos comerciales | $50,5 M | $64,9 M | +28,50% |
-| **Ventas Netas Comerciales** | **$1.633,9 M** | **$999,1 M** | **−38,85%** |
-| (−) Devoluciones | $53,7 M | $70,3 M | +30,90% |
-| **Ventas Netas Finales** | **$1.580,3 M** | **$928,9 M** | **−41,22%** |
-| (−) Costo de Ventas (COGS) | $1.270,0 M | $804,0 M | −36,69% |
-| **Ganancia Bruta** | **$310,22 M** | **$124,86 M** | **−59,75%** |
-| (−) Costo Logístico | $14,52 M | $23,09 M | +59,05% |
-| **Ganancia Neta** | **$295,70 M** | **$101,77 M** | **−65,58%** |
-| **Margen Neto** | **18,71%** | **10,96%** | **−7,75 pp** |
-
-> *La línea de Costo Logístico es una resta aritmética directa, no una descomposición PVM: Q6 explica exclusivamente la variación de la Ganancia Bruta, y el rol de la logística en el paso a Ganancia Neta está cubierto por Q5 (consolidado) y Q7.1 (por categoría).*
-
-#### Tres puentes, tres lentes sobre la misma caída
-
-La investigación construyó tres descomposiciones monetarias distintas, y cada una responde una pregunta diferente:
-
-| Puente | Mide | Mix | Precio/Descuento | Volumen/Nuevos |
-| :--- | :--- | ---: | ---: | ---: |
-| **Q2 — Ventas Netas** ($ totales) | −$634,8 M | −$204,7 M | +$48,3 M / −$34,3 M | −$333,3 M / −$110,8 M |
-| **Q4 — ASP** ($ por unidad) | −$79.819 | −$54.180,70 | +$12.778,52 / −$9.088,17 | — / −$29.328,29 |
-| **Q6 — Ganancia Bruta** ($ de rentabilidad) | −$185,36 M | −$23,41 M (Mix) | +$9,88 M (Precio) | −$122,44 M (Volumen) / +$15,17 M (Nuevos) |
-
-Las tres cuentan la misma historia con unidades distintas: el **Mix** y el **Volumen** del negocio ya existente son los responsables centrales en las tres lecturas, mientras que **Precio y Descuentos** casi se cancelan entre sí en todos los casos, y los **lanzamientos 2026** ayudan a sostener el monto total y la Ganancia Bruta, pero no evitan que el ASP caiga.
-
-#### Radiografía por categoría: cuatro problemas distintos, no uno solo
-
-**TV y Video — el epicentro, en franco deterioro.** Lidera cada bridge de la investigación: la caída del ASP (Q4, −49,0%), la caída de Ganancia Bruta (Q6, −$100,88 M, 54,4% del total), el peor deterioro de tasa de devolución (Deep Dive A, +4,57 pp) y, por sobre todo, **más de la mitad de toda la caída de Ganancia Neta de la empresa** (Q7.1, −$100,22 M, 51,68%). Conserva el 37,70% de la ganancia neta del año, pero ya opera en pérdida en el segundo semestre (−1,04%). Toda la investigación converge en los mismos 2-3 productos: **TCL Monitor TV 21, TCL Chromecast 25 y TCL Monitor TV 19**.
-
-**Audio y Computación — crecimiento que esconde tres problemas, no uno.** Ganan participación de mercado (Q4) gracias a sus lanzamientos 2026, que sostienen su Ganancia Bruta (Q6). Pero Audio tiene la **tasa de devolución más alta de la empresa** (Deep Dive A, 7,94%/8,24% en unidades), y **3 de sus 11 lanzamientos conjuntos dan margen neto negativo** (Q7.2: Dell Teclado 3 −24,61%, Edifier Auriculares 32 −13,48%, Lenovo Mouse 8 −3,52%). El crecimiento es real, pero no homogéneo ni sin costo.
-
-**Accesorios — el problema estructural, no coyuntural.** Es la única categoría, junto a TV y Video, con margen negativo en el 2° semestre (Q7.1, −3,72%), pero su deterioro combina el **segundo peor aumento de COGS (+8,27 pp)** y el **peor aumento de costo logístico (+3,55 pp, 6,40% sobre ventas)** de toda la empresa — consecuencia directa de operar con el menor ticket promedio del catálogo. Dos de sus propios productos ya dan pérdida (Anker Hub USB 36, Anker Mousepad 34), y el resto opera con márgenes estructuralmente ajustados.
-
-**Hogar — la única excepción positiva.** Es la única categoría con efecto Mix favorable tanto en Ventas Netas (implícito en Q2) como en Ganancia Bruta (Q6, +$8,55 M), sin lanzamientos de por medio — el espejo exacto de TV y Video. También empeoró en devolución y costo, como el resto, pero partiendo de una base sana.
-
-**Un patrón transversal, fuera de las categorías.** El deterioro comercial no es un problema de canal: Online y Físico caen de forma casi idéntica en Ticket, UPT y ASP (Q3.2), y la suba de la tasa de descuento es prácticamente igual en ambos (+3,06 pp y +3,29 pp). El corrimiento de pedidos hacia Online (de 70,59% a 79,93% de participación) no compensa la pérdida de valor por operación en ningún canal.
-
-**Una señal de alerta adicional: el deterioro se acelera dentro del año.** Más allá de TV y Video y Accesorios a nivel categoría, varios productos puntuales muestran una caída de margen mucho más severa en el 2° semestre que en el promedio anual — el caso más marcado es **Liliana Cafetera 50** (−33,11% en el 2S vs. −13,62% en el año completo), lo que sugiere que el deterioro de 2026 todavía no tocó piso.
-
-
-## 🎯 Recomendaciones Estratégicas
-
-1. **Investigar de inmediato los 3 SKUs de TV y Video** (TCL Monitor TV 21, TV 19 y Chromecast 25): son, a la vez, el problema de precio (Q4), de ganancia (Q6), de devoluciones (Deep Dive A) y de margen neto (Q7) más grande de la empresa. Son responsables, ellos solos, de más de la mitad de toda la caída de Ganancia Neta (Q7.1). Cualquier causa raíz identificada ahí (calidad, competencia, pricing) tiene el mayor apalancamiento posible sobre el resultado total.
-
-2. **Auditar los 3 lanzamientos 2026 con margen negativo** (Dell Teclado 3, Edifier Auriculares 32, Lenovo Mouse 8): decidir si se ajusta precio, se renegocia costo de abastecimiento o se discontinúan, antes de escalar más lanzamientos con el mismo criterio comercial que hoy sostiene el volumen total pero no siempre la rentabilidad.
-
-3. **Rediseñar estructuralmente Accesorios**, no producto por producto: con el mayor costo logístico relativo de la empresa (6,40% sobre ventas) y el segundo peor deterioro de COGS, la solución pasa por renegociar condiciones de envío para productos de bajo ticket o reconsiderar el mix de la categoría en su conjunto.
-
-4. **Resolver la causa de devoluciones en Audio** antes de seguir escalando la categoría: con la tasa más alta de la empresa (7,94%/8,24% en unidades), sostener su crecimiento sin atacar esto es agrandar un problema, no una oportunidad.
-
-5. **Monitorear de cerca la tendencia del 2° semestre**, no solo el cierre anual: casos como TV y Video y Liliana Cafetera 50 muestran que el promedio del año puede esconder un deterioro que ya es mucho peor en los meses recientes. Un tablero con corte semestral o trimestral evitaría que la próxima corrección llegue tarde.
-
-6. **Documentar y replicar lo que hizo bien Hogar**: es el único caso de mix favorable sin lanzamientos de por medio, tanto en ventas como en ganancia — entender esa dinámica puede aportar una palanca de recuperación de bajo riesgo para otras categorías.
-
-### Alcance y limitaciones
-
-Esta investigación reconstruye el **qué** y el **por dónde** del deterioro con reconciliación matemática exacta en sus tres bridges (Q2, Q4 y Q6, todos con residuo $0,00). No cubre, y queda como trabajo futuro: **causas de raíz cualitativas** (por qué cayó la demanda de TV y Video, por qué suben las devoluciones de Audio — esta investigación cuantifica el efecto, no la causa comercial u operativa de fondo); **elasticidad precio-volumen** (no se estima si una suba de precio en Hogar sostendría su volumen); y **granularidad estacional completa** (el corte de 2° semestre en Q7 es un indicio de tendencia, no un análisis mensual). Estas limitaciones no invalidan las conclusiones: acotan dónde termina el diagnóstico y empieza la decisión de negocio.
 
 ---
 
