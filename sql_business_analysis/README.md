@@ -662,32 +662,31 @@ Además, dos lanzamientos registraron precios realizados inferiores a sus costos
 
 <br>
 
-#### 🔸 Q6.A — Puente Agregado: Total Empresa
+#### 🔸 Q6.A — Puente de Ganancia Bruta Agregado: Total Empresa
 
 [Ver Consulta SQL →](./sql_business_analysis/q6a_pvm_ganancia_bruta_semestral_agregado.sql) <br>
 
 #### 🔹 Resultados
 
+#### Contexto Financiero y Operativo
+| Indicador | 1S 2026 | 2S 2026 | Variación Absoluta | Variación % / pp |
+| :--- | ---: | ---: | ---: | ---: |
+| **Unidades Efectivas** | 1.719 | 1.816 | +97 | **+5,64%** |
+| **Ganancia Bruta** | $101,15 M | $23,71 M | −$77,44 M | **−76,56%** |
+| **Margen Bruto (%)** | 18,35% | 6,28% | — | **−12,07 pp** |
+
+#### Desglose de Efectos de la Caída
 | Concepto | Monto | % de la variación |
 | :--- | ---: | ---: |
 | **Ganancia Bruta 1S** | **$101,15 M** | |
-| Efecto costo | −$43,35 M | 56,0% |
-| Efecto mezcla | −$26,19 M | 33,8% |
-| Efecto discontinuados | −$6,06 M | 7,8% |
-| Efecto nuevos | −$2,22 M | 2,9% |
-| Efecto volumen | −$0,34 M | 0,4% |
-| Efecto precio | +$0,72 M | −0,9% |
+| Efecto Costo | −$43,35 M | 56,0% |
+| Efecto Mix | −$26,19 M | 33,8% |
+| Efecto SKUs Descontinuados | −$6,06 M | 7,8% |
+| Efecto SKUs Nuevos | −$2,22 M | 2,9% |
+| Efecto Volumen | −$0,34 M | 0,4% |
+| Efecto Precio | +$0,72 M | −0,9% |
 | **Ganancia Bruta 2S** | **$23,71 M** | |
-| **Variación** | **−$77,44 M** | **100,0%** |
-
-| Indicador | 1S 2026 | 2S 2026 | Variación |
-| :--- | ---: | ---: | ---: |
-| Unidades efectivas | 1.719 | 1.816 | +5,6% |
-| Precio promedio por unidad | $320.661 | $207.952 | −35,1% |
-| Costo promedio por unidad | $261.819 | $194.895 | −25,6% |
-| Margen Bruto | 18,35% | 6,28% | −12,07 pp |
-
-> *Los efectos suman exactamente la variación (un centavo de diferencia en la consulta es el redondeo de cada efecto a dos decimales). El precio y el costo promedio por unidad incluyen cambios de mezcla: para el efecto de precio y de costo "puros" mirar la tabla de efectos.*
+| **Variación Ganancia Bruta** | **−$77,44 M** | **100,0%** |
 
 #### 🔹 Hallazgos
 
@@ -709,17 +708,32 @@ El precio promedio por unidad cayó un **35,1%** y el costo promedio, un **25,6%
 
 <br>
 
-#### 🔸 Q6.B — Puente por Canal
+#### 🔸 Q6.B — Puente de Ganancia Brutapor Canal
 
 [Ver Consulta SQL →](./sql_business_analysis/q6b_pvm_ganancia_bruta_semestral_canal.sql) <br>
 
 #### 🔹 Resultados
 
-| Canal | GB 1S | GB 2S | Variación | MB 1S → 2S | Volumen | Mezcla | Precio | Costo | Nuevos | Discont. | % de la caída |
-| :--- | ---: | ---: | ---: | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Online** | $79,60 M | $19,43 M | **−$60,17 M** | 18,28% → 6,47% | −$0,28 M | −$22,70 M | +$0,66 M | −$34,74 M | −$1,82 M | −$1,30 M | 77,7% |
-| **Físico** | $21,55 M | $4,29 M | **−$17,26 M** | 18,60% → 5,52% | −$0,06 M | −$3,49 M | +$0,06 M | −$8,61 M | −$0,39 M | −$4,76 M | 22,3% |
-| **Total Empresa** | **$101,15 M** | **$23,71 M** | **−$77,44 M** | **18,35% → 6,28%** | −$0,34 M | −$26,19 M | +$0,72 M | −$43,35 M | −$2,22 M | −$6,06 M | **100,0%** |
+####  Resultados Financieros (1S vs 2S)
+| Canal | Ganancia Bruta 1S | Ganancia Bruta 2S | Variación | Margen Bruto 1S → 2S | % de la caída |
+| :----- | -----: | -----: | -----: | :-----: | -----: |
+| **Online** | $79,60 M | $19,43 M | **−$60,17 M** | 18,28% → 6,47% | 77,7% |
+| **Físico** | $21,55 M | $4,29 M | **−$17,26 M** | 18,60% → 5,52% | 22,3% |
+| **Total Empresa** | **$101,15 M** | **$23,71 M** | **−$77,44 M** | **18,35% → 6,28%** | **100,0%** |
+
+####  Resultados Financieros (1S vs 2S)
+| Canal | Ganancia Bruta 1S | Ganancia Bruta 2S | Variación | Variación % | Margen Bruto 1S → 2S | % Caída Total |
+| :----- | -----: | -----: | -----: | -----: | :-----: | -----: |
+| **Online** | $79,60 M | $19,43 M | **−$60,17 M** | **−75,59%** | 18,28% → 6,47% | 77,7% |
+| **Físico** | $21,55 M | $4,29 M | **−$17,26 M** | **−80,09%** | 18,60% → 5,52% | 22,3% |
+| **Total Empresa** | **$101,15 M** | **$23,71 M** | **−$77,44 M** | **−76,56%** | **18,35% → 6,28%** | **100,0%** |
+
+####  Desglose de Efectos de la Caída
+| Canal | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto SKUs Nuevos | Efecto SKUs Descont. |
+| :----- | -----: | -----: | -----: | -----: | -----: | -----: |
+| **Online** | −$0,28 M | −$22,70 M | +$0,66 M | −$34,74 M | −$1,82 M | −$1,30 M |
+| **Físico** | −$0,06 M | −$3,49 M | +$0,06 M | −$8,61 M | −$0,39 M | −$4,76 M |
+| **Total Empresa** | **−$0,34 M** | **−$26,19 M** | **+$0,72 M** | **−$43,35 M** | **−$2,22 M** | **−$6,06 M** |
 
 > *Cada fila es la suma de los efectos de sus productos. El % de la caída es la variación de cada canal sobre la variación total (−$77,44 M).*
 
