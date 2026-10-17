@@ -12,7 +12,7 @@ Identificar las causas raíz de la caída de facturación y, sobre todo, de la r
 
 ---
 
-## 🔄 Flujo de los Datos Completo (Arquitectura Pipeline)
+### 🔄 Flujo de los Datos Completo (Arquitectura Pipeline)
 
 ```mermaid
 flowchart LR
