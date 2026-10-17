@@ -669,14 +669,14 @@ Además, dos lanzamientos registraron precios realizados inferiores a sus costos
 #### 🔹 Resultados
 
 #### Contexto Financiero y Operativo
-| Indicador | 1S 2026 | 2S 2026 | Variación Absoluta | Variación % / pp |
+| Indicador | 1S 2026 | 2S 2026 | Variación  | Variación % |
 | :--- | ---: | ---: | ---: | ---: |
 | **Unidades Efectivas** | 1.719 | 1.816 | +97 | **+5,64%** |
 | **Ganancia Bruta** | $101,15 M | $23,71 M | −$77,44 M | **−76,56%** |
 | **Margen Bruto (%)** | 18,35% | 6,28% | — | **−12,07 pp** |
 
 #### Desglose de Efectos de la Caída
-| Concepto | Monto | % de la variación |
+| Concepto | Monto | % Variación Total |
 | :--- | ---: | ---: |
 | **Ganancia Bruta 1S** | **$101,15 M** | |
 | Efecto Costo | −$43,35 M | 56,0% |
