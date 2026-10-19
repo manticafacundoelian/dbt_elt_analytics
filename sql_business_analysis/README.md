@@ -680,9 +680,9 @@ Además, dos lanzamientos registraron precios realizados inferiores a sus costos
 | :--- | ---: | ---: |
 | **Ganancia Bruta 1S** | **$101,15 M** | |
 | Efecto Costo | −$43,35 M | 56,0% |
-| Efecto Mix | −$26,19 M | 33,8% |
-| Efecto SKUs Descontinuados | −$6,06 M | 7,8% |
-| Efecto SKUs Nuevos | −$2,22 M | 2,9% |
+| Efecto Mezcla | −$26,19 M | 33,8% |
+| Efecto Descontinuados | −$6,06 M | 7,8% |
+| Efecto Nuevos | −$2,22 M | 2,9% |
 | Efecto Volumen | −$0,34 M | 0,4% |
 | Efecto Precio | +$0,72 M | −0,9% |
 | **Ganancia Bruta 2S** | **$23,71 M** | |
@@ -708,44 +708,39 @@ El precio promedio por unidad cayó un **35,1%** y el costo promedio, un **25,6%
 
 <br>
 
-#### 🔸 Q6.B — Puente de Ganancia Brutapor Canal
+#### 🔸 Q6.B — Puente de Ganancia Bruta por Canal
 
 [Ver Consulta SQL →](./sql_business_analysis/q6b_pvm_ganancia_bruta_semestral_canal.sql) <br>
 
 #### 🔹 Resultados
 
-####  Resultados Financieros (1S vs 2S)
-| Canal | Ganancia Bruta 1S | Ganancia Bruta 2S | Variación | Margen Bruto 1S → 2S | % de la caída |
-| :----- | -----: | -----: | -----: | :-----: | -----: |
-| **Online** | $79,60 M | $19,43 M | **−$60,17 M** | 18,28% → 6,47% | 77,7% |
-| **Físico** | $21,55 M | $4,29 M | **−$17,26 M** | 18,60% → 5,52% | 22,3% |
-| **Total Empresa** | **$101,15 M** | **$23,71 M** | **−$77,44 M** | **18,35% → 6,28%** | **100,0%** |
+#### Contexto Financiero y Operativo
+| Canal | Unidades 1S → 2S | Unid. Var % | Ganancia Bruta 1S | Ganancia Bruta 2S | Variación ($) | Variación % (vs sí mismo) | Margen Bruto 1S → 2S | Var. Margen (pp) | % Caída Total GB |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | :---: | ---: | ---: |
+| **Online** | 1.349 → 1.465 | +8,60% | $79,60 M | $19,43 M | **−$60,17 M** | **−75,59%** | 18,28% → 6,47% | −11,81 pp | 77,7% |
+| **Físico** | 370 → 351 | −5,14% | $21,55 M | $4,29 M | **−$17,26 M** | **−80,09%** | 18,60% → 5,52% | −13,08 pp | 22,3% |
+| **Total Empresa** | **1.719 → 1.816** | **+5,64%** | **$101,15 M** | **$23,71 M** | **−$77,44 M** | **−76,56%** | **18,35% → 6,28%** | **−12,07 pp** | **100,0%** |
 
-####  Resultados Financieros (1S vs 2S)
-| Canal | Ganancia Bruta 1S | Ganancia Bruta 2S | Variación | Variación % | Margen Bruto 1S → 2S | % Caída Total |
-| :----- | -----: | -----: | -----: | -----: | :-----: | -----: |
-| **Online** | $79,60 M | $19,43 M | **−$60,17 M** | **−75,59%** | 18,28% → 6,47% | 77,7% |
-| **Físico** | $21,55 M | $4,29 M | **−$17,26 M** | **−80,09%** | 18,60% → 5,52% | 22,3% |
-| **Total Empresa** | **$101,15 M** | **$23,71 M** | **−$77,44 M** | **−76,56%** | **18,35% → 6,28%** | **100,0%** |
+#### Desglose de Efectos de la Caída (en millones)
+| Canal | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto Nuevos | Efecto Discontinuados | Efecto Total |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Online** | −$0,28 M | −$22,70 M | +$0,66 M | −$34,74 M | −$1,82 M | −$1,30 M | **−$60,17 M** |
+| **Físico** | −$0,06 M | −$3,49 M | +$0,06 M | −$8,61 M | −$0,39 M | −$4,76 M | **−$17,26 M** |
+| **Total Empresa** | **−$0,34 M** | **−$26,19 M** | **+$0,72 M** | **−$43,35 M** | **−$2,22 M** | **−$6,06 M** | **−$77,44 M** |
 
-####  Desglose de Efectos de la Caída
-| Canal | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto SKUs Nuevos | Efecto SKUs Descont. |
-| :----- | -----: | -----: | -----: | -----: | -----: | -----: |
-| **Online** | −$0,28 M | −$22,70 M | +$0,66 M | −$34,74 M | −$1,82 M | −$1,30 M |
-| **Físico** | −$0,06 M | −$3,49 M | +$0,06 M | −$8,61 M | −$0,39 M | −$4,76 M |
-| **Total Empresa** | **−$0,34 M** | **−$26,19 M** | **+$0,72 M** | **−$43,35 M** | **−$2,22 M** | **−$6,06 M** |
-
-> *Cada fila es la suma de los efectos de sus productos. El % de la caída es la variación de cada canal sobre la variación total (−$77,44 M).*
+> *Nota: Cada fila suma los efectos de sus respectivos segmentos. El % de la caída representa la contribución de cada canal sobre la variación total de la empresa (−$77,44 M).*
 
 #### 🔹 Hallazgos
 
-**1. La caída afecta a ambos canales, aunque Online concentra la mayor pérdida monetaria**
+**1. La caída monetaria está fuertemente concentrada en el canal Online**
+Online explica el **77,7% de la destrucción de ganancia bruta (−$60,17 M)**, mientras que Físico representa el **22,3% (−$17,26 M)**, guardando estricta proporción con el peso histórico de cada canal en la compañía.
 
-Online explica el **77,7% de la caída de la Ganancia Bruta (−$60,17 M)** y Físico el **22,3% (−$17,26 M)**, en proporciones similares a su participación en la Ganancia Bruta del 1S. Sin embargo, el margen bruto retrocedió más en Físico: **−13,08 pp**, frente a **−11,81 pp en Online**. El deterioro, por lo tanto, no se limita al canal de mayor volumen.
+**2. Divergencia en el comportamiento del volumen físico**
+Mientras que el canal **Online incrementó sus unidades en un +8,6%** (de 1.349 a 1.465), el canal **Físico contrajo sus unidades un −5,1%** (de 370 a 351). A pesar de este crecimiento en unidades del canal Online, ambos canales sufrieron un desplome idéntico en su rentabilidad porcentual (perdiendo más del 75% de su ganancia contra sí mismos).
 
-**2. El costo es el principal efecto negativo en ambos canales, pero los factores secundarios difieren**
-
-En Online, el costo restó **$34,74 M** y la mezcla, **$22,70 M**. En Físico, el costo también fue el principal efecto negativo (**−$8,61 M**), seguido por los segmentos discontinuados (**−$4,76 M**) y la mezcla (**−$3,49 M**). La mayor incidencia de los discontinuados en Físico se relaciona con que **6 de los 8 segmentos que dejaron de vender en el 2S corresponden a ese canal**, como se detalla en Q6.D.
+**3. El costo y la mezcla dominan el impacto negativo en Online; los discontinuados golpean con fuerza al Físico**
+* En **Online**, el deterioro se debió principalmente al **Efecto Costo (−$34,74 M)** y al **Efecto Mezcla (−$22,70 M)**, lo que indica que se vendieron más unidades pero con una estructura de costos e mix de productos mucho menos rentable.
+* En **Físico**, aunque el costo también lideró la caída (**−$8,61 M**), tuvo un peso proporcional altísimo de los **SKUs discontinuados (−$4,76 M)**, evidenciando que los productos que se dejaron de comprar afectaron de forma crítica la caja de las tiendas físicas.
 
 <br>
 
@@ -755,7 +750,7 @@ En Online, el costo restó **$34,74 M** y la mezcla, **$22,70 M**. En Físico, e
 
 #### 🔹 Resultados
 
-| Categoría | Canal | GB 1S | GB 2S | Variación | MB 1S → 2S | Volumen | Mezcla | Precio | Costo | Nuevos y discont. | % de la caída |
+| Categoría | Canal | GB 1S | GB 2S | Variación | MB 1S → 2S | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto Nuevos y discont. | % de la caída |
 | :--- | :--- | ---: | ---: | ---: | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | **TV y Video** | Online | $32,62 M | $0,46 M | **−$32,16 M** | 15,60% → 0,51% | −$0,11 M | −$18,89 M | −$0,04 M | −$12,43 M | −$0,68 M | 41,5% |
 | **Computación** | Online | $18,93 M | $5,09 M | **−$13,85 M** | 25,25% → 14,05% | −$0,07 M | −$9,29 M | +$0,60 M | −$4,79 M | −$0,30 M | 17,9% |
@@ -801,7 +796,7 @@ El efecto costo fue negativo en todas las combinaciones, desde **−$0,57 M en T
 
 **Los 10 segmentos con mayor caída** (de 94):
 
-| Categoría | Producto | Canal | Unid. 1S → 2S | Volumen | Mezcla | Precio | Costo | Discont. | **Efecto total** |
+| Categoría | Producto | Canal | Unid. 1S → 2S | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto Descont. | **Efecto total** |
 | :--- | :--- | :--- | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | TV y Video | **TCL Monitor TV 21** | Online | 72 → 28 | −$0,05 M | −$8,92 M | −$0,99 M | −$3,69 M | — | **−$13,65 M** |
 | TV y Video | **TCL Chromecast 25** | Online | 56 → 14 | −$0,04 M | −$8,35 M | +$0,06 M | −$1,36 M | — | **−$9,69 M** |
