@@ -786,7 +786,7 @@ El efecto costo fue negativo en todas las combinaciones, desde **−$0,57 M en T
 
 <br>
 
-#### 🔸 Q6.D — Puente por Producto × Canal (detalle)
+#### 🔸 Q6.D — Puente de Ganancia Bruta por Producto × Canal (detalle)
 
 [Ver Consulta SQL →](./sql_business_analysis/q6d_pvm_ganancia_bruta_semestral_producto_canal.sql) <br>
 
@@ -794,21 +794,21 @@ El efecto costo fue negativo en todas las combinaciones, desde **−$0,57 M en T
 
 **Los 10 segmentos con mayor caída** (de 94):
 
-| Categoría | Producto | Canal | Unid. 1S → 2S | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto Descont. | **Efecto total** |
-| :--- | :--- | :--- | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| TV y Video | **TCL Monitor TV 21** | Online | 72 → 28 | −$0,05 M | −$8,92 M | −$0,99 M | −$3,69 M | — | **−$13,65 M** |
-| TV y Video | **TCL Chromecast 25** | Online | 56 → 14 | −$0,04 M | −$8,35 M | +$0,06 M | −$1,36 M | — | **−$9,69 M** |
-| Computación | **Acer Memoria RAM 2** | Online | 40 → 3 | −$0,02 M | −$4,53 M | +$0,01 M | −$0,08 M | — | **−$4,62 M** |
-| Computación | **ASUS Webcam 6** | Online | 34 → 16 | −$0,02 M | −$3,10 M | −$0,01 M | −$0,96 M | — | **−$4,10 M** |
-| TV y Video | **TCL Monitor TV 19** | Online | 9 → 13 | ≈ $0 | +$0,42 M | +$0,78 M | −$4,61 M | — | **−$3,41 M** |
-| TV y Video | **TCL Monitor TV 21** | Físico | 17 → 9 | −$0,01 M | −$1,77 M | −$0,16 M | −$1,23 M | — | **−$3,16 M** |
-| Computación | **Lenovo Mouse 1** | Online | 68 → 11 | −$0,01 M | −$2,62 M | +$0,07 M | −$0,37 M | — | **−$2,93 M** |
-| TV y Video | **TCL Chromecast 25** | Físico | 13 → 0 | — | — | — | — | −$2,78 M | **−$2,78 M** |
-| TV y Video | **Samsung Monitor TV 23** | Online | 44 → 28 | −$0,01 M | −$0,90 M | +$0,29 M | −$1,56 M | — | **−$2,18 M** |
-| Telefonía | **Apple Cargador 12** | Online | 8 → 2 | −$0,01 M | −$1,78 M | −$0,05 M | −$0,29 M | — | **−$2,13 M** |
-| **Subtotal 10 segmentos** | | | | | | | | | **−$48,65 M** |
+| Categoría | Producto | Canal | Unid. 1S → 2S | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto Descont. | **Efecto total** | % de la caída |
+| :--- | :--- | :--- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| TV y Video | **TCL Monitor TV 21** | Online | 72 → 28 | −$0,05 M | −$8,92 M | −$0,99 M | −$3,69 M | — | **−$13,65 M** | 17,6% |
+| TV y Video | **TCL Chromecast 25** | Online | 56 → 14 | −$0,04 M | −$8,35 M | +$0,06 M | −$1,36 M | — | **−$9,69 M** | 12,5% |
+| Computación | **Acer Memoria RAM 2** | Online | 40 → 3 | −$0,02 M | −$4,53 M | +$0,01 M | −$0,08 M | — | **−$4,62 M** | 6,0% |
+| Computación | **ASUS Webcam 6** | Online | 34 → 16 | −$0,02 M | −$3,10 M | −$0,01 M | −$0,96 M | — | **−$4,10 M** | 5,3% |
+| TV y Video | **TCL Monitor TV 19** | Online | 9 → 13 | ≈ $0 | +$0,42 M | +$0,78 M | −$4,61 M | — | **−$3,41 M** | 4,4% |
+| TV y Video | **TCL Monitor TV 21** | Físico | 17 → 9 | −$0,01 M | −$1,77 M | −$0,16 M | −$1,23 M | — | **−$3,16 M** | 4,1% |
+| Computación | **Lenovo Mouse 1** | Online | 68 → 11 | −$0,01 M | −$2,62 M | +$0,07 M | −$0,37 M | — | **−$2,93 M** | 3,8% |
+| TV y Video | **TCL Chromecast 25** | Físico | 13 → 0 | — | — | — | — | −$2,78 M | **−$2,78 M** | 3,6% |
+| TV y Video | **Samsung Monitor TV 23** | Online | 44 → 28 | −$0,01 M | −$0,90 M | +$0,29 M | −$1,56 M | — | **−$2,18 M** | 2,8% |
+| Telefonía | **Apple Cargador 12** | Online | 8 → 2 | −$0,01 M | −$1,78 M | −$0,05 M | −$0,29 M | — | **−$2,13 M** | 2,7% |
+| **Subtotal 10 segmentos** | | | | | | | | | **−$48,65 M** | **62,8%** |
 
-> *Los 94 segmentos están en la consulta, ordenados por efecto total. El efecto "Nuevos" de estos 10 segmentos es cero.*
+> *Los 94 segmentos están en la consulta, ordenados por efecto total. "% de la caída" es el efecto total del segmento sobre la variación total de Ganancia Bruta (−$77,44 M). El efecto "Nuevos" de estos 10 segmentos es cero.*
 
 **Segmentos nuevos en el 2S** (8: 3 SKUs nuevos, cada uno en Online y Físico, y 2 canales nuevos de SKUs que ya vendían):
 
@@ -827,15 +827,17 @@ El efecto costo fue negativo en todas las combinaciones, desde **−$0,57 M en T
 
 **1. Diez segmentos explican el 62,8% de la caída**
 
-Los 10 segmentos con mayor deterioro acumulan **−$48,65 M** y pertenecen a TV y Video, Computación y Telefonía. El caso más significativo es **TCL Monitor TV 21 Online**, con un efecto total de **−$13,65 M**: pasó de vender 72 unidades en el 1S a 28 en el 2S, mientras su margen unitario cayó de $203.986 a $36.931.
+Los 10 segmentos con mayor deterioro acumulan **−$48,65 M**, el 62,8% de la caída total de −$77,44 M, y pertenecen a TV y Video, Computación y Telefonía. El caso más significativo es **TCL Monitor TV 21 Online**, con un efecto total de **−$13,65 M**: pasó de vender 72 unidades en el 1S a 28 en el 2S, mientras su margen unitario cayó de $203.986 a $36.931.
 
 **2. El aumento del costo fue generalizado**
 
 El costo unitario aumentó en los **78 segmentos producto × canal continuos analizados**, con variaciones de entre **+2,4% y +32,5%** y una mediana del **+13,9%**. En cambio, el precio realizado tuvo una mediana de apenas **+0,2%** y aumentó en 40 de los 78 segmentos. Esto indica que la presión sobre los costos alcanzó a toda la cartera de segmentos continuos, no solamente a los de mayor impacto. En **TCL Monitor TV 19 Online**, por ejemplo, el costo unitario subió un 26,7%, frente a un aumento del precio del 4,2%; el margen bruto pasó del 7,3% al −12,7%.
 
+*Las variaciones se calculan como costo_unit_2s / costo_unit_1s − 1 (y lo mismo para el precio) sobre los segmentos con estado "Continuo" de la consulta.*
+
 **3. La mezcla negativa se concentra en cinco productos Online**
 
-TCL Monitor TV 21, TCL Chromecast 25, Acer Memoria RAM 2, ASUS Webcam 6 y Lenovo Mouse 1 acumulan **−$27,53 M de efecto mezcla**, equivalente al 105% del efecto mezcla total negativo. La pérdida se relaciona con la fuerte reducción de sus unidades vendidas entre semestres. El resto de los segmentos compensa parcialmente ese impacto.
+TCL Monitor TV 21, TCL Chromecast 25, Acer Memoria RAM 2, ASUS Webcam 6 y Lenovo Mouse 1 acumulan **−$27,53 M de efecto mezcla**, equivalente al 105% del efecto mezcla neto total (−$26,19 M, Q6.A). El resto de los segmentos, en conjunto, suma +$1,35 M y compensa parcialmente ese impacto. La pérdida se relaciona con la fuerte reducción de las unidades vendidas de estos cinco productos entre semestres.
 
 **4. Dos lanzamientos generaron pérdidas desde su incorporación**
 
@@ -844,7 +846,6 @@ TCL Monitor TV 21, TCL Chromecast 25, Acer Memoria RAM 2, ASUS Webcam 6 y Lenovo
 **5. Los segmentos discontinuados no necesariamente representan productos retirados**
 
 De los ocho segmentos discontinuados, seis corresponden a canales en los que un producto dejó de venderse, aunque continuó comercializándose por otro canal. Estos concentran **−$5,04 M** de los **−$6,06 M** del efecto discontinuados. El único SKU que dejó de venderse por completo fue LG Chromecast 22, en ambos canales, con un efecto de **−$1,02 M**. Como estos segmentos registraban entre 1 y 13 unidades en el 1S, la ausencia de ventas en el 2S no demuestra por sí sola una decisión comercial de discontinuación.
-
 
 **Límites de la lectura**
 
