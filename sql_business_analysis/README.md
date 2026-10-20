@@ -744,29 +744,27 @@ Mientras que el canal **Online incrementó sus unidades en un +8,6%** (de 1.349 
 
 <br>
 
-#### 🔸 Q6.C — Puente por Categoría × Canal
+#### 🔸 Q6.C — Puente de Ganancia Bruta por Categoría y Canal
 
 [Ver Consulta SQL →](./sql_business_analysis/q6c_pvm_ganancia_bruta_semestral_categoria_canal.sql) <br>
 
 #### 🔹 Resultados
 
-| Categoría | Canal | GB 1S | GB 2S | Variación | MB 1S → 2S | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto Nuevos y discont. | % de la caída |
-| :--- | :--- | ---: | ---: | ---: | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **TV y Video** | Online | $32,62 M | $0,46 M | **−$32,16 M** | 15,60% → 0,51% | −$0,11 M | −$18,89 M | −$0,04 M | −$12,43 M | −$0,68 M | 41,5% |
-| **Computación** | Online | $18,93 M | $5,09 M | **−$13,85 M** | 25,25% → 14,05% | −$0,07 M | −$9,29 M | +$0,60 M | −$4,79 M | −$0,30 M | 17,9% |
-| **TV y Video** | Físico | $8,62 M | −$0,32 M | **−$8,94 M** | 15,15% → −1,31% | −$0,02 M | −$2,31 M | +$0,03 M | −$3,57 M | −$3,07 M | 11,5% |
-| **Audio** | Online | $11,40 M | $6,06 M | **−$5,34 M** | 21,68% → 6,77% | −$0,04 M | +$5,05 M | +$0,50 M | −$9,20 M | −$1,64 M | 6,9% |
-| **Telefonía** | Online | $6,17 M | $0,91 M | **−$5,26 M** | 14,03% → 9,92% | −$0,02 M | −$3,63 M | −$0,21 M | −$0,90 M | −$0,50 M | 6,8% |
-| **Computación** | Físico | $4,01 M | $1,12 M | **−$2,89 M** | 24,97% → 10,89% | −$0,01 M | −$0,54 M | −$0,18 M | −$1,04 M | −$1,12 M | 3,7% |
-| **Accesorios** | Online | $3,46 M | $1,26 M | **−$2,20 M** | 16,82% → 4,92% | −$0,01 M | +$0,75 M | +$0,08 M | −$3,02 M | — | 2,8% |
-| **Audio** | Físico | $3,54 M | $1,48 M | **−$2,06 M** | 23,18% → 7,48% | −$0,01 M | +$0,11 M | −$0,05 M | −$1,63 M | −$0,48 M | 2,7% |
-| **Accesorios** | Físico | $1,72 M | $0,21 M | **−$1,51 M** | 18,10% → 3,65% | −$0,01 M | −$0,82 M | +$0,10 M | −$0,77 M | −$0,02 M | 2,0% |
-| **Hogar** | Online | $7,01 M | $5,64 M | **−$1,37 M** | 20,56% → 11,67% | −$0,02 M | +$3,32 M | −$0,26 M | −$4,40 M | — | 1,8% |
-| **Telefonía** | Físico | $1,91 M | $0,71 M | **−$1,20 M** | 19,01% → 10,37% | −$0,01 M | −$0,42 M | +$0,27 M | −$0,57 M | −$0,46 M | 1,5% |
-| **Hogar** | Físico | $1,74 M | $1,08 M | **−$0,66 M** | 21,78% → 10,34% | −$0,01 M | +$0,48 M | −$0,12 M | −$1,02 M | — | 0,9% |
-| **Total Empresa** | **—** | **$101,15 M** | **$23,71 M** | **−$77,44 M** | **18,35% → 6,28%** | −$0,34 M | −$26,19 M | +$0,72 M | −$43,35 M | −$8,28 M | **100,0%** |
-
-> *"Nuevos y discont." suma los dos efectos de los segmentos que solo vendieron en uno de los semestres. En esta vista, el signo de la mezcla de cada fila solo dice si la categoría ganó o perdió unidades (Audio Online y Hogar Online ganaron unidades; TV y Video Online las perdió): se lee en el total, no fila por fila.*
+| Categoría | Canal | GB 1S → 2S | Variación ($) | Var. GB (%) | Margen Bruto 1S → 2S | Var. MB (pp) | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto Nuevos | Efecto Discontinuados | **Efecto Total** | % de la caída GB |
+| :--- | :--- | :---: | ---: | ---: | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **TV y Video** | Online | $32,62 M → $0,46 M | **−$32,16 M** | −98,59% | 15,60% → 0,51% | −15,09 pp | −$0,11 M | −$18,89 M | −$0,04 M | −$12,43 M | $0,00 M | −$0,68 M | **−$32,16 M** | 41,5% |
+| **Computación** | Online | $18,93 M → $5,09 M | **−$13,85 M** | −73,13% | 25,25% → 14,05% | −11,20 pp | −$0,07 M | −$9,29 M | +$0,60 M | −$4,79 M | −$0,30 M | $0,00 M | **−$13,85 M** | 17,9% |
+| **TV y Video** | Físico | $8,62 M → −$0,32 M | **−$8,94 M** | −103,70% | 15,15% → −1,31% | −16,46 pp | −$0,02 M | −$2,31 M | +$0,03 M | −$3,57 M | +$0,05 M | −$3,12 M | **−$8,94 M** | 11,5% |
+| **Audio** | Online | $11,40 M → $6,06 M | **−$5,34 M** | −46,84% | 21,68% → 6,77% | −14,91 pp | −$0,04 M | +$5,05 M | +$0,50 M | −$9,20 M | −$1,64 M | $0,00 M | **−$5,34 M** | 6,9% |
+| **Telefonía** | Online | $6,17 M → $0,91 M | **−$5,26 M** | −85,18% | 14,03% → 9,92% | −4,11 pp | −$0,02 M | −$3,63 M | −$0,21 M | −$0,90 M | +$0,12 M | −$0,62 M | **−$5,26 M** | 6,8% |
+| **Computación** | Físico | $4,01 M → $1,12 M | **−$2,89 M** | −72,04% | 24,97% → 10,89% | −14,09 pp | −$0,01 M | −$0,54 M | −$0,18 M | −$1,04 M | −$0,08 M | −$1,04 M | **−$2,89 M** | 3,7% |
+| **Accesorios** | Online | $3,46 M → $1,26 M | **−$2,20 M** | −63,57% | 16,82% → 4,92% | −11,90 pp | −$0,01 M | +$0,75 M | +$0,08 M | −$3,02 M | $0,00 M | $0,00 M | **−$2,20 M** | 2,8% |
+| **Audio** | Físico | $3,54 M → $1,48 M | **−$2,06 M** | −58,11% | 23,18% → 7,48% | −15,70 pp | −$0,01 M | +$0,11 M | −$0,05 M | −$1,63 M | −$0,39 M | −$0,09 M | **−$2,06 M** | 2,7% |
+| **Accesorios** | Físico | $1,72 M → $0,21 M | **−$1,51 M** | −87,66% | 18,10% → 3,65% | −14,45 pp | −$0,01 M | −$0,82 M | +$0,10 M | −$0,77 M | $0,00 M | −$0,02 M | **−$1,51 M** | 2,0% |
+| **Hogar** | Online | $7,01 M → $5,64 M | **−$1,37 M** | −19,53% | 20,56% → 11,67% | −8,89 pp | −$0,02 M | +$3,32 M | −$0,26 M | −$4,40 M | $0,00 M | $0,00 M | **−$1,37 M** | 1,8% |
+| **Telefonía** | Físico | $1,91 M → $0,71 M | **−$1,20 M** | −62,83% | 19,01% → 10,37% | −8,64 pp | −$0,01 M | −$0,42 M | +$0,27 M | −$0,57 M | +$0,03 M | −$0,50 M | **−$1,20 M** | 1,5% |
+| **Hogar** | Físico | $1,74 M → $1,08 M | **−$0,66 M** | −38,07% | 21,78% → 10,34% | −11,43 pp | −$0,01 M | +$0,48 M | −$0,12 M | −$1,02 M | $0,00 M | $0,00 M | **−$0,66 M** | 0,9% |
+| **Total Empresa** | **Todos** | **$101,15 M → $23,71 M** | **−$77,44 M** | **−76,56%** | **18,35% → 6,28%** | **−12,07 pp** | **−$0,34 M** | **−$26,19 M** | **+$0,72 M** | **−$43,35 M** | **−$2,22 M** | **−$6,06 M** | **−$77,44 M** | **100,0%** |
 
 #### 🔹 Hallazgos
 
@@ -848,7 +846,6 @@ TCL Monitor TV 21, TCL Chromecast 25, Acer Memoria RAM 2, ASUS Webcam 6 y Lenovo
 De los ocho segmentos discontinuados, seis corresponden a canales en los que un producto dejó de venderse, aunque continuó comercializándose por otro canal. Estos concentran **−$5,04 M** de los **−$6,06 M** del efecto discontinuados. El único SKU que dejó de venderse por completo fue LG Chromecast 22, en ambos canales, con un efecto de **−$1,02 M**. Como estos segmentos registraban entre 1 y 13 unidades en el 1S, la ausencia de ventas en el 2S no demuestra por sí sola una decisión comercial de discontinuación.
 
 
-
 **Límites de la lectura**
 
 * **Alcance explicativo:** Q6 identifica dónde se concentra el deterioro, pero no determina las causas comerciales u operativas del aumento de costos ni de la caída de unidades.
@@ -900,27 +897,29 @@ El margen bruto global cayó **12,07 pp, del 18,35% al 6,28%** entre el primer y
 
 <br>
 
-#### 🔸 Q7.A — Descomposición Agregada: Total Empresa
+#### 🔸 Q7.A — Descomposición Agregada del Margen Bruto: Total Empresa
 
 [Ver Consulta SQL →](./sql_business_analysis/q7a_efecto_margen_mix_agregado.sql) <br>
 
 #### 🔹 Resultados
 
-| Concepto | Puntos de margen | % de la variación |
-| :--- | ---: | ---: |
-| **Margen Bruto 1S** | **18,35%** | |
-| Efecto margen (margen propio de los productos) | −10,95 pp | 90,8% |
-| Efecto entrada (productos nuevos) | −1,96 pp | 16,2% |
-| Efecto salida (productos sin ventas en el 2S) | −0,13 pp | 1,1% |
-| Efecto mezcla | +0,97 pp | −8,1% |
-| **Margen Bruto 2S** | **6,28%** | |
-| **Variación** | **−12,07 pp** | **100,0%** |
-
+#### Contexto Financiero y Operativo
 | Indicador | 1S 2026 | 2S 2026 | Variación |
 | :--- | ---: | ---: | ---: |
-| Ventas Netas Finales | $551,22 M | $377,64 M | −31,5% |
-| Ganancia Bruta | $101,15 M | $23,71 M | −76,6% |
-| Margen Bruto | 18,35% | 6,28% | −12,07 pp |
+| **Ventas Netas Finales** | $551,22 M | $377,64 M | **−31,49%** |
+| **Ganancia Bruta** | $101,15 M | $23,71 M | **−76,56%** |
+| **Margen Bruto** | 18,35% | 6,28% | **−12,07 pp** |
+
+#### Desglose de Efectos en el Margen Bruto (en puntos porcentuales)
+| Componente del Margen | Puntos de Margen (pp) | % de la Caída Total |
+| :--- | ---: | ---: |
+| **Margen Bruto 1S 2026** | **18,35%** | — |
+| **Efecto Margen** (deterioro propio de costo/precio continuo) | **−10,95 pp** | 90,8% |
+| **Efecto Mezcla** (reorganización de participación en ventas) | **+0,97 pp** | −8,1% |
+| **Efecto Nuevos** (incorporación de SKUs/canales nuevos) | **−1,96 pp** | 16,2% |
+| **Efecto Descontinuados** (pérdida de SKUs/canales discontinuados) | **−0,13 pp** | 1,1% |
+| **Margen Bruto 2S 2026** | **6,28%** | — |
+| **Variación Margen Global** | **−12,07 pp** | **100,0%** |
 
 #### 🔹 Hallazgos
 
@@ -942,19 +941,19 @@ Los 8 segmentos nuevos restan **−1,96 pp (16,2%)**: **Edifier Auriculares 32 (
 
 <br>
 
-#### 🔸 Q7.B — Descomposición por Canal
+#### 🔸 Q7.B — Descomposición del Margen Bruto por Canal
 
 [Ver Consulta SQL →](./sql_business_analysis/q7b_efecto_margen_mix_canal.sql) <br>
 
 #### 🔹 Resultados
 
-| Canal | Participación ventas | MB 1S → 2S | Margen | Mezcla | Entrada | Salida | **Contribución** | % de la caída |
-| :--- | :---: | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Online** | 78,99% → 79,46% | 18,28% → 6,47% | −8,85 pp | +1,03 pp | −1,50 pp | −0,06 pp | **−9,38 pp** | 77,7% |
-| **Físico** | 21,01% → 20,54% | 18,60% → 5,52% | −2,11 pp | −0,05 pp | −0,46 pp | −0,07 pp | **−2,69 pp** | 22,3% |
-| **Total Empresa** | 100,00% → 100,00% | 18,35% → 6,28% | −10,95 pp | +0,97 pp | −1,96 pp | −0,13 pp | **−12,07 pp** | **100,0%** |
+| Canal | Participación ventas | MB 1S → 2S | Var. MB (%) | Efecto Margen | Efecto Mezcla | Efecto Nuevos | Efecto Descontinuados | **Contribución Total** | % de la caída |
+| :--- | :---: | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Online** | 78,99% → 79,46% | 18,28% → 6,47% | −64,59% | −8,85 pp | +1,03 pp | −1,50 pp | −0,06 pp | **−9,38 pp** | 77,7% |
+| **Físico** | 21,01% → 20,54% | 18,60% → 5,52% | −70,31% | −2,11 pp | −0,05 pp | −0,46 pp | −0,07 pp | **−2,69 pp** | 22,3% |
+| **Total Empresa** | **100,00% → 100,00%** | **18,35% → 6,28%** | **−65,78%** | **−10,95 pp** | **+0,97 pp** | **−1,96 pp** | **−0,13 pp** | **−12,07 pp** | **100,0%** |
 
-> *Cada fila es la contribución del canal a la variación del margen global (−12,07 pp), no el cambio de su propio margen: los márgenes propios de cada canal están en la columna "MB 1S → 2S".*
+> *Nota: La columna "Var. MB (%)" refleja la variación porcentual relativa de la tasa de margen de cada canal, mientras que las columnas de efectos expresan los puntos porcentuales (pp) aportados a la variación del margen global de la empresa (−12,07 pp).*
 
 #### Hallazgos
 
@@ -970,27 +969,27 @@ Los 8 segmentos nuevos restan **−1,96 pp (16,2%)**: **Edifier Auriculares 32 (
 
 <br>
 
-#### 🔸 Q7.C — Descomposición por Categoría × Canal
+#### 🔸 Q7.C — Descomposición del Margen Bruto por Categoría y Canal
 
 [Ver Consulta SQL →](./sql_business_analysis/q7c_efecto_margen_mix_categoria_canal.sql) <br>
 
 #### 🔹 Resultados
 
-| Categoría | Canal | Participación ventas | MB 1S → 2S | Margen | Mezcla | Entrada | Salida | **Contribución** | % de la caída |
-| :--- | :--- | :---: | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **TV y Video** | Online | 37,95% → 24,14% | 15,60% → 0,51% | −3,78 pp | +0,57 pp | — | −0,06 pp | **−3,26 pp** | 27,0% |
-| **Audio** | Online | 9,54% → 23,70% | 21,68% → 6,77% | −1,75 pp | +0,02 pp | −1,33 pp | — | **−3,06 pp** | 25,4% |
-| **Computación** | Online | 13,60% → 9,59% | 25,25% → 14,05% | −1,24 pp | +0,05 pp | −0,16 pp | — | **−1,35 pp** | 11,2% |
-| **Hogar** | Online | 6,18% → 12,79% | 20,56% → 11,67% | −0,91 pp | −0,08 pp | — | — | **−0,99 pp** | 8,2% |
-| **TV y Video** | Físico | 10,33% → 6,45% | 15,15% → −1,31% | −0,98 pp | +0,03 pp | −0,04 pp | +0,05 pp | **−0,94 pp** | 7,8% |
-| **Accesorios** | Online | 3,74% → 6,79% | 16,82% → 4,92% | −0,60 pp | −0,25 pp | — | — | **−0,86 pp** | 7,1% |
-| **Audio** | Físico | 2,77% → 5,25% | 23,18% → 7,48% | −0,35 pp | −0,03 pp | −0,31 pp | −0,01 pp | **−0,70 pp** | 5,8% |
-| **Computación** | Físico | 2,91% → 2,73% | 24,97% → 10,89% | −0,28 pp | +0,06 pp | −0,08 pp | −0,10 pp | **−0,40 pp** | 3,3% |
-| **Hogar** | Físico | 1,45% → 2,76% | 21,78% → 10,34% | −0,23 pp | −0,05 pp | — | — | **−0,27 pp** | 2,2% |
-| **Accesorios** | Físico | 1,73% → 1,54% | 18,10% → 3,65% | −0,18 pp | −0,05 pp | — | +0,01 pp | **−0,22 pp** | 1,8% |
-| **Telefonía** | Físico | 1,82% → 1,81% | 19,01% → 10,37% | −0,09 pp | −0,01 pp | −0,03 pp | −0,03 pp | **−0,16 pp** | 1,3% |
-| **Telefonía** | Online | 7,98% → 2,44% | 14,03% → 9,92% | −0,56 pp | +0,71 pp | −0,01 pp | — | **+0,14 pp** | −1,1% |
-| **Total Empresa** | **—** | 100,00% → 100,00% | 18,35% → 6,28% | −10,95 pp | +0,97 pp | −1,96 pp | −0,13 pp | **−12,07 pp** | **100,0%** |
+| Categoría | Canal | Participación ventas | MB 1S → 2S | Var. MB (%) | Efecto Margen | Efecto Mezcla | Efecto Nuevos | Efecto Descontinuados | **Contribución Total** | % de la caída |
+| :--- | :--- | :---: | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **TV y Video** | Online | 37,95% → 24,14% | 15,60% → 0,51% | −96,76% | −3,78 pp | +0,57 pp | 0,00 pp | −0,06 pp | **−3,26 pp** | 27,0% |
+| **Audio** | Online | 9,54% → 23,70% | 21,68% → 6,77% | −68,76% | −1,75 pp | +0,02 pp | −1,33 pp | 0,00 pp | **−3,06 pp** | 25,4% |
+| **Computación** | Online | 13,60% → 9,59% | 25,25% → 14,05% | −44,37% | −1,24 pp | +0,05 pp | −0,16 pp | 0,00 pp | **−1,35 pp** | 11,2% |
+| **Hogar** | Online | 6,18% → 12,79% | 20,56% → 11,67% | −43,23% | −0,91 pp | −0,08 pp | 0,00 pp | 0,00 pp | **−0,99 pp** | 8,2% |
+| **TV y Video** | Físico | 10,33% → 6,45% | 15,15% → −1,31% | −108,63% | −0,98 pp | +0,03 pp | −0,04 pp | +0,05 pp | **−0,94 pp** | 7,8% |
+| **Accesorios** | Online | 3,74% → 6,79% | 16,82% → 4,92% | −70,76% | −0,60 pp | −0,25 pp | 0,00 pp | 0,00 pp | **−0,86 pp** | 7,1% |
+| **Audio** | Físico | 2,77% → 5,25% | 23,18% → 7,48% | −67,72% | −0,35 pp | −0,03 pp | −0,31 pp | −0,01 pp | **−0,70 pp** | 5,8% |
+| **Computación** | Físico | 2,91% → 2,73% | 24,97% → 10,89% | −56,40% | −0,28 pp | +0,06 pp | −0,08 pp | −0,10 pp | **−0,40 pp** | 3,3% |
+| **Hogar** | Físico | 1,45% → 2,76% | 21,78% → 10,34% | −52,51% | −0,23 pp | −0,05 pp | 0,00 pp | 0,00 pp | **−0,27 pp** | 2,2% |
+| **Accesorios** | Físico | 1,73% → 1,54% | 18,10% → 3,65% | −79,85% | −0,18 pp | −0,05 pp | 0,00 pp | +0,01 pp | **−0,22 pp** | 1,8% |
+| **Telefonía** | Físico | 1,82% → 1,81% | 19,01% → 10,37% | −45,46% | −0,09 pp | −0,01 pp | −0,03 pp | −0,03 pp | **−0,16 pp** | 1,3% |
+| **Telefonía** | Online | 7,98% → 2,44% | 14,03% → 9,92% | −29,30% | −0,56 pp | +0,71 pp | −0,01 pp | −0,00 pp | **+0,14 pp** | −1,1% |
+| **Total Empresa** | **Todos** | **100,00% → 100,00%** | **18,35% → 6,28%** | **−65,78%** | **−10,95 pp** | **+0,97 pp** | **−1,96 pp** | **−0,13 pp** | **−12,07 pp** | **100,0%** |
 
 > *El efecto de cada fila es la suma de los efectos de sus productos. Por eso, por ejemplo, la mezcla de una combinación puede tener un signo distinto del que sugiere su margen promedio: depende de qué productos de la combinación ganaron o perdieron peso.*
 
@@ -1027,7 +1026,7 @@ Los 8 segmentos nuevos restan **−1,96 pp (16,2%)**: **Edifier Auriculares 32 (
 
 **Los 10 segmentos con mayor contribución a la caída** (de 94):
 
-| Categoría | Producto | Canal | Participación ventas | MB 1S → 2S | Margen | Mezcla | Entrada | **Contribución** |
+| Categoría | Producto | Canal | Participación ventas | MB 1S → 2S | Efecto Margen | Efecto Mezcla | Efecto Nuevos | **Contribución** |
 | :--- | :--- | :--- | :---: | :---: | ---: | ---: | ---: | ---: |
 | TV y Video | **TCL Monitor TV 19** | Online | 2,34% → 5,15% | 7,34% → −12,67% | −0,75 pp | −0,59 pp | — | **−1,34 pp** |
 | Audio | **Edifier Auriculares 32** | Online | 0,00% → 4,86% | — → −8,97% | — | — | −1,33 pp | **−1,33 pp** |
