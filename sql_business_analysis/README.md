@@ -672,6 +672,7 @@ Además, dos lanzamientos registraron precios realizados inferiores a sus costos
 | Indicador | 1S 2026 | 2S 2026 | Variación  | Variación % |
 | :--- | ---: | ---: | ---: | ---: |
 | **Unidades Efectivas** | 1.719 | 1.816 | +97 | **+5,64%** |
+| **Ventas Netas Finales** | $551,22 M | $377.64 M | -$173.58 M | -31.49% |
 | **Ganancia Bruta** | $101,15 M | $23,71 M | −$77,44 M | **−76,56%** |
 | **Margen Bruto (%)** | 18,35% | 6,28% | — | **−12,07 pp** |
 
@@ -688,23 +689,31 @@ Además, dos lanzamientos registraron precios realizados inferiores a sus costos
 | **Ganancia Bruta 2S** | **$23,71 M** | |
 | **Variación Ganancia Bruta** | **−$77,44 M** | **100,0%** |
 
+#### Precio y Costo Unitario (segmentos continuos, 1S → 2S)
+| | Variación ponderada | Mediana por segmento | Segmentos con aumento |
+| :--- | ---: | ---: | ---: |
+| **Precio unitario** | **+0,21%** | +0,22% | 40 de 78 |
+| **Costo unitario** | **+15,48%** | +13,93% | 78 de 78 |
+
+> *Se comparan los 78 segmentos producto × canal que vendieron en ambos semestres (mismo producto, mismo canal). La variación ponderada usa las unidades del 2S, igual que el puente: es el efecto en pesos dividido por lo que habrían valido esas unidades a precio o costo del 1S. La mediana se calcula sobre la variación de cada segmento (detalle en Q6.D).*
+
 #### 🔹 Hallazgos
 
-**1. La Ganancia Bruta cayó un 76,6% y el margen bruto perdió 12,07 pp**
+**1. La Ganancia Bruta cayó un 76,6%, mucho más que las ventas, y el margen bruto perdió 12,07 pp**
 
-La Ganancia Bruta pasó de **$101,15 M a $23,71 M (−$77,44 M)** y el margen bruto, del **18,35% al 6,28%**. Las ventas cayeron un **31,5%**, pese a que las unidades efectivas aumentaron un **5,6%**.
+La Ganancia Bruta pasó de **$101,15 M a $23,71 M (−$77,44 M)** y el margen bruto, del **18,35% al 6,28%**. Las ventas cayeron un **31,49%**, pese a que las unidades efectivas aumentaron un **5,64%**.
 
-**2. El costo fue el principal factor negativo**
+**2. El costo fue el principal factor negativo y el precio no lo compensó**
 
-El efecto costo restó **$43,35 M (56,0% de la caída)**, mientras que el efecto precio aportó apenas **$0,72 M**. La contribución positiva del precio fue insuficiente para compensar el impacto negativo del costo.
+El efecto costo restó **$43,35 M (56,0% de la caída)**, mientras que el efecto precio aportó apenas **$0,72 M**. Medido sobre los mismos productos y canales, el costo unitario subió **+15,5%** y el precio, **+0,2%**. El costo subió en los **78 segmentos continuos**, con variaciones de entre **+2,4% y +32,5%** (mediana **+13,9%**), mientras que el precio aumentó en **40 de 78**: en los otros 38 quedó igual o bajó mientras el costo subía.
 
-**3. La caída se explica principalmente por la composición de las ventas**
+**3. La caída se explica también por la composición de las ventas**
 
-Aunque las unidades efectivas aumentaron en 97, los segmentos continuos registraron una reducción de 6 unidades. El crecimiento neto provino de **135 unidades en segmentos nuevos**, parcialmente compensadas por la pérdida de 32 unidades en segmentos discontinuados. El efecto mezcla restó **$26,19 M (33,8% de la caída)**, reflejando la menor contribución de los productos vendidos en el segundo semestre.
+Aunque las unidades efectivas aumentaron en 97, los segmentos continuos registraron una reducción de 6 unidades (Q6.D). El crecimiento neto provino de **135 unidades en segmentos nuevos**, parcialmente compensadas por la pérdida de 32 unidades en segmentos discontinuados. El efecto mezcla restó **$26,19 M (33,8% de la caída)**: las unidades se desplazaron desde segmentos que dejaban más por unidad en el 1S hacia segmentos que dejaban menos.
 
-**4. Los promedios por unidad no reflejan por sí solos los cambios de precio y costo**
+**4. Los promedios por unidad de toda la empresa no sirven para medir precio y costo**
 
-El precio promedio por unidad cayó un **35,1%** y el costo promedio, un **25,6%**. Sin embargo, ambos indicadores también están afectados por los cambios en la composición de las ventas. El efecto precio del puente, que aísla la variación de precio en los segmentos continuos, fue positivo en **$0,72 M**.
+El precio y el costo promedio por unidad de la empresa mezclan productos de valores muy distintos, por lo que se mueven con la composición de las ventas aunque los precios y costos de cada producto no cambien. Por eso la lectura de precio y costo se hace sobre los segmentos continuos, donde el precio casi no se movió (+0,2%) y el costo subió +15,5%, consistente con el puente: efecto precio de **+$0,72 M** y efecto costo de **−$43,35 M**.
 
 <br>
 
