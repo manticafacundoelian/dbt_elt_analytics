@@ -674,23 +674,26 @@ Q5 mostró que el resultado no se deteriora parejo: **la caída real de la renta
 
 <br>
 
-#### 🔸 Q6.A — Puente Agregado: Total Empresa
+#### 🔸 Q6.A — Puente Semestral de Ganancia Bruta: Total Empresa
 
 [Ver Consulta SQL →](./sql_business_analysis/q6a_pvm_ganancia_bruta_semestral_agregado.sql) <br>
 
 #### 🔹 Resultados
 
 #### Contexto Financiero y Operativo
-| Indicador | 1S 2026 | 2S 2026 | Variación | Variación % |
-| :--- | ---: | ---: | ---: | ---: |
-| **Unidades Efectivas** | 1.719 | 1.816 | +97 | **+5,64%** |
-| **Ventas Netas Finales** | $551,22 M | $377,64 M | −$173,58 M | **−31,49%** |
-| **Ganancia Bruta** | $101,15 M | $23,71 M | −$77,44 M | **−76,56%** |
-| **Margen Bruto (%)** | 18,35% | 6,28% | — | **−12,07 pp** |
 
-> *Las Ventas Netas Finales salen de Q5; Q6 se concentra en explicar el mecanismo de la Ganancia Bruta.*
+| Indicador                      |   1S 2026 |   2S 2026 |  Variación | Variación % |
+| :----------------------------- | --------: | --------: | ---------: | ----------: |
+| **Unidades Efectivas Totales** |     1.719 |     1.816 |        +97 |  **+5,64%** |
+| └ Segmentos continuos          |     1.687 |     1.681 |         −6 |      −0,36% |
+| └ Segmentos nuevos             |         0 |       135 |       +135 |           — |
+| └ Segmentos discontinuados     |        32 |         0 |        −32 |    −100,00% |
+| **Ventas Netas Finales**       | $551,22 M | $377,64 M | −$173,58 M | **−31,49%** |
+| **Ganancia Bruta**             | $101,15 M |  $23,71 M |  −$77,44 M | **−76,56%** |
+| **Margen Bruto (%)**           |    18,35% |     6,28% |  −12,07 pp |           — |
 
 #### Desglose de Efectos de la Caída
+
 | Concepto | Monto | % Variación Total |
 | :--- | ---: | ---: |
 | **Ganancia Bruta 1S** | **$101,15 M** | |
@@ -709,25 +712,24 @@ Q5 mostró que el resultado no se deteriora parejo: **la caída real de la renta
 | **Precio unitario** | **+0,21%** | +0,22% | 40 de 78 |
 | **Costo unitario** | **+15,48%** | +13,93% | 78 de 78 |
 
-> *Se comparan los 78 segmentos producto × canal que vendieron en ambos semestres. La variación ponderada usa las unidades del 2S, igual que el puente: es el efecto en pesos dividido por lo que habrían valido esas unidades a precio o costo del 1S. La mediana se calcula sobre la variación de cada segmento (detalle en Q6.D). Los efectos suman exactamente la variación (un centavo de diferencia en la consulta es el redondeo de cada efecto a dos decimales).*
+> *Se comparan los 78 segmentos producto × canal presentes en ambos semestres (segmentos continuos). La variación ponderada considera las unidades vendidas en el 2S y permite medir el cambio de precio o costo manteniendo constante ese volumen. La mediana refleja la variación central entre los segmentos, sin ponderar por unidades. Ver el detalle por segmento en Q6.D.*
 
 #### 🔹 Hallazgos
 
-**1. La Ganancia Bruta cayó 76,6% y el margen bruto perdió 12,07 pp**
+**1. La Ganancia Bruta cayó 76,6%, muy por encima de las ventas**
 
-Pasó de **$101,15 M a $23,71 M (−$77,44 M)** y el margen bruto de **18,35% a 6,28%**. Las ventas bajaron **31,5%** (Q5) con **5,6% más de unidades**.
+La Ganancia Bruta pasó de **$101,15 M a $23,71 M (−$77,44 M)**, mientras las ventas netas finales cayeron **31,5%**, pese a que las unidades vendidas crecieron **5,6%** (Q5).
 
-**2. El costo explica el 56% y el precio no compensó nada**
 
-El efecto costo es de **−$43,35 M** y el efecto precio de **+$0,72 M**: por cada peso que el precio recuperó, el costo se llevó **$60**. Sobre los mismos productos y canales, el costo unitario subió **+15,5%** y el precio **+0,2%**. El costo subió en los **78 segmentos continuos**, entre **+2,4% y +32,5%** (mediana **+13,9%**), mientras el precio aumentó en **40 de 78**: en los otros 38 quedó igual o bajó mientras el costo subía. No es un problema de precios que bajaron: los precios no cayeron, el costo subió.
+**2. El costo explica el 56% de la caída y el precio apenas compensó su impacto**
 
-**3. Entre semestres, el volumen no explica la caída: lo que se movió fue qué productos se vendieron**
+El efecto costo fue de **−$43,35 M**, frente a un efecto precio de apenas **+$0,72 M**: por cada peso recuperado mediante precios, el aumento de costos restó **$60**. En los mismos productos y canales presentes en ambos semestres, el costo unitario subió **15,5%**, mientras que el precio unitario apenas aumentó **0,2%**. El costo subió en los **78 segmentos continuos**, con variaciones de entre **+2,4% y +32,5%** (mediana: **+13,9%**); el precio aumentó en solo **40 de los 78**. En los otros 38 segmentos, permaneció igual o bajó mientras el costo aumentaba.
 
-Las unidades subieron **+97** (1.719 a 1.816), pero los productos que se vendieron en ambos semestres vendieron prácticamente lo mismo (**−6 unidades**, de ahí el efecto volumen de apenas −$0,34 M). El crecimiento sale de **+135 unidades en segmentos nuevos** y **−32 en discontinuados** (Q6.D). La caída de la Ganancia Bruta aparece en la **mezcla (−$26,19 M, 33,8%)**: se vendieron menos unidades de los productos que dejan más margen por unidad (Q6.C).
 
-**4. El precio y el costo promedio por unidad de la empresa no sirven para medir el efecto**
+**3. El volumen apenas explica la caída: el principal impacto estuvo en la mezcla de productos vendidos**
 
-El precio y el costo promedio por unidad mezclan productos de valores muy distintos: se mueven con la composición de las ventas aunque los precios y costos de cada producto no cambien. Por eso la lectura se hace sobre los segmentos continuos (mismo producto, mismo canal), donde el precio casi no se movió (+0,2%) y el costo subió +15,5%, consistente con el puente: efecto precio de **+$0,72 M** y efecto costo de **−$43,35 M**.
+Las unidades vendidas aumentaron **97** (de 1.719 a 1.816), pero los segmentos continuos registraron **6 unidades menos**, de ahí un efecto volumen de apenas **−$0,34 M**. El crecimiento neto provino de **135 unidades en segmentos nuevos**, parcialmente compensadas por las **32 unidades perdidas en segmentos discontinuados**. En cambio, el efecto mezcla restó **$26,19 M (33,8% de la caída de la Ganancia Bruta)**, lo que señala un cambio en la composición de las ventas hacia segmentos menos favorables para la rentabilidad (Q6.C).
+
 
 <br>
 
@@ -752,6 +754,50 @@ El precio y el costo promedio por unidad mezclan productos de valores muy distin
 | **Total Empresa** | **1.719 → 1.816 (+5,6%)** | **+0,21%** | **+15,48%** |
 
 > *Cada fila es la suma de los efectos de sus productos. El % de la caída es la variación de cada canal sobre la variación total (−$77,44 M). Precio y costo unit. son la variación like-for-like de los segmentos continuos, ponderada por unidades del 2S: explican los efectos precio y costo de la tabla anterior.*
+
+### Contexto financiero y operativo
+
+| Canal             | Unidades 1S | Unidades 2S | Var. unidades (%) | GB 1S ($M) | GB 2S ($M) | Var. GB ($M) | Var. GB (%) | Margen 1S | Margen 2S | Var. margen (pp) | Participación en la caída |
+| ----------------- | ----------: | ----------: | ----------------: | ---------: | ---------: | -----------: | ----------: | --------: | --------: | ---------------: | ------------------------: |
+| **Total Empresa** |       1.719 |       1.816 |           +5,64 % |     101,15 |      23,71 |       −77,44 |    −76,56 % |   18,35 % |    6,28 % |           −12,07 |                   100,0 % |
+| **Online**        |       1.349 |       1.465 |           +8,60 % |      79,60 |      19,43 |       −60,17 |    −75,60 % |   18,28 % |    6,47 % |           −11,81 |                    77,7 % |
+| **Físico**        |         370 |         351 |           −5,14 % |      21,55 |       4,29 |       −17,26 |    −80,11 % |   18,60 % |    5,52 % |           −13,08 |                    22,3 % |
+
+
+### Puente de Ganancia Bruta por canal
+
+| Canal         | Volumen ($M) | Mezcla ($M) | Precio ($M) | Costo ($M) | Nuevos ($M) | Discontinuados ($M) | Efecto total ($M) | Participación en la caída de GB |
+| ------------- | -----------: | ----------: | ----------: | ---------: | ----------: | ------------------: | ----------------: | ------------------------------: |
+| Total Empresa |        −0,34 |      −26,19 |       +0,72 |     −43,35 |       −2,22 |               −6,06 |            −77,44 |                         100,0 % |
+| Online        |        −0,28 |      −22,70 |       +0,66 |     −34,74 |       −1,82 |               −1,30 |            −60,17 |                          77,7 % |
+| Físico        |        −0,06 |       −3,49 |       +0,06 |      −8,61 |       −0,39 |               −4,76 |            −17,26 |                          22,3 % |
+
+
+### Variación de precio y costo unitario
+
+| Canal         | Variación ponderada del precio unitario | Variación ponderada del costo unitario |
+| ------------- | --------------------------------------: | -------------------------------------: |
+| Total Empresa |                                 +0,21 % |                               +15,48 % |
+| Online        |                                 +0,24 % |                               +15,57 % |
+| Físico        |                                 +0,08 % |                               +15,11 % |
+
+
+### 4. Variación de unidades por tipo de segmento
+
+| Canal  | Tipo de segmento                     | Unidades 1S | Unidades 2S | Variación de unidades | Variación de unidades (%) |
+| ------ | ------------------------------------ | ----------: | ----------: | --------------------: | ------------------------: |
+| Online | **TOTAL CANAL**                      |   **1.349** |   **1.465** |              **+116** |               **+8,60 %** |
+| Online | Continuos                            |       1.343 |       1.361 |                   +18 |                   +1,34 % |
+| Online | SKU nuevo                            |           0 |         104 |                  +104 |                         — |
+| Online | SKU discontinuado                    |           2 |           0 |                    −2 |                 −100,00 % |
+| Online | Canal discontinuado de SKU existente |           4 |           0 |                    −4 |                 −100,00 % |
+| Físico | **TOTAL CANAL**                      |     **370** |     **351** |               **−19** |               **−5,14 %** |
+| Físico | Continuos                            |         344 |         320 |                   −24 |                   −6,98 % |
+| Físico | SKU nuevo                            |           0 |          26 |                   +26 |                         — |
+| Físico | Canal nuevo de SKU existente         |           0 |           5 |                    +5 |                         — |
+| Físico | SKU discontinuado                    |           1 |           0 |                    −1 |                 −100,00 % |
+| Físico | Canal discontinuado de SKU existente |          25 |           0 |                   −25 |                 −100,00 % |
+
 
 #### 🔹 Hallazgos
 
