@@ -172,14 +172,14 @@ La pérdida monetaria se concentró en **Online**, mientras que **Físico presen
 
 [Ver Consulta SQL →](./sql_business_analysis/q2.1_puente_ventas_netas_total.sql)
 
-#### 🔹 Contexto financiero y operativo
+#### Contexto financiero y operativo
 
 | Indicador                |       2025 |     2026 | Variación absoluta |  Variación % |
 | :----------------------- | ---------: | -------: | -----------------: | -----------: |
 | **Ventas Netas**         | $1.633,9 M | $999,1 M |      **−$634,8 M** | **−38,85 %** |
 | Unidades comercializadas |      4.746 |    3.778 |               −968 |     −20,40 % |
 
-#### 🔹 Descomposición de la variación
+#### Descomposición de la variación
 
 | Efecto              | Impacto 2025 → 2026 | Participación en la caída neta |
 | :------------------ | ------------------: | -----------------------------: |
@@ -226,7 +226,7 @@ Su efecto fue de apenas **−$0,2 M**, por lo que su incidencia sobre la variaci
 
 [Ver Consulta SQL →](./sql_business_analysis/q2.2_puente_ventas_netas_canal.sql)
 
-#### 🔹 Contexto financiero y operativo
+#### Contexto financiero y operativo
 
 | Canal      |    Ventas 2025 |  Ventas 2026 | Variación ($) | Variación (%) | Contribución a la caída total | Unidades 2025 | Unidades 2026 | Variación de unidades | Variación (%) |
 | :--------- | -------------: | -----------: | ------------: | ------------: | ----------------------------: | ------------: | ------------: | --------------------: | ------------: |
@@ -234,7 +234,7 @@ Su efecto fue de apenas **−$0,2 M**, por lo que su incidencia sobre la variaci
 | **Físico** |       $455,5 M |     $205,1 M |     −$250,4 M |      −54,98 % |                   **39,45 %** |         1.378 |           769 |                  −609 |      −44,19 % |
 | **Total**  | **$1.633,9 M** | **$999,1 M** | **−$634,8 M** |  **−38,85 %** |                  **100,00 %** |     **4.746** |     **3.778** |              **−968** |  **−20,40 %** |
 
-#### 🔹 Descomposición de efectos y distribución por canal
+#### Descomposición de efectos y distribución por canal
 
 Los importes muestran el impacto de cada efecto en las Ventas Netas. Los porcentajes indican qué proporción del efecto global corresponde a cada canal según la metodología del puente.
 
