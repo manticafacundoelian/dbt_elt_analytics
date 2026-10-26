@@ -168,7 +168,7 @@ La pérdida monetaria se concentró en **Online**, mientras que **Físico presen
 
 <br>
 
-#### 🔸 Q2.1 — Puente de Ventas Netas: Nivel Empresa
+#### 🔸 Q2.A — Puente de Ventas Netas: Nivel Empresa
 
 [Ver Consulta SQL →](./sql_business_analysis/q2.1_puente_ventas_netas_total.sql)
 
@@ -222,7 +222,7 @@ Su efecto fue de apenas **−$0,2 M**, por lo que su incidencia sobre la variaci
 
 <br>
 
-#### 🔸 Q2.2 — Puente de Ventas Netas por Canal
+#### 🔸 Q2.B — Puente de Ventas Netas por Canal
 
 [Ver Consulta SQL →](./sql_business_analysis/q2.2_puente_ventas_netas_canal.sql)
 
@@ -236,8 +236,6 @@ Su efecto fue de apenas **−$0,2 M**, por lo que su incidencia sobre la variaci
 
 #### Descomposición de efectos y distribución por canal
 
-Los importes muestran el impacto de cada efecto en las Ventas Netas. Los porcentajes indican qué proporción del efecto global corresponde a cada canal según la metodología del puente.
-
 | Efecto                              | Online: impacto (% del efecto global) | Físico: impacto (% del efecto global) | Efecto global |
 | :---------------------------------- | ------------------------------------: | ------------------------------------: | ------------: |
 | **Volumen**                         |                    −$443,5 M (72,1 %) |                    −$171,4 M (27,9 %) | **−$614,9 M** |
@@ -248,31 +246,21 @@ Los importes muestran el impacto de cada efecto en las Ventas Netas. Los porcent
 | **SKUs Descontinuados**             |                        $0,0 M (0,0 %) |                     −$0,2 M (100,0 %) |   **−$0,2 M** |
 | **Variación total de Ventas Netas** |                         **−$384,4 M** |                         **−$250,4 M** | **−$634,8 M** |
 
-> *Nota metodológica: los porcentajes de la segunda tabla representan la distribución de cada efecto global entre los canales, no la participación de cada efecto en la caída total. El puente se calcula globalmente a nivel de producto × canal y sus efectos se agrupan posteriormente por canal. Las unidades corresponden a `SUM(quantity)`, sin ajuste por devoluciones.*
+> *Nota metodológica: el puente se calcula globalmente a nivel de producto × canal y luego se agrupa por canal. Los importes representan el impacto de cada efecto en las Ventas Netas; los porcentajes indican qué proporción de cada efecto global corresponde a cada canal, no su contribución a la caída total. 
 
 #### 🔹 Hallazgos
 
-**1. Online concentra la mayor pérdida monetaria, pero Físico experimenta la contracción proporcional más fuerte**
+**1. Online concentra la mayor pérdida monetaria, pero Físico sufre la contracción proporcional más fuerte**
 
-Online explica el **60,55 % de la caída total**, con una reducción de $384,4 M (−32,62 %). Físico representa el 39,45 % restante, pero sus ventas retrocedieron un **54,98 %**, frente al 32,62 % de Online.
+Online explica el **60,55 % de la caída total**, con una reducción de $384,4 M (−32,62 %). Físico representa el 39,45 % restante, pero sus ventas retrocedieron un **54,98 %**. La evolución de las unidades refuerza la diferencia: cayeron un 10,66 % en Online y un 44,19 % en Físico.
 
-La evolución de las unidades refuerza esta diferencia: Online pasó de 3.368 a 3.009 unidades (−10,66 %), mientras que Físico cayó de 1.378 a 769 (−44,19 %). Por lo tanto, el canal físico sufrió la contracción más pronunciada tanto en ventas relativas como en unidades respecto de su nivel inicial.
+**2. Volumen domina el deterioro, mientras que el Mix perjudica especialmente a Físico**
 
-**2. Volumen es el principal efecto negativo, mientras que el Mix perjudica especialmente al canal Físico**
-
-El efecto global de Volumen fue de **−$614,9 M**, el mayor impacto negativo del puente. De ese importe, el 72,1 % se asigna a Online y el 27,9 % a Físico.
-
-Por su parte, el efecto Mix alcanzó **−$161,3 M**. En este caso, el 68,1 % corresponde a Físico y el 31,9 % a Online. Esto muestra que los segmentos de producto × canal asociados al canal físico concentran una proporción especialmente importante del impacto negativo de la composición de las ventas.
-
-**3. La incorporación de SKUs nuevos y el Precio de Lista amortiguaron parcialmente la caída**
-
-De los **+$130,5 M** aportados por los SKUs nuevos, el **77,6 % corresponde a Online**. El efecto positivo del Precio de Lista (+$37,8 M) también se concentró en ese canal, al que se asigna el 80,0 % del impacto.
-
-En cambio, los Descuentos restaron **−$26,8 M**, de los cuales el 78,3 % se asigna a Online. En conjunto, los factores positivos amortiguaron parcialmente los efectos negativos de Volumen y Mix, pero no alcanzaron para revertir la caída de las Ventas Netas.
+La distribución de los efectos muestra que el **72,1 % del impacto global de Volumen corresponde a Online**, mientras que el **68,1 % del efecto negativo de Mix se concentra en Físico**. En contraste, los aportes positivos de SKUs nuevos y Precio de Lista se asignan mayoritariamente a Online (77,6 % y 80,0 %, respectivamente). Los Descuentos también restan principalmente en ese canal (78,3 %). En conjunto, los efectos positivos amortiguan, pero no revierten, la caída de las Ventas Netas.
 
 <br>
 
-#### 🔹 Q2.3 — Puente de Ventas Netas por categoría × canal
+#### 🔸 Q2.C — Puente de Ventas Netas por categoría × canal
 
 [Ver Consulta SQL →](./sql_business_analysis/q2.3_puente_ventas_netas_categoria_canal.sql)
 
@@ -293,41 +281,29 @@ En cambio, los Descuentos restaron **−$26,8 M**, de los cuales el 78,3 % se as
 | **Hogar**       | Online |        +$8,9 M |    +11,50 % |                       −1,41 % |            +62 (+8,82 %) | **Mix +$37,5 M**         |
 | **Audio**       | Online |       +$47,1 M |    +43,76 % |                       −7,41 % |          +190 (+37,85 %) | **SKUs nuevos +$64,3 M** |
 
-> *Nota metodológica: la participación se calcula sobre la variación global de Ventas Netas. Por eso, los cruces con crecimiento presentan una participación negativa: compensan parcialmente la caída total. El puente se calcula globalmente a nivel de producto × canal y sus efectos se agrupan luego por categoría y canal; por lo tanto, los importes representan la distribución del puente global, no puentes independientes para cada cruce. La columna «Efecto destacado» muestra el principal efecto negativo en los cruces con caída y el principal aporte positivo en los cruces con crecimiento. Las unidades corresponden a `SUM(quantity)`, sin ajuste por devoluciones.*
+> *Nota metodológica: la participación se calcula sobre la caída global de Ventas Netas; por eso, los cruces con crecimiento presentan valores negativos, ya que compensan esa caída. El puente se calcula globalmente a nivel de producto × canal y luego se agrupa por categoría y canal: los importes no representan puentes independientes para cada cruce. «Efecto destacado» indica el principal efecto negativo en los cruces con caída y el principal aporte positivo en los cruces con crecimiento. Las unidades corresponden a `SUM(quantity)`, sin ajuste por devoluciones.*
 
 #### 🔹 Hallazgos
 
 **1. TV y Video concentra la mayor parte del deterioro comercial**
 
-TV y Video perdió aproximadamente **$434,4 M** entre ambos canales, lo que representa el **68,43 % de la caída global de Ventas Netas**.
+TV y Video perdió aproximadamente **$434,4 M** entre ambos canales, lo que representa el **68,43 % de la caída global de Ventas Netas**. El deterioro se concentra principalmente en Online (−$302,3 M), aunque Físico también sufrió una contracción pronunciada (−$132,1 M).
 
-El deterioro se concentra principalmente en Online, con **−$302,3 M**, mientras que Físico registró **−$132,1 M**. Ambos canales presentan contracciones importantes de unidades: **−44,58 % en Online y −61,90 % en Físico**.
+La caída combina reducciones de unidades del **44,58 % en Online y del 61,90 % en Físico**, junto con efectos negativos de Volumen y Mix. En Online, estos alcanzaron −$237,2 M y −$68,9 M, respectivamente; en Físico, −$81,7 M y −$52,5 M. Esto muestra que el deterioro no responde únicamente a una menor cantidad de unidades vendidas: también influyó la composición de los productos comercializados.
 
-El puente muestra que la caída combina efectos negativos de Volumen y Mix. En TV y Video Online, estos alcanzaron **−$237,2 M y −$68,9 M**, respectivamente. En Físico, fueron de **−$81,7 M y −$52,5 M**.
+**2. Telefonía y Computación son los siguientes focos de deterioro, aunque con diferencias entre canales**
 
-**2. Telefonía y Computación constituyen el siguiente foco de deterioro**
+Telefonía perdió aproximadamente **$104,6 M** entre ambos canales y Computación, cerca de **$96,0 M**. En Telefonía, las Ventas Netas cayeron un 56,19 % en Online y un 63,68 % en Físico, acompañadas por fuertes reducciones de unidades en ambos canales.
 
-Telefonía perdió aproximadamente **$104,6 M** entre ambos canales, mientras que Computación disminuyó cerca de **$96,0 M**.
+Computación presenta un comportamiento diferente: mientras que Físico cayó un **63,33 %**, Online retrocedió un **27,99 % pese a que sus unidades aumentaron un 3,61 %**. En este último canal, el efecto Volumen fue de −$61,7 M y el Mix, de −$18,5 M. Los SKUs nuevos compensaron parcialmente estos impactos (+$33,1 M), entre otros efectos positivos, pero no alcanzaron para revertir la caída. El aumento de las unidades totales, por lo tanto, no se tradujo en un incremento de las Ventas Netas.
 
-En Telefonía, la contracción es generalizada: las Ventas Netas cayeron **56,19 % en Online y 63,68 % en Físico**, acompañadas por reducciones de unidades de **59,16 % y 64,71 %**, respectivamente.
+**3. Audio Online y Hogar Online son las principales excepciones positivas, impulsadas por factores distintos**
 
-Computación presenta un comportamiento diferente según el canal. En Físico, las Ventas Netas disminuyeron **63,33 %**. En Online, la caída fue menor, del **27,99 %**, y las unidades incluso aumentaron **3,61 %**.
+Audio Online aumentó sus Ventas Netas en **$47,1 M (+43,76 %)**, con un crecimiento de unidades del 37,85 %. Los SKUs nuevos (+$64,3 M) y el Mix (+$21,4 M) compensaron el efecto negativo de Volumen (−$40,5 M), entre otros efectos.
 
-En Computación Online, el efecto Volumen calculado sobre los SKUs continuos fue de **−$61,7 M** y el efecto Mix, de **−$18,5 M**. Estos impactos fueron compensados parcialmente por los SKUs nuevos (**+$33,1 M**), entre otros efectos positivos, pero no alcanzaron para revertir la caída. Así, el crecimiento de las unidades totales no se tradujo en un aumento de las Ventas Netas.
+Hogar Online también creció, aunque en menor magnitud: **+$8,9 M (+11,50 %)**, con un aumento de unidades del 8,82 %. En este caso, el Mix aportó +$37,5 M y compensó principalmente el efecto negativo de Volumen (−$29,2 M).
 
-**3. Volumen es el principal efecto negativo recurrente, aunque el Mix también resulta relevante**
-
-En los cruces que presentan caídas, Volumen es el principal efecto negativo identificado. Sin embargo, en TV y Video y Telefonía también se observan impactos importantes del Mix.
-
-Esta combinación indica que el deterioro comercial no se limita a una menor cantidad de unidades: también intervienen cambios en la composición de los productos vendidos.
-
-Accesorios Online presenta un matiz adicional: aunque las Ventas Netas cayeron **27,71 %**, el efecto Mix fue positivo, con **+$4,1 M**, compensando parcialmente el impacto negativo de Volumen.
-
-**4. Audio Online y Hogar Online son las principales excepciones positivas**
-
-Audio Online aumentó sus Ventas Netas en **$47,1 M (+43,76 %)**, con un crecimiento de unidades del **37,85 %**. El principal aporte positivo del puente fueron los **SKUs nuevos (+$64,3 M)**, acompañados por un efecto Mix favorable de **+$21,4 M**. Ambos compensaron el efecto negativo de Volumen (**−$40,5 M**).
-
-Hogar Online también creció, con **+$8,9 M (+11,50 %)** y un aumento de unidades del **8,82 %**. En este caso, el principal aporte positivo fue el Mix, con **+$37,5 M**, que compensó principalmente el efecto Volumen de **−$29,2 M**.
+Ambos casos muestran que los resultados positivos pueden responder a mecanismos distintos: la incorporación de productos nuevos en Audio y una composición favorable de las ventas en Hogar.
 
 <br>
 
