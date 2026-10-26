@@ -86,71 +86,68 @@ La investigación busca responder **siete preguntas principales de diagnóstico*
 #### ┌─ 🔹 Q1 — Diagnóstico Macro: ¿Qué cambió en el desempeño general del negocio?
 
 <details>
-<summary><strong>Ver desarrollo de Q1</strong></summary>  
+<summary><strong>Ver desarrollo de Q1</strong></summary>
 
-<br>  
+<br>
 
 #### 🔹 Síntesis
 
-El diagnóstico muestra, por un lado, una fuerte contracción de las Ventas Netas y del Ticket Comercial y, por otro, un deterioro de la rentabilidad que ya se había manifestado durante 2025.
+En 2026, el negocio registró una fuerte contracción de las ventas y del ticket comercial, a pesar de que aumentó la cantidad de pedidos. El incremento de las devoluciones profundizó la caída de las ventas finales. En paralelo, la rentabilidad se deterioró aún más que la facturación: cayeron tanto la Ganancia Bruta como la Ganancia Neta y se redujeron sus respectivos márgenes. 
 
 <br>
 
-[Ver Consulta SQL →](./sql_business_analysis/q1_diagnostico_macro_yoy.sql) 
+[Ver Consulta SQL →](./sql_business_analysis/q1_diagnostico_macro_yoy.sql)
+
 <br>
 
-#### 🔹 Resultados 
+#### 🔹 Resultados
 
-| Métrica                    |       2024 |       2025 |     YoY 2025 |       2026 |     YoY 2026 |
-| :------------------------- | ---------: | ---------: | -----------: | ---------: | -----------: |
-| **Pedidos**                |      1.365 |      1.581 |  **+15,82%** |      1.649 |   **+4,30%** |
-| **Ventas Brutas**          | $1.316,5 M | $1.684,4 M |  **+27,95%** | $1.064,0 M |  **−36,83%** |
-| **Tasa de Descuento (%)**  |      1,98% |      3,00% | **+1,02 pp** |      6,10% | **+3,10 pp** | 
-| **Ventas Netas**           | $1.290,5 M | $1.633,9 M |  **+26,62%** |   $999,1 M |  **−38,85%** |
-| Devoluciones ($)           |    $37,2 M |    $53,7 M |  **+44,45%** |    $70,3 M |  **+30,90%** |
-| **Tasa de Devolución (%)** |      2,88% |      3,28% | **+0,40 pp** |      7,03% | **+3,75 pp** |
-| **Ventas Netas Finales**   | $1.253,3 M | $1.580,3 M |  **+26,09%** |   $928,9 M |  **−41,22%** |
-| **Ganancia Neta**          |   $300,1 M |   $295,7 M |   **−1,47%** |   $101,8 M |  **−65,58%** |
-| **Margen Neto (%)**        |     23,95% |     18,71% | **−5,24 pp** |     10,96% | **−7,75 pp** |
-| **Ticket Comercial**       |   $945.397 | $1.033.477 |   **+9,32%** |   $605.891 |  **−41,37%** |
+| Métrica                  |       2025 |       2026 | Variación YoY |
+| :----------------------- | ---------: | ---------: | ------------: |
+| **Pedidos**              |      1.581 |      1.649 |    **+4,30%** |
+| **Ventas Brutas**        | $1.684,4 M | $1.064,0 M |   **−36,83%** |
+| **Tasa de Descuento**    |      3,00% |      6,10% |  **+3,10 pp** |
+| **Ventas Netas**         | $1.633,9 M |   $999,1 M |   **−38,85%** |
+| Devoluciones ($)         |    $53,7 M |    $70,3 M |   **+30,90%** |
+| **Tasa de Devolución**   |      3,28% |      7,03% |  **+3,75 pp** |
+| **Ventas Netas Finales** | $1.580,3 M |   $928,9 M |   **−41,22%** |
+| **Ganancia Bruta**       |   $310,2 M |   $124,9 M |   **−59,75%** |
+| **Margen Bruto**         |     19,63% |     13,44% |  **−6,19 pp** |
+| **Ganancia Neta**        |   $295,7 M |   $101,8 M |   **−65,58%** |
+| **Margen Neto**          |     18,71% |     10,96% |  **−7,75 pp** |
+| **Ticket Comercial**     | $1.033.477 |   $605.891 |   **−41,37%** |
 
-> *Nota: El Ticket Comercial se calcula sobre Ventas Netas, antes de devoluciones, para analizar el comportamiento comercial de las órdenes independientemente de las devoluciones posteriores.*
+> *Nota: El Ticket Comercial se calcula sobre las Ventas Netas, antes de devoluciones, para analizar el comportamiento comercial de los pedidos independientemente de las devoluciones posteriores.*
 
 #### 🔹 Hallazgos
 
 #### Diagnóstico Comercial
 
-**1. Crecimiento en pedidos con caída de facturación**
+**1. Más pedidos, pero menor facturación por pedido**
 
-En 2026 se registraron **1.649 pedidos (+4,30% YoY)**, mientras que las Ventas Netas cayeron un **−38,85%**.
+En 2026 se registraron **1.649 pedidos (+4,30% interanual)**, mientras que las Ventas Netas cayeron un **38,85%**. Al mismo tiempo, el Ticket Comercial disminuyó un **41,37%**, pasando de $1.033.477 a $605.891. El negocio recibió más pedidos, pero cada uno generó, en promedio, muchos menos ingresos. 
 
-**2. Contracción del Ticket Comercial**
+**2. Mayor incidencia de las devoluciones**
 
-La caída de ingresos se acompaña de una reducción significativa del ticket promedio, que disminuyó un **−41,37%**, pasando de **$1.033.477 a $605.891**.
-
-**3. Mayor incidencia de devoluciones**
-
-La Tasa de Devolución aumentó de **3,28% a 7,03% (+3,75 pp)**, profundizando la caída de las Ventas Netas Finales hasta un **−41,22%**.
+La Tasa de Devolución aumentó del **3,28% al 7,03% (+3,75 pp)**. Como consecuencia, la caída de las Ventas Netas Finales alcanzó el **41,22% interanual**, por encima del retroceso de las Ventas Netas (−38,85%).
 
 #### Diagnóstico de Rentabilidad
 
-**4. La ganancia cae más que las ventas**
+**3. La rentabilidad se deteriora más que la facturación**
 
-En 2026, la Ganancia Neta cayó un **−65,58%**, frente a una caída del **−38,85%** en Ventas Netas. Como consecuencia, el Margen Neto se redujo del **18,71% al 10,96% (−7,75 pp)**.
+En 2026, la Ganancia Bruta cayó un **59,75%**, frente a una disminución del **38,85%** en las Ventas Netas. El Margen Bruto retrocedió del **19,63% al 13,44% (−6,19 pp)**, evidenciando un deterioro significativo de la rentabilidad antes de los costos logísticos y otros componentes posteriores.
 
-**5. Deterioro de rentabilidad previo**
-
-El problema de rentabilidad antecede a la caída de facturación de 2026. En 2025, a pesar de un crecimiento del **+26,62%** en Ventas Netas, la Ganancia Neta cayó un **−1,47%** y el Margen Neto perdió **−5,24 pp**.
+La caída se profundizó al considerar el resultado final: la Ganancia Neta disminuyó un **65,58%** y el Margen Neto pasó del **18,71% al 10,96% (−7,75 pp)**. Estos resultados justifican investigar tanto los factores que erosionaron la ganancia bruta como su impacto en la rentabilidad final.
 
 <br>
 
 #### 🔹 Puente analítico → Ramas Comercial y de Rentabilidad
 
-El diagnóstico muestra, por un lado, una fuerte contracción de las **Ventas Netas** (−38,85%) y, por otro, una caída de la **Ganancia Neta** proporcionalmente mayor (−65,58%). Estas dos variables abren dos líneas de indagación independientes:
+El diagnóstico identifica dos problemas relacionados, pero diferentes: una fuerte contracción de las **Ventas Netas (−38,85%)** y un deterioro aún mayor de la **Ganancia Neta (−65,58%)**. A partir de ellos, la investigación se divide en dos ramas complementarias:
 
-**La Rama Comercial (Q2–Q4)** cuantifica monetariamente esta caída y profundiza en cómo se manifestó en el comportamiento por pedido — Ticket, UPT y ASP.
+**La Rama Comercial (Q2–Q4)** descompone la caída de las ventas para cuantificar el aporte de sus distintos factores y profundiza en el comportamiento del ticket mediante sus componentes: unidades por pedido (UPT) y precio promedio de venta (ASP).
 
-**La Rama de Rentabilidad (Q5–Q7)** analiza la estructura de costos y descompone la Ganancia Bruta para explicar por qué el resultado económico se deterioró más que las ventas.
+**La Rama de Rentabilidad (Q5–Q8)** investiga los factores detrás del deterioro económico, con foco en la descomposición de la Ganancia Bruta y en el efecto de los costos y la composición de las ventas. Finalmente, Q8 amplía el análisis a la rentabilidad neta de los productos, incorporando los costos logísticos.
 
 <br>
 
@@ -165,162 +162,184 @@ El diagnóstico muestra, por un lado, una fuerte contracción de las **Ventas Ne
 
 #### 🔹 Síntesis
 
-Las **Ventas Netas disminuyeron $634,8 M entre 2025 y 2026**, explicadas principalmente por una fuerte contracción del **Volumen**, seguida por un efecto negativo de **Mix**.
+Las **Ventas Netas disminuyeron $634,8 M (−38,85 %) entre 2025 y 2026**. El deterioro estuvo impulsado principalmente por Volumen y Mix, mientras que los SKUs nuevos y el Precio de Lista compensaron parcialmente la caída. Los Descuentos también tuvieron un impacto negativo, aunque menor.
 
-Frente a estos efectos adversos, el **Precio** y, especialmente, la incorporación de **SKUs Nuevos**, actuaron como factores de compensación. Los **Descuentos** profundizaron parcialmente la caída, mientras que el efecto de los **SKUs Descontinuados fue prácticamente nulo**.
-
-La apertura por **canal** muestra que el mayor deterioro absoluto se concentra en **Online**, aunque **Físico** presenta un impacto particularmente fuerte del Mix. Al cruzar **categoría × canal**, la contracción queda fuertemente concentrada en **TV y Video**, especialmente Online, seguida por **Telefonía y Computación**.
-
-En contraste, **Audio Online** y **Hogar Online** presentan una evolución positiva, mostrando que el deterioro no fue homogéneo en todo el negocio.
+La pérdida monetaria se concentró en **Online**, mientras que **Físico presentó la contracción proporcional más pronunciada**. Por categoría × canal, el mayor foco de deterioro fue **TV y Video**; **Audio Online y Hogar Online** fueron las principales excepciones positivas.
 
 <br>
 
-#### 🔸 Q2.1 — Puente agregado total
+#### 🔸 Q2.1 — Puente de Ventas Netas: Nivel Empresa
 
-[Ver Consulta SQL →](./sql_business_analysis/q2.1_puente_ventas_netas_total.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q2.1_puente_ventas_netas_total.sql)
 
-#### 🔹 Resultados
+#### 🔹 Contexto financiero y operativo
 
-| Efecto                        | Impacto 2025 → 2026 |
-| :---------------------------- | ------------------: |
-| **Δ Ventas Netas**            |       **−$634,8 M** |
-| Volumen                       |           −$614,9 M |
-| Mix                           |           −$161,3 M |
-| Precio                        |            +$37,8 M |
-| Descuentos                    |            −$26,8 M |
-| SKUs Nuevos                   |           +$130,5 M |
-| SKUs Descontinuados           |             −$0,2 M |
-| **Impacto total**             |       **−$634,8 M** |
+| Indicador                |       2025 |     2026 | Variación absoluta |  Variación % |
+| :----------------------- | ---------: | -------: | -----------------: | -----------: |
+| **Ventas Netas**         | $1.633,9 M | $999,1 M |      **−$634,8 M** | **−38,85 %** |
+| Unidades comercializadas |      4.746 |    3.778 |               −968 |     −20,40 % |
 
-> *Nota: El puente atribuye la variación de Ventas Netas entre 2025 y 2026 a efectos de **Volumen y Mix sobre SKUs continuos**, **Precio de Lista**, **Descuentos** y **cambios en el portafolio**, considerando **SKUs Nuevos y SKUs Descontinuados como efectos directos**. El impacto total coincide exactamente con la variación observada, confirmando la conciliación del puente.*
+#### 🔹 Descomposición de la variación
+
+| Efecto              | Impacto 2025 → 2026 | Participación en la caída neta |
+| :------------------ | ------------------: | -----------------------------: |
+| **Δ Ventas Netas**  |       **−$634,8 M** |                    **100,0 %** |
+| Volumen             |           −$614,9 M |                         96,9 % |
+| Mix                 |           −$161,3 M |                         25,4 % |
+| Precio de Lista     |            +$37,8 M |                         −6,0 % |
+| Descuentos          |            −$26,8 M |                          4,2 % |
+| SKUs Nuevos         |           +$130,5 M |                        −20,6 % |
+| SKUs Descontinuados |             −$0,2 M |                          0,0 % |
+| **Impacto total**   |       **−$634,8 M** |                    **100,0 %** |
+
+> *Nota: El puente atribuye la variación de Ventas Netas entre 2025 y 2026 a efectos de Volumen y Mix sobre SKUs continuos, Precio de Lista, Descuentos y cambios en el portafolio. Los SKUs Nuevos y Descontinuados se consideran efectos directos. La participación se calcula respecto de la caída neta total: los efectos positivos presentan porcentajes negativos porque compensan parcialmente el deterioro. El puente concilia con la variación observada; los importes de las tablas están redondeados.*
 
 #### 🔹 Hallazgos
 
-**1. El Volumen explica la mayor parte de la caída**
+**1. La contracción de unidades es el principal factor del deterioro**
 
-El efecto Volumen alcanzó **−$614,9 M**, siendo ampliamente el principal factor de deterioro. La contracción de las unidades comercializadas explica, por sí sola, una parte sustancial de la caída de Ventas Netas.
+Las Ventas Netas cayeron **38,85 %**, mientras que las unidades comercializadas disminuyeron **20,40 %**. El efecto Volumen fue de **−$614,9 M**, un importe equivalente al **96,9 % de la caída neta total**. Esto lo identifica como el principal componente negativo del puente, aunque el resultado final depende de la combinación de todos los efectos.
 
-**2. El Mix también tuvo un impacto negativo relevante**
+**2. El Mix profundizó la caída**
 
-El Mix de los **SKUs continuos** aportó **−$161,3 M**, mostrando que el deterioro no se explica únicamente por vender menos unidades. También cambió desfavorablemente la composición de las ventas entre los productos que permanecieron activos en ambos períodos.
+El Mix de los SKUs continuos tuvo un impacto de **−$161,3 M**, equivalente al **25,4 % de la caída neta**. Por lo tanto, el deterioro no se explica únicamente por la menor cantidad de unidades vendidas, sino también por cambios desfavorables en la composición de las ventas.
 
-**3. Los nuevos SKUs compensaron parcialmente la contracción**
+**3. Los SKUs nuevos compensaron parcialmente la contracción**
 
-La incorporación de **SKUs nuevos aportó +$130,5 M**, convirtiéndose en el principal factor positivo del puente. Si bien este efecto no alcanzó para revertir la caída generada por Volumen y Mix, sí compensó una parte significativa del deterioro.
+La incorporación de SKUs nuevos aportó **+$130,5 M**, equivalente a una compensación del **20,6 % de la caída neta**. Sin este aporte, el descenso de las Ventas Netas habría sido mayor.
 
-**4. El Precio de Lista aportó una compensación adicional**
+**4. El Precio de Lista también amortiguó el deterioro**
 
-El aumento del **Precio de Lista generó +$37,8 M**, contribuyendo positivamente a las Ventas Netas y amortiguando parcialmente los efectos negativos.
+El efecto Precio de Lista fue de **+$37,8 M**, compensando aproximadamente un **6,0 % de la caída neta**.
 
 **5. Los Descuentos profundizaron la caída**
 
-El efecto de los **Descuentos fue de −$26,8 M**, contrarrestando parte del beneficio obtenido por los mayores precios de lista.
+El efecto Descuentos fue de **−$26,8 M**, equivalente al **4,2 % de la caída neta**. En términos agregados, este impacto negativo redujo parcialmente el beneficio aportado por el Precio de Lista.
 
 **6. Los SKUs descontinuados tuvieron un impacto marginal**
 
-El efecto asociado a los **SKUs descontinuados fue de apenas −$0,2 M**, por lo que prácticamente no tuvo incidencia sobre la variación total.
+Su efecto fue de apenas **−$0,2 M**, por lo que su incidencia sobre la variación total fue prácticamente nula.
 
 <br>
 
-#### 🔸 Q2.2 — Puente por canal
+#### 🔸 Q2.2 — Puente de Ventas Netas por Canal
 
-[Ver Consulta SQL →](./sql_business_analysis/q2.2_puente_ventas_netas_canal.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q2.2_puente_ventas_netas_canal.sql)
 
-#### 🔹 Resultados
+#### 🔹 Contexto financiero y operativo
 
-| Canal | Ventas 2025 | Ventas 2026 | Δ Ventas | Impacto Volumen | Impacto Mix | Impacto Precio | Impacto Descuentos | SKUs Nuevos | SKUs Descontinuados | Impacto Total |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Online** | $1,178.4M | $794.0M | -$384.4M | -$443.5M | -$51.4M | +$30.2M | -$20.9M | +$101.3M | $0.00M | -$384.4M |
-| **Físico** | $455.5M | $205.1M | -$250.4M | -$171.4M | -$109.8M | +$7.6M | -$5.8M | +$29.2M | -$0.2M | -$250.4M |
+| Canal      |    Ventas 2025 |  Ventas 2026 | Variación ($) | Variación (%) | Contribución a la caída total | Unidades 2025 | Unidades 2026 | Variación de unidades | Variación (%) |
+| :--------- | -------------: | -----------: | ------------: | ------------: | ----------------------------: | ------------: | ------------: | --------------------: | ------------: |
+| **Online** |     $1.178,4 M |     $794,0 M |     −$384,4 M |      −32,62 % |                   **60,55 %** |         3.368 |         3.009 |                  −359 |      −10,66 % |
+| **Físico** |       $455,5 M |     $205,1 M |     −$250,4 M |      −54,98 % |                   **39,45 %** |         1.378 |           769 |                  −609 |      −44,19 % |
+| **Total**  | **$1.633,9 M** | **$999,1 M** | **−$634,8 M** |  **−38,85 %** |                  **100,00 %** |     **4.746** |     **3.778** |              **−968** |  **−20,40 %** |
+
+#### 🔹 Descomposición de efectos y distribución por canal
+
+Los importes muestran el impacto de cada efecto en las Ventas Netas. Los porcentajes indican qué proporción del efecto global corresponde a cada canal según la metodología del puente.
+
+| Efecto                              | Online: impacto (% del efecto global) | Físico: impacto (% del efecto global) | Efecto global |
+| :---------------------------------- | ------------------------------------: | ------------------------------------: | ------------: |
+| **Volumen**                         |                    −$443,5 M (72,1 %) |                    −$171,4 M (27,9 %) | **−$614,9 M** |
+| **Mix**                             |                     −$51,4 M (31,9 %) |                    −$109,8 M (68,1 %) | **−$161,3 M** |
+| **Precio de Lista**                 |                     +$30,2 M (80,0 %) |                      +$7,6 M (20,0 %) |  **+$37,8 M** |
+| **Descuentos**                      |                     −$21,0 M (78,3 %) |                      −$5,8 M (21,7 %) |  **−$26,8 M** |
+| **SKUs Nuevos**                     |                    +$101,3 M (77,6 %) |                     +$29,2 M (22,4 %) | **+$130,5 M** |
+| **SKUs Descontinuados**             |                        $0,0 M (0,0 %) |                     −$0,2 M (100,0 %) |   **−$0,2 M** |
+| **Variación total de Ventas Netas** |                         **−$384,4 M** |                         **−$250,4 M** | **−$634,8 M** |
+
+> *Nota metodológica: los porcentajes de la segunda tabla representan la distribución de cada efecto global entre los canales, no la participación de cada efecto en la caída total. El puente se calcula globalmente a nivel de producto × canal y sus efectos se agrupan posteriormente por canal. Las unidades corresponden a `SUM(quantity)`, sin ajuste por devoluciones.*
 
 #### 🔹 Hallazgos
 
-**1. Online concentra la mayor caída absoluta**
+**1. Online concentra la mayor pérdida monetaria, pero Físico experimenta la contracción proporcional más fuerte**
 
-El canal Online redujo sus Ventas Netas en **$384,4 M**, frente a una caída de **$250,4 M en Físico**, por lo que concentra la mayor parte del deterioro agregado.
+Online explica el **60,55 % de la caída total**, con una reducción de $384,4 M (−32,62 %). Físico representa el 39,45 % restante, pero sus ventas retrocedieron un **54,98 %**, frente al 32,62 % de Online.
 
-**2. El Volumen domina en ambos canales**
+La evolución de las unidades refuerza esta diferencia: Online pasó de 3.368 a 3.009 unidades (−10,66 %), mientras que Físico cayó de 1.378 a 769 (−44,19 %). Por lo tanto, el canal físico sufrió la contracción más pronunciada tanto en ventas relativas como en unidades respecto de su nivel inicial.
 
-El principal efecto negativo en Online fue el **Volumen (−$443,5 M)**, mientras que en Físico alcanzó **−$171,4 M**.
+**2. Volumen es el principal efecto negativo, mientras que el Mix perjudica especialmente al canal Físico**
 
-Esto confirma que la contracción de unidades comercializadas constituye el principal problema comercial en ambos canales.
+El efecto global de Volumen fue de **−$614,9 M**, el mayor impacto negativo del puente. De ese importe, el 72,1 % se asigna a Online y el 27,9 % a Físico.
 
-**3. Físico presenta un deterioro de Mix especialmente fuerte**
+Por su parte, el efecto Mix alcanzó **−$161,3 M**. En este caso, el 68,1 % corresponde a Físico y el 31,9 % a Online. Esto muestra que los segmentos de producto × canal asociados al canal físico concentran una proporción especialmente importante del impacto negativo de la composición de las ventas.
 
-El Mix tuvo un impacto de **−$109,8 M en Físico**, más del doble del observado en Online (**−$51,4 M**).
+**3. La incorporación de SKUs nuevos y el Precio de Lista amortiguaron parcialmente la caída**
 
-Esto indica que el canal físico no solo perdió volumen, sino que también experimentó un cambio particularmente desfavorable en la composición de los productos vendidos.
+De los **+$130,5 M** aportados por los SKUs nuevos, el **77,6 % corresponde a Online**. El efecto positivo del Precio de Lista (+$37,8 M) también se concentró en ese canal, al que se asigna el 80,0 % del impacto.
 
-**4. Los nuevos SKUs compensaron parcialmente la caída**
-
-La incorporación de nuevos productos aportó **+$101,3 M en Online** y **+$29,2 M en Físico**, funcionando como un factor de compensación frente a la contracción del Volumen y otros efectos negativos.
-
-El aporte fue relevante en ambos canales, aunque insuficiente para revertir la caída de Ventas Netas.
+En cambio, los Descuentos restaron **−$26,8 M**, de los cuales el 78,3 % se asigna a Online. En conjunto, los factores positivos amortiguaron parcialmente los efectos negativos de Volumen y Mix, pero no alcanzaron para revertir la caída de las Ventas Netas.
 
 <br>
 
-#### 🔹 Q2.3 — Puente por categoría × canal
+#### 🔹 Q2.3 — Puente de Ventas Netas por categoría × canal
 
-[Ver Consulta SQL →](./sql_business_analysis/q2.3_puente_ventas_netas_categoria_canal.sql) <br>
+[Ver Consulta SQL →](./sql_business_analysis/q2.3_puente_ventas_netas_categoria_canal.sql)
 
 #### 🔹 Resultados
 
-| Categoría       | Canal    |  Δ Ventas Netas | Principal efecto negativo |
-| :-------------- | :------- | ------------: | :------------------------ |
-| **TV y Video**  | Online   | **−$302,3 M** | Volumen −$237,2 M         |
-| **TV y Video**  | Físico   | **−$132,1 M** | Volumen −$81,7 M          |
-| **Telefonía**   | Online   |  **−$73,1 M** | Volumen −$49,0 M          |
-| **Computación** | Físico   |  **−$50,1 M** | Volumen −$29,8 M          |
-| **Computación** | Online   |  **−$45,9 M** | Volumen −$61,7 M          |
-| **Telefonía**   | Físico   |  **−$31,5 M** | Volumen −$18,6 M          |
-| **Accesorios**  | Online   |  **−$19,1 M** | Volumen −$25,9 M          |
-| **Accesorios**  | Físico   |  **−$12,9 M** | Volumen −$10,8 M          |
-| **Hogar**       | Físico   |  **−$12,7 M** | Volumen −$12,1 M          |
-| **Audio**       | Físico   |  **−$11,1 M** | Volumen −$18,4 M          |
-| **Hogar**       | Online   |   **+$8,9 M** | Mix +$37,5 M              |
-| **Audio**       | Online   |  **+$47,1 M** | SKUs nuevos +$64,3 M      |
+| Categoría       | Canal  | Δ Ventas Netas | Variación % | Participación en caída global | Δ Unidades (variación %) | Efecto destacado         |
+| :-------------- | :----- | -------------: | ----------: | ----------------------------: | -----------------------: | :----------------------- |
+| **TV y Video**  | Online |  **−$302,3 M** |    −47,96 % |                       47,62 % |          −259 (−44,58 %) | Volumen −$237,2 M        |
+| **TV y Video**  | Físico |  **−$132,1 M** |    −60,88 % |                       20,81 % |          −130 (−61,90 %) | Volumen −$81,7 M         |
+| **Telefonía**   | Online |       −$73,1 M |    −56,19 % |                       11,52 % |          −113 (−59,16 %) | Volumen −$49,0 M         |
+| **Computación** | Físico |       −$50,1 M |    −63,33 % |                        7,89 % |           −96 (−39,83 %) | Volumen −$29,8 M         |
+| **Computación** | Online |       −$45,9 M |    −27,99 % |                        7,23 % |            +19 (+3,61 %) | Volumen −$61,7 M         |
+| **Telefonía**   | Físico |       −$31,5 M |    −63,68 % |                        4,96 % |           −44 (−64,71 %) | Volumen −$18,6 M         |
+| **Accesorios**  | Online |       −$19,1 M |    −27,71 % |                        3,00 % |          −258 (−29,83 %) | Volumen −$25,9 M         |
+| **Accesorios**  | Físico |       −$12,9 M |    −44,94 % |                        2,04 % |          −182 (−50,98 %) | Volumen −$10,8 M         |
+| **Hogar**       | Físico |       −$12,7 M |    −39,47 % |                        2,00 % |          −122 (−41,08 %) | Volumen −$12,1 M         |
+| **Audio**       | Físico |       −$11,1 M |    −22,64 % |                        1,75 % |           −35 (−17,07 %) | Volumen −$18,4 M         |
+| **Hogar**       | Online |        +$8,9 M |    +11,50 % |                       −1,41 % |            +62 (+8,82 %) | **Mix +$37,5 M**         |
+| **Audio**       | Online |       +$47,1 M |    +43,76 % |                       −7,41 % |          +190 (+37,85 %) | **SKUs nuevos +$64,3 M** |
+
+> *Nota metodológica: la participación se calcula sobre la variación global de Ventas Netas. Por eso, los cruces con crecimiento presentan una participación negativa: compensan parcialmente la caída total. El puente se calcula globalmente a nivel de producto × canal y sus efectos se agrupan luego por categoría y canal; por lo tanto, los importes representan la distribución del puente global, no puentes independientes para cada cruce. La columna «Efecto destacado» muestra el principal efecto negativo en los cruces con caída y el principal aporte positivo en los cruces con crecimiento. Las unidades corresponden a `SUM(quantity)`, sin ajuste por devoluciones.*
 
 #### 🔹 Hallazgos
 
-**1. TV y Video concentra el principal deterioro**
+**1. TV y Video concentra la mayor parte del deterioro comercial**
 
-TV y Video presenta una caída conjunta de aproximadamente **$434,4 M** entre ambos canales, explicando cerca de **68% de la contracción total de Ventas Netas**.
+TV y Video perdió aproximadamente **$434,4 M** entre ambos canales, lo que representa el **68,43 % de la caída global de Ventas Netas**.
 
-El mayor deterioro se encuentra en **Online**, con **−$302,3 M**, seguido por **Físico** con **−$132,1 M**.
+El deterioro se concentra principalmente en Online, con **−$302,3 M**, mientras que Físico registró **−$132,1 M**. Ambos canales presentan contracciones importantes de unidades: **−44,58 % en Online y −61,90 % en Físico**.
 
-**2. La caída de TV y Video combina Volumen y Mix**
+El puente muestra que la caída combina efectos negativos de Volumen y Mix. En TV y Video Online, estos alcanzaron **−$237,2 M y −$68,9 M**, respectivamente. En Físico, fueron de **−$81,7 M y −$52,5 M**.
 
-En TV y Video Online, el Volumen aportó **−$237,2 M** y el Mix **−$68,9 M**. En Físico, ambos efectos también fueron negativos, con **−$81,7 M de Volumen** y **−$52,5 M de Mix**.
+**2. Telefonía y Computación constituyen el siguiente foco de deterioro**
 
-Por lo tanto, el deterioro de esta categoría no responde únicamente a una menor cantidad vendida, sino también a una composición menos favorable de las ventas.
+Telefonía perdió aproximadamente **$104,6 M** entre ambos canales, mientras que Computación disminuyó cerca de **$96,0 M**.
 
-**3. Telefonía y Computación constituyen el segundo foco de deterioro**
+En Telefonía, la contracción es generalizada: las Ventas Netas cayeron **56,19 % en Online y 63,68 % en Físico**, acompañadas por reducciones de unidades de **59,16 % y 64,71 %**, respectivamente.
 
-Telefonía cayó tanto en Online (**−$73,1 M**) como en Físico (**−$31,5 M**), mientras que Computación disminuyó **−$45,9 M en Online** y **−$50,1 M en Físico**.
+Computación presenta un comportamiento diferente según el canal. En Físico, las Ventas Netas disminuyeron **63,33 %**. En Online, la caída fue menor, del **27,99 %**, y las unidades incluso aumentaron **3,61 %**.
 
-En estos cruces, el Volumen representa el principal factor negativo y se combina con efectos desfavorables de Mix.
+En Computación Online, el efecto Volumen calculado sobre los SKUs continuos fue de **−$61,7 M** y el efecto Mix, de **−$18,5 M**. Estos impactos fueron compensados parcialmente por los SKUs nuevos (**+$33,1 M**), entre otros efectos positivos, pero no alcanzaron para revertir la caída. Así, el crecimiento de las unidades totales no se tradujo en un aumento de las Ventas Netas.
 
-**4. Audio Online y Hogar Online funcionan como excepciones positivas**
+**3. Volumen es el principal efecto negativo recurrente, aunque el Mix también resulta relevante**
 
-Mientras prácticamente todos los demás cruces categoría × canal presentan caídas, **Audio Online creció $47,1 M** y **Hogar Online $8,9 M**.
+En los cruces que presentan caídas, Volumen es el principal efecto negativo identificado. Sin embargo, en TV y Video y Telefonía también se observan impactos importantes del Mix.
 
-En Audio Online, el crecimiento estuvo impulsado principalmente por **SKUs nuevos (+$64,3 M)** y un **Mix favorable (+$21,4 M)**, que compensaron la caída de Volumen.
+Esta combinación indica que el deterioro comercial no se limita a una menor cantidad de unidades: también intervienen cambios en la composición de los productos vendidos.
 
-En Hogar Online, el principal impulsor fue el **Mix (+$37,5 M)**, que compensó una caída de Volumen de **−$29,2 M**.
+Accesorios Online presenta un matiz adicional: aunque las Ventas Netas cayeron **27,71 %**, el efecto Mix fue positivo, con **+$4,1 M**, compensando parcialmente el impacto negativo de Volumen.
+
+**4. Audio Online y Hogar Online son las principales excepciones positivas**
+
+Audio Online aumentó sus Ventas Netas en **$47,1 M (+43,76 %)**, con un crecimiento de unidades del **37,85 %**. El principal aporte positivo del puente fueron los **SKUs nuevos (+$64,3 M)**, acompañados por un efecto Mix favorable de **+$21,4 M**. Ambos compensaron el efecto negativo de Volumen (**−$40,5 M**).
+
+Hogar Online también creció, con **+$8,9 M (+11,50 %)** y un aumento de unidades del **8,82 %**. En este caso, el principal aporte positivo fue el Mix, con **+$37,5 M**, que compensó principalmente el efecto Volumen de **−$29,2 M**.
 
 <br>
 
 #### 🔹 Puente analítico → Q3
 
-Q2 cuantifica **dónde y por qué monetariamente se movió la Venta Neta**, pasando del resultado agregado a su distribución por **canal** y finalmente a la combinación de **categoría × canal**.
+Q2 descompone la variación de las Ventas Netas a nivel empresa, canal y categoría × canal, identificando los principales efectos asociados al cambio.
 
-El diagnóstico muestra que la contracción está dominada por una fuerte caída del **Volumen**, acompañada por un deterioro del **Mix**, mientras que la incorporación de nuevos SKUs y los mayores precios de lista compensaron parcialmente el impacto negativo.
-
-**Q3 cambia la unidad de análisis:** pasa del valor monetario total al comportamiento por pedido, descomponiendo la evolución del **Ticket Comercial** mediante **órdenes, UPT y ASP**, y profundizando además en la evolución de cada canal.
+**Q3 cambia la unidad de análisis:** pasa del valor monetario total al comportamiento por pedido, examinando la evolución del **Ticket Comercial** mediante **órdenes, UPT y ASP**, y profundizando además en la evolución de cada canal.
 
 <br>
-</details>
 
+</details>
 
 #### ├─ 🔹 Q3 — Descomposición del Ticket y Comportamiento Omnicanal: ¿Por qué cae la facturación por pedido?
 
@@ -739,22 +758,6 @@ Las unidades vendidas aumentaron **97** (de 1.719 a 1.816), pero los segmentos c
 
 #### 🔹 Resultados
 
-| Canal | GB 1S | GB 2S | Variación | MB 1S → 2S | Volumen | Mezcla | Precio | Costo | Nuevos | Discont. | % de la caída |
-| :--- | ---: | ---: | ---: | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Online** | $79,60 M | $19,43 M | **−$60,17 M** | 18,28% → 6,47% | −$0,28 M | −$22,70 M | +$0,66 M | −$34,74 M | −$1,82 M | −$1,30 M | 77,7% |
-| **Físico** | $21,55 M | $4,29 M | **−$17,26 M** | 18,60% → 5,52% | −$0,06 M | −$3,49 M | +$0,06 M | −$8,61 M | −$0,39 M | −$4,76 M | 22,3% |
-| **Total Empresa** | **$101,15 M** | **$23,71 M** | **−$77,44 M** | **18,35% → 6,28%** | −$0,34 M | −$26,19 M | +$0,72 M | −$43,35 M | −$2,22 M | −$6,06 M | **100,0%** |
-
-**Unidades y variación de precio y costo** (mismo orden):
-
-| Canal | Unid. 1S → 2S (var.) | Precio unit. | Costo unit. |
-| :--- | :---: | ---: | ---: |
-| **Online** | 1.349 → 1.465 (+8,6%) | +0,24% | +15,57% |
-| **Físico** | 370 → 351 (−5,1%) | +0,08% | +15,11% |
-| **Total Empresa** | **1.719 → 1.816 (+5,6%)** | **+0,21%** | **+15,48%** |
-
-> *Cada fila es la suma de los efectos de sus productos. El % de la caída es la variación de cada canal sobre la variación total (−$77,44 M). Precio y costo unit. son la variación like-for-like de los segmentos continuos, ponderada por unidades del 2S: explican los efectos precio y costo de la tabla anterior.*
-
 ### Contexto financiero y operativo
 
 | Canal             | Unidades 1S | Unidades 2S | Var. unidades (%) | GB 1S ($M) | GB 2S ($M) | Var. GB ($M) | Var. GB (%) | Margen 1S | Margen 2S | Var. margen (pp) | Participación en la caída |
@@ -772,7 +775,6 @@ Las unidades vendidas aumentaron **97** (de 1.719 a 1.816), pero los segmentos c
 | Online        |        −0,28 |      −22,70 |       +0,66 |     −34,74 |       −1,82 |               −1,30 |            −60,17 |                          77,7 % |
 | Físico        |        −0,06 |       −3,49 |       +0,06 |      −8,61 |       −0,39 |               −4,76 |            −17,26 |                          22,3 % |
 
-
 ### Variación de precio y costo unitario
 
 | Canal         | Variación ponderada del precio unitario | Variación ponderada del costo unitario |
@@ -781,8 +783,7 @@ Las unidades vendidas aumentaron **97** (de 1.719 a 1.816), pero los segmentos c
 | Online        |                                 +0,24 % |                               +15,57 % |
 | Físico        |                                 +0,08 % |                               +15,11 % |
 
-
-### 4. Variación de unidades por tipo de segmento
+### Variación de unidades por tipo de segmento
 
 | Canal  | Tipo de segmento                     | Unidades 1S | Unidades 2S | Variación de unidades | Variación de unidades (%) |
 | ------ | ------------------------------------ | ----------: | ----------: | --------------------: | ------------------------: |
@@ -798,20 +799,33 @@ Las unidades vendidas aumentaron **97** (de 1.719 a 1.816), pero los segmentos c
 | Físico | SKU discontinuado                    |           1 |           0 |                    −1 |                 −100,00 % |
 | Físico | Canal discontinuado de SKU existente |          25 |           0 |                   −25 |                 −100,00 % |
 
+> *Cada fila es la suma de los efectos de sus productos. El % de la caída es la variación de cada canal sobre la variación total (−$77,44 M). Precio y costo unit. son la variación like-for-like de los segmentos continuos, ponderada por unidades del 2S: explican los efectos precio y costo de la tabla anterior.*
 
 #### 🔹 Hallazgos
 
-**1. El problema está en los dos canales y casi en proporción a su tamaño**
+**1. La caída afecta a ambos canales, pero el deterioro relativo fue mayor en Físico.**
 
-Online explica el **77,7%** de la caída (−$60,17 M) y Físico el **22,3%** (−$17,26 M), con un peso en la Ganancia Bruta del 1S de 78,7% y 21,3%. Las unidades se movieron en sentidos opuestos (**+8,6% en Online y −5,1% en Físico**) y la Ganancia Bruta cayó parecido en los dos (**−75,6% y −80,1%**): no es un problema de unidades. El margen bruto baja **−11,81 pp en Online** (18,28% a 6,47%) y **−13,08 pp en Físico** (18,60% a 5,52%): el Físico cae más, y acá el flete no interviene (la Ganancia Bruta no lo incluye).
+Online concentra el 77,7 % de la caída total de la Ganancia Bruta (−$60,17 M), mientras que Físico explica el 22,3 % restante (−$17,26 M). La distribución es similar a la participación de cada canal en la GB del primer semestre, por lo que la mayor contribución de Online a la caída responde principalmente a su mayor peso en el negocio.
 
-**2. El costo es el efecto principal en ambos canales, pero el resto se reparte distinto**
+Sin embargo, la evolución relativa fue más desfavorable en Físico: su GB cayó un 80,1 %, frente al 75,6 % de Online, y su margen bruto se contrajo 13,08 puntos porcentuales, frente a 11,81 pp en Online. Además, las unidades evolucionaron en direcciones opuestas: Online creció un 8,6 %, mientras que Físico cayó un 5,1 %. Por lo tanto, la caída de la GB no puede explicarse únicamente por una reducción del volumen vendido.
 
-En Online el costo explica el **57,7%** (−$34,74 M) y la mezcla el **37,7%** (−$22,70 M). En Físico el costo explica el **49,9%** (−$8,61 M), los **productos sin ventas en el 2S el 27,6%** (−$4,76 M) y la mezcla el **20,2%** (−$3,49 M). Los discontinuados pesan más en Físico porque ahí están **6 de los 8 segmentos** que dejaron de vender (ver Q6.D).
+**2. El aumento del costo unitario es el principal factor de deterioro en ambos canales, mientras que la mezcla perjudica especialmente a Online.**
 
-**3. El costo unitario subió igual en los dos canales y el precio no se movió**
+El efecto costo representa el 57,7 % de la caída de la GB de Online (−$34,74 M) y el 49,9 % de la de Físico (−$8,61 M). En paralelo, la variación ponderada del costo unitario fue similar en ambos canales: +15,57 % en Online y +15,11 % en Físico. Los precios unitarios, en cambio, prácticamente no variaron (+0,24 % y +0,08 %, respectivamente), por lo que su contribución positiva fue insuficiente para compensar el encarecimiento de los costos.
 
-Sobre los mismos productos y canales, el costo unitario subió **+15,6% en Online y +15,1% en Físico**, y el precio **+0,2% y +0,1%**. La diferencia entre canales no está en cuánto subió el costo sino en lo demás: la mezcla en Online y los discontinuados en Físico.
+La mezcla de productos vendidos fue el segundo factor de mayor impacto en Online, con −$22,70 M, equivalentes al 37,7 % de su caída de GB. En Físico, el efecto mezcla fue menor (−$3,49 M; 20,2 %). Esto indica que, además del costo, la composición de las unidades vendidas perjudicó especialmente el resultado de Online.
+
+**3. En Físico, la discontinuación de canales de venta de productos existentes agravó la caída.**
+
+Los segmentos discontinuados generaron un impacto de −$4,76 M en la GB de Físico, equivalente al 27,6 % de la caída de ese canal. La tabla auxiliar permite contextualizar este resultado: se dejaron de vender 25 unidades correspondientes a canales discontinuados de SKU que continuaron vendiéndose en algún otro canal, además de una unidad de un SKU discontinuado.
+
+En Online, los segmentos discontinuados tuvieron un impacto menor (−$1,30 M). Allí, las unidades perdidas por discontinuaciones fueron seis en total, frente a las 26 de Físico. Por lo tanto, las discontinuaciones tuvieron un peso económico considerablemente mayor en el canal físico.
+
+**4. La incorporación de nuevos productos y canales aportó unidades, pero no se tradujo en una contribución positiva a la Ganancia Bruta.**
+
+Online sumó 116 unidades, de las cuales 104 correspondieron a SKU nuevos y 18 al crecimiento de los segmentos continuos. En Físico, la incorporación de SKU nuevos y de un nuevo canal para un producto existente aportó 31 unidades, pero no alcanzó para compensar la reducción de 24 unidades en los segmentos continuos y las 26 unidades asociadas a segmentos discontinuados.
+
+Además, el efecto económico de los segmentos nuevos fue negativo en ambos canales: −$1,82 M en Online y −$0,39 M en Físico. Esto muestra que el aporte de unidades nuevas no implicó una mejora de la GB durante el segundo semestre. La expansión del volumen, por sí sola, no garantizó una contribución económica favorable.
 
 <br>
 
@@ -956,242 +970,8 @@ De los ocho segmentos discontinuados, seis corresponden a canales en los que un 
 
 Q6 respondió **por qué cayó la Ganancia Bruta en pesos**: un costo unitario que subió en toda la cartera sin que el precio lo acompañara, y la caída de unidades de unos pocos productos de alto margen por unidad, sobre todo en TV y Video Online. **Q7 vuelve sobre el margen bruto y lo mide en puntos porcentuales: ¿qué hundió el margen, los productos o la mezcla?**
 
-</details>
-
-#### ├─ 🔹 Q6 — Puente de Ganancia Bruta 1S → 2S 2026: ¿Por qué cayó la Ganancia Bruta?
-
-<details>
-<summary><strong>Ver desarrollo de Q6</strong></summary>  
-
-<br>
-
-#### 🔹 Síntesis
-
-La Ganancia Bruta cayó **76,6% entre el 1S y el 2S de 2026**, de $101,15 M a $23,71 M (−$77,44 M), y el margen bruto retrocedió de 18,35% a 6,28%.
-
-El deterioro se explica principalmente por dos efectos: **el costo, con una contribución negativa de $43,35 M (56,0% de la caída), y la mezcla de productos, con −$26,19 M (33,8%)**. El efecto precio fue levemente positivo (+$0,72 M), mientras que el volumen tuvo una incidencia marginal (−$0,34 M).
-
-La descomposición por canal y categoría muestra que el deterioro alcanza a ambos canales y se concentra en **TV y Video, Computación y Telefonía**, que reúnen el 83,0% de la caída. A nivel de producto, la presión del costo se extiende a todos los segmentos continuos analizados, mientras que el efecto negativo de mezcla se concentra en unos pocos productos de ticket alto, principalmente de TV y Video Online.
-
-Además, dos lanzamientos registraron precios realizados inferiores a sus costos unitarios, generando pérdidas desde su incorporación.
-
-**Conclusión:** la caída de la Ganancia Bruta combina una presión generalizada de los costos con una pérdida de contribución de productos de alto valor. El crecimiento de las unidades vendidas no alcanzó para compensar ambos efectos.
-
-<br>
-
-#### 🔸 Q6.A — Puente de Ganancia Bruta Agregado: Total Empresa
-
-[Ver Consulta SQL →](./sql_business_analysis/q6a_pvm_ganancia_bruta_semestral_agregado.sql) <br>
-
-#### 🔹 Resultados
-
-#### Contexto Financiero y Operativo
-| Indicador | 1S 2026 | 2S 2026 | Variación  | Variación % |
-| :--- | ---: | ---: | ---: | ---: |
-| **Unidades Efectivas** | 1.719 | 1.816 | +97 | **+5,64%** |
-| **Ventas Netas Finales** | $551,22 M | $377.64 M | -$173.58 M | -31.49% |
-| **Ganancia Bruta** | $101,15 M | $23,71 M | −$77,44 M | **−76,56%** |
-| **Margen Bruto (%)** | 18,35% | 6,28% | — | **−12,07 pp** |
-
-#### Desglose de Efectos de la Caída
-| Concepto | Monto | % Variación Total |
-| :--- | ---: | ---: |
-| **Ganancia Bruta 1S** | **$101,15 M** | |
-| Efecto Costo | −$43,35 M | 56,0% |
-| Efecto Mezcla | −$26,19 M | 33,8% |
-| Efecto Descontinuados | −$6,06 M | 7,8% |
-| Efecto Nuevos | −$2,22 M | 2,9% |
-| Efecto Volumen | −$0,34 M | 0,4% |
-| Efecto Precio | +$0,72 M | −0,9% |
-| **Ganancia Bruta 2S** | **$23,71 M** | |
-| **Variación Ganancia Bruta** | **−$77,44 M** | **100,0%** |
-
-#### Precio y Costo Unitario (segmentos continuos, 1S → 2S)
-| | Variación ponderada | Mediana por segmento | Segmentos con aumento |
-| :--- | ---: | ---: | ---: |
-| **Precio unitario** | **+0,21%** | +0,22% | 40 de 78 |
-| **Costo unitario** | **+15,48%** | +13,93% | 78 de 78 |
-
-> *Se comparan los 78 segmentos producto × canal que vendieron en ambos semestres (mismo producto, mismo canal). La variación ponderada usa las unidades del 2S, igual que el puente: es el efecto en pesos dividido por lo que habrían valido esas unidades a precio o costo del 1S. La mediana se calcula sobre la variación de cada segmento (detalle en Q6.D).*
-
-#### 🔹 Hallazgos
-
-**1. La Ganancia Bruta cayó un 76,6%, mucho más que las ventas, y el margen bruto perdió 12,07 pp**
-
-La Ganancia Bruta pasó de **$101,15 M a $23,71 M (−$77,44 M)** y el margen bruto, del **18,35% al 6,28%**. Las ventas cayeron un **31,49%**, pese a que las unidades efectivas aumentaron un **5,64%**.
-
-**2. El costo fue el principal factor negativo y el precio no lo compensó**
-
-El efecto costo restó **$43,35 M (56,0% de la caída)**, mientras que el efecto precio aportó apenas **$0,72 M**. Medido sobre los mismos productos y canales, el costo unitario subió **+15,5%** y el precio, **+0,2%**. El costo subió en los **78 segmentos continuos**, con variaciones de entre **+2,4% y +32,5%** (mediana **+13,9%**), mientras que el precio aumentó en **40 de 78**: en los otros 38 quedó igual o bajó mientras el costo subía.
-
-**3. La caída se explica también por la composición de las ventas**
-
-Aunque las unidades efectivas aumentaron en 97, los segmentos continuos registraron una reducción de 6 unidades (Q6.D). El crecimiento neto provino de **135 unidades en segmentos nuevos**, parcialmente compensadas por la pérdida de 32 unidades en segmentos discontinuados. El efecto mezcla restó **$26,19 M (33,8% de la caída)**: las unidades se desplazaron desde segmentos que dejaban más por unidad en el 1S hacia segmentos que dejaban menos.
-
-**4. Los promedios por unidad de toda la empresa no sirven para medir precio y costo**
-
-El precio y el costo promedio por unidad de la empresa mezclan productos de valores muy distintos, por lo que se mueven con la composición de las ventas aunque los precios y costos de cada producto no cambien. Por eso la lectura de precio y costo se hace sobre los segmentos continuos, donde el precio casi no se movió (+0,2%) y el costo subió +15,5%, consistente con el puente: efecto precio de **+$0,72 M** y efecto costo de **−$43,35 M**.
-
-<br>
-
-#### 🔸 Q6.B — Puente de Ganancia Bruta por Canal
-
-[Ver Consulta SQL →](./sql_business_analysis/q6b_pvm_ganancia_bruta_semestral_canal.sql) <br>
-
-#### 🔹 Resultados
-
-#### Contexto Financiero y Operativo
-| Canal | Unidades 1S → 2S | Unid. Var % | Ganancia Bruta 1S | Ganancia Bruta 2S | Variación ($) | Variación % (vs sí mismo) | Margen Bruto 1S → 2S | Var. Margen (pp) | % Caída Total GB |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | :---: | ---: | ---: |
-| **Online** | 1.349 → 1.465 | +8,60% | $79,60 M | $19,43 M | **−$60,17 M** | **−75,59%** | 18,28% → 6,47% | −11,81 pp | 77,7% |
-| **Físico** | 370 → 351 | −5,14% | $21,55 M | $4,29 M | **−$17,26 M** | **−80,09%** | 18,60% → 5,52% | −13,08 pp | 22,3% |
-| **Total Empresa** | **1.719 → 1.816** | **+5,64%** | **$101,15 M** | **$23,71 M** | **−$77,44 M** | **−76,56%** | **18,35% → 6,28%** | **−12,07 pp** | **100,0%** |
-
-#### Desglose de Efectos de la Caída (en millones)
-| Canal | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto Nuevos | Efecto Discontinuados | Efecto Total |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Online** | −$0,28 M | −$22,70 M | +$0,66 M | −$34,74 M | −$1,82 M | −$1,30 M | **−$60,17 M** |
-| **Físico** | −$0,06 M | −$3,49 M | +$0,06 M | −$8,61 M | −$0,39 M | −$4,76 M | **−$17,26 M** |
-| **Total Empresa** | **−$0,34 M** | **−$26,19 M** | **+$0,72 M** | **−$43,35 M** | **−$2,22 M** | **−$6,06 M** | **−$77,44 M** |
-
-> *Nota: Cada fila suma los efectos de sus respectivos segmentos. El % de la caída representa la contribución de cada canal sobre la variación total de la empresa (−$77,44 M).*
-
-#### 🔹 Hallazgos
-
-**1. La caída monetaria está fuertemente concentrada en el canal Online**
-Online explica el **77,7% de la destrucción de ganancia bruta (−$60,17 M)**, mientras que Físico representa el **22,3% (−$17,26 M)**, guardando estricta proporción con el peso histórico de cada canal en la compañía.
-
-**2. Divergencia en el comportamiento del volumen físico**
-Mientras que el canal **Online incrementó sus unidades en un +8,6%** (de 1.349 a 1.465), el canal **Físico contrajo sus unidades un −5,1%** (de 370 a 351). A pesar de este crecimiento en unidades del canal Online, ambos canales sufrieron un desplome idéntico en su rentabilidad porcentual (perdiendo más del 75% de su ganancia contra sí mismos).
-
-**3. El costo y la mezcla dominan el impacto negativo en Online; los discontinuados golpean con fuerza al Físico**
-* En **Online**, el deterioro se debió principalmente al **Efecto Costo (−$34,74 M)** y al **Efecto Mezcla (−$22,70 M)**, lo que indica que se vendieron más unidades pero con una estructura de costos e mix de productos mucho menos rentable.
-* En **Físico**, aunque el costo también lideró la caída (**−$8,61 M**), tuvo un peso proporcional altísimo de los **SKUs discontinuados (−$4,76 M)**, evidenciando que los productos que se dejaron de comprar afectaron de forma crítica la caja de las tiendas físicas.
-
-<br>
-
-#### 🔸 Q6.C — Puente de Ganancia Bruta por Categoría y Canal
-
-[Ver Consulta SQL →](./sql_business_analysis/q6c_pvm_ganancia_bruta_semestral_categoria_canal.sql) <br>
-
-#### 🔹 Resultados
-
-| Categoría | Canal | GB 1S → 2S | Variación ($) | Var. GB (%) | Margen Bruto 1S → 2S | Var. MB (pp) | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto Nuevos | Efecto Discontinuados | **Efecto Total** | % de la caída GB |
-| :--- | :--- | :---: | ---: | ---: | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **TV y Video** | Online | $32,62 M → $0,46 M | **−$32,16 M** | −98,59% | 15,60% → 0,51% | −15,09 pp | −$0,11 M | −$18,89 M | −$0,04 M | −$12,43 M | $0,00 M | −$0,68 M | **−$32,16 M** | 41,5% |
-| **Computación** | Online | $18,93 M → $5,09 M | **−$13,85 M** | −73,13% | 25,25% → 14,05% | −11,20 pp | −$0,07 M | −$9,29 M | +$0,60 M | −$4,79 M | −$0,30 M | $0,00 M | **−$13,85 M** | 17,9% |
-| **TV y Video** | Físico | $8,62 M → −$0,32 M | **−$8,94 M** | −103,70% | 15,15% → −1,31% | −16,46 pp | −$0,02 M | −$2,31 M | +$0,03 M | −$3,57 M | +$0,05 M | −$3,12 M | **−$8,94 M** | 11,5% |
-| **Audio** | Online | $11,40 M → $6,06 M | **−$5,34 M** | −46,84% | 21,68% → 6,77% | −14,91 pp | −$0,04 M | +$5,05 M | +$0,50 M | −$9,20 M | −$1,64 M | $0,00 M | **−$5,34 M** | 6,9% |
-| **Telefonía** | Online | $6,17 M → $0,91 M | **−$5,26 M** | −85,18% | 14,03% → 9,92% | −4,11 pp | −$0,02 M | −$3,63 M | −$0,21 M | −$0,90 M | +$0,12 M | −$0,62 M | **−$5,26 M** | 6,8% |
-| **Computación** | Físico | $4,01 M → $1,12 M | **−$2,89 M** | −72,04% | 24,97% → 10,89% | −14,09 pp | −$0,01 M | −$0,54 M | −$0,18 M | −$1,04 M | −$0,08 M | −$1,04 M | **−$2,89 M** | 3,7% |
-| **Accesorios** | Online | $3,46 M → $1,26 M | **−$2,20 M** | −63,57% | 16,82% → 4,92% | −11,90 pp | −$0,01 M | +$0,75 M | +$0,08 M | −$3,02 M | $0,00 M | $0,00 M | **−$2,20 M** | 2,8% |
-| **Audio** | Físico | $3,54 M → $1,48 M | **−$2,06 M** | −58,11% | 23,18% → 7,48% | −15,70 pp | −$0,01 M | +$0,11 M | −$0,05 M | −$1,63 M | −$0,39 M | −$0,09 M | **−$2,06 M** | 2,7% |
-| **Accesorios** | Físico | $1,72 M → $0,21 M | **−$1,51 M** | −87,66% | 18,10% → 3,65% | −14,45 pp | −$0,01 M | −$0,82 M | +$0,10 M | −$0,77 M | $0,00 M | −$0,02 M | **−$1,51 M** | 2,0% |
-| **Hogar** | Online | $7,01 M → $5,64 M | **−$1,37 M** | −19,53% | 20,56% → 11,67% | −8,89 pp | −$0,02 M | +$3,32 M | −$0,26 M | −$4,40 M | $0,00 M | $0,00 M | **−$1,37 M** | 1,8% |
-| **Telefonía** | Físico | $1,91 M → $0,71 M | **−$1,20 M** | −62,83% | 19,01% → 10,37% | −8,64 pp | −$0,01 M | −$0,42 M | +$0,27 M | −$0,57 M | +$0,03 M | −$0,50 M | **−$1,20 M** | 1,5% |
-| **Hogar** | Físico | $1,74 M → $1,08 M | **−$0,66 M** | −38,07% | 21,78% → 10,34% | −11,43 pp | −$0,01 M | +$0,48 M | −$0,12 M | −$1,02 M | $0,00 M | $0,00 M | **−$0,66 M** | 0,9% |
-| **Total Empresa** | **Todos** | **$101,15 M → $23,71 M** | **−$77,44 M** | **−76,56%** | **18,35% → 6,28%** | **−12,07 pp** | **−$0,34 M** | **−$26,19 M** | **+$0,72 M** | **−$43,35 M** | **−$2,22 M** | **−$6,06 M** | **−$77,44 M** | **100,0%** |
-
-#### 🔹 Hallazgos
-
-**1. TV y Video concentra el 53,1% de la caída y prácticamente pierde toda su Ganancia Bruta**
-
-La categoría perdió **$41,10 M**, al pasar de **$41,25 M a $0,14 M** entre semestres. El deterioro se observa en ambos canales: el margen bruto de Online cayó del 15,60% al 0,51%, mientras que Físico pasó del 15,15% al −1,31%, registrando pérdidas brutas en el 2S.
-
-**2. Las categorías de mayor ticket concentran el 83% de la caída**
-
-TV y Video, Computación y Telefonía pasaron de **$72,27 M a $7,98 M** de Ganancia Bruta y explican el **83,0% del deterioro**. En conjunto, sus unidades efectivas cayeron un 41,7% (de 705 a 411), mientras que Accesorios, Audio y Hogar aumentaron sus unidades un 38,6% (de 1.014 a 1.405). Este desplazamiento ayuda a explicar la pérdida de contribución por mezcla.
-
-**3. El efecto mezcla negativo se concentra en tres combinaciones Online**
-
-TV y Video Online (**−$18,89 M**), Computación Online (**−$9,29 M**) y Telefonía Online (**−$3,63 M**) acumulan **−$31,81 M de efecto mezcla**. Parte de ese impacto se compensa con Audio Online (**+$5,05 M**) y Hogar Online (**+$3,32 M**), que registraron efectos de mezcla positivos.
-
-**4. El costo tiene un efecto negativo en las 12 combinaciones de categoría y canal**
-
-El efecto costo fue negativo en todas las combinaciones, desde **−$0,57 M en Telefonía Físico hasta −$12,43 M en TV y Video Online**. En Audio Online alcanzó **−$9,20 M**, superando la caída total de esa combinación (−$5,34 M) porque los efectos positivos de mezcla y precio compensaron parcialmente su impacto.
-
-<br>
-
-#### 🔸 Q6.D — Puente de Ganancia Bruta por Producto × Canal (detalle)
-
-[Ver Consulta SQL →](./sql_business_analysis/q6d_pvm_ganancia_bruta_semestral_producto_canal.sql) <br>
-
-#### 🔹 Resultados
-
-**Los 10 segmentos con mayor caída** (de 94):
-
-| Categoría | Producto | Canal | Unid. 1S → 2S | Efecto Volumen | Efecto Mezcla | Efecto Precio | Efecto Costo | Efecto Descont. | **Efecto total** | % de la caída |
-| :--- | :--- | :--- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| TV y Video | **TCL Monitor TV 21** | Online | 72 → 28 | −$0,05 M | −$8,92 M | −$0,99 M | −$3,69 M | — | **−$13,65 M** | 17,6% |
-| TV y Video | **TCL Chromecast 25** | Online | 56 → 14 | −$0,04 M | −$8,35 M | +$0,06 M | −$1,36 M | — | **−$9,69 M** | 12,5% |
-| Computación | **Acer Memoria RAM 2** | Online | 40 → 3 | −$0,02 M | −$4,53 M | +$0,01 M | −$0,08 M | — | **−$4,62 M** | 6,0% |
-| Computación | **ASUS Webcam 6** | Online | 34 → 16 | −$0,02 M | −$3,10 M | −$0,01 M | −$0,96 M | — | **−$4,10 M** | 5,3% |
-| TV y Video | **TCL Monitor TV 19** | Online | 9 → 13 | ≈ $0 | +$0,42 M | +$0,78 M | −$4,61 M | — | **−$3,41 M** | 4,4% |
-| TV y Video | **TCL Monitor TV 21** | Físico | 17 → 9 | −$0,01 M | −$1,77 M | −$0,16 M | −$1,23 M | — | **−$3,16 M** | 4,1% |
-| Computación | **Lenovo Mouse 1** | Online | 68 → 11 | −$0,01 M | −$2,62 M | +$0,07 M | −$0,37 M | — | **−$2,93 M** | 3,8% |
-| TV y Video | **TCL Chromecast 25** | Físico | 13 → 0 | — | — | — | — | −$2,78 M | **−$2,78 M** | 3,6% |
-| TV y Video | **Samsung Monitor TV 23** | Online | 44 → 28 | −$0,01 M | −$0,90 M | +$0,29 M | −$1,56 M | — | **−$2,18 M** | 2,8% |
-| Telefonía | **Apple Cargador 12** | Online | 8 → 2 | −$0,01 M | −$1,78 M | −$0,05 M | −$0,29 M | — | **−$2,13 M** | 2,7% |
-| **Subtotal 10 segmentos** | | | | | | | | | **−$48,65 M** | **62,8%** |
-
-> *Los 94 segmentos están en la consulta, ordenados por efecto total. "% de la caída" es el efecto total del segmento sobre la variación total de Ganancia Bruta (−$77,44 M). El efecto "Nuevos" de estos 10 segmentos es cero.*
-
-**Segmentos nuevos en el 2S** (8: 3 SKUs nuevos, cada uno en Online y Físico, y 2 canales nuevos de SKUs que ya vendían):
-
-| Categoría | Producto | Canal | Origen | Unid. 2S | Precio unit. | Costo unit. | Margen unit. | GB 2S |
-| :--- | :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: |
-| Audio | **Edifier Auriculares 32** | Online | SKU nuevo | 90 | $203.784 | $222.058 | −$18.275 | −$1,64 M |
-| Audio | **Edifier Auriculares 32** | Físico | SKU nuevo | 21 | $201.842 | $220.638 | −$18.796 | −$0,39 M |
-| Computación | **Dell Teclado 3** | Online | SKU nuevo | 13 | $134.404 | $157.256 | −$22.852 | −$0,30 M |
-| Computación | **Dell Teclado 3** | Físico | SKU nuevo | 4 | $131.547 | $161.818 | −$30.271 | −$0,12 M |
-| Telefonía | **Apple Smartphone 16** | Físico | SKU nuevo | 1 | $790.057 | $755.295 | $34.762 | $0,03 M |
-| Computación | **ASUS Mouse 4** | Físico | Canal nuevo de un SKU que ya vendía | 4 | $164.382 | $153.963 | $10.420 | $0,04 M |
-| TV y Video | **Samsung Chromecast 24** | Físico | Canal nuevo de un SKU que ya vendía | 1 | $1.095.772 | $1.049.348 | $46.424 | $0,05 M |
-| Telefonía | **Apple Smartphone 16** | Online | SKU nuevo | 1 | $874.526 | $755.295 | $119.232 | $0,12 M |
-
-#### 🔹 Hallazgos
-
-**1. Diez segmentos explican el 62,8% de la caída**
-
-Los 10 segmentos con mayor deterioro acumulan **−$48,65 M**, el 62,8% de la caída total de −$77,44 M, y pertenecen a TV y Video, Computación y Telefonía. El caso más significativo es **TCL Monitor TV 21 Online**, con un efecto total de **−$13,65 M**: pasó de vender 72 unidades en el 1S a 28 en el 2S, mientras su margen unitario cayó de $203.986 a $36.931.
-
-**2. El aumento del costo fue generalizado**
-
-El costo unitario aumentó en los **78 segmentos producto × canal continuos analizados**, con variaciones de entre **+2,4% y +32,5%** y una mediana del **+13,9%**. En cambio, el precio realizado tuvo una mediana de apenas **+0,2%** y aumentó en 40 de los 78 segmentos. Esto indica que la presión sobre los costos alcanzó a toda la cartera de segmentos continuos, no solamente a los de mayor impacto. En **TCL Monitor TV 19 Online**, por ejemplo, el costo unitario subió un 26,7%, frente a un aumento del precio del 4,2%; el margen bruto pasó del 7,3% al −12,7%.
-
-*Las variaciones se calculan como costo_unit_2s / costo_unit_1s − 1 (y lo mismo para el precio) sobre los segmentos con estado "Continuo" de la consulta.*
-
-**3. La mezcla negativa se concentra en cinco productos Online**
-
-TCL Monitor TV 21, TCL Chromecast 25, Acer Memoria RAM 2, ASUS Webcam 6 y Lenovo Mouse 1 acumulan **−$27,53 M de efecto mezcla**, equivalente al 105% del efecto mezcla neto total (−$26,19 M, Q6.A). El resto de los segmentos, en conjunto, suma +$1,35 M y compensa parcialmente ese impacto. La pérdida se relaciona con la fuerte reducción de las unidades vendidas de estos cinco productos entre semestres.
-
-**4. Dos lanzamientos generaron pérdidas desde su incorporación**
-
-**Edifier Auriculares 32** vendió 111 unidades entre Online y Físico, con precios unitarios inferiores a sus costos, y aportó aproximadamente **−$2,04 M** de Ganancia Bruta. **Dell Teclado 3** vendió 17 unidades bajo la misma condición y aportó **−$0,42 M**. En conjunto, ambos lanzamientos generaron **−$2,46 M**, mientras que los otros segmentos nuevos compensaron parcialmente esa pérdida. Edifier concentró el 82% de las unidades de los segmentos nuevos, por lo que una parte importante de las nuevas ventas se originó en un producto con margen unitario negativo.
-
-**5. Los segmentos discontinuados no necesariamente representan productos retirados**
-
-De los ocho segmentos discontinuados, seis corresponden a canales en los que un producto dejó de venderse, aunque continuó comercializándose por otro canal. Estos concentran **−$5,04 M** de los **−$6,06 M** del efecto discontinuados. El único SKU que dejó de venderse por completo fue LG Chromecast 22, en ambos canales, con un efecto de **−$1,02 M**. Como estos segmentos registraban entre 1 y 13 unidades en el 1S, la ausencia de ventas en el 2S no demuestra por sí sola una decisión comercial de discontinuación.
-
-**Límites de la lectura**
-
-* **Alcance explicativo:** Q6 identifica dónde se concentra el deterioro, pero no determina las causas comerciales u operativas del aumento de costos ni de la caída de unidades.
-* **Valuación de la mezcla:** el efecto se mide en pesos usando los márgenes unitarios del 1S, por lo que los productos de mayor contribución por unidad tienen más peso. Q8 complementa esta lectura desde los puntos de margen.
-* **Volúmenes reducidos:** algunos segmentos nuevos o discontinuados registran pocas unidades. Sus resultados deben interpretarse con cautela y no como evidencia suficiente de una tendencia o decisión comercial.
-* **Precio realizado:** incorpora descuentos y devoluciones, por lo que no permite distinguir por sí solo entre cambios en el precio de lista y variaciones en los descuentos.
-* **Alcance del puente:** el análisis corresponde a la Ganancia Bruta y no incluye la logística, cuyo impacto se estudia en Q8.
-
-<br>
-
-#### 🔹 Puente analítico → Q7
-
-Q6 explicó **cómo se descompone la caída de la Ganancia Bruta en términos monetarios**: el costo fue el principal factor negativo, seguido por la mezcla de productos, mientras que el efecto precio compensó parcialmente la caída.
-
-**Q7 aborda la misma evolución desde otra perspectiva: la rentabilidad porcentual.** Analiza cómo varió el margen bruto entre semestres y cuánto contribuyeron los distintos efectos a esa variación en puntos porcentuales.
-
 <br>
 </details>
-
 
 #### ├─ 🔹 Q7 — Margen Bruto 1S → 2S 2026: ¿Qué hundió el margen, los productos o la mezcla?
 
