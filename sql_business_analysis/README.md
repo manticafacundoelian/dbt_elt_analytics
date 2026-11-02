@@ -170,93 +170,114 @@ La pérdida monetaria se concentró en **Online**, mientras que **Físico presen
 
 #### 🔸 Q2.A — Puente de Ventas Netas: Nivel Empresa
 
-[Ver Consulta SQL →](./sql_business_analysis/q2.1_puente_ventas_netas_total.sql)
+[Ver Consulta SQL →](./sql_business_analysis/q2a_puente_ventas_netas_total.sql)
 
-#### Contexto financiero y operativo
+#### Contexto operativo y financiero
 
-| Indicador                |       2025 |     2026 | Variación absoluta |  Variación % |
-| :----------------------- | ---------: | -------: | -----------------: | -----------: |
-| **Ventas Netas**         | $1.633,9 M | $999,1 M |      **−$634,8 M** | **−38,85 %** |
-| Unidades comercializadas |      4.746 |    3.778 |               −968 |     −20,40 % |
+| Indicador                                |       2025 |       2026 | Variación absoluta |  Variación % |
+| :--------------------------------------- | ---------: | ---------: | -----------------: | -----------: |
+| **Unidades Totales**                     |      4.746 |      3.778 |           **−968** | **−20,40 %** |
+| Unidades Continuas                       |      4.743 |      2.958 |             −1.785 |     −37,63 % |
+| Unidades Nuevas                          |          — |        820 |                  — |            — |
+| Unidades Descontinuadas                  |          3 |          — |                  — |            — |
+| **Ventas Brutas**                        | $1.684,4 M | $1.064,0 M |      **−$620,4 M** | **−36,83 %** |
+| Tasa de Descuento                        |      3,0 % |      6,1 % |            +3,1 pp |            — |
+| **Ventas Netas**                         | $1.633,9 M |   $999,1 M |      **−$634,8 M** | **−38,85 %** |
 
-#### Descomposición de la variación
+#### Puente de Ventas Netas Total
 
-| Efecto              | Impacto 2025 → 2026 | Participación en la caída neta |
-| :------------------ | ------------------: | -----------------------------: |
-| **Δ Ventas Netas**  |       **−$634,8 M** |                    **100,0 %** |
-| Volumen             |           −$614,9 M |                         96,9 % |
-| Mix                 |           −$161,3 M |                         25,4 % |
-| Precio de Lista     |            +$37,8 M |                         −6,0 % |
-| Descuentos          |            −$26,8 M |                          4,2 % |
-| SKUs Nuevos         |           +$130,5 M |                        −20,6 % |
-| SKUs Descontinuados |             −$0,2 M |                          0,0 % |
-| **Impacto total**   |       **−$634,8 M** |                    **100,0 %** |
+| Efecto                       | Impacto 2025 → 2026 | Participación en la caída neta |
+| :--------------------------- | ------------------: | -----------------------------: |
+| **Δ Ventas Netas**           |       **−$634,8 M** |                    **100,0 %** |
+| Volumen                      |           −$614,9 M |                         96,9 % |
+| Mix                          |           −$161,3 M |                         25,4 % |
+| Precio de Lista              |            +$37,8 M |                         −6,0 % |
+| Descuentos                   |            −$26,8 M |                          4,2 % |
+| Skus Nuevos                  |           +$130,5 M |                        −20,6 % |
+| Skus Descontinuados          |             −$0,2 M |                          0,0 % |
+| **Impacto total**            |       **−$634,8 M** |                    **100,0 %** |
 
-> *Nota: El puente atribuye la variación de Ventas Netas entre 2025 y 2026 a efectos de Volumen y Mix sobre SKUs continuos, Precio de Lista, Descuentos y cambios en el portafolio. Los SKUs Nuevos y Descontinuados se consideran efectos directos. La participación se calcula respecto de la caída neta total: los efectos positivos presentan porcentajes negativos porque compensan parcialmente el deterioro. El puente concilia con la variación observada; los importes de las tablas están redondeados.*
+> *Nota: Las unidades continuas corresponden a combinaciones producto × canal presentes en ambos períodos. Las combinaciones nuevas y descontinuadas se identifican según su presencia en 2026 y 2025, respectivamente. El puente atribuye la variación de Ventas Netas a efectos de Volumen y Mix sobre combinaciones continuas, Precio de Lista, Descuentos y cambios en el portafolio. Los efectos de combinaciones nuevas y descontinuadas se consideran directos. La participación se calcula respecto de la caída neta total: los efectos positivos presentan porcentajes negativos porque compensan parcialmente el deterioro. El puente concilia con la variación observada; los importes están redondeados.*
 
 #### 🔹 Hallazgos
 
-**1. La contracción de unidades es el principal factor del deterioro**
+**1. El efecto Volumen fue el principal factor de la caída**
 
-Las Ventas Netas cayeron **38,85 %**, mientras que las unidades comercializadas disminuyeron **20,40 %**. El efecto Volumen fue de **−$614,9 M**, un importe equivalente al **96,9 % de la caída neta total**. Esto lo identifica como el principal componente negativo del puente, aunque el resultado final depende de la combinación de todos los efectos.
+El efecto Volumen representó un impacto de **−$614,9 M**, equivalente al **96,9 % de la caída neta total**. Esto refleja la fuerte contracción de las unidades de las combinaciones continuas, que disminuyeron un **37,63 %** entre ambos períodos. La caída de unidades totales fue menor (−20,40 %), debido principalmente a la incorporación de nuevas combinaciones.
 
-**2. El Mix profundizó la caída**
+**2. El Mix profundizó el deterioro de las ventas**
 
-El Mix de los SKUs continuos tuvo un impacto de **−$161,3 M**, equivalente al **25,4 % de la caída neta**. Por lo tanto, el deterioro no se explica únicamente por la menor cantidad de unidades vendidas, sino también por cambios desfavorables en la composición de las ventas.
+El efecto Mix de las combinaciones continuas fue de **−$161,3 M**, equivalente al **25,4 % de la caída neta**. Esto refleja un cambio desfavorable en la composición de las ventas: las combinaciones de menor valor neto unitario de referencia ganaron participación relativa frente a las de mayor valor.
 
-**3. Los SKUs nuevos compensaron parcialmente la contracción**
+**3. Las combinaciones nuevas compensaron parcialmente la contracción**
 
-La incorporación de SKUs nuevos aportó **+$130,5 M**, equivalente a una compensación del **20,6 % de la caída neta**. Sin este aporte, el descenso de las Ventas Netas habría sido mayor.
+La incorporación de nuevas combinaciones producto × canal aportó **+$130,5 M**, compensando el **20,6 % de la caída neta**. Este aporte permitió amortiguar parcialmente los efectos negativos de Volumen y Mix. En cambio, las combinaciones descontinuadas tuvieron un impacto marginal de **−$0,2 M**.
 
-**4. El Precio de Lista también amortiguó el deterioro**
+**4. El Precio de Lista compensó parcialmente el efecto negativo de los Descuentos**
 
-El efecto Precio de Lista fue de **+$37,8 M**, compensando aproximadamente un **6,0 % de la caída neta**.
-
-**5. Los Descuentos profundizaron la caída**
-
-El efecto Descuentos fue de **−$26,8 M**, equivalente al **4,2 % de la caída neta**. En términos agregados, este impacto negativo redujo parcialmente el beneficio aportado por el Precio de Lista.
-
-**6. Los SKUs descontinuados tuvieron un impacto marginal**
-
-Su efecto fue de apenas **−$0,2 M**, por lo que su incidencia sobre la variación total fue prácticamente nula.
+El efecto Precio de Lista aportó **+$37,8 M**, mientras que el efecto Descuentos restó **−$26,8 M**. En conjunto, ambos efectos tuvieron un aporte positivo neto de aproximadamente **$11,0 M**. Aunque la evolución de los precios de lista favoreció las ventas, el mayor impacto de los descuentos redujo parcialmente ese beneficio.
 
 <br>
 
-#### 🔸 Q2.B — Puente de Ventas Netas por Canal
+#### 🔸 Q2.B — Puente de Ventas Netas: Nivel Canal
 
-[Ver Consulta SQL →](./sql_business_analysis/q2.2_puente_ventas_netas_canal.sql)
+[Ver Consulta SQL →](./sql_business_analysis/q2b_puente_ventas_netas_canal.sql)
 
-#### Contexto financiero y operativo
+#### Contexto Operativo y Financiero por Canal
 
-| Canal      |    Ventas 2025 |  Ventas 2026 | Variación ($) | Variación (%) | Contribución a la caída total | Unidades 2025 | Unidades 2026 | Variación de unidades | Variación (%) |
-| :--------- | -------------: | -----------: | ------------: | ------------: | ----------------------------: | ------------: | ------------: | --------------------: | ------------: |
-| **Online** |     $1.178,4 M |     $794,0 M |     −$384,4 M |      −32,62 % |                   **60,55 %** |         3.368 |         3.009 |                  −359 |      −10,66 % |
-| **Físico** |       $455,5 M |     $205,1 M |     −$250,4 M |      −54,98 % |                   **39,45 %** |         1.378 |           769 |                  −609 |      −44,19 % |
-| **Total**  | **$1.633,9 M** | **$999,1 M** | **−$634,8 M** |  **−38,85 %** |                  **100,00 %** |     **4.746** |     **3.778** |              **−968** |  **−20,40 %** |
+**Indicadores operativos y financieros**
 
-#### Descomposición de efectos y distribución por canal
+| Indicador                                       |                                 Online |                               Físico |
+| :---------------------------------------------- | -------------------------------------: | -----------------------------------: |
+| Unidades Totales                                |           3.368 → 3.009 (**−10,66 %**) |           1.378 → 769 (**−44,19 %**) |
+| Unidades Continuas                              |           3.368 → 2.365 (**−29,78 %**) |           1.375 → 593 (**−56,87 %**) |
+| Unidades Nuevas                                 |                                    644 |                                  176 |
+| Unidades Descontinuadas                         |                                      0 |                                    3 |
+| Ventas Brutas                                   | $1.214,64 M → $845,08 M (**−30,43 %**) | $469,77 M → $218,93 M (**−53,40 %**) |
+| Tasa de Descuento                               |         2,98 % → 6,04 % (**+3,06 pp**) |       3,03 % → 6,31 % (**+3,29 pp**) |
+| Ventas Netas                                    | $1.178,38 M → $794,01 M (**−32,62 %**) | $455,55 M → $205,10 M (**−54,98 %**) |
 
-| Efecto                              | Online: impacto (% del efecto global) | Físico: impacto (% del efecto global) | Efecto global |
-| :---------------------------------- | ------------------------------------: | ------------------------------------: | ------------: |
-| **Volumen**                         |                    −$443,5 M (72,1 %) |                    −$171,4 M (27,9 %) | **−$614,9 M** |
-| **Mix**                             |                     −$51,4 M (31,9 %) |                    −$109,8 M (68,1 %) | **−$161,3 M** |
-| **Precio de Lista**                 |                     +$30,2 M (80,0 %) |                      +$7,6 M (20,0 %) |  **+$37,8 M** |
-| **Descuentos**                      |                     −$21,0 M (78,3 %) |                      −$5,8 M (21,7 %) |  **−$26,8 M** |
-| **SKUs Nuevos**                     |                    +$101,3 M (77,6 %) |                     +$29,2 M (22,4 %) | **+$130,5 M** |
-| **SKUs Descontinuados**             |                        $0,0 M (0,0 %) |                     −$0,2 M (100,0 %) |   **−$0,2 M** |
-| **Variación total de Ventas Netas** |                         **−$384,4 M** |                         **−$250,4 M** | **−$634,8 M** |
+**Estructura de las unidades continuas**
 
-> *Nota metodológica: el puente se calcula globalmente a nivel de producto × canal y luego se agrupa por canal. Los importes representan el impacto de cada efecto en las Ventas Netas; los porcentajes indican qué proporción de cada efecto global corresponde a cada canal, no su contribución a la caída total. 
+| Indicador                                            |                                   Online |                                   Físico |
+| :--------------------------------------------------- | ---------------------------------------: | ---------------------------------------: |
+| Participación en unidades continuas                  |         71,01 % → 79,95 % (**+8,94 pp**) |         28,99 % → 20,05 % (**−8,94 pp**) |
+| Valor unitario promedio de la canasta (precios 2025) | $349.876,03 → $288.992,73 (**−17,40 %**) | $331.193,79 → $293.739,93 (**−11,31 %**) |
+
+**Nota metodológica:** El valor unitario promedio de la canasta se calcula utilizando los precios netos de referencia de 2025. Su variación refleja cambios en la composición de las unidades continuas, no variaciones de precios reales.
+
+#### Puente de Ventas Netas por Canal
+
+| Efecto                            |         Online |         Físico |
+| :-------------------------------- | -------------: | -------------: |
+| Δ Ventas Netas                    | **−$384,37 M** | **−$250,44 M** |
+| Volumen                           |     −$443,48 M |     −$171,38 M |
+| Mix                               |      −$51,44 M |     −$109,82 M |
+| Precio de lista                   |      +$30,24 M |       +$7,55 M |
+| Descuentos                        |      −$20,99 M |       −$5,81 M |
+| Skus Nuevos                       |     +$101,30 M |      +$29,17 M |
+| Skus Descontinuados               |        $0,00 M |       −$0,15 M |
+| **Impacto Total **                | **−$384,37 M** | **−$250,44 M** |
+| Diferencia de conciliación        |        $0,00 M |        $0,00 M |
+| Contribución a la caída total     |    **60,55 %** |    **39,45 %** |
+
+**Nota metodológica:** La clasificación de combinaciones continuas, nuevas y descontinuadas se realiza a nivel de producto × canal. Los efectos de Volumen y Mix se calculan sobre las combinaciones continuas. El efecto Volumen distribuye la variación global de unidades continuas de la empresa según la participación de cada combinación en 2025; por lo tanto, no representa por sí solo la contracción específica del canal. La suma de Volumen y Mix representa la variación de unidades continuas del canal valorizada a precios netos de referencia de 2025.
 
 #### 🔹 Hallazgos
 
-**1. Online concentra la mayor pérdida monetaria, pero Físico sufre la contracción proporcional más fuerte**
+1. **Contracción operativa más pronunciada en Físico.** Las unidades continuas disminuyeron un 56,87 % en Físico, frente a un 29,78 % en Online. Aunque ambos canales perdieron unidades, el deterioro operativo fue considerablemente más intenso en Físico.
 
-Online explica el **60,55 % de la caída total**, con una reducción de $384,4 M (−32,62 %). Físico representa el 39,45 % restante, pero sus ventas retrocedieron un **54,98 %**. La evolución de las unidades refuerza la diferencia: cayeron un 10,66 % en Online y un 44,19 % en Físico.
+2. **Cambio en la estructura de participación.** Online aumentó su participación en las unidades continuas de la empresa del 71,01 % al 79,95 % (+8,94 pp), mientras que Físico perdió esa misma proporción. Este desplazamiento no implica crecimiento de Online, sino que refleja la contracción más acelerada del canal Físico.
 
-**2. Volumen domina el deterioro, mientras que el Mix perjudica especialmente a Físico**
+3. **Deterioro de la composición interna en ambos canales.** El valor unitario promedio de la canasta a precios de referencia de 2025 disminuyó un 17,40 % en Online y un 11,31 % en Físico. Esto indica que, dentro de las combinaciones continuas de cada canal, ganaron participación relativa aquellas de menor valor unitario de referencia. El deterioro fue más pronunciado en Online.
 
-La distribución de los efectos muestra que el **72,1 % del impacto global de Volumen corresponde a Online**, mientras que el **68,1 % del efecto negativo de Mix se concentra en Físico**. En contraste, los aportes positivos de SKUs nuevos y Precio de Lista se asignan mayoritariamente a Online (77,6 % y 80,0 %, respectivamente). Los Descuentos también restan principalmente en ese canal (78,3 %). En conjunto, los efectos positivos amortiguan, pero no revierten, la caída de las Ventas Netas.
+4. **El efecto Mix monetario fue más negativo en Físico.** A pesar de que Online presentó un mayor deterioro de su composición interna, el impacto Mix fue de −$109,82 M en Físico frente a −$51,44 M en Online. Esto se explica porque el efecto también recoge los cambios de participación de cada canal dentro del total de unidades continuas de la empresa. La pérdida de participación de Físico contribuyó a que su impacto fuera más negativo.
+
+5. **Las nuevas combinaciones compensaron parcialmente la caída.** Aportaron +$101,30 M en Online y +$29,17 M en Físico. Sin embargo, esta compensación no fue suficiente para contrarrestar los efectos negativos de Volumen y Mix en ninguno de los canales.
+
+6. **Mayor deterioro financiero relativo en Físico, pero mayor contribución monetaria de Online.** Las ventas netas cayeron un 54,98 % en Físico y un 32,62 % en Online. Sin embargo, debido a su mayor volumen de ventas inicial, Online explicó el 60,55 % de la caída monetaria total, frente al 39,45 % correspondiente a Físico.
+
+**Conclusión:** La caída de ventas netas afectó a ambos canales, pero con dinámicas diferentes. Físico presentó la mayor contracción operativa y financiera relativa, mientras que Online concentró la mayor parte de la pérdida monetaria total. En ambos casos, la contracción de las unidades continuas y el cambio desfavorable en la composición de las ventas fueron los principales factores negativos.
 
 <br>
 
