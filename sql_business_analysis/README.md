@@ -160,19 +160,23 @@ El diagnóstico identifica dos problemas relacionados, pero diferentes: una fuer
 
 <br>
 
-#### 🔹 Síntesis
+#### 🔹 Síntesis ejecutiva
 
-Las **Ventas Netas disminuyeron $634,8 M (−38,85 %) entre 2025 y 2026**. Los principales factores negativos fueron Volumen (−$614,9 M) y Mix (−$161,3 M). Los SKUs nuevos (+$130,5 M) y el Precio de Lista (+$37,8 M) compensaron parcialmente la caída, mientras que los Descuentos tuvieron un impacto negativo adicional de $26,8 M.
+Entre 2025 y 2026, las **Ventas Netas disminuyeron $634,8 M (−38,85 %)**. La principal incidencia fue el efecto Volumen (−$614,9 M), que distribuye la contracción global de unidades continuas entre las distintas combinaciones producto × canal. El Mix profundizó la caída en otros **$161,3 M**, mientras que los SKUs nuevos (+$130,5 M) y el efecto neto de Precio de Lista y Descuentos (+$11,0 M) compensaron parcialmente el deterioro.
 
-Por canal, **Online concentró el 60,55 % de la pérdida monetaria**, mientras que **Físico presentó la mayor contracción proporcional**: sus Ventas Netas cayeron un 54,98 %, frente al 32,62 % de Online.
+**El canal Físico sufrió la mayor contracción operativa:** sus unidades continuas cayeron 56,87 %, frente al 29,78 % de Online. Esto produjo un desplazamiento de 8,94 puntos porcentuales en la participación de las unidades continuas hacia Online. Sin embargo, la composición interna de la canasta se deterioró más en Online (−17,40 %) que en Físico (−11,31 %). Esta diferencia ayuda a explicar por qué el impacto monetario del Mix fue más negativo en Físico (−$109,8 M frente a −$51,4 M en Online): además de la composición de cada canal, intervino el desplazamiento de participación entre ambos.
 
-> **Nota metodológica general:** Las combinaciones se clasifican a nivel de producto × canal: son continuas si registran unidades en ambos períodos, nuevas si aparecen en 2026 y descontinuadas si solo registran unidades en 2025. El puente descompone la variación de Ventas Netas en efectos de Volumen, Mix, Precio de Lista, Descuentos y cambios en el portafolio. Los importes se expresan en millones de pesos y están redondeados.
+**A nivel de categorías, TV y Video concentra el principal problema:** perdió $434,4 M y explicó el 68,43 % de la caída global. Sus combinaciones perdieron participación relativa en ambos canales. En Online, esto se combinó con un abaratamiento de la canasta (−7,19 %); en Físico, en cambio, la canasta aumentó su valor (+1,47 %), por lo que el Mix negativo responde principalmente a la pérdida de participación relativa. Telefonía (−$104,6 M) y Computación (−$96,0 M) fueron los siguientes focos: también perdieron participación en ambos canales, aunque el deterioro de la canasta no fue generalizado; destaca especialmente Computación Físico, donde coincidieron ambos factores desfavorables.
+
+En contraste, **Hogar Online y Audio Online mejoraron su posición relativa**: sus unidades continuas cayeron menos que el promedio global —o incluso crecieron, en el caso de Hogar— y sus canastas aumentaron de valor. Esto generó efectos Mix positivos. Audio Online también recibió un aporte importante de los SKUs nuevos (+$64,3 M), mientras que Hogar Online creció sin nuevas combinaciones.
 
 <br>
 
-#### 🔸 Q2.A — Puente de Ventas Netas: Nivel Empresa
+#### 🔸 Q2.A — Puente de Ventas Netas: Nivel Empresa  
 
-[Ver Consulta SQL →](./sql_business_analysis/q2a_puente_ventas_netas_total.sql)
+[Ver Consulta SQL →](./sql_business_analysis/q2a_puente_ventas_netas_total.sql)  
+
+#### 🔹 Resultados
 
 #### Contexto operativo y financiero
 
@@ -227,21 +231,17 @@ El efecto Precio de Lista aportó **+$37,8 M**, mientras que el efecto Descuento
 
 #### Contexto operativo y financiero 
 
-| Indicador               |                                 Online |                               Físico |
-| :---------------------- | -------------------------------------: | -----------------------------------: |
-| Unidades Totales        |           3.368 → 3.009 (**−10,66 %**) |           1.378 → 769 (**−44,19 %**) |
-| Unidades Continuas      |           3.368 → 2.365 (**−29,78 %**) |           1.375 → 593 (**−56,87 %**) |
-| Unidades Nuevas         |                                    644 |                                  176 |
-| Unidades Descontinuadas |                                      0 |                                    3 |
-| Ventas Brutas           | $1.214,64 M → $845,08 M (**−30,43 %**) | $469,77 M → $218,93 M (**−53,40 %**) |
-| Tasa de Descuento       |         2,98 % → 6,04 % (**+3,06 pp**) |       3,03 % → 6,31 % (**+3,29 pp**) |
-| Ventas Netas            | $1.178,38 M → $794,01 M (**−32,62 %**) | $455,55 M → $205,10 M (**−54,98 %**) |
-
-
-| Indicador                                            |                                   Online |                                   Físico |
-| :--------------------------------------------------- | ---------------------------------------: | ---------------------------------------: |
-| Participación en unidades continuas                  |         71,01 % → 79,95 % (**+8,94 pp**) |         28,99 % → 20,05 % (**−8,94 pp**) |
-| Valor unitario promedio de la canasta (precios 2025) | $349.876,03 → $288.992,73 (**−17,40 %**) | $331.193,79 → $293.739,93 (**−11,31 %**) |
+| Indicador                                            |                                 Online |                               Físico |
+| :--------------------------------------------------- | -------------------------------------: | -----------------------------------: |
+| Unidades Totales                                     |           3.368 → 3.009 (**−10,66 %**) |           1.378 → 769 (**−44,19 %**) |
+| Unidades Continuas                                   |           3.368 → 2.365 (**−29,78 %**) |           1.375 → 593 (**−56,87 %**) |
+| Participación en unidades continuas                  | 71,01 % → 79,95 % (**+8,94 pp**) | 28,99 % → 20,05 % (**−8,94 pp**) |
+| Unidades Nuevas                                      |                                    644 |                                  176 |
+| Unidades Descontinuadas                              |                                      0 |                                    3 |
+| Valor de la canasta                                  | $349.876,03 → $288.992,73 (**−17,40 %**) | $331.193,79 → $293.739,93 (**−11,31 %**) |
+| Ventas Brutas                                        | $1.214,64 M → $845,08 M (**−30,43 %**) | $469,77 M → $218,93 M (**−53,40 %**) |
+| Tasa de Descuento                                    |         2,98 % → 6,04 % (**+3,06 pp**) |       3,03 % → 6,31 % (**+3,29 pp**) |
+| Ventas Netas                                         | $1.178,38 M → $794,01 M (**−32,62 %**) | $455,55 M → $205,10 M (**−54,98 %**) |
 
 > El valor unitario promedio de la canasta se calcula utilizando los precios netos de referencia de 2025. Su variación refleja cambios en la composición de las unidades continuas, no variaciones de precios reales.
 
@@ -290,7 +290,7 @@ Las Ventas Netas cayeron un **54,98 % en Físico** y un **32,62 % en Online**. S
 
 <br>
 
-### 🔸 Q2.C — Puente de Ventas Netas por Categoría × Canal
+#### 🔸 Q2.C — Puente de Ventas Netas por Categoría × Canal
 
 [Ver Consulta SQL →](https://claude.ai/chat/sql_business_analysis/q2c_puente_ventas_netas_categoria_canal.sql)
 
@@ -317,9 +317,7 @@ Las Ventas Netas cayeron un **54,98 % en Físico** y un **32,62 % en Online**. S
 
 #### Qué efectos la explican
 
-Importes en millones de pesos.
-
-| Categoría   | Canal  | Unidades continuas (var. %) | Valor de la canasta (var. %) |   Volumen |      Mix | SKUs nuevos | Precio y descuentos (efecto neto) |
+| Categoría   | Canal  | Unidades continuas (var. %) | Valor de la canasta (var. %) |   Volumen |      Mix | SKUs Nuevos | Precio y Descuentos (efecto neto) |
 | ----------- | ------ | --------------------------: | ---------------------------: | --------: | -------: | ----------: | --------------------------------: |
 | TV y Video  | Online |                     −44,58% |                       −7,19% | −$237,2 M | −$68,9 M |           — |                           +$3,8 M |
 | TV y Video  | Físico |                     −62,38% |                       +1,47% |  −$81,7 M | −$52,5 M |     +$1,0 M |                           +$1,1 M |
