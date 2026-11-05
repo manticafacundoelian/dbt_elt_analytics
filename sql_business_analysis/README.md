@@ -393,6 +393,92 @@ Q2 descompone la variación de las Ventas Netas a nivel empresa, canal y categor
 
 </details>
 
+#### ├─ 🔹 Q3 — Descomposición del Ticket Comercial y Comportamiento de Compra por Canal: ¿Por qué cae la facturación por pedido?  
+
+<details>
+<summary><strong>Ver desarrollo de Q3</strong></summary>
+
+<br>
+
+#### 🔹 Síntesis ejecutiva
+
+Entre 2025 y 2026, los pedidos crecieron un 4,30%, pero las Ventas Netas Comerciales cayeron un 38,85%. La explicación está en el deterioro del Ticket Comercial, que disminuyó un 41,37%: en promedio, cada pedido pasó a contener menos unidades y cada unidad generó un menor valor de venta.
+
+Ambos componentes mostraron retrocesos de magnitud similar: las Unidades por Pedido (UPT) cayeron un 23,67% y el Precio Unitario Promedio (ASP) un 23,18%. El fenómeno también se observa en los dos canales. Aunque Online incrementó su participación en los pedidos y registró más operaciones, su ticket cayó un 42,95%. En Físico, tanto los pedidos como el ticket retrocedieron.
+
+Por lo tanto, el deterioro del Ticket Comercial no se limita a un canal específico: se observa tanto en Online como en Físico y responde al retroceso simultáneo de las unidades por pedido y del valor promedio por unidad.
+
+<br>
+
+#### 🔸 Q3.A — Descomposición del Ticket Comercial (UPT vs. ASP)
+
+[Ver Consulta SQL →](./sql_business_analysis/q3a_descomposicion_ticket_comercial.sql) 
+
+#### 🔹 Resultados
+
+**¿Cómo evolucionaron los componentes del Ticket Comercial?**
+
+| Métrica                        |       2024 |       2025 | Var. 2025 |     2026 | Var. 2026 |
+| ------------------------------ | ---------: | ---------: | --------: | -------: | --------: |
+| Pedidos                        |      1.365 |      1.581 |   +15,82% |    1.649 |    +4,30% |
+| Unidades Totales               |      3.946 |      4.746 |   +20,27% |    3.778 |   −20,41% |
+| Ventas Netas Comerciales       | $1.290,5 M | $1.633,9 M |   +26,62% | $999,1 M |   −38,85% |
+| Unidades por Pedido (UPT)      |       2,89 |       3,00 |    +3,81% |     2,29 |   −23,67% |
+| Precio Unitario Promedio (ASP) |   $327.032 |   $344.275 |    +5,27% | $264.456 |   −23,18% |
+| Ticket Promedio Comercial      |   $945.397 | $1.033.477 |    +9,32% | $605.891 |   −41,37% |
+
+#### 🔹 Hallazgos
+
+El Ticket Comercial cayó un 41,37% en 2026, después de haber crecido durante 2025. El retroceso se explica por dos movimientos simultáneos: los pedidos pasaron a contener menos unidades (UPT −23,67%) y cada unidad generó un menor valor promedio (ASP −23,18%).
+
+Esto permite entender por qué el leve crecimiento de los pedidos (+4,30%) no alcanzó para sostener las ventas: se realizaron más operaciones, pero con una facturación promedio considerablemente menor.
+
+<br>
+
+#### 🔸 Q3.B — Comportamiento de Compra por Canal  
+
+[Ver Consulta SQL →](./sql_business_analysis/q3b_ticket_comercial_canal.sql) 
+
+#### 🔹 Resultados
+
+**¿El deterioro del Ticket Comercial se concentra en algún canal?**
+
+| Canal  |     Pedidos 2025 → 2026 |   Participación en pedidos | UPT (var. interanual) | Ticket Comercial 2025 → 2026 | Var. Ticket | ASP Neto 2025 → 2026 | Var. ASP | Tasa de Descuento 2025 → 2026 |
+| ------ | ----------------------: | -------------------------: | --------------------: | ---------------------------: | ----------: | -------------------: | -------: | ----------------------------: |
+| Online | 1.116 → 1.318 (+18,10%) | 70,59% → 79,93% (+9,34 pp) |               −24,35% |        $1.055.898 → $602.436 |     −42,95% |  $349.876 → $263.879 |  −24,58% |      2,98% → 6,04% (+3,06 pp) |
+| Físico |     465 → 331 (−28,82%) | 29,41% → 20,07% (−9,34 pp) |               −21,60% |          $979.667 → $619.651 |     −36,75% |  $330.584 → $266.716 |  −19,32% |      3,03% → 6,31% (+3,29 pp) |
+
+#### 🔹 Hallazgos
+
+* **El Ticket Comercial cayó en ambos canales.** La disminución fue mayor en Online (−42,95%) que en Físico (−36,75%). Por lo tanto, el deterioro no puede atribuirse exclusivamente a la evolución de uno de ellos.
+
+* **Los dos componentes del ticket retrocedieron simultáneamente.** En Online, las Unidades por Pedido cayeron un 24,35% y el ASP un 24,58%. En Físico, las variaciones fueron de −21,60% y −19,32%, respectivamente.
+
+* **Online ganó participación en los pedidos, pero eso no evitó la caída del ticket.** Su participación pasó del 70,59% al 79,93%, mientras que Físico perdió 9,34 puntos porcentuales. Sin embargo, el Ticket Comercial disminuyó en los dos canales: el cambio en la distribución de pedidos no explica por sí solo el deterioro de la facturación promedio.
+
+* **Las tasas de descuento aumentaron en ambos canales.** Subieron 3,06 puntos porcentuales en Online y 3,29 en Físico. Es un cambio comercial relevante que acompaña el deterioro del ASP, aunque estos resultados no permiten aislar cuánto de su variación corresponde directamente al efecto de los descuentos.
+
+<br>
+
+#### 🔹 Consideraciones metodológicas
+
+* **Ticket Comercial:** se calcula como Ventas Netas Comerciales divididas por la cantidad de pedidos.
+* **Unidades por Pedido (UPT):** representa la cantidad promedio de unidades contenidas en cada pedido.
+* **Precio Unitario Promedio (ASP):** se calcula como Ventas Netas Comerciales divididas por las unidades totales.
+* **Relación entre componentes:** el Ticket Comercial resulta de multiplicar UPT por ASP. Por eso, su variación refleja el efecto conjunto de ambos indicadores.
+* **Análisis por canal:** las participaciones representan la distribución del total de pedidos entre Online y Físico. Las métricas de ticket y ASP se calculan para cada canal por separado.
+* **Variaciones interanuales:** comparan 2025 contra 2024 y 2026 contra 2025, según corresponda. Los cambios expresados en puntos porcentuales (pp) corresponden a diferencias entre tasas o participaciones.
+
+<br>
+
+#### 🔹 Puente analítico → Q4
+
+Q3 identifica los dos componentes que explican la caída del Ticket Comercial: menos unidades por pedido y menor valor promedio por unidad. Q4 profundiza este segundo componente para investigar qué factores explican el deterioro del ASP, distinguiendo los efectos asociados a precios, descuentos y composición de las ventas.
+
+<br>
+</details>
+
+
 #### ├─ 🔹 Q3 — Descomposición del Ticket Comercial y Comportamiento de Compra por Canal: ¿Por qué cae la facturación por pedido?
 
 <details>
