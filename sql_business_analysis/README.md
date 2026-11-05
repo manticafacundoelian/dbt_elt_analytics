@@ -393,7 +393,7 @@ Q2 descompone la variación de las Ventas Netas a nivel empresa, canal y categor
 
 </details>
 
-#### ├─ 🔹 Q3 — Descomposición del Ticket y Comportamiento Omnicanal: ¿Por qué cae la facturación por pedido?
+#### ├─ 🔹 Q3 — Descomposición del Ticket Comercial y Comportamiento de Compra por Canal: ¿Por qué cae la facturación por pedido?
 
 <details>
 <summary><strong>Ver desarrollo de Q3</strong></summary>  
