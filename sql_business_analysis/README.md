@@ -153,7 +153,7 @@ El diagnóstico identifica dos problemas relacionados, pero diferentes: una fuer
 
 </details>
 
-#### ├─ 🔹 Descomposición de la variación de Ventas Netas: ¿Qué factores explican la caída y dónde se concentra el deterioro?
+#### ├─ 🔹 Q2 — Descomposición de la variación de Ventas Netas: ¿Qué factores explican la caída y dónde se concentra el deterioro?
 
 <details>
 <summary><strong>Ver desarrollo de Q2</strong></summary>
