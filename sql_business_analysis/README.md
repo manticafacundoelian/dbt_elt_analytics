@@ -4489,3 +4489,182 @@ El corte 1S/2S captura así el tramo más empinado de la rampa: el 1S26 ya inclu
 </details>
 
 </details>
+
+---
+
+#### ├─ 🔹 Q5 — ¿Qué explica y dónde se concentra el deterioro de la Ganancia Bruta durante el segundo semestre de 2026?
+
+<details>
+<summary><strong>Ver desarrollo de Q5</strong></summary>
+<br>
+
+####  ¿Por qué el análisis se realiza entre 1S y 2S de 2026?
+
+En 2026, la Ganancia Bruta cayó **59,75%** frente a 2025 (-$185,36 M), bastante más que las Ventas Netas Finales (-41,22%) (Q4). Sin embargo, el resultado anual oculta una evolución muy desigual: el margen bruto pasó de **19,63% en 2025 a 18,35% en el 1S de 2026 y 6,28% en el 2S**.
+
+De los -$57,48 M atribuidos a la compresión del margen en el análisis anual, **$50,42 M (88%) corresponden al 2S**, frente a $7,06 M (12%) al 1S. Esto permite identificar dónde se concentró el deterioro de la rentabilidad durante 2026 y justifica profundizar en la comparación semestral.
+
+La evolución mensual refuerza esta lectura: durante 2025 el margen se mantuvo relativamente estable (entre 18,31% y 21,18%), mientras que en 2026 comenzó a deteriorarse desde enero y la caída se aceleró durante el segundo semestre. En diciembre, el costo unitario se ubicó un **31,65% por encima de 2025**, frente a un aumento del precio de lista del 11,31%.
+
+> *Como referencia, el análisis anual atribuyó el 68,99% de la caída de Ganancia Bruta al efecto escala y el 31,01% a la compresión del margen. El puente anual también mostró una incidencia negativa del costo (-$64,51 M), parcialmente compensada por el efecto positivo del precio (+$10,01 M). Cada semestre de 2026 se compara con el margen promedio de 2025, ya que el análisis anual no se desagregó semestralmente.*
+
+#### 🔸 Síntesis Ejecutiva 
+
+Entre el 1S y el 2S de 2026, la Ganancia Bruta cayó un **76,56% (-$77,44 M)**, pasando de $101,15 M a $23,71 M, bastante más que las ventas netas (-31,49%). La diferencia es una compresión del margen bruto, que se contrajo de 18,35% a 6,28%, una pérdida de 12,07 puntos porcentuales.
+
+La caída no se explica por una contracción generalizada de las unidades comercializadas: las unidades continuas prácticamente se mantuvieron estables (-0,36%) y el efecto volumen fue marginal. La descomposición escala–margen muestra que predominó la compresión del margen (58,87%), por encima del efecto escala (41,13%). El problema central fue, por lo tanto, la pérdida de rentabilidad de la actividad comercial, más que una reducción de las cantidades vendidas.
+
+Los principales factores negativos fueron el **aumento de los costos (-$43,35 M)**, el **deterioro de la mezcla de productos (-$26,40 M)** y el **incremento de los descuentos (-$18,20 M)**, que en conjunto equivalen al 113,6% de la caída; el aumento de los precios de lista (+$18,92 M) compensó el 24,4%. El análisis Like for Like confirma la presión sobre los márgenes: los costos unitarios aumentaron un 15,48% en las 78 combinaciones continuas analizadas, mientras que el precio neto apenas creció un 0,21%, porque los aumentos de lista (+5,43%) fueron neutralizados por el incremento de la tasa de descuento (+4,75 pp).
+
+**El mecanismo fue el mismo en ambos canales y con intensidad casi idéntica** (costo unitario +15,57% en Online y +15,11% en Físico; precio neto +0,24% y +0,08%). Online concentró el **77,71%** de la pérdida de Ganancia Bruta, en línea con su peso en la ganancia del 1S (78,70%). Físico cayó más en términos relativos (-80,11% frente a -75,60%) por las combinaciones que dejó de vender, no por un deterioro más intenso: considerando solo las combinaciones continuas, las caídas fueron -72,12% en Físico y -72,86% en Online.
+
+**Por categoría, la escala y el margen cuentan historias distintas.** En pesos, TV y Video, Computación y Telefonía explicaron en conjunto el **83,03%** de la caída. Desde el margen, TV y Video y Audio explican el **65,97%** de la pérdida de 12,07 pp: TV y Video por su escala (48,27% de las ventas del 1S) y el colapso de su margen a 0,12%; Audio porque duplicó con creces su peso (de 12,31% a 28,96% de las ventas) mientras su margen caía de 22,02% a 6,90%. Crecer en unidades no garantizó rentabilidad: Audio y Hogar vendieron más y aun así redujeron su Ganancia Bruta.
+
+---
+
+<details>
+<summary><strong>Ver consultas, resultados y hallazgos</strong></summary>
+<br>
+
+
+#### 🔹 Q5.A — ¿Qué pasó? Actividad y rentabilidad (1S vs. 2S 2026):
+
+####  🔸 Consulta
+
+Acá poner ver consulta que lleve al archivo de la query
+
+####  🔸 Resultados
+
+#### Desempeño Comercial y Rentabilidad 
+
+| Entidad | Indicador | 1S 2026 | 2S 2026 | Variación | Variación % |
+| :--- | :--- | ---: | ---: | ---: | ---: |
+| **Total Empresa** | **Unidades Totales Efectivas** | **1.719** | **1.816** | **+97** | **+5,64%** |
+| | **Ventas Netas Finales** | **$551,22 M** | **$377,64 M** | **-$173,58 M** | **-31,49%** |
+| | **Ganancia Bruta** | **$101,15 M** | **$23,71 M** | **-$77,44 M** | **-76,56%** |
+| | **Margen Bruto** | **18,35%** | **6,28%** | **-12,07 pp** | — |
+| **Online** | Unidades Totales Efectivas | 1.349 | 1.465 | +116 | +8,60% |
+| | Ventas Netas Finales | $435,39 M | $300,06 M | -$135,33 M | -31,08% |
+| | Ganancia Bruta | $79,60 M | $19,43 M | -$60,17 M | -75,60% |
+| | Margen Bruto | 18,28% | 6,47% | -11,81 pp | — |
+| **Físico** | Unidades Totales Efectivas | 370 | 351 | -19 | -5,14% |
+| | Ventas Netas Finales | $115,83 M | $77,58 M | -$38,24 M | -33,02% |
+| | Ganancia Bruta | $21,55 M | $4,29 M | -$17,26 M | -80,11% |
+| | Margen Bruto | 18,60% | 5,52% | -13,08 pp | — |
+
+#### Dinámica y Composición de Unidades 
+
+| Desglose de Unidades | Total Empresa | Online | Físico |
+| :--- | ---: | ---: | ---: |
+| **Unidades 1S 2026** | **1.719** | **1.349** | **370** |
+| **Unidades 2S 2026** | **1.816** | **1.465** | **351** |
+| **Variación Total (u. / %)** | **+97 (+5,64%)** | **+116 (+8,60%)** | **-19 (-5,14%)** |
+| **Unidades Continuas (1S → 2S)** | **1.687 → 1.681** | **1.343 → 1.361** | **344 → 320** |
+| Variación de Continuas (u. / %) | -6 (-0,36%) | +18 (+1,34%) | -24 (-6,98%) |
+| **Unidades en combinaciones solo 2S** | **135** | **104** | **31** |
+| ↳ Producto nuevo | 130 | 104 | 26 |
+| ↳ Canal nuevo (producto existente) | 5 | 0 | 5 |
+| **Unidades en combinaciones solo 1S** | **32** | **6** | **26** |
+| ↳ Producto discontinuado | 3 | 2 | 1 |
+| ↳ Canal cerrado (producto existente) | 29 | 4 | 25 |
+
+> **Nota metodológica:** La unidad de análisis es la combinación `producto × canal`. Las combinaciones continuas registraron unidades en ambos semestres; las combinaciones solo 1S o solo 2S aparecen en un único período. Estas últimas no implican necesariamente productos discontinuados o nuevos: también pueden corresponder a productos que dejaron de venderse en un canal o comenzaron a comercializarse en otro.
+
+####  🔸 Hallazgos Q5.A
+
+- **Cayó la rentabilidad, no la actividad:** las ventas bajaron un 31,49% y la Ganancia Bruta un **76,56% (-$77,44 M)** porque el margen pasó de 18,35% a 6,28% (-12,07 pp). Las unidades totales incluso subieron (+97; +5,64%) y las continuas variaron apenas -0,36%: el aumento proviene de combinaciones que solo vendieron en el 2S (135 unidades, 130 de producto nuevo), por encima de las 32 que solo vendieron en el 1S.
+- **Ambos canales perdieron rentabilidad en magnitud similar:** el margen cayó de 18,28% a 6,47% en Online (-11,81 pp) y de 18,60% a 5,52% en Físico (-13,08 pp). Online aportaba el 78,70% de la Ganancia Bruta del 1S ($79,60 M de $101,15 M), por eso concentra la mayor parte de la pérdida en pesos (77,71%).
+- **La diferencia de actividad entre canales está en Físico:** vendió menos unidades (-5,14%; -6,98% en las continuas) y concentra los cierres de canal (25 de las 29 unidades de combinaciones cerradas), mientras Online creció +8,60%.
+
+---
+
+#### 🔹 Q5.B — ¿Qué factores explican la caída? Puente de Ganancia Bruta:
+
+####  🔸 Consulta
+
+Acá poner ver consulta que lleve al archivo de la query
+
+####  🔸 Resultados
+
+#### Descomposición de Ganancia Bruta: Escala y Margen 
+
+| Entidad | Efecto Escala | Participación en la caída | Efecto Compresión del Margen | Participación en la caída |
+| :--- | ---: | ---: | ---: | ---: |
+| **Total Empresa** | **-$31,85 M** | **41,13%** | **-$45,59 M** | **58,87%** |
+| Online | -$24,74 M | 41,12% | -$35,43 M | 58,88% |
+| Físico | -$7,12 M | 41,22% | -$10,15 M | 58,78% |
+
+#### Puente detallado de Ganancia Bruta (1S vs. 2S 2026)
+
+| Concepto | Total Empresa Impacto | Total Empresa % | Online Impacto | Online % | Físico Impacto | Físico % |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Ganancia Bruta 1S** | **$101,15 M** | | **$79,60 M** | | **$21,55 M** | |
+| Efecto Volumen | -$0,34 M | 0,44% | -$0,28 M | 0,46% | -$0,06 M | 0,35% |
+| Efecto Mezcla de Canales | +$0,22 M | -0,28% | +$1,33 M | -2,21% | -$1,11 M | 6,44% |
+| Efecto Mezcla de Productos | -$26,40 M | 34,11% | -$24,02 M | 39,92% | -$2,38 M | 13,78% |
+| Efecto Precio de Lista | +$18,92 M | -24,44% | +$15,16 M | -25,20% | +$3,76 M | -21,78% |
+| Efecto Descuentos | -$18,20 M | 23,51% | -$14,50 M | 24,10% | -$3,70 M | 21,45% |
+| Efecto Costo | -$43,35 M | 55,99% | -$34,74 M | 57,74% | -$8,61 M | 49,89% |
+| Efecto Solo 2S | -$2,22 M | 2,86% | -$1,82 M | 3,03% | -$0,39 M | 2,28% |
+| Efecto Solo 1S | -$6,06 M | 7,83% | -$1,30 M | 2,16% | -$4,76 M | 27,60% |
+| **Variación de Ganancia Bruta** | **-$77,44 M** | **100,00%** | **-$60,17 M** | **100,00%** | **-$17,26 M** | **100,00%** |
+| **Ganancia Bruta 2S** | **$23,71 M** | | **$19,43 M** | | **$4,29 M** | |
+
+####  🔸 Hallazgos Q5.B
+
+- **Costo, mezcla de productos y descuentos explican más que la caída total:** el costo (-$43,35 M; 55,99%), la mezcla de productos (-$26,40 M; 34,11%) y los descuentos (-$18,20 M; 23,51%) suman el 113,6% de la caída. El precio de lista aportó +$18,92 M, pero los descuentos lo neutralizaron casi por completo (neto +$0,72 M), así que los precios no compensaron el aumento del costo. Solo 2S y Solo 1S restaron un 10,69% adicional (-$8,28 M).
+- **El volumen no es parte del problema:** el efecto volumen fue -$0,34 M (0,44%) y la mezcla de canales +$0,22 M. El efecto escala de la descomposición (41,13%) refleja el arrastre proporcional de menores ventas sobre la ganancia y no debe confundirse con el efecto volumen del puente.
+- **El mecanismo es el mismo en ambos canales, con una diferencia de composición:** el costo es el principal efecto en los dos (57,74% en Online y 49,89% en Físico) y la división escala–margen es casi idéntica (41,12% / 58,88% frente a 41,22% / 58,78%). Online concentra el efecto de mezcla de productos (-$24,02 M, 91% del total de la empresa), mientras que en Físico pesa el cierre de combinaciones (Solo 1S: -$4,76 M, 27,60% de su caída), lo que explica que caiga más en términos relativos (-80,11% frente a -75,60%).
+
+---
+
+#### 🔹 Q5.C — ¿Se confirma con precios y costos? Validación Like-for-Like:
+
+####  🔸 Consulta
+
+Acá poner ver consulta que lleve al archivo de la query
+
+####  🔸 Resultados
+
+El análisis Like-for-Like compara las mismas combinaciones `producto × canal` que registraron unidades en ambos semestres. Se analizaron **78 combinaciones**, distribuidas en **43 de Online y 35 de Físico**, que representan el **100% de las unidades continuas** de ambos períodos.
+
+Las variaciones se ponderan con la canasta del 2S, la misma utilizada en el puente: unidades del 2S × precio o costo unitario del 1S para el precio neto, el precio de lista y el costo; y ventas de lista del 2S para la tasa de descuento. Por este motivo, la tasa de descuento del 1S se mide sobre esa misma canasta y puede diferir de la tasa efectiva observada en dicho semestre.
+
+De esta manera, las variaciones ponderadas permiten vincular los cambios porcentuales con los efectos monetarios identificados en el puente. Como prueba de robustez, utilizando la canasta del 1S la lectura general se mantiene: precio neto -0,16%, costo unitario +13,47% y tasa de descuento de 4,04% a 8,58%.
+
+#### Evolución de precios, descuentos y costos
+
+| Entidad | Indicador | Variación ponderada | Mediana | Comportamiento de las combinaciones |
+| :--- | :--- | ---: | ---: | :--- |
+| **Total Empresa** | **Precio de Lista** | **+5,43%** | +5,29% | 78 subieron / 0 bajaron |
+| | **Tasa de Descuento** | **+4,75 pp** | +4,45 pp | 73 aumentaron / 5 disminuyeron |
+| | **Precio Neto** | **+0,21%** | +0,22% | 40 subieron / 38 bajaron |
+| | **Costo Unitario** | **+15,48%** | +13,93% | 78 subieron / 0 bajaron |
+| **Online** | Precio de Lista | +5,45% | +5,07% | 43 subieron / 0 bajaron |
+| | Tasa de Descuento | +4,74 pp | +4,58 pp | 42 aumentaron / 1 disminuyó |
+| | Precio Neto | +0,24% | +0,33% | 22 subieron / 21 bajaron |
+| | Costo Unitario | +15,57% | +13,55% | 43 subieron / 0 bajaron |
+| **Físico** | Precio de Lista | +5,36% | +5,36% | 35 subieron / 0 bajaron |
+| | Tasa de Descuento | +4,80 pp | +4,31 pp | 31 aumentaron / 4 disminuyeron |
+| | Precio Neto | +0,08% | +0,11% | 18 subieron / 17 bajaron |
+| | Costo Unitario | +15,11% | +14,19% | 35 subieron / 0 bajaron |
+
+#### Evolución de la Tasa de Descuento
+
+| Entidad | Tasa de Descuento 1S | Tasa de Descuento 2S | Variación |
+| :--- | ---: | ---: | ---: |
+| **Total Empresa** | **4,09%** | **8,84%** | **+4,75 pp** |
+| Online | 4,09% | 8,83% | +4,74 pp |
+| Físico | 4,07% | 8,87% | +4,80 pp |
+
+####  🔸 Hallazgos Q5.C
+
+- **El costo subió en todas las combinaciones:** +15,48% ponderado (mediana +13,93%) y ninguna de las 78 combinaciones bajó. Que el promedio ponderado supere a la mediana indica que los aumentos fueron algo mayores en las combinaciones de más peso.
+- **El aumento de lista fue absorbido por los descuentos:** el precio de lista subió +5,43% en las 78 combinaciones, pero la tasa de descuento pasó de 4,09% a 8,84% (+4,75 pp; aumentó en 73 de 78). El resultado fue un precio neto de +0,21%, con 40 combinaciones que subieron y 38 que bajaron: no hubo una mejora de precio sistemática que acompañara al costo.
+- **Los canales no muestran diferencias en el mecanismo:** costo +15,57% en Online y +15,11% en Físico; precio neto +0,24% y +0,08%; tasa de descuento +4,74 pp y +4,80 pp. Las 78 combinaciones representan el 100% de las unidades continuas, por lo que la lectura no depende de una muestra parcial.
+
+---
+
+#### 🔹 Q5.D — ¿Dónde se concentra el problema?
+
+aca iria todo loq ue hagamos de categoria y/o producto
