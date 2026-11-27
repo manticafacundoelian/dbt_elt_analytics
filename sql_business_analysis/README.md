@@ -290,6 +290,113 @@ Las Ventas Netas cayeron un **54,98 % en Físico** y un **32,62 % en Online**. S
 
 <br>
 
+#### 🔸 Q2.C — Diagnóstico de Ventas Netas por Categoría × Canal
+
+[Ver Consulta SQL →](./sql_business_analysis/q2c_puente_ventas_netas_categoria_canal.sql)
+
+#### 🔹 Resultados
+
+#### Dónde se concentra la caída
+
+| Categoría | Canal | Ventas Netas 2025 | Ventas Netas 2026 | Δ Ventas Netas | Variación | Contribución a la caída global |
+| :-- | :-- | --: | --: | --: | --: | --: |
+| **Total Empresa** | **Todos** | **$1.633,9 M** | **$999,1 M** | **−$634,8 M** | **−38,85 %** | **100,00 %** |
+| TV y Video | Online | $630,3 M | $328,0 M | −$302,3 M | −47,96 % | 47,62 % |
+| TV y Video | Físico | $217,0 M | $84,9 M | −$132,1 M | −60,88 % | 20,81 % |
+| Telefonía | Online | $130,2 M | $57,0 M | −$73,1 M | −56,19 % | 11,52 % |
+| Computación | Físico | $79,1 M | $29,0 M | −$50,1 M | −63,33 % | 7,89 % |
+| Computación | Online | $164,0 M | $118,1 M | −$45,9 M | −27,99 % | 7,23 % |
+| Telefonía | Físico | $49,4 M | $18,0 M | −$31,5 M | −63,68 % | 4,96 % |
+| Accesorios | Online | $68,8 M | $49,7 M | −$19,1 M | −27,71 % | 3,00 % |
+| Accesorios | Físico | $28,8 M | $15,9 M | −$12,9 M | −44,94 % | 2,04 % |
+| Hogar | Físico | $32,2 M | $19,5 M | −$12,7 M | −39,47 % | 2,00 % |
+| Audio | Físico | $49,0 M | $37,9 M | −$11,1 M | −22,64 % | 1,75 % |
+| Hogar | Online | $77,7 M | $86,6 M | +$8,9 M | +11,50 % | −1,41 % |
+| Audio | Online | $107,5 M | $154,6 M | +$47,1 M | +43,76 % | −7,41 % |
+
+> La contribución se calcula respecto de la caída global de Ventas Netas. Las combinaciones que crecieron presentan porcentajes negativos porque compensan parcialmente el deterioro de la empresa.
+
+#### Cómo se comporta cada combinación
+
+La siguiente apertura separa la evolución de las combinaciones continuas (unidades, composición y precio neto) del aporte de las combinaciones nuevas.
+
+| Categoría | Canal | Unidades continuas (var. %) | Participación en unidades continuas (2025 → 2026) | Canasta constante (var. %) | Precio neto a mix 2026 (var. %) | Ventas continuas (var. % y Δ) | Ventas nuevas 2026 |
+| :-- | :-- | --: | :--: | --: | --: | --: | --: |
+| **Total Empresa** | **Todos** | **−37,63 %** | **—** | **—** | **—** | **−46,83 % (−$765,1 M)** | **+$130,5 M** |
+| TV y Video | Online | −44,58 % | 12,25 % → 10,89 % (−1,36 pp) | −7,19 % | +1,17 % | −47,96 % (−$302,3 M) | — |
+| TV y Video | Físico | −62,38 % | 4,43 % → 2,67 % (−1,76 pp) | +1,47 % | +1,31 % | −61,33 % (−$133,1 M) | +$1,0 M |
+| Telefonía | Online | −60,21 % | 4,03 % → 2,57 % (−1,46 pp) | +4,43 % | +2,18 % | −57,54 % (−$74,9 M) | +$1,7 M |
+| Computación | Físico | −71,78 % | 5,08 % → 2,30 % (−2,78 pp) | −7,31 % | +0,52 % | −73,71 % (−$58,3 M) | +$8,2 M |
+| Computación | Online | −51,71 % | 11,09 % → 8,59 % (−2,50 pp) | +5,80 % | +1,41 % | −48,19 % (−$79,0 M) | +$33,1 M |
+| Telefonía | Físico | −66,18 % | 1,43 % → 0,78 % (−0,66 pp) | +0,81 % | +1,83 % | −65,28 % (−$32,3 M) | +$0,8 M |
+| Accesorios | Online | −33,87 % | 18,24 % → 19,34 % (+1,10 pp) | +3,33 % | +1,38 % | −30,73 % (−$21,1 M) | +$2,1 M |
+| Accesorios | Físico | −55,46 % | 7,53 % → 5,38 % (−2,15 pp) | +13,92 % | +0,90 % | −48,81 % (−$14,1 M) | +$1,1 M |
+| Hogar | Físico | −40,48 % | 6,20 % → 5,92 % (−0,28 pp) | +1,70 % | +0,46 % | −39,18 % (−$12,6 M) | — |
+| Audio | Físico | −56,59 % | 4,32 % → 3,01 % (−1,31 pp) | −6,92 % | +0,09 % | −59,55 % (−$29,2 M) | +$18,1 M |
+| Hogar | Online | +8,82 % | 14,82 % → 25,86 % (+11,04 pp) | +1,64 % | +0,81 % | +11,50 % (+$8,9 M) | — |
+| Audio | Online | −25,10 % | 10,58 % → 12,71 % (+2,13 pp) | +9,87 % | +1,99 % | −16,08 % (−$17,3 M) | +$64,3 M |
+
+> **Cómo leer la tabla.** Las ventas continuas se abren en tres factores que se multiplican: *unidades continuas × canasta constante × precio neto a mix 2026*. Ejemplo, TV y Video Online: 0,5542 × 0,9281 × 1,0117 = 0,5204, es decir −47,96 %. La **canasta constante** es el valor unitario promedio de las unidades continuas valorizadas a precios netos de 2025 en ambos años: su variación refleja solo cambios de composición. El **precio neto a mix 2026** compara el valor neto unitario efectivo de 2026 con los precios netos de 2025, manteniendo la composición de unidades de 2026: resume el efecto conjunto de precios y descuentos, sin separarlos. La **participación** es el peso de cada combinación en las unidades continuas de la empresa en cada año. Las **ventas nuevas** son combinaciones producto × canal sin ventas en 2025 y con ventas en 2026.
+>
+> **Referencias de la empresa:** unidades continuas −37,63 % y ventas continuas −46,83 %. Una combinación con unidades continuas por debajo de −37,63 % pierde participación; una por encima, la gana.
+
+#### 🔹 Hallazgos
+
+**1. TV y Video concentra la mayor parte del deterioro**
+
+La categoría perdió **$434,4 M** entre ambos canales, el **68,43 % de la caída global**, pese a representar el 51,85 % de las Ventas Netas de 2025. Online explica $302,3 M (47,62 %) y Físico $132,1 M (20,81 %).
+
+Sus unidades continuas disminuyeron más que el promedio de la empresa: **−44,58 % en Online y −62,38 % en Físico**, frente al −37,63 % global. Las combinaciones nuevas casi no compensaron: no hubo nuevas en Online y en Físico aportaron $1,0 M.
+
+La composición se comportó distinto según el canal. En Online la canasta a precios constantes se abarató un **7,19 %**: se combinaron la contracción de unidades y un desplazamiento hacia productos de menor valor. En Físico la canasta subió 1,47 %, por lo que el deterioro estuvo explicado principalmente por la pérdida de unidades.
+
+**2. Telefonía y Computación son los siguientes focos de deterioro, con dinámicas diferentes**
+
+Telefonía perdió **$104,6 M** entre ambos canales (16,48 % de la caída global). Sus unidades continuas cayeron 60,21 % en Online y 66,18 % en Físico, y sus ventas continuas 57,54 % y 65,28 %. La composición y el precio neto a mix amortiguaron parcialmente la caída (canasta +4,43 % y +0,81 %; precio neto +2,18 % y +1,83 %), pero las combinaciones nuevas aportaron apenas $2,5 M entre ambos canales.
+
+Computación perdió **$96,0 M** (15,12 % de la caída global).
+
+En Físico está el caso más crítico de la tabla: las ventas continuas cayeron **73,71 %**, con unidades continuas −71,78 % y una canasta que además se abarató 7,31 %. Las combinaciones nuevas aportaron $8,2 M, insuficientes para compensar.
+
+En Online, las unidades totales crecieron 3,61 % (de 526 a 545), pero las continuas cayeron de 526 a 254 (−51,71 %). La diferencia son las 291 unidades de combinaciones nuevas, que generaron **$33,1 M**. Así, las ventas netas del segmento cayeron $45,9 M, aunque su base continua retrocedió $79,0 M.
+
+**3. Audio Online crece gracias a combinaciones nuevas; Hogar Online, con su base continua**
+
+Audio Online aumentó sus Ventas Netas **$47,1 M (+43,76 %)**, pero sus ventas continuas disminuyeron $17,3 M (−16,08 %) y sus unidades continuas cayeron 25,10 %. El crecimiento lo explican las combinaciones nuevas: **$64,3 M y 316 unidades**.
+
+En Audio Físico, las ventas continuas cayeron $29,2 M (−59,55 %), pero las nuevas aportaron $18,1 M (81 unidades) y la caída total del segmento quedó en $11,1 M (−22,64 %).
+
+Hogar Online creció **$8,9 M (+11,50 %) sin combinaciones nuevas**: sus unidades continuas aumentaron 8,82 % y su canasta constante 1,64 %. Su participación en las unidades continuas de la empresa pasó de 14,82 % a 25,86 % (+11,04 pp). Es la única combinación categoría × canal cuyas ventas continuas crecieron.
+
+Las combinaciones nuevas están concentradas: Audio Online (+$64,3 M), Computación Online (+$33,1 M) y Audio Físico (+$18,1 M) reúnen el **88,6 %** de las ventas nuevas de la empresa.
+
+**4. La composición pesa más que el precio neto**
+
+La canasta constante cayó en tres combinaciones: TV y Video Online (−7,19 %), Computación Físico (−7,31 %) y Audio Físico (−6,92 %). En las demás subió, con el mayor aumento en Accesorios Físico (+13,92 %).
+
+El precio neto a mix 2026, en cambio, es positivo en las doce combinaciones, entre **+0,09 % y +2,18 %**: con la composición de 2026, cada unidad se vendió a un valor neto levemente superior al de 2025. El precio neto promedio por unidad solo cayó en esas mismas tres combinaciones (**−6,10 %, −6,84 % y −6,83 %**), por lo que esa caída viene de la composición y no de una baja del valor neto unitario.
+
+La tasa de descuento de las combinaciones continuas subió en todas, entre **+0,95 y +4,28 pp** (de 2,78 %–3,32 % en 2025 a 4,27 %–7,56 % en 2026). Con precio neto igual o mayor y más descuento, los precios de lista habrían subido; este indicador no separa precio de lista y descuento, eso se desarrolla en el puente de Q2.A.
+
+#### Consideraciones metodológicas
+
+* Q2.C no construye un nuevo puente aditivo: localiza la caída por categoría × canal y abre cada variación en continuas, nuevas y descontinuadas. Las causas (Volumen, Mix, Precio y Descuentos) se explican en Q2.A y Q2.B.
+* La clasificación en continuas, nuevas y descontinuadas se hace por producto × canal y luego se agrupa por categoría × canal. Una combinación nueva es un producto sin ventas en ese canal en 2025 y con ventas en 2026; no implica necesariamente un producto recién lanzado.
+* **Conciliación:** Δ Ventas Netas = Δ ventas continuas + ventas nuevas + descontinuadas (−$765,1 M + $130,5 M − $0,2 M = −$634,8 M). Las descontinuadas son solo de Hogar Físico (−$0,15 M) y no se muestran. La consulta incluye el control `diferencia_conciliacion`, que da 0,00 en las doce filas.
+* La fila **Total Empresa** es la suma de las doce combinaciones; la consulta trae una variante comentada que la calcula.
+* Las participaciones en la caída global se calculan sobre la variación total de Ventas Netas; los porcentajes negativos corresponden a combinaciones que compensan parcialmente la caída.
+
+<br>
+
+#### 🔹 Puente analítico → Q3
+
+Q2 mide cuánto cayeron las Ventas Netas, qué efectos pesan a nivel empresa y canal, y dónde se concentra la caída por categoría × canal.
+
+**Q3 cambia la unidad de análisis:** pasa del valor monetario total al comportamiento por pedido, examinando la evolución del **Ticket Comercial** mediante **órdenes, UPT y ASP**, y profundizando además en la evolución de cada canal.
+
+<br>
+</details>
+
 #### 🔸 Q2.C — Ventas Netas por Categoría × Canal
 
 [Ver Consulta SQL →](./sql_business_analysis/q2c_puente_ventas_netas_categoria_canal.sql)
@@ -466,16 +573,6 @@ Por otra parte, la tasa de descuento de las combinaciones continuas aumentó en 
 * La tasa de descuento de las combinaciones continuas se calcula como descuentos sobre ventas brutas de ese mismo conjunto. Es un indicador agregado ponderado y puede verse afectado por cambios de composición entre productos.
 * Las participaciones en la caída global se calculan sobre la variación total de Ventas Netas. Los porcentajes negativos corresponden a combinaciones que crecieron y compensaron parcialmente la caída.
 * La variación de Ventas Netas concilia con la variación de ventas continuas, más las ventas de combinaciones nuevas y menos las ventas de combinaciones descontinuadas. La única descontinuación se produjo en Hogar Físico: 3 unidades y $0,15 M.
-
-#### 🔹 Puente analítico → Q3
-
-Q2 mide cuánto cayeron las Ventas Netas, qué efectos pesan a nivel empresa y canal, y dónde se concentra la caída por categoría × canal.
-
-**Q3 cambia la unidad de análisis:** pasa del valor monetario total al comportamiento por pedido, examinando la evolución del **Ticket Comercial** mediante **órdenes, UPT y ASP**, y profundizando además en la evolución de cada canal.
-
-<br>
-
-</details>
 
 #### ├─ 🔹 Q3 — Descomposición del Ticket Comercial y Comportamiento de Compra por Canal: ¿Por qué cae la facturación por pedido?  
 
